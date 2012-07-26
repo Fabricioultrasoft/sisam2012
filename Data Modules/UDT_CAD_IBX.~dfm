@@ -1,0 +1,13 @@
+object DTM_CAD_IBX: TDTM_CAD_IBX
+  OldCreateOrder = False
+  Left = 361
+  Top = 241
+  Height = 150
+  Width = 215
+  object IBTable1: TIBTable
+    BufferChunks = 1000
+    CachedUpdates = False
+    Left = 40
+    Top = 24
+  end
+end
