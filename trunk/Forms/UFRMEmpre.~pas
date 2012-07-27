@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, UDT_CAD, DB, StdCtrls, Mask, DBCtrls, Grids, DBGrids;
+  Dialogs, ComCtrls, UDT_CAD, DB, StdCtrls, Mask, DBCtrls, Grids, DBGrids,
+  ExtCtrls;
 
 type
   TFRM_EMPRE = class(TForm)
@@ -45,6 +46,7 @@ type
     DBEdit15: TDBEdit;
     Label16: TLabel;
     DBEdit16: TDBEdit;
+    DBNavigator1: TDBNavigator;
   private
     { Private declarations }
   public
@@ -56,7 +58,7 @@ var
 
 implementation
 
-uses UDT_CAD;
+uses UDTMGeral;
 
 {$R *.dfm}
 

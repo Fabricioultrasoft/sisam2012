@@ -1,14 +1,14 @@
 object DTM_CAD: TDTM_CAD
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 635
-  Top = 194
-  Height = 289
-  Width = 326
+  Left = 417
+  Top = 277
+  Height = 256
+  Width = 215
   object dtsCad: TDataSource
     DataSet = DTMGeral.cdsGeral
     Left = 24
-    Top = 16
+    Top = 136
   end
   object cdsCad: TIBClientDataSet
     Active = True
@@ -22,7 +22,7 @@ object DTM_CAD: TDTM_CAD
     DBConnection = DTMGeral.IBDB
     DBTransaction = DTMGeral.Transaction
     Left = 24
-    Top = 120
+    Top = 80
     object cdsCadFORN_CNPJ: TStringField
       FieldName = 'FORN_CNPJ'
       Origin = 'CAD_FORN.FORN_CNPJ'
@@ -179,19 +179,19 @@ object DTM_CAD: TDTM_CAD
     end
   end
   object dspCad: TDataSetProvider
-    DataSet = DTMGeral.IBdsGeral
+    DataSet = DTM_CAD_IBX.qryCad
     Left = 24
-    Top = 64
+    Top = 24
   end
   object dtsEmpre: TDataSource
     DataSet = DTMGeral.cdsGeral
     Left = 136
-    Top = 11
+    Top = 139
   end
   object dspEmpre: TDataSetProvider
-    DataSet = DTMGeral.IBdsGeral
+    DataSet = DTM_CAD_IBX.qryEmpre
     Left = 136
-    Top = 64
+    Top = 24
   end
   object cdsEmpre: TIBClientDataSet
     Active = True
@@ -201,10 +201,11 @@ object DTM_CAD: TDTM_CAD
     Options = [poAllowCommandText]
     PacketRecords = 0
     Params = <>
+    AfterPost = cdsEmpreAfterPost
     DBConnection = DTMGeral.IBDB
     DBTransaction = DTMGeral.Transaction
     Left = 136
-    Top = 120
+    Top = 80
     object cdsEmpreEMPRE_CNPJ: TStringField
       FieldName = 'EMPRE_CNPJ'
       Origin = 'CAD_EMPRESA.EMPRE_CNPJ'

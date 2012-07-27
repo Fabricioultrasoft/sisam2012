@@ -4,7 +4,7 @@ interface
 
 uses
   SysUtils, Classes, IBDatabase, DB, DBClient, DBLocal, DBLocalI,
-  IBCustomDataSet, IBUpdateSQL;
+  IBCustomDataSet, IBUpdateSQL, Provider;
 
 type
   TDTMGeral = class(TDataModule)
@@ -12,8 +12,7 @@ type
     Transaction: TIBTransaction;
     IBdsGeral: TIBDataSet;
     cdsGeral: TIBClientDataSet;
-    dtsGeral: TDataSource;
-    UpdateGeral: TIBUpdateSQL;
+    dspGeral: TDataSetProvider;
     procedure DataModuleCreate(Sender: TObject);
     procedure cdsGeralAfterPost(DataSet: TDataSet);
   private
