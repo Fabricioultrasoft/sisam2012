@@ -66,6 +66,7 @@ type
     cdsEmpreEMPRE_CDG: TIntegerField;
     procedure cdsCadAfterPost(DataSet: TDataSet);
     procedure DataModuleCreate(Sender: TObject);
+    procedure cdsEmpreAfterPost(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -81,19 +82,18 @@ implementation
 
 procedure TDTM_CAD.cdsCadAfterPost(DataSet: TDataSet);
 begin
-   DTM_CAD.cdsCad.ApplyUpdates(-1);
-   {DTM_CAD.cdsCad.Insert;
-   DTMGeral.Transaction.Commit;
-   DTMGeral.Transaction.StartTransaction;
-    }
+    DTM_CAD.cdsCad.ApplyUpdates(-1);
 end;
 
 procedure TDTM_CAD.DataModuleCreate(Sender: TObject);
 begin
     DTM_CAD.cdsCad.Active := true;
-    //DTM_CAD.IBdstCad.Active := true;
     DTM_CAD.cdsEmpre.Active := true;
-    //DTM_CAD.IBdstEmpre.Active := true;
+end;
+
+procedure TDTM_CAD.cdsEmpreAfterPost(DataSet: TDataSet);
+begin
+    DTM_CAD.cdsEmpre.ApplyUpdates(-1);
 end;
 
 end.

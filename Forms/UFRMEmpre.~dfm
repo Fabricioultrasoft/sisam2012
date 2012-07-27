@@ -18,7 +18,7 @@ object FRM_EMPRE: TFRM_EMPRE
     Top = 0
     Width = 798
     Height = 530
-    ActivePage = TabSheet2
+    ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0
     object TabSheet1: TTabSheet
@@ -295,6 +295,14 @@ object FRM_EMPRE: TFRM_EMPRE
         DataSource = dtsEmpre
         TabOrder = 15
       end
+      object DBNavigator1: TDBNavigator
+        Left = 496
+        Top = 24
+        Width = 240
+        Height = 25
+        DataSource = dtsEmpre
+        TabOrder = 16
+      end
     end
     object TabSheet2: TTabSheet
       Caption = 'Consulta'
@@ -316,7 +324,7 @@ object FRM_EMPRE: TFRM_EMPRE
   end
   object dtsEmpre: TDataSource
     DataSet = DTM_CAD.cdsEmpre
-    Left = 544
-    Top = 40
+    Left = 696
+    Top = 112
   end
 end

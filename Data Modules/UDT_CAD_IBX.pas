@@ -3,7 +3,7 @@ unit UDT_CAD_IBX;
 interface
 
 uses
-  SysUtils, Classes, DB, IBCustomDataSet, IBTable, UDTMGeral;
+  SysUtils, Classes, DB, IBCustomDataSet, IBTable, UDTMGeral, IBUpdateSQL;
 
 type
   TDTM_CAD_IBX = class(TDataModule)

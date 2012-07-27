@@ -3,8 +3,8 @@ object DTMGeral: TDTMGeral
   OnCreate = DataModuleCreate
   Left = 358
   Top = 213
-  Height = 190
-  Width = 222
+  Height = 262
+  Width = 298
   object IBDB: TIBDatabase
     Connected = True
     DatabaseName = 'C:\Bases\AMARILLIS.FDB'
@@ -36,12 +36,11 @@ object DTMGeral: TDTMGeral
     Transaction = Transaction
     BufferChunks = 1000
     CachedUpdates = False
-    Left = 16
-    Top = 72
+    Left = 144
+    Top = 8
   end
   object cdsGeral: TIBClientDataSet
     Aggregates = <>
-    MasterSource = dtsGeral
     Options = [poAllowCommandText]
     PacketRecords = 0
     Params = <>
@@ -51,13 +50,9 @@ object DTMGeral: TDTMGeral
     Left = 72
     Top = 72
   end
-  object dtsGeral: TDataSource
+  object dspGeral: TDataSetProvider
     DataSet = IBdsGeral
-    Left = 128
-    Top = 72
-  end
-  object UpdateGeral: TIBUpdateSQL
-    Left = 136
-    Top = 8
+    Left = 8
+    Top = 71
   end
 end

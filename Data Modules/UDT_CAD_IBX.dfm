@@ -2,8 +2,8 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   OldCreateOrder = False
   Left = 361
   Top = 241
-  Height = 150
-  Width = 215
+  Height = 232
+  Width = 242
   object qryCad: TIBDataSet
     Database = DTMGeral.IBDB
     Transaction = DTMGeral.Transaction

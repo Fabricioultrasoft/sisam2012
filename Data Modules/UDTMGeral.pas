@@ -38,16 +38,8 @@ end;
 
 procedure TDTMGeral.cdsGeralAfterPost(DataSet: TDataSet);
 begin
-  //  DTMGeral.cdsGeral.Refresh;
-    if DTMGeral.cdsGeral.ApplyUpdates(0) = 0 then
-    begin
-      DTMGeral.Transaction.Commit;
-      exit;
-    end;
-    //else
-      // Message('Rollback');
-    //DTMGeral.Transaction.Commit;
-    //DTMGeral.Transaction.StartTransaction;
+   DTMGeral.Transaction.Commit;
+   DTMGeral.Transaction.StartTransaction;
 end;
 
 end.

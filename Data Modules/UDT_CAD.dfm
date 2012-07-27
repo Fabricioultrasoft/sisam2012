@@ -201,6 +201,7 @@ object DTM_CAD: TDTM_CAD
     Options = [poAllowCommandText]
     PacketRecords = 0
     Params = <>
+    AfterPost = cdsEmpreAfterPost
     DBConnection = DTMGeral.IBDB
     DBTransaction = DTMGeral.Transaction
     Left = 136
