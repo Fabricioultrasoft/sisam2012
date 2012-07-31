@@ -151,6 +151,14 @@ object FRM_EMPRE: TFRM_EMPRE
         Caption = 'EMPRE_CDG'
         FocusControl = DBEdit16
       end
+      object SpeedButton1: TSpeedButton
+        Left = 416
+        Top = 16
+        Width = 41
+        Height = 22
+        Caption = 'Inserir'
+        OnClick = SpeedButton1Click
+      end
       object DBEdit1: TDBEdit
         Left = 184
         Top = 24
