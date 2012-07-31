@@ -48,7 +48,9 @@ type
     DBEdit16: TDBEdit;
     DBNavigator1: TDBNavigator;
     SpeedButton1: TSpeedButton;
+    sbPost: TSpeedButton;
     procedure SpeedButton1Click(Sender: TObject);
+    procedure sbPostClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -67,6 +69,17 @@ uses UDTMGeral;
 procedure TFRM_EMPRE.SpeedButton1Click(Sender: TObject);
 begin
 DTM_CAD.cdsEmpre.Insert;
+end;
+
+procedure TFRM_EMPRE.sbPostClick(Sender: TObject);
+begin
+ //if Button = sbPost then
+  begin
+   DTM_CAD.cdsEmpre.Post();
+   DTM_CAD.cdsEmpre.Insert();
+   DTM_CAD.cdsEmpre.ApplyUpdates(-1);
+   DTM_CAD.cdsEmpre.Refresh();
+  end;
 end;
 
 end.

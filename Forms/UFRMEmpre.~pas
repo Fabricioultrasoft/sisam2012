@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, UDT_CAD, DB, StdCtrls, Mask, DBCtrls, Grids, DBGrids,
-  ExtCtrls;
+  ExtCtrls, Buttons;
 
 type
   TFRM_EMPRE = class(TForm)
@@ -47,6 +47,8 @@ type
     Label16: TLabel;
     DBEdit16: TDBEdit;
     DBNavigator1: TDBNavigator;
+    SpeedButton1: TSpeedButton;
+    procedure SpeedButton1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -61,5 +63,10 @@ implementation
 uses UDTMGeral;
 
 {$R *.dfm}
+
+procedure TFRM_EMPRE.SpeedButton1Click(Sender: TObject);
+begin
+DTM_CAD.cdsEmpre.Insert;
+end;
 
 end.
