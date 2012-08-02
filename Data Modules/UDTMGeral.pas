@@ -4,16 +4,17 @@ interface
 
 uses
   SysUtils, Classes, IBDatabase, DB, DBClient, DBLocal, DBLocalI,
-  IBCustomDataSet, IBUpdateSQL, Provider;
+  IBCustomDataSet, IBUpdateSQL, Provider, IBQuery;
 
 type
   TDTMGeral = class(TDataModule)
     IBDB: TIBDatabase;
     Transaction: TIBTransaction;
-    IBdsGeral: TIBDataSet;
-    cdsGeral: TIBClientDataSet;
+    qryGeral: TIBQuery;
     dspGeral: TDataSetProvider;
+    cdsGeral: TClientDataSet;
     procedure DataModuleCreate(Sender: TObject);
+    procedure arghAfterPost(DataSet: TDataSet);
     procedure cdsGeralAfterPost(DataSet: TDataSet);
   private
     { Private declarations }
@@ -36,10 +37,15 @@ begin
     DTMGeral.Transaction.Active := true;
 end;
 
+procedure TDTMGeral.arghAfterPost(DataSet: TDataSet);
+begin
+   {DTMGeral.cdsGeral.ApplyUpdates(-1);
+   DTMGeral.Transaction.Commit;
+   DTMGeral.Transaction.StartTransaction;}
+end;
 procedure TDTMGeral.cdsGeralAfterPost(DataSet: TDataSet);
 begin
-   DTMGeral.Transaction.Commit;
-   DTMGeral.Transaction.StartTransaction;
+  cdsGeral.ApplyUpdates(-1);
 end;
 
 end.

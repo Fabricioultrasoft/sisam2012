@@ -3,12 +3,12 @@ unit UDT_CAD_IBX;
 interface
 
 uses
-  SysUtils, Classes, DB, IBCustomDataSet, IBTable, UDTMGeral;
+  SysUtils, Classes, UDTMGeral, DB, IBCustomDataSet, IBQuery;
 
 type
   TDTM_CAD_IBX = class(TDataModule)
-    qryCad: TIBDataSet;
-    qryEmpre: TIBDataSet;
+    qryCad: TIBQuery;
+    qryEmpre: TIBQuery;
   private
     { Private declarations }
   public

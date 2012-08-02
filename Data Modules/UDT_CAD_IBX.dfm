@@ -1,29 +1,30 @@
 object DTM_CAD_IBX: TDTM_CAD_IBX
   OldCreateOrder = False
-  Left = 361
-  Top = 241
-  Height = 232
-  Width = 242
-  object qryCad: TIBDataSet
+  OnCreate = DataModuleCreate
+  Left = 470
+  Top = 269
+  Height = 202
+  Width = 184
+  object qryCad: TIBQuery
     Database = DTMGeral.IBDB
     Transaction = DTMGeral.Transaction
+    Active = True
     BufferChunks = 1000
     CachedUpdates = False
-    SelectSQL.Strings = (
+    SQL.Strings = (
       'select * from CAD_FORN')
-    Active = True
-    Left = 24
-    Top = 16
+    Left = 16
+    Top = 24
   end
-  object qryEmpre: TIBDataSet
+  object qryEmpre: TIBQuery
     Database = DTMGeral.IBDB
     Transaction = DTMGeral.Transaction
+    Active = True
     BufferChunks = 1000
     CachedUpdates = False
-    SelectSQL.Strings = (
+    SQL.Strings = (
       'select * from CAD_EMPRESA')
-    Active = True
-    Left = 104
-    Top = 16
+    Left = 112
+    Top = 24
   end
 end
