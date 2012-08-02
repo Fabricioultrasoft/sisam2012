@@ -1,9 +1,0 @@
-datasource > dataset > cds
-datasetprovider > dataset > qry
-dataset não tem datasource
-
-
-After Apply Up
-
-cds.Close;
-cds.Open;
