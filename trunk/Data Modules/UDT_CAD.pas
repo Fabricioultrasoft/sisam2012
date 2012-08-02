@@ -63,8 +63,9 @@ type
     cdsEmpreEMPRE_EMAIL: TStringField;
     cdsEmpreEMPRE_SITE: TStringField;
     cdsEmpreEMPRE_CDG: TIntegerField;
-    procedure cdsCadAfterPost(DataSet: TDataSet);
-    procedure cdsEmpreAfterPost(DataSet: TDataSet);
+    procedure gerAfterPost(DataSet: TDataSet);
+    procedure gerAfterDelete(DataSet: TDataSet);
+    procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
   private
     { Private declarations }
   public
@@ -78,14 +79,21 @@ implementation
 
 {$R *.dfm}
 
-procedure TDTM_CAD.cdsCadAfterPost(DataSet: TDataSet);
+procedure TDTM_CAD.gerAfterApplyUpdates(Sender: TObject;
+  var OwnerData: OleVariant);
 begin
-  cdsCad.ApplyUpdates(-1);
+  DTMGeral.Transaction.Commit;
+  DTMGeral.Transaction.StartTransaction;
 end;
 
-procedure TDTM_CAD.cdsEmpreAfterPost(DataSet: TDataSet);
+procedure TDTM_CAD.gerAfterDelete(DataSet: TDataSet);
 begin
-  cdsEmpre.ApplyUpdates(-1);
+  TClientDataSet(DataSet).ApplyUpdates(-1);
+end;
+
+procedure TDTM_CAD.gerAfterPost(DataSet: TDataSet);
+begin
+  TClientDataSet(DataSet).ApplyUpdates(-1);
 end;
 
 end.

@@ -1,6 +1,6 @@
 object FRMMenu: TFRMMenu
-  Left = 238
-  Top = 185
+  Left = 531
+  Top = 325
   Width = 599
   Height = 459
   Caption = 'Menu'
@@ -11,6 +11,7 @@ object FRMMenu: TFRMMenu
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
   PixelsPerInch = 96
   TextHeight = 13
   object Label3: TLabel

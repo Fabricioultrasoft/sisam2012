@@ -3,7 +3,7 @@ object DTM_CAD: TDTM_CAD
   Left = 430
   Top = 333
   Height = 230
-  Width = 201
+  Width = 729
   object dspCad: TDataSetProvider
     DataSet = DTM_CAD_IBX.qryCad
     Options = [poAllowCommandText]
@@ -19,16 +19,22 @@ object DTM_CAD: TDTM_CAD
     Top = 16
   end
   object cdsCad: TClientDataSet
-    Active = True
     Aggregates = <>
+    FieldDefs = <>
+    IndexDefs = <>
+    IndexFieldNames = 'FORN_CNPJ'
     Params = <>
     ProviderName = 'dspCad'
-    AfterPost = cdsCadAfterPost
+    StoreDefs = True
+    AfterPost = gerAfterPost
+    AfterDelete = gerAfterDelete
+    AfterApplyUpdates = gerAfterApplyUpdates
     Left = 16
     Top = 72
     object cdsCadFORN_CNPJ: TStringField
       FieldName = 'FORN_CNPJ'
       Origin = 'CAD_FORN.FORN_CNPJ'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
       Size = 14
     end
@@ -182,11 +188,13 @@ object DTM_CAD: TDTM_CAD
     end
   end
   object cdsEmpre: TClientDataSet
-    Active = True
     Aggregates = <>
+    IndexFieldNames = 'EMPRE_CDG'
     Params = <>
     ProviderName = 'dspEmpre'
-    AfterPost = cdsEmpreAfterPost
+    AfterPost = gerAfterPost
+    AfterDelete = gerAfterDelete
+    AfterApplyUpdates = gerAfterApplyUpdates
     Left = 112
     Top = 72
     object cdsEmpreEMPRE_CNPJ: TStringField
@@ -265,6 +273,7 @@ object DTM_CAD: TDTM_CAD
     object cdsEmpreEMPRE_CDG: TIntegerField
       FieldName = 'EMPRE_CDG'
       Origin = 'CAD_EMPRESA.EMPRE_CDG'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
   end

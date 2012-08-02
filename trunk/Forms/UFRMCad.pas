@@ -8,7 +8,7 @@ uses
 
 type
   TFRM_CAD = class(TForm)
-    Cadastros: TPageControl;
+    PC_Cadastro: TPageControl;
     tabCadastro: TTabSheet;
     Label1: TLabel;
     DBEdit1: TDBEdit;
@@ -76,6 +76,7 @@ type
     tbConsulta: TTabSheet;
     DBGrid1: TDBGrid;
     DBNavigator1: TDBNavigator;
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -90,5 +91,13 @@ implementation
 uses UDTMGeral;
 
 {$R *.dfm}
+
+procedure TFRM_CAD.FormCreate(Sender: TObject);
+begin
+  DTM_CAD.cdsCad.Close;
+  DTM_CAD.cdsCad.Open;
+
+  PC_Cadastro.ActivePageIndex := 0;
+end;
 
 end.

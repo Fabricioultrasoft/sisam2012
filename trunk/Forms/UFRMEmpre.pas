@@ -9,7 +9,7 @@ uses
 
 type
   TFRM_EMPRE = class(TForm)
-    PageControl1: TPageControl;
+    PC_Empresa: TPageControl;
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
     DBGrid1: TDBGrid;
@@ -47,7 +47,7 @@ type
     Label16: TLabel;
     DBEdit16: TDBEdit;
     DBNavigator1: TDBNavigator;
-    procedure sbPostClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -63,14 +63,12 @@ uses UDTMGeral;
 
 {$R *.dfm}
 
-procedure TFRM_EMPRE.sbPostClick(Sender: TObject);
+procedure TFRM_EMPRE.FormCreate(Sender: TObject);
 begin
-  begin
-   DTM_CAD.cdsEmpre.Post();
-   DTM_CAD.cdsEmpre.Insert();
-   DTM_CAD.cdsEmpre.ApplyUpdates(-1);
-   DTM_CAD.cdsEmpre.Refresh();
-  end;
+  DTM_CAD.cdsEmpre.Close;
+  DTM_CAD.cdsEmpre.Open;
+
+  PC_Empresa.ActivePageIndex := 0;
 end;
 
 end.
