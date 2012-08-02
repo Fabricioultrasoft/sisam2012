@@ -3,12 +3,13 @@ unit UDT_CAD_IBX;
 interface
 
 uses
-  SysUtils, Classes, DB, IBCustomDataSet, IBTable, UDTMGeral, IBUpdateSQL;
+  SysUtils, Classes, UDTMGeral, DB, IBCustomDataSet, IBQuery;
 
 type
   TDTM_CAD_IBX = class(TDataModule)
-    qryCad: TIBDataSet;
-    qryEmpre: TIBDataSet;
+    qryCad: TIBQuery;
+    qryEmpre: TIBQuery;
+    procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -21,5 +22,11 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TDTM_CAD_IBX.DataModuleCreate(Sender: TObject);
+begin
+   qryCad.Active := true;
+   qryEmpre.Active := true;   
+end;
 
 end.

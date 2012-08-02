@@ -1,28 +1,31 @@
 object DTM_CAD: TDTM_CAD
   OldCreateOrder = False
-  OnCreate = DataModuleCreate
-  Left = 417
-  Top = 277
-  Height = 256
-  Width = 215
-  object dtsCad: TDataSource
-    DataSet = DTMGeral.cdsGeral
-    Left = 24
-    Top = 136
-  end
-  object cdsCad: TIBClientDataSet
-    Active = True
-    CommandText = 'select * from CAD_FORN'
-    Aggregates = <>
-    MasterSource = dtsCad
+  Left = 430
+  Top = 333
+  Height = 230
+  Width = 201
+  object dspCad: TDataSetProvider
+    DataSet = DTM_CAD_IBX.qryCad
     Options = [poAllowCommandText]
-    PacketRecords = 0
+    UpdateMode = upWhereKeyOnly
+    Left = 16
+    Top = 16
+  end
+  object dspEmpre: TDataSetProvider
+    DataSet = DTM_CAD_IBX.qryEmpre
+    Options = [poAllowCommandText]
+    UpdateMode = upWhereKeyOnly
+    Left = 112
+    Top = 16
+  end
+  object cdsCad: TClientDataSet
+    Active = True
+    Aggregates = <>
     Params = <>
+    ProviderName = 'dspCad'
     AfterPost = cdsCadAfterPost
-    DBConnection = DTMGeral.IBDB
-    DBTransaction = DTMGeral.Transaction
-    Left = 24
-    Top = 80
+    Left = 16
+    Top = 72
     object cdsCadFORN_CNPJ: TStringField
       FieldName = 'FORN_CNPJ'
       Origin = 'CAD_FORN.FORN_CNPJ'
@@ -178,34 +181,14 @@ object DTM_CAD: TDTM_CAD
       Origin = 'CAD_FORN.FORN_TPINCORPORADORA'
     end
   end
-  object dspCad: TDataSetProvider
-    DataSet = DTM_CAD_IBX.qryCad
-    Left = 24
-    Top = 24
-  end
-  object dtsEmpre: TDataSource
-    DataSet = DTMGeral.cdsGeral
-    Left = 136
-    Top = 139
-  end
-  object dspEmpre: TDataSetProvider
-    DataSet = DTM_CAD_IBX.qryEmpre
-    Left = 136
-    Top = 24
-  end
-  object cdsEmpre: TIBClientDataSet
+  object cdsEmpre: TClientDataSet
     Active = True
-    CommandText = 'select * from CAD_EMPRESA'
     Aggregates = <>
-    MasterSource = dtsEmpre
-    Options = [poAllowCommandText]
-    PacketRecords = 0
     Params = <>
+    ProviderName = 'dspEmpre'
     AfterPost = cdsEmpreAfterPost
-    DBConnection = DTMGeral.IBDB
-    DBTransaction = DTMGeral.Transaction
-    Left = 136
-    Top = 80
+    Left = 112
+    Top = 72
     object cdsEmpreEMPRE_CNPJ: TStringField
       FieldName = 'EMPRE_CNPJ'
       Origin = 'CAD_EMPRESA.EMPRE_CNPJ'
@@ -284,5 +267,15 @@ object DTM_CAD: TDTM_CAD
       Origin = 'CAD_EMPRESA.EMPRE_CDG'
       Required = True
     end
+  end
+  object dsCad: TDataSource
+    DataSet = cdsCad
+    Left = 16
+    Top = 128
+  end
+  object dsEmpre: TDataSource
+    DataSet = cdsEmpre
+    Left = 112
+    Top = 128
   end
 end

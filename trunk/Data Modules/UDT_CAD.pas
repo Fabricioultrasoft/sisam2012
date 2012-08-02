@@ -3,13 +3,16 @@ unit UDT_CAD;
 interface
 
 uses
-  SysUtils, Classes, IBCustomDataSet, DB, DBClient, DBLocal, DBLocalI,
-  IBDatabase, UDTMGeral, Provider, UDT_CAD_IBX;
+  SysUtils, Classes, UDTMGeral, UDT_CAD_IBX, DB, DBClient, Provider;
 
 type
   TDTM_CAD = class(TDataModule)
-    dtsCad: TDataSource;
-    cdsCad: TIBClientDataSet;
+    dspCad: TDataSetProvider;
+    dspEmpre: TDataSetProvider;
+    cdsCad: TClientDataSet;
+    cdsEmpre: TClientDataSet;
+    dsCad: TDataSource;
+    dsEmpre: TDataSource;
     cdsCadFORN_CNPJ: TStringField;
     cdsCadFORN_CPFCNPJ: TStringField;
     cdsCadFORN_RAZAO: TStringField;
@@ -44,10 +47,6 @@ type
     cdsCadFORN_TPFORNECEDOR: TIntegerField;
     cdsCadFORN_TPSINDICO: TIntegerField;
     cdsCadFORN_TPINCORPORADORA: TIntegerField;
-    dspCad: TDataSetProvider;
-    dtsEmpre: TDataSource;
-    dspEmpre: TDataSetProvider;
-    cdsEmpre: TIBClientDataSet;
     cdsEmpreEMPRE_CNPJ: TStringField;
     cdsEmpreEMPRE_INSESTAD: TStringField;
     cdsEmpreEMPRE_INSMUNI: TStringField;
@@ -65,7 +64,6 @@ type
     cdsEmpreEMPRE_SITE: TStringField;
     cdsEmpreEMPRE_CDG: TIntegerField;
     procedure cdsCadAfterPost(DataSet: TDataSet);
-    procedure DataModuleCreate(Sender: TObject);
     procedure cdsEmpreAfterPost(DataSet: TDataSet);
   private
     { Private declarations }
@@ -82,21 +80,12 @@ implementation
 
 procedure TDTM_CAD.cdsCadAfterPost(DataSet: TDataSet);
 begin
-    DTM_CAD.cdsCad.ApplyUpdates(-1);
-end;
-
-procedure TDTM_CAD.DataModuleCreate(Sender: TObject);
-begin
-    DTM_CAD.cdsCad.Active := true;
-    DTM_CAD.cdsEmpre.Active := true;
+  cdsCad.ApplyUpdates(-1);
 end;
 
 procedure TDTM_CAD.cdsEmpreAfterPost(DataSet: TDataSet);
 begin
-    DTM_CAD.cdsEmpre.ApplyUpdates(-1);
+  cdsEmpre.ApplyUpdates(-1);
 end;
 
 end.
-
-
-

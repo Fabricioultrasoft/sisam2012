@@ -3,7 +3,7 @@ object FRM_CAD: TFRM_CAD
   Top = 171
   Width = 754
   Height = 536
-  Caption = 'FRM_CAD'
+  Caption = 'Cadastro Diverso'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
