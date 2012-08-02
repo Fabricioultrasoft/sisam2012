@@ -14,12 +14,16 @@ uses
 
 begin
   Application.Initialize;
-  Application.CreateForm(TFRMLogin, FRMLogin);
-  Application.CreateForm(TFRMMenu, FRMMenu);
+
+  // Data Modules
   Application.CreateForm(TDTMGeral, DTMGeral);
-  Application.CreateForm(TFRM_CAD, FRM_CAD);
-  Application.CreateForm(TFRM_EMPRE, FRM_EMPRE);
   Application.CreateForm(TDTM_CAD_IBX, DTM_CAD_IBX);
   Application.CreateForm(TDTM_CAD, DTM_CAD);
+
+  // Forms
+  Application.CreateForm(TFRMLogin, FRMLogin);
+  Application.CreateForm(TFRMMenu, FRMMenu);
+  Application.CreateForm(TFRM_CAD, FRM_CAD);
+  Application.CreateForm(TFRM_EMPRE, FRM_EMPRE);
   Application.Run;
 end.

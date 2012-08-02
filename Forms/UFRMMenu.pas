@@ -38,7 +38,7 @@ end;
 
 procedure TFRMMenu.BitBtn5Click(Sender: TObject);
 begin
- FRM_EMPRE.ShowModal;
+  FRM_EMPRE.ShowModal;
 end;
 
 end.

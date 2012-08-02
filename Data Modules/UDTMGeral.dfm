@@ -5,9 +5,8 @@ object DTMGeral: TDTMGeral
   Top = 213
   Height = 191
   Width = 226
-  object IBDB: TIBDatabase
-    Connected = True
-    DatabaseName = 'C:\sisam\Database\AMARILLIS.FDB'
+  object Database: TIBDatabase
+    DatabaseName = 'C:\Sisam2012\Database\AMARILLIS.FDB'
     Params.Strings = (
       'user_name=SYSDBA'
       'password=masterkey'
@@ -17,33 +16,33 @@ object DTMGeral: TDTMGeral
     IdleTimer = 0
     SQLDialect = 3
     TraceFlags = []
-    Left = 8
-    Top = 8
+    Left = 16
+    Top = 16
   end
   object Transaction: TIBTransaction
-    Active = True
-    DefaultDatabase = IBDB
+    Active = False
+    DefaultDatabase = Database
     Params.Strings = (
       'read_committed'
       'rec_version'
       'nowait')
     AutoStopAction = saNone
     Left = 72
-    Top = 8
+    Top = 16
   end
   object qryGeral: TIBQuery
-    Database = IBDB
+    Database = Database
     Transaction = Transaction
     BufferChunks = 1000
     CachedUpdates = False
-    Left = 152
-    Top = 8
+    Left = 16
+    Top = 80
   end
   object dspGeral: TDataSetProvider
     DataSet = qryGeral
     Options = [poAllowCommandText]
     UpdateMode = upWhereKeyOnly
-    Left = 16
+    Left = 72
     Top = 80
   end
   object cdsGeral: TClientDataSet
@@ -51,7 +50,8 @@ object DTMGeral: TDTMGeral
     Params = <>
     ProviderName = 'dspGeral'
     AfterPost = cdsGeralAfterPost
-    Left = 80
+    AfterDelete = cdsGeralAfterDelete
+    Left = 128
     Top = 80
   end
 end

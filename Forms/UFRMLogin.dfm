@@ -1,6 +1,6 @@
 object FRMLogin: TFRMLogin
-  Left = 324
-  Top = 183
+  Left = 707
+  Top = 398
   Width = 368
   Height = 298
   Caption = 'FRMLogin'
@@ -11,6 +11,7 @@ object FRMLogin: TFRMLogin
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel

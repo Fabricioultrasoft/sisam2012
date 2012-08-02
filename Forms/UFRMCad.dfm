@@ -1,6 +1,6 @@
 object FRM_CAD: TFRM_CAD
-  Left = 241
-  Top = 171
+  Left = 617
+  Top = 333
   Width = 754
   Height = 536
   Caption = 'Cadastro Diverso'
@@ -11,14 +11,16 @@ object FRM_CAD: TFRM_CAD
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object Cadastros: TPageControl
+  object PC_Cadastro: TPageControl
     Left = 0
     Top = 0
-    Width = 746
-    Height = 502
-    ActivePage = tbConsulta
+    Width = 738
+    Height = 498
+    ActivePage = tabCadastro
     Align = alClient
     TabOrder = 0
     object tabCadastro: TTabSheet

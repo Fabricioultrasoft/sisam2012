@@ -1,6 +1,6 @@
 object FRM_EMPRE: TFRM_EMPRE
-  Left = 205
-  Top = 162
+  Left = 601
+  Top = 294
   Width = 806
   Height = 564
   Caption = 'Cadastro de Empresa'
@@ -11,13 +11,15 @@ object FRM_EMPRE: TFRM_EMPRE
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object PageControl1: TPageControl
+  object PC_Empresa: TPageControl
     Left = 0
     Top = 0
-    Width = 798
-    Height = 530
+    Width = 790
+    Height = 526
     ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0

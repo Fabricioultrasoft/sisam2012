@@ -3,19 +3,19 @@ unit UDTMGeral;
 interface
 
 uses
-  SysUtils, Classes, IBDatabase, DB, DBClient, DBLocal, DBLocalI,
+  SysUtils, Classes, IBDatabase, DB, DBClient, DBLocal,
   IBCustomDataSet, IBUpdateSQL, Provider, IBQuery;
 
 type
   TDTMGeral = class(TDataModule)
-    IBDB: TIBDatabase;
+    Database: TIBDatabase;
     Transaction: TIBTransaction;
     qryGeral: TIBQuery;
     dspGeral: TDataSetProvider;
     cdsGeral: TClientDataSet;
     procedure DataModuleCreate(Sender: TObject);
-    procedure arghAfterPost(DataSet: TDataSet);
     procedure cdsGeralAfterPost(DataSet: TDataSet);
+    procedure cdsGeralAfterDelete(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -31,19 +31,38 @@ implementation
 
 procedure TDTMGeral.DataModuleCreate(Sender: TObject);
 begin
-    DTMGeral.IBDB.Close;
-    DTMGeral.IBDB.Connected := true;
-    DTMGeral.IBDB.Open;
-    DTMGeral.Transaction.Active := true;
+  // Desconectando
+
+  Database.Connected := False;
+  Transaction.Active := False;
+
+  // Parametrizando Database
+
+  Database.DefaultTransaction := Transaction;
+  Database.Params.Clear;
+  Database.Params.Add('user_name=SYSDBA');
+  Database.Params.Add('password=masterkey');
+  Database.Params.Add('lc_ctype=ISO8859_1');
+  Database.DatabaseName := 'C:\Sisam2012\Database\AMARILLIS.FDB';
+  Database.LoginPrompt := False;
+  Database.SQLDialect := 3;
+
+  // Parametrizando Transaction
+
+  Transaction.DefaultDatabase := Database;
+
+  // Conectando
+
+  Database.Connected := True;
+  Transaction.Active := True;
 end;
 
-procedure TDTMGeral.arghAfterPost(DataSet: TDataSet);
-begin
-   {DTMGeral.cdsGeral.ApplyUpdates(-1);
-   DTMGeral.Transaction.Commit;
-   DTMGeral.Transaction.StartTransaction;}
-end;
 procedure TDTMGeral.cdsGeralAfterPost(DataSet: TDataSet);
+begin
+  cdsGeral.ApplyUpdates(-1);
+end;
+
+procedure TDTMGeral.cdsGeralAfterDelete(DataSet: TDataSet);
 begin
   cdsGeral.ApplyUpdates(-1);
 end;
