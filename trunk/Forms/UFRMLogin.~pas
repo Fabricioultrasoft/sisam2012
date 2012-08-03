@@ -56,28 +56,13 @@ begin
   if Verifica then
   begin
     DTMGeral.cdsGeral.Close;
-    DTMGeral.cdsGeral.Params.ParamByName('USUARIO').AsString := edtUsuario.Text;
-    DTMGeral.cdsGeral.Params.ParamByName('SENHA').AsString   := edtSenha.Text;
     DTMGeral.qryGeral.sql.add(' SELECT * FROM CAD_USUARIO           ' + #13 +
                                     ' WHERE USUARIO_DESC  = :USUARIO AND ' + #13 +
                                     '       USUARIO_SENHA = :SENHA');
+    DTMGeral.cdsGeral.Params.ParamByName('USUARIO').AsString := edtUsuario.Text;
+    DTMGeral.cdsGeral.Params.ParamByName('SENHA').AsString := Encriptar(edtSenha.Text);
     DTMGeral.cdsGeral.Open;
   end;
-
-    if DTMGeral.cdsGeral.IsEmpty then
-    begin
-      MessageDlg('Usuário ou senha inválidos.', mtWarning, [mbOK], 0);
-     // UsuarioAtivo := -1;
-      DTMGeral.cdsGeral.Close;
-    end
-    else
-    begin
-     // UsuarioAtivo := DTMGeral.cdsGeral.FieldByName('FUNC_CDG').AsInteger;
-      DTMGeral.cdsGeral.Close;
-      ModalResult := mrYes;
-      Hide;
-    end;
-
   FRMMenu.ShowModal;
 end;
 

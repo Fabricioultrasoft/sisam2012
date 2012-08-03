@@ -5,9 +5,8 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   Height = 202
   Width = 184
   object qryCad: TIBQuery
-    Database = DTMGeral.Database
+    Database = DTMGeral.IBDB
     Transaction = DTMGeral.Transaction
-    Active = True
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (
@@ -171,9 +170,8 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     end
   end
   object qryEmpre: TIBQuery
-    Database = DTMGeral.Database
+    Database = DTMGeral.IBDB
     Transaction = DTMGeral.Transaction
-    Active = True
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (
