@@ -1,263 +1,290 @@
-object DTM_CAD_IBX: TDTM_CAD_IBX
+object DTM_CAD: TDTM_CAD
   OldCreateOrder = False
-  Left = 470
-  Top = 269
-  Height = 202
-  Width = 184
-  object qryCad: TIBQuery
-    Database = DTMGeral.Database
-    Transaction = DTMGeral.Transaction
-    Active = True
-    BufferChunks = 1000
-    CachedUpdates = False
-    SQL.Strings = (
-      'select * from CAD_FORN')
+  Left = 430
+  Top = 333
+  Height = 230
+  Width = 729
+  object dspCad: TDataSetProvider
+    DataSet = DTM_CAD_IBX.qryCad
+    Options = [poAllowCommandText]
+    UpdateMode = upWhereKeyOnly
     Left = 16
-    Top = 24
-    object qryCadFORN_CNPJ: TIBStringField
+    Top = 16
+  end
+  object dspEmpre: TDataSetProvider
+    DataSet = DTM_CAD_IBX.qryEmpre
+    Options = [poAllowCommandText]
+    UpdateMode = upWhereKeyOnly
+    Left = 112
+    Top = 16
+  end
+  object cdsCad: TClientDataSet
+    Aggregates = <>
+    FieldDefs = <>
+    IndexDefs = <>
+    IndexFieldNames = 'FORN_CNPJ'
+    Params = <>
+    ProviderName = 'dspCad'
+    StoreDefs = True
+    AfterPost = gerAfterPost
+    AfterDelete = gerAfterDelete
+    AfterApplyUpdates = gerAfterApplyUpdates
+    Left = 16
+    Top = 72
+    object cdsCadFORN_CNPJ: TStringField
       FieldName = 'FORN_CNPJ'
       Origin = 'CAD_FORN.FORN_CNPJ'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
       Size = 14
     end
-    object qryCadFORN_CPFCNPJ: TIBStringField
+    object cdsCadFORN_CPFCNPJ: TStringField
       FieldName = 'FORN_CPFCNPJ'
       Origin = 'CAD_FORN.FORN_CPFCNPJ'
       Size = 14
     end
-    object qryCadFORN_RAZAO: TIBStringField
+    object cdsCadFORN_RAZAO: TStringField
       FieldName = 'FORN_RAZAO'
       Origin = 'CAD_FORN.FORN_RAZAO'
       Size = 100
     end
-    object qryCadFORN_CEP: TIBStringField
+    object cdsCadFORN_CEP: TStringField
       FieldName = 'FORN_CEP'
       Origin = 'CAD_FORN.FORN_CEP'
       Size = 8
     end
-    object qryCadFORN_ENDERECO: TIBStringField
+    object cdsCadFORN_ENDERECO: TStringField
       FieldName = 'FORN_ENDERECO'
       Origin = 'CAD_FORN.FORN_ENDERECO'
       Size = 100
     end
-    object qryCadFORN_BAIRRO: TIBStringField
+    object cdsCadFORN_BAIRRO: TStringField
       FieldName = 'FORN_BAIRRO'
       Origin = 'CAD_FORN.FORN_BAIRRO'
       Size = 30
     end
-    object qryCadFORN_CIDADE: TIBStringField
+    object cdsCadFORN_CIDADE: TStringField
       FieldName = 'FORN_CIDADE'
       Origin = 'CAD_FORN.FORN_CIDADE'
     end
-    object qryCadFORN_UF: TIBStringField
+    object cdsCadFORN_UF: TStringField
       FieldName = 'FORN_UF'
       Origin = 'CAD_FORN.FORN_UF'
       Size = 2
     end
-    object qryCadFORN_TELEFONE: TIBStringField
+    object cdsCadFORN_TELEFONE: TStringField
       FieldName = 'FORN_TELEFONE'
       Origin = 'CAD_FORN.FORN_TELEFONE'
       Size = 18
     end
-    object qryCadFORN_RAMAL: TIBStringField
+    object cdsCadFORN_RAMAL: TStringField
       FieldName = 'FORN_RAMAL'
       Origin = 'CAD_FORN.FORN_RAMAL'
       Size = 6
     end
-    object qryCadFORN_TELEFONE1: TIBStringField
+    object cdsCadFORN_TELEFONE1: TStringField
       FieldName = 'FORN_TELEFONE1'
       Origin = 'CAD_FORN.FORN_TELEFONE1'
       Size = 18
     end
-    object qryCadFORN_EMAIL: TIBStringField
+    object cdsCadFORN_EMAIL: TStringField
       FieldName = 'FORN_EMAIL'
       Origin = 'CAD_FORN.FORN_EMAIL'
       Size = 60
     end
-    object qryCadFORN_EMAIL1: TIBStringField
+    object cdsCadFORN_EMAIL1: TStringField
       FieldName = 'FORN_EMAIL1'
       Origin = 'CAD_FORN.FORN_EMAIL1'
       Size = 60
     end
-    object qryCadFORN_SITE: TIBStringField
+    object cdsCadFORN_SITE: TStringField
       FieldName = 'FORN_SITE'
       Origin = 'CAD_FORN.FORN_SITE'
       Size = 80
     end
-    object qryCadFORN_CELULAR: TIBStringField
+    object cdsCadFORN_CELULAR: TStringField
       FieldName = 'FORN_CELULAR'
       Origin = 'CAD_FORN.FORN_CELULAR'
       Size = 18
     end
-    object qryCadFORN_CELULAR1: TIBStringField
+    object cdsCadFORN_CELULAR1: TStringField
       FieldName = 'FORN_CELULAR1'
       Origin = 'CAD_FORN.FORN_CELULAR1'
       Size = 18
     end
-    object qryCadFORN_RG: TIBStringField
+    object cdsCadFORN_RG: TStringField
       FieldName = 'FORN_RG'
       Origin = 'CAD_FORN.FORN_RG'
       Size = 15
     end
-    object qryCadFORN_TIPO: TIntegerField
+    object cdsCadFORN_TIPO: TIntegerField
       FieldName = 'FORN_TIPO'
       Origin = 'CAD_FORN.FORN_TIPO'
     end
-    object qryCadFORN_ESTADOCIVIL: TIntegerField
+    object cdsCadFORN_ESTADOCIVIL: TIntegerField
       FieldName = 'FORN_ESTADOCIVIL'
       Origin = 'CAD_FORN.FORN_ESTADOCIVIL'
     end
-    object qryCadFORN_DTNASCIMENTO: TDateField
+    object cdsCadFORN_DTNASCIMENTO: TDateField
       FieldName = 'FORN_DTNASCIMENTO'
       Origin = 'CAD_FORN.FORN_DTNASCIMENTO'
     end
-    object qryCadFORN_SEXO: TSmallintField
+    object cdsCadFORN_SEXO: TSmallintField
       FieldName = 'FORN_SEXO'
       Origin = 'CAD_FORN.FORN_SEXO'
     end
-    object qryCadFORN_OCUPACAO: TIntegerField
+    object cdsCadFORN_OCUPACAO: TIntegerField
       FieldName = 'FORN_OCUPACAO'
       Origin = 'CAD_FORN.FORN_OCUPACAO'
     end
-    object qryCadFORN_CONJUGE: TIBStringField
+    object cdsCadFORN_CONJUGE: TStringField
       FieldName = 'FORN_CONJUGE'
       Origin = 'CAD_FORN.FORN_CONJUGE'
       Size = 14
     end
-    object qryCadFORN_HRENTRADA1: TTimeField
+    object cdsCadFORN_HRENTRADA1: TTimeField
       FieldName = 'FORN_HRENTRADA1'
       Origin = 'CAD_FORN.FORN_HRENTRADA1'
     end
-    object qryCadFORN_HRENTRADA2: TTimeField
+    object cdsCadFORN_HRENTRADA2: TTimeField
       FieldName = 'FORN_HRENTRADA2'
       Origin = 'CAD_FORN.FORN_HRENTRADA2'
     end
-    object qryCadFORN_HRSAIDA1: TTimeField
+    object cdsCadFORN_HRSAIDA1: TTimeField
       FieldName = 'FORN_HRSAIDA1'
       Origin = 'CAD_FORN.FORN_HRSAIDA1'
     end
-    object qryCadFORN_HRSAIDA2: TTimeField
+    object cdsCadFORN_HRSAIDA2: TTimeField
       FieldName = 'FORN_HRSAIDA2'
       Origin = 'CAD_FORN.FORN_HRSAIDA2'
     end
-    object qryCadFORN_DTCADASTRO: TDateField
+    object cdsCadFORN_DTCADASTRO: TDateField
       FieldName = 'FORN_DTCADASTRO'
       Origin = 'CAD_FORN.FORN_DTCADASTRO'
     end
-    object qryCadFORN_COND: TIntegerField
+    object cdsCadFORN_COND: TIntegerField
       FieldName = 'FORN_COND'
       Origin = 'CAD_FORN.FORN_COND'
     end
-    object qryCadFORN_TPCONDOMINO: TSmallintField
+    object cdsCadFORN_TPCONDOMINO: TSmallintField
       FieldName = 'FORN_TPCONDOMINO'
       Origin = 'CAD_FORN.FORN_TPCONDOMINO'
     end
-    object qryCadFORN_TPFUNCIONARIO: TSmallintField
+    object cdsCadFORN_TPFUNCIONARIO: TSmallintField
       FieldName = 'FORN_TPFUNCIONARIO'
       Origin = 'CAD_FORN.FORN_TPFUNCIONARIO'
     end
-    object qryCadFORN_TPFORNECEDOR: TIntegerField
+    object cdsCadFORN_TPFORNECEDOR: TIntegerField
       FieldName = 'FORN_TPFORNECEDOR'
       Origin = 'CAD_FORN.FORN_TPFORNECEDOR'
     end
-    object qryCadFORN_TPSINDICO: TIntegerField
+    object cdsCadFORN_TPSINDICO: TIntegerField
       FieldName = 'FORN_TPSINDICO'
       Origin = 'CAD_FORN.FORN_TPSINDICO'
     end
-    object qryCadFORN_TPINCORPORADORA: TIntegerField
+    object cdsCadFORN_TPINCORPORADORA: TIntegerField
       FieldName = 'FORN_TPINCORPORADORA'
       Origin = 'CAD_FORN.FORN_TPINCORPORADORA'
     end
   end
-  object qryEmpre: TIBQuery
-    Database = DTMGeral.Database
-    Transaction = DTMGeral.Transaction
-    Active = True
-    BufferChunks = 1000
-    CachedUpdates = False
-    SQL.Strings = (
-      'select * from CAD_EMPRESA')
+  object cdsEmpre: TClientDataSet
+    Aggregates = <>
+    IndexFieldNames = 'EMPRE_CDG'
+    Params = <>
+    ProviderName = 'dspEmpre'
+    AfterPost = gerAfterPost
+    AfterDelete = gerAfterDelete
+    AfterApplyUpdates = gerAfterApplyUpdates
     Left = 112
-    Top = 24
-    object qryEmpreEMPRE_CNPJ: TIBStringField
+    Top = 72
+    object cdsEmpreEMPRE_CNPJ: TStringField
       FieldName = 'EMPRE_CNPJ'
       Origin = 'CAD_EMPRESA.EMPRE_CNPJ'
       Size = 14
     end
-    object qryEmpreEMPRE_INSESTAD: TIBStringField
+    object cdsEmpreEMPRE_INSESTAD: TStringField
       FieldName = 'EMPRE_INSESTAD'
       Origin = 'CAD_EMPRESA.EMPRE_INSESTAD'
     end
-    object qryEmpreEMPRE_INSMUNI: TIBStringField
+    object cdsEmpreEMPRE_INSMUNI: TStringField
       FieldName = 'EMPRE_INSMUNI'
       Origin = 'CAD_EMPRESA.EMPRE_INSMUNI'
     end
-    object qryEmpreEMPRE_RAZAO: TIBStringField
+    object cdsEmpreEMPRE_RAZAO: TStringField
       FieldName = 'EMPRE_RAZAO'
       Origin = 'CAD_EMPRESA.EMPRE_RAZAO'
       Size = 100
     end
-    object qryEmpreEMPRE_FANTASIA: TIBStringField
+    object cdsEmpreEMPRE_FANTASIA: TStringField
       FieldName = 'EMPRE_FANTASIA'
       Origin = 'CAD_EMPRESA.EMPRE_FANTASIA'
       Size = 100
     end
-    object qryEmpreEMPRE_TELEFONE: TIBStringField
+    object cdsEmpreEMPRE_TELEFONE: TStringField
       FieldName = 'EMPRE_TELEFONE'
       Origin = 'CAD_EMPRESA.EMPRE_TELEFONE'
       Size = 18
     end
-    object qryEmpreEMPRE_FAX: TIBStringField
+    object cdsEmpreEMPRE_FAX: TStringField
       FieldName = 'EMPRE_FAX'
       Origin = 'CAD_EMPRESA.EMPRE_FAX'
       Size = 18
     end
-    object qryEmpreEMPRE_ENDERECO: TIBStringField
+    object cdsEmpreEMPRE_ENDERECO: TStringField
       FieldName = 'EMPRE_ENDERECO'
       Origin = 'CAD_EMPRESA.EMPRE_ENDERECO'
       Size = 100
     end
-    object qryEmpreEMPRE_BAIRRO: TIBStringField
+    object cdsEmpreEMPRE_BAIRRO: TStringField
       FieldName = 'EMPRE_BAIRRO'
       Origin = 'CAD_EMPRESA.EMPRE_BAIRRO'
       Size = 30
     end
-    object qryEmpreEMPRE_CID: TIBStringField
+    object cdsEmpreEMPRE_CID: TStringField
       FieldName = 'EMPRE_CID'
       Origin = 'CAD_EMPRESA.EMPRE_CID'
       Size = 30
     end
-    object qryEmpreEMPRE_UF: TIBStringField
+    object cdsEmpreEMPRE_UF: TStringField
       FieldName = 'EMPRE_UF'
       Origin = 'CAD_EMPRESA.EMPRE_UF'
       Size = 2
     end
-    object qryEmpreEMPRE_CEP: TIBStringField
+    object cdsEmpreEMPRE_CEP: TStringField
       FieldName = 'EMPRE_CEP'
       Origin = 'CAD_EMPRESA.EMPRE_CEP'
       Size = 8
     end
-    object qryEmpreEMPRE_LOGOTIPO: TIBStringField
+    object cdsEmpreEMPRE_LOGOTIPO: TStringField
       FieldName = 'EMPRE_LOGOTIPO'
       Origin = 'CAD_EMPRESA.EMPRE_LOGOTIPO'
       Size = 250
     end
-    object qryEmpreEMPRE_EMAIL: TIBStringField
+    object cdsEmpreEMPRE_EMAIL: TStringField
       FieldName = 'EMPRE_EMAIL'
       Origin = 'CAD_EMPRESA.EMPRE_EMAIL'
       Size = 100
     end
-    object qryEmpreEMPRE_SITE: TIBStringField
+    object cdsEmpreEMPRE_SITE: TStringField
       FieldName = 'EMPRE_SITE'
       Origin = 'CAD_EMPRESA.EMPRE_SITE'
       Size = 100
     end
-    object qryEmpreEMPRE_CDG: TIntegerField
+    object cdsEmpreEMPRE_CDG: TIntegerField
       FieldName = 'EMPRE_CDG'
       Origin = 'CAD_EMPRESA.EMPRE_CDG'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
+  end
+  object dsCad: TDataSource
+    DataSet = cdsCad
+    Left = 16
+    Top = 128
+  end
+  object dsEmpre: TDataSource
+    DataSet = cdsEmpre
+    Left = 112
+    Top = 128
   end
 end
