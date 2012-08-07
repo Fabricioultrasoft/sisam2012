@@ -1,6 +1,6 @@
 object FRM_CAD: TFRM_CAD
-  Left = 414
-  Top = 161
+  Left = 234
+  Top = 120
   Width = 754
   Height = 536
   Caption = 'Cadastro Diverso'

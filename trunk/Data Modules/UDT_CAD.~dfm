@@ -19,8 +19,164 @@ object DTM_CAD: TDTM_CAD
     Top = 16
   end
   object cdsCad: TClientDataSet
+    Active = True
     Aggregates = <>
-    FieldDefs = <>
+    FieldDefs = <
+      item
+        Name = 'FORN_CNPJ'
+        Attributes = [faRequired]
+        DataType = ftString
+        Size = 14
+      end
+      item
+        Name = 'FORN_CPFCNPJ'
+        DataType = ftString
+        Size = 14
+      end
+      item
+        Name = 'FORN_RAZAO'
+        DataType = ftString
+        Size = 100
+      end
+      item
+        Name = 'FORN_CEP'
+        DataType = ftString
+        Size = 8
+      end
+      item
+        Name = 'FORN_ENDERECO'
+        DataType = ftString
+        Size = 100
+      end
+      item
+        Name = 'FORN_BAIRRO'
+        DataType = ftString
+        Size = 30
+      end
+      item
+        Name = 'FORN_CIDADE'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'FORN_UF'
+        DataType = ftString
+        Size = 2
+      end
+      item
+        Name = 'FORN_TELEFONE'
+        DataType = ftString
+        Size = 18
+      end
+      item
+        Name = 'FORN_RAMAL'
+        DataType = ftString
+        Size = 6
+      end
+      item
+        Name = 'FORN_TELEFONE1'
+        DataType = ftString
+        Size = 18
+      end
+      item
+        Name = 'FORN_EMAIL'
+        DataType = ftString
+        Size = 60
+      end
+      item
+        Name = 'FORN_EMAIL1'
+        DataType = ftString
+        Size = 60
+      end
+      item
+        Name = 'FORN_SITE'
+        DataType = ftString
+        Size = 80
+      end
+      item
+        Name = 'FORN_CELULAR'
+        DataType = ftString
+        Size = 18
+      end
+      item
+        Name = 'FORN_CELULAR1'
+        DataType = ftString
+        Size = 18
+      end
+      item
+        Name = 'FORN_RG'
+        DataType = ftString
+        Size = 15
+      end
+      item
+        Name = 'FORN_TIPO'
+        DataType = ftInteger
+      end
+      item
+        Name = 'FORN_ESTADOCIVIL'
+        DataType = ftInteger
+      end
+      item
+        Name = 'FORN_DTNASCIMENTO'
+        DataType = ftDate
+      end
+      item
+        Name = 'FORN_SEXO'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FORN_OCUPACAO'
+        DataType = ftInteger
+      end
+      item
+        Name = 'FORN_CONJUGE'
+        DataType = ftString
+        Size = 14
+      end
+      item
+        Name = 'FORN_HRENTRADA1'
+        DataType = ftTime
+      end
+      item
+        Name = 'FORN_HRENTRADA2'
+        DataType = ftTime
+      end
+      item
+        Name = 'FORN_HRSAIDA1'
+        DataType = ftTime
+      end
+      item
+        Name = 'FORN_HRSAIDA2'
+        DataType = ftTime
+      end
+      item
+        Name = 'FORN_DTCADASTRO'
+        DataType = ftDate
+      end
+      item
+        Name = 'FORN_COND'
+        DataType = ftInteger
+      end
+      item
+        Name = 'FORN_TPCONDOMINO'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FORN_TPFUNCIONARIO'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'FORN_TPFORNECEDOR'
+        DataType = ftInteger
+      end
+      item
+        Name = 'FORN_TPSINDICO'
+        DataType = ftInteger
+      end
+      item
+        Name = 'FORN_TPINCORPORADORA'
+        DataType = ftInteger
+      end>
     IndexDefs = <>
     IndexFieldNames = 'FORN_CNPJ'
     Params = <>
@@ -188,6 +344,7 @@ object DTM_CAD: TDTM_CAD
     end
   end
   object cdsEmpre: TClientDataSet
+    Active = True
     Aggregates = <>
     IndexFieldNames = 'EMPRE_CDG'
     Params = <>

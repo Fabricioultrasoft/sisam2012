@@ -1,9 +1,9 @@
 object FRMLogin: TFRMLogin
-  Left = 615
-  Top = 491
+  Left = 558
+  Top = 399
   Width = 368
   Height = 298
-  Caption = 'FRMLogin'
+  Caption = 'Sisam'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
