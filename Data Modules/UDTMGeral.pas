@@ -13,6 +13,10 @@ type
     qryGeral: TIBQuery;
     dspGeral: TDataSetProvider;
     cdsGeral: TClientDataSet;
+    qryLogin: TIBQuery;
+    qryLoginUSUARIO_CDG: TIntegerField;
+    qryLoginUSUARIO_DESC: TIBStringField;
+    qryLoginUSUARIO_SENHA: TIBStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure cdsGeralAfterPost(DataSet: TDataSet);
     procedure cdsGeralAfterDelete(DataSet: TDataSet);
