@@ -52,15 +52,19 @@ begin
 end;
 
 procedure TFRMLogin.btnEntrarClick(Sender: TObject);
+var
+ user, senha : string;
 begin
   if Verifica then
   begin
     DTMGeral.cdsGeral.Close;
-    DTMGeral.qryGeral.commandtext.sql(' SELECT * FROM CAD_USUARIO           ' + #13 +
-                                    ' WHERE USUARIO_DESC  = :USUARIO AND ' + #13 +
-                                    '       USUARIO_SENHA = :SENHA');
-    DTMGeral.cdsGeral.Params.ParamByName('USUARIO').AsString := edtUsuario.Text;
-    DTMGeral.cdsGeral.Params.ParamByName('SENHA').AsString   := edtSenha.Text;
+     user  := edtUsuario.Text;
+     senha := edtSenha.Text;
+    DTMGeral.qryGeral.sql.add(' SELECT * FROM CAD_USUARIO           ' + #13 +
+                                    ' WHERE USUARIO_DESC  = :user  AND ' + #13 +
+                                    '       USUARIO_SENHA = :senha   ');
+//    DTMGeral.qryLogin.Params.ParamByName(user).AsString := user;
+  //  DTMGeral.qryLogin.Params.ParamByName(senha).AsString := senha;
     DTMGeral.cdsGeral.Open;
   end;
 
@@ -79,7 +83,7 @@ begin
     end;
 
   FRMMenu.ShowModal;
-end;
+ end;
 
 procedure TFRMLogin.FormShow(Sender: TObject);
 begin

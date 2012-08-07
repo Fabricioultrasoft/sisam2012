@@ -3,8 +3,8 @@ object DTMGeral: TDTMGeral
   OnCreate = DataModuleCreate
   Left = 358
   Top = 213
-  Height = 191
-  Width = 226
+  Height = 318
+  Width = 362
   object Database: TIBDatabase
     DatabaseName = 'C:\Sisam\Database\AMARILLIS.FDB'
     Params.Strings = (
@@ -42,11 +42,58 @@ object DTMGeral: TDTMGeral
   end
   object cdsGeral: TClientDataSet
     Aggregates = <>
-    Params = <>
+    Params = <
+      item
+        DataType = ftUnknown
+        Name = 'user'
+        ParamType = ptInputOutput
+      end
+      item
+        DataType = ftUnknown
+        Name = 'senha'
+        ParamType = ptInputOutput
+      end>
     ProviderName = 'dspGeral'
     AfterPost = cdsGeralAfterPost
     AfterDelete = cdsGeralAfterDelete
     Left = 128
     Top = 80
+  end
+  object qryLogin: TIBQuery
+    Database = Database
+    Transaction = Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
+    SQL.Strings = (
+      'select * from CAD_USUARIO')
+    Left = 16
+    Top = 144
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'user'
+        ParamType = ptUnknown
+      end
+      item
+        DataType = ftUnknown
+        Name = 'senha'
+        ParamType = ptUnknown
+      end>
+    object qryLoginUSUARIO_CDG: TIntegerField
+      FieldName = 'USUARIO_CDG'
+      Origin = '"CAD_USUARIO"."USUARIO_CDG"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object qryLoginUSUARIO_DESC: TIBStringField
+      FieldName = 'USUARIO_DESC'
+      Origin = '"CAD_USUARIO"."USUARIO_DESC"'
+      Size = 100
+    end
+    object qryLoginUSUARIO_SENHA: TIBStringField
+      FieldName = 'USUARIO_SENHA'
+      Origin = '"CAD_USUARIO"."USUARIO_SENHA"'
+      Size = 50
+    end
   end
 end

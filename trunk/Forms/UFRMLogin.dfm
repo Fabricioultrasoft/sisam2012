@@ -16,10 +16,10 @@ object FRMLogin: TFRMLogin
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
-    Left = 8
-    Top = 16
-    Width = 72
-    Height = 37
+    Left = 24
+    Top = 8
+    Width = 97
+    Height = 49
     Caption = 'Login'
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlack
@@ -30,7 +30,7 @@ object FRMLogin: TFRMLogin
   end
   object Label2: TLabel
     Left = 32
-    Top = 96
+    Top = 99
     Width = 43
     Height = 15
     Caption = 'Usu'#225'rio:'
@@ -43,7 +43,7 @@ object FRMLogin: TFRMLogin
   end
   object Label3: TLabel
     Left = 40
-    Top = 128
+    Top = 131
     Width = 35
     Height = 15
     Caption = 'Senha:'
@@ -56,7 +56,7 @@ object FRMLogin: TFRMLogin
   end
   object edtUsuario: TEdit
     Left = 80
-    Top = 96
+    Top = 99
     Width = 201
     Height = 23
     CharCase = ecUpperCase
@@ -70,7 +70,7 @@ object FRMLogin: TFRMLogin
   end
   object edtSenha: TEdit
     Left = 80
-    Top = 128
+    Top = 131
     Width = 201
     Height = 23
     CharCase = ecUpperCase
@@ -85,7 +85,7 @@ object FRMLogin: TFRMLogin
   end
   object btnEntrar: TBitBtn
     Left = 87
-    Top = 191
+    Top = 198
     Width = 89
     Height = 25
     Caption = 'Entrar'
@@ -95,7 +95,7 @@ object FRMLogin: TFRMLogin
   end
   object btnSair: TBitBtn
     Left = 183
-    Top = 191
+    Top = 198
     Width = 89
     Height = 25
     Caption = 'Sair'
