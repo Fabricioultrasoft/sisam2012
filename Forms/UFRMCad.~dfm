@@ -1,6 +1,6 @@
 object FRM_CAD: TFRM_CAD
-  Left = 617
-  Top = 333
+  Left = 414
+  Top = 161
   Width = 754
   Height = 536
   Caption = 'Cadastro Diverso'
@@ -18,8 +18,8 @@ object FRM_CAD: TFRM_CAD
   object PC_Cadastro: TPageControl
     Left = 0
     Top = 0
-    Width = 738
-    Height = 498
+    Width = 746
+    Height = 502
     ActivePage = tabCadastro
     Align = alClient
     TabOrder = 0

@@ -19,7 +19,6 @@ object DTM_CAD: TDTM_CAD
     Top = 16
   end
   object cdsCad: TClientDataSet
-    Active = True
     Aggregates = <>
     FieldDefs = <
       item
@@ -266,6 +265,7 @@ object DTM_CAD: TDTM_CAD
     object cdsCadFORN_CELULAR1: TStringField
       FieldName = 'FORN_CELULAR1'
       Origin = 'CAD_FORN.FORN_CELULAR1'
+      EditMask = '!\(99\)00000-0000;1;_'
       Size = 18
     end
     object cdsCadFORN_RG: TStringField
@@ -344,7 +344,6 @@ object DTM_CAD: TDTM_CAD
     end
   end
   object cdsEmpre: TClientDataSet
-    Active = True
     Aggregates = <>
     IndexFieldNames = 'EMPRE_CDG'
     Params = <>

@@ -4,18 +4,25 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons;
+  Dialogs, StdCtrls, Buttons, ExtCtrls, ComCtrls, ToolWin, Menus, ImgList,
+  ActnList, jpeg;
 
 type
   TFRMMenu = class(TForm)
-    Label3: TLabel;
-    BitBtn1: TBitBtn;
-    BitBtn2: TBitBtn;
-    BitBtn3: TBitBtn;
-    BitBtn4: TBitBtn;
-    BitBtn5: TBitBtn;
-    procedure BitBtn1Click(Sender: TObject);
-    procedure BitBtn5Click(Sender: TObject);
+    StatusBar: TStatusBar;
+    ToolBar1: TToolBar;
+    tbEmpresa: TToolButton;
+    tbCadastro: TToolButton;
+    tbFuncionario: TToolButton;
+    tbPagar: TToolButton;
+    tbReceber: TToolButton;
+    imglMenu: TImageList;
+    imgltoolbar: TImageList;
+    aclMenu: TActionList;
+    Image1: TImage;
+    procedure ToolButton1Click(Sender: TObject);
+    procedure tbEmpresaClick(Sender: TObject);
+    procedure tbCadastroClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -31,14 +38,19 @@ uses UFRMCad, UFRMEmpre;
 
 {$R *.dfm}
 
-procedure TFRMMenu.BitBtn1Click(Sender: TObject);
+procedure TFRMMenu.ToolButton1Click(Sender: TObject);
 begin
-  FRM_CAD.ShowModal;
+  //CreateForm(Self, TFRM_EMPRE, FRM_EMPRE);
 end;
 
-procedure TFRMMenu.BitBtn5Click(Sender: TObject);
+procedure TFRMMenu.tbEmpresaClick(Sender: TObject);
 begin
   FRM_EMPRE.ShowModal;
+end;
+
+procedure TFRMMenu.tbCadastroClick(Sender: TObject);
+begin
+  FRM_CAD.ShowModal;
 end;
 
 end.

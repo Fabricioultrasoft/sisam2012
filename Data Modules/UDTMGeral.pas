@@ -60,6 +60,11 @@ end;
 procedure TDTMGeral.cdsGeralAfterPost(DataSet: TDataSet);
 begin
   cdsGeral.ApplyUpdates(-1);
+{  cdsGeral.Close;
+  cdsGeral.COMMANDTEXT(' SELECT USUARIO_DESC ' + #13 +
+                         ' FROM CAD_USUARIO ';
+  cdsGeral.Params.ParamByName('USUARIO_DESC').AsInteger := Usuario;
+  cdsGeral.Open;}
 end;
 
 procedure TDTMGeral.cdsGeralAfterDelete(DataSet: TDataSet);

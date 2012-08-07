@@ -56,11 +56,11 @@ begin
   if Verifica then
   begin
     DTMGeral.cdsGeral.Close;
-    DTMGeral.cdsGeral.Params.ParamByName('USUARIO').AsString := edtUsuario.Text;
-    DTMGeral.cdsGeral.Params.ParamByName('SENHA').AsString   := edtSenha.Text;
     DTMGeral.qryGeral.sql.add(' SELECT * FROM CAD_USUARIO           ' + #13 +
                                     ' WHERE USUARIO_DESC  = :USUARIO AND ' + #13 +
                                     '       USUARIO_SENHA = :SENHA');
+    DTMGeral.cdsGeral.Params.ParamByName('USUARIO').AsString := edtUsuario.Text;
+    DTMGeral.cdsGeral.Params.ParamByName('SENHA').AsString   := edtSenha.Text;
     DTMGeral.cdsGeral.Open;
   end;
 
