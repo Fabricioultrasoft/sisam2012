@@ -75,6 +75,12 @@ type
     qryCondCOND_FORNECEDOR: TIBStringField;
     qryCondCOND_INCORPORADORA: TIBStringField;
     qryCondCOND_INCORPCNPJ: TIBStringField;
+    qryCadESTCIVIL_CDG: TIntegerField;
+    qryCadESTCIVIL_DESC: TIBStringField;
+    qryCadOCUPACAO_CDG: TIntegerField;
+    qryCadOCUPACAO_DESC: TIBStringField;
+    qryCadTIPO_CDG: TIntegerField;
+    qryCadTIPO_DESC: TIBStringField;
   private
     { Private declarations }
   public
