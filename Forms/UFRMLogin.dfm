@@ -18,8 +18,8 @@ object FRMLogin: TFRMLogin
   object Label1: TLabel
     Left = 24
     Top = 8
-    Width = 97
-    Height = 49
+    Width = 72
+    Height = 37
     Caption = 'Login'
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlack

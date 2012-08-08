@@ -59,6 +59,22 @@ type
     qryEmpreEMPRE_EMAIL: TIBStringField;
     qryEmpreEMPRE_SITE: TIBStringField;
     qryEmpreEMPRE_CDG: TIntegerField;
+    qryCond: TIBQuery;
+    qryCondCOND_DESC: TIBStringField;
+    qryCondCOND_ABREV: TIntegerField;
+    qryCondCOND_PADRAO: TIntegerField;
+    qryCondCOND_END: TIntegerField;
+    qryCondCOND_CEP: TIntegerField;
+    qryCondCOND_BAIRRO: TIntegerField;
+    qryCondCOND_CID: TIBStringField;
+    qryCondCOND_UF: TIBStringField;
+    qryCondCOND_TELEFONE: TIBStringField;
+    qryCondCOND_SINDICO: TIntegerField;
+    qryCondCOND_CDG: TIntegerField;
+    qryCondCOND_EMAIL: TIBStringField;
+    qryCondCOND_FORNECEDOR: TIBStringField;
+    qryCondCOND_INCORPORADORA: TIBStringField;
+    qryCondCOND_INCORPCNPJ: TIBStringField;
   private
     { Private declarations }
   public
