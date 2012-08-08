@@ -6,6 +6,7 @@ object DTMGeral: TDTMGeral
   Height = 318
   Width = 362
   object Database: TIBDatabase
+    Connected = True
     DatabaseName = 'C:\Sisam\Database\AMARILLIS.FDB'
     Params.Strings = (
       'user_name=SYSDBA'
@@ -17,6 +18,7 @@ object DTMGeral: TDTMGeral
     Top = 16
   end
   object Transaction: TIBTransaction
+    Active = True
     DefaultDatabase = Database
     Params.Strings = (
       'read_committed'
@@ -46,12 +48,12 @@ object DTMGeral: TDTMGeral
       item
         DataType = ftUnknown
         Name = 'user'
-        ParamType = ptInputOutput
+        ParamType = ptUnknown
       end
       item
         DataType = ftUnknown
         Name = 'senha'
-        ParamType = ptInputOutput
+        ParamType = ptUnknown
       end>
     ProviderName = 'dspGeral'
     AfterPost = cdsGeralAfterPost
@@ -65,7 +67,9 @@ object DTMGeral: TDTMGeral
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (
-      'select * from CAD_USUARIO')
+      'select * from CAD_USUARIO '
+      'where USUARIO_DESC = :user and'
+      '          USUARIO_SENHA = :senha')
     Left = 16
     Top = 144
     ParamData = <

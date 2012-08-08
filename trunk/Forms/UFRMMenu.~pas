@@ -42,13 +42,13 @@ var
 
 implementation
 
-uses UFRMCad, UFRMEmpre, UFRMCond;
+uses UFRMCad, UFRMEmpre;
 
 {$R *.dfm}
 
 procedure TFRMMenu.ToolButton1Click(Sender: TObject);
 begin
-  FRM_COND.ShowModal;
+  //CreateForm(Self, TFRM_EMPRE, FRM_EMPRE);
 end;
 
 procedure TFRMMenu.tbEmpresaClick(Sender: TObject);

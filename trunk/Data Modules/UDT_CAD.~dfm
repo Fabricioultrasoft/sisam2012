@@ -1,7 +1,7 @@
 object DTM_CAD: TDTM_CAD
   OldCreateOrder = False
-  Left = 430
-  Top = 333
+  Left = 276
+  Top = 322
   Height = 230
   Width = 729
   object dspCad: TDataSetProvider
@@ -266,6 +266,7 @@ object DTM_CAD: TDTM_CAD
     object cdsCadFORN_CELULAR1: TStringField
       FieldName = 'FORN_CELULAR1'
       Origin = 'CAD_FORN.FORN_CELULAR1'
+      EditMask = '!\(99\)00000-0000;1;_'
       Size = 18
     end
     object cdsCadFORN_RG: TStringField
@@ -442,6 +443,98 @@ object DTM_CAD: TDTM_CAD
   object dsEmpre: TDataSource
     DataSet = cdsEmpre
     Left = 112
+    Top = 128
+  end
+  object dspCond: TDataSetProvider
+    DataSet = DTM_CAD_IBX.qryCond
+    Options = [poAllowCommandText]
+    UpdateMode = upWhereKeyOnly
+    Left = 216
+    Top = 16
+  end
+  object cdsCond: TClientDataSet
+    Active = True
+    Aggregates = <>
+    IndexFieldNames = 'COND_CDG'
+    Params = <>
+    ProviderName = 'dspCond'
+    Left = 216
+    Top = 72
+    object cdsCondCOND_DESC: TStringField
+      FieldName = 'COND_DESC'
+      Origin = '"CAD_COND"."COND_DESC"'
+      Required = True
+      Size = 100
+    end
+    object cdsCondCOND_ABREV: TIntegerField
+      FieldName = 'COND_ABREV'
+      Origin = '"CAD_COND"."COND_ABREV"'
+    end
+    object cdsCondCOND_PADRAO: TIntegerField
+      FieldName = 'COND_PADRAO'
+      Origin = '"CAD_COND"."COND_PADRAO"'
+    end
+    object cdsCondCOND_END: TIntegerField
+      FieldName = 'COND_END'
+      Origin = '"CAD_COND"."COND_END"'
+    end
+    object cdsCondCOND_CEP: TIntegerField
+      FieldName = 'COND_CEP'
+      Origin = '"CAD_COND"."COND_CEP"'
+    end
+    object cdsCondCOND_BAIRRO: TIntegerField
+      FieldName = 'COND_BAIRRO'
+      Origin = '"CAD_COND"."COND_BAIRRO"'
+    end
+    object cdsCondCOND_CID: TStringField
+      FieldName = 'COND_CID'
+      Origin = '"CAD_COND"."COND_CID"'
+    end
+    object cdsCondCOND_UF: TStringField
+      FieldName = 'COND_UF'
+      Origin = '"CAD_COND"."COND_UF"'
+      Size = 2
+    end
+    object cdsCondCOND_TELEFONE: TStringField
+      FieldName = 'COND_TELEFONE'
+      Origin = '"CAD_COND"."COND_TELEFONE"'
+      Size = 18
+    end
+    object cdsCondCOND_SINDICO: TIntegerField
+      FieldName = 'COND_SINDICO'
+      Origin = '"CAD_COND"."COND_SINDICO"'
+    end
+    object cdsCondCOND_CDG: TIntegerField
+      FieldName = 'COND_CDG'
+      Origin = '"CAD_COND"."COND_CDG"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object cdsCondCOND_EMAIL: TStringField
+      FieldName = 'COND_EMAIL'
+      Origin = '"CAD_COND"."COND_EMAIL"'
+      Size = 60
+    end
+    object cdsCondCOND_FORNECEDOR: TStringField
+      FieldName = 'COND_FORNECEDOR'
+      Origin = '"CAD_COND"."COND_FORNECEDOR"'
+      Required = True
+      Size = 14
+    end
+    object cdsCondCOND_INCORPORADORA: TStringField
+      FieldName = 'COND_INCORPORADORA'
+      Origin = '"CAD_COND"."COND_INCORPORADORA"'
+      Size = 100
+    end
+    object cdsCondCOND_INCORPCNPJ: TStringField
+      FieldName = 'COND_INCORPCNPJ'
+      Origin = '"CAD_COND"."COND_INCORPCNPJ"'
+      Size = 14
+    end
+  end
+  object dsCond: TDataSource
+    DataSet = cdsCond
+    Left = 216
     Top = 128
   end
 end

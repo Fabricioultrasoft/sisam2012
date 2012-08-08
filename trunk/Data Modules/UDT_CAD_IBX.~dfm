@@ -5,8 +5,9 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   Height = 202
   Width = 184
   object qryCad: TIBQuery
-    Database = DTMGeral.IBDB
+    Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    Active = True
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (
@@ -170,8 +171,9 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     end
   end
   object qryEmpre: TIBQuery
-    Database = DTMGeral.IBDB
+    Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    Active = True
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (
@@ -256,6 +258,87 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       Origin = 'CAD_EMPRESA.EMPRE_CDG'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+    end
+  end
+  object qryCond: TIBQuery
+    Database = DTMGeral.Database
+    Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
+    SQL.Strings = (
+      'select * from CAD_COND')
+    Left = 16
+    Top = 96
+    object qryCondCOND_DESC: TIBStringField
+      FieldName = 'COND_DESC'
+      Origin = '"CAD_COND"."COND_DESC"'
+      Required = True
+      Size = 100
+    end
+    object qryCondCOND_ABREV: TIntegerField
+      FieldName = 'COND_ABREV'
+      Origin = '"CAD_COND"."COND_ABREV"'
+    end
+    object qryCondCOND_PADRAO: TIntegerField
+      FieldName = 'COND_PADRAO'
+      Origin = '"CAD_COND"."COND_PADRAO"'
+    end
+    object qryCondCOND_END: TIntegerField
+      FieldName = 'COND_END'
+      Origin = '"CAD_COND"."COND_END"'
+    end
+    object qryCondCOND_CEP: TIntegerField
+      FieldName = 'COND_CEP'
+      Origin = '"CAD_COND"."COND_CEP"'
+    end
+    object qryCondCOND_BAIRRO: TIntegerField
+      FieldName = 'COND_BAIRRO'
+      Origin = '"CAD_COND"."COND_BAIRRO"'
+    end
+    object qryCondCOND_CID: TIBStringField
+      FieldName = 'COND_CID'
+      Origin = '"CAD_COND"."COND_CID"'
+    end
+    object qryCondCOND_UF: TIBStringField
+      FieldName = 'COND_UF'
+      Origin = '"CAD_COND"."COND_UF"'
+      Size = 2
+    end
+    object qryCondCOND_TELEFONE: TIBStringField
+      FieldName = 'COND_TELEFONE'
+      Origin = '"CAD_COND"."COND_TELEFONE"'
+      Size = 18
+    end
+    object qryCondCOND_SINDICO: TIntegerField
+      FieldName = 'COND_SINDICO'
+      Origin = '"CAD_COND"."COND_SINDICO"'
+    end
+    object qryCondCOND_CDG: TIntegerField
+      FieldName = 'COND_CDG'
+      Origin = '"CAD_COND"."COND_CDG"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object qryCondCOND_EMAIL: TIBStringField
+      FieldName = 'COND_EMAIL'
+      Origin = '"CAD_COND"."COND_EMAIL"'
+      Size = 60
+    end
+    object qryCondCOND_FORNECEDOR: TIBStringField
+      FieldName = 'COND_FORNECEDOR'
+      Origin = '"CAD_COND"."COND_FORNECEDOR"'
+      Required = True
+      Size = 14
+    end
+    object qryCondCOND_INCORPORADORA: TIBStringField
+      FieldName = 'COND_INCORPORADORA'
+      Origin = '"CAD_COND"."COND_INCORPORADORA"'
+      Size = 100
+    end
+    object qryCondCOND_INCORPCNPJ: TIBStringField
+      FieldName = 'COND_INCORPCNPJ'
+      Origin = '"CAD_COND"."COND_INCORPCNPJ"'
+      Size = 14
     end
   end
 end
