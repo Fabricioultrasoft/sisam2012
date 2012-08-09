@@ -63,19 +63,13 @@ type
     DBEdit28: TDBEdit;
     Label29: TLabel;
     DBEdit29: TDBEdit;
-    Label30: TLabel;
-    DBEdit30: TDBEdit;
-    Label31: TLabel;
-    DBEdit31: TDBEdit;
-    Label32: TLabel;
-    DBEdit32: TDBEdit;
-    Label33: TLabel;
-    DBEdit33: TDBEdit;
-    Label34: TLabel;
-    DBEdit34: TDBEdit;
     tbConsulta: TTabSheet;
     DBGrid1: TDBGrid;
     DBNavigator1: TDBNavigator;
+    DBCheckBox1: TDBCheckBox;
+    DBCheckBox2: TDBCheckBox;
+    DBCheckBox3: TDBCheckBox;
+    DBCheckBox5: TDBCheckBox;
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }

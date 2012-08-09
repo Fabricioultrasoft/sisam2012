@@ -26,6 +26,9 @@ type
     Calculadora1: TMenuItem;
     Calendrio1: TMenuItem;
     Sair1: TMenuItem;
+    Sobre1: TMenuItem;
+    Sisam1: TMenuItem;
+    Help1: TMenuItem;
     procedure ToolButton1Click(Sender: TObject);
     procedure tbEmpresaClick(Sender: TObject);
     procedure tbCadastroClick(Sender: TObject);
@@ -53,6 +56,7 @@ end;
 
 procedure TFRMMenu.tbEmpresaClick(Sender: TObject);
 begin
+  //CreateForm(Self, TFRM_EMPRE, FRM_EMPRE);
   FRM_EMPRE.ShowModal;
 end;
 
