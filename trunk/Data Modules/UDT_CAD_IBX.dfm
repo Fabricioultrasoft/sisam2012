@@ -1,13 +1,12 @@
 object DTM_CAD_IBX: TDTM_CAD_IBX
   OldCreateOrder = False
-  Left = 470
-  Top = 269
+  Left = 398
+  Top = 400
   Height = 202
   Width = 184
   object qryCad: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    Active = True
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (
@@ -97,6 +96,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     object qryCadFORN_CELULAR1: TIBStringField
       FieldName = 'FORN_CELULAR1'
       Origin = 'CAD_FORN.FORN_CELULAR1'
+      EditMask = '(99)00000\-9999;1;_'
       Size = 18
     end
     object qryCadFORN_RG: TIBStringField

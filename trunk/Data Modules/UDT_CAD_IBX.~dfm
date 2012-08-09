@@ -1,17 +1,20 @@
 object DTM_CAD_IBX: TDTM_CAD_IBX
   OldCreateOrder = False
-  Left = 470
-  Top = 269
+  Left = 398
+  Top = 400
   Height = 202
   Width = 184
   object qryCad: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    Active = True
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (
-      'select * from CAD_FORN')
+      'select * '
+      'from CAD_FORN'
+      'left join  CAD_ESTADOCIVIL on ESTCIVIL_CDG = FORN_ESTADOCIVIL'
+      'left join  FORNECEDOR_OCUPACAO on  OCUPACAO_CDG = FORN_OCUPACAO'
+      'left join  FORNECEDOR_TIPO on tipo_cdg = forn_tipo')
     Left = 16
     Top = 24
     object qryCadFORN_CNPJ: TIBStringField
@@ -169,11 +172,40 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       FieldName = 'FORN_TPINCORPORADORA'
       Origin = 'CAD_FORN.FORN_TPINCORPORADORA'
     end
+    object qryCadESTCIVIL_CDG: TIntegerField
+      FieldName = 'ESTCIVIL_CDG'
+      Origin = '"CAD_ESTADOCIVIL"."ESTCIVIL_CDG"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qryCadESTCIVIL_DESC: TIBStringField
+      FieldName = 'ESTCIVIL_DESC'
+      Origin = '"CAD_ESTADOCIVIL"."ESTCIVIL_DESC"'
+      Size = 10
+    end
+    object qryCadOCUPACAO_CDG: TIntegerField
+      FieldName = 'OCUPACAO_CDG'
+      Origin = '"FORNECEDOR_OCUPACAO"."OCUPACAO_CDG"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qryCadOCUPACAO_DESC: TIBStringField
+      FieldName = 'OCUPACAO_DESC'
+      Origin = '"FORNECEDOR_OCUPACAO"."OCUPACAO_DESC"'
+      Size = 50
+    end
+    object qryCadTIPO_CDG: TIntegerField
+      FieldName = 'TIPO_CDG'
+      Origin = '"FORNECEDOR_TIPO"."TIPO_CDG"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object qryCadTIPO_DESC: TIBStringField
+      FieldName = 'TIPO_DESC'
+      Origin = '"FORNECEDOR_TIPO"."TIPO_DESC"'
+      Size = 30
+    end
   end
   object qryEmpre: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    Active = True
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (
@@ -263,7 +295,6 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryCond: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    Active = True
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (

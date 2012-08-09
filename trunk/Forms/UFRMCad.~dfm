@@ -1,6 +1,6 @@
 object FRM_CAD: TFRM_CAD
-  Left = 414
-  Top = 161
+  Left = 234
+  Top = 120
   Width = 754
   Height = 536
   Caption = 'Cadastro Diverso'
@@ -233,46 +233,6 @@ object FRM_CAD: TFRM_CAD
         Caption = 'FORN_COND'
         FocusControl = DBEdit29
       end
-      object Label30: TLabel
-        Left = 652
-        Top = 551
-        Width = 117
-        Height = 13
-        Caption = 'FORN_TPCONDOMINO'
-        FocusControl = DBEdit30
-      end
-      object Label31: TLabel
-        Left = 652
-        Top = 359
-        Width = 124
-        Height = 13
-        Caption = 'FORN_TPFUNCIONARIO'
-        FocusControl = DBEdit31
-      end
-      object Label32: TLabel
-        Left = 652
-        Top = 407
-        Width = 125
-        Height = 13
-        Caption = 'FORN_TPFORNECEDOR'
-        FocusControl = DBEdit32
-      end
-      object Label33: TLabel
-        Left = 652
-        Top = 455
-        Width = 94
-        Height = 13
-        Caption = 'FORN_TPSINDICO'
-        FocusControl = DBEdit33
-      end
-      object Label34: TLabel
-        Left = 652
-        Top = 503
-        Width = 145
-        Height = 13
-        Caption = 'FORN_TPINCORPORADORA'
-        FocusControl = DBEdit34
-      end
       object DBEdit1: TDBEdit
         Left = 16
         Top = 24
@@ -294,7 +254,7 @@ object FRM_CAD: TFRM_CAD
       object DBEdit3: TDBEdit
         Left = 16
         Top = 104
-        Width = 785
+        Width = 646
         Height = 21
         DataField = 'FORN_RAZAO'
         DataSource = dtsCad
@@ -384,10 +344,11 @@ object FRM_CAD: TFRM_CAD
       object DBEdit15: TDBEdit
         Left = 536
         Top = 296
-        Width = 238
+        Width = 130
         Height = 21
         DataField = 'FORN_CELULAR'
         DataSource = dtsCad
+        MaxLength = 14
         TabOrder = 12
       end
       object DBEdit17: TDBEdit
@@ -507,58 +468,49 @@ object FRM_CAD: TFRM_CAD
         DataSource = dtsCad
         TabOrder = 25
       end
-      object DBEdit30: TDBEdit
-        Left = 652
-        Top = 567
-        Width = 134
-        Height = 21
-        DataField = 'FORN_TPCONDOMINO'
-        DataSource = dtsCad
-        TabOrder = 26
-      end
-      object DBEdit31: TDBEdit
-        Left = 652
-        Top = 375
-        Width = 134
-        Height = 21
-        DataField = 'FORN_TPFUNCIONARIO'
-        DataSource = dtsCad
-        TabOrder = 27
-      end
-      object DBEdit32: TDBEdit
-        Left = 652
-        Top = 423
-        Width = 134
-        Height = 21
-        DataField = 'FORN_TPFORNECEDOR'
-        DataSource = dtsCad
-        TabOrder = 28
-      end
-      object DBEdit33: TDBEdit
-        Left = 652
-        Top = 471
-        Width = 134
-        Height = 21
-        DataField = 'FORN_TPSINDICO'
-        DataSource = dtsCad
-        TabOrder = 29
-      end
-      object DBEdit34: TDBEdit
-        Left = 652
-        Top = 519
-        Width = 134
-        Height = 21
-        DataField = 'FORN_TPINCORPORADORA'
-        DataSource = dtsCad
-        TabOrder = 30
-      end
       object DBNavigator1: TDBNavigator
         Left = 416
         Top = 16
         Width = 240
         Height = 25
         DataSource = dtsCad
-        TabOrder = 31
+        TabOrder = 26
+      end
+      object DBCheckBox1: TDBCheckBox
+        Left = 616
+        Top = 144
+        Width = 97
+        Height = 17
+        Caption = 'Cond'#244'mino'
+        DataField = 'FORN_TPCONDOMINO'
+        DataSource = dtsCad
+        TabOrder = 27
+        ValueChecked = '1'
+        ValueUnchecked = '0'
+      end
+      object DBCheckBox2: TDBCheckBox
+        Left = 616
+        Top = 163
+        Width = 97
+        Height = 17
+        Caption = 'Fornecedor'
+        DataField = 'FORN_TPFORNECEDOR'
+        DataSource = dtsCad
+        TabOrder = 28
+        ValueChecked = '1'
+        ValueUnchecked = '0'
+      end
+      object DBCheckBox3: TDBCheckBox
+        Left = 616
+        Top = 182
+        Width = 97
+        Height = 17
+        Caption = 'S'#237'ndico'
+        DataField = 'FORN_TPSINDICO'
+        DataSource = dtsCad
+        TabOrder = 29
+        ValueChecked = '1'
+        ValueUnchecked = '0'
       end
     end
     object tbConsulta: TTabSheet
@@ -578,6 +530,18 @@ object FRM_CAD: TFRM_CAD
         TitleFont.Style = []
       end
     end
+  end
+  object DBCheckBox5: TDBCheckBox
+    Left = 620
+    Top = 224
+    Width = 97
+    Height = 17
+    Caption = 'Incorporadora'
+    DataField = 'FORN_TPINCORPORADORA'
+    DataSource = dtsCad
+    TabOrder = 1
+    ValueChecked = '1'
+    ValueUnchecked = '0'
   end
   object dtsCad: TDataSource
     DataSet = DTM_CAD.cdsCad
