@@ -1,7 +1,7 @@
 object DTM_CAD: TDTM_CAD
   OldCreateOrder = False
-  Left = 320
-  Top = 231
+  Left = 240
+  Top = 225
   Height = 230
   Width = 729
   object dspCad: TDataSetProvider
@@ -176,33 +176,6 @@ object DTM_CAD: TDTM_CAD
       item
         Name = 'FORN_TPINCORPORADORA'
         DataType = ftInteger
-      end
-      item
-        Name = 'ESTCIVIL_CDG'
-        DataType = ftInteger
-      end
-      item
-        Name = 'ESTCIVIL_DESC'
-        DataType = ftString
-        Size = 10
-      end
-      item
-        Name = 'OCUPACAO_CDG'
-        DataType = ftInteger
-      end
-      item
-        Name = 'OCUPACAO_DESC'
-        DataType = ftString
-        Size = 50
-      end
-      item
-        Name = 'TIPO_CDG'
-        DataType = ftInteger
-      end
-      item
-        Name = 'TIPO_DESC'
-        DataType = ftString
-        Size = 30
       end>
     IndexDefs = <>
     IndexFieldNames = 'FORN_CNPJ'
@@ -370,36 +343,6 @@ object DTM_CAD: TDTM_CAD
     object cdsCadFORN_TPINCORPORADORA: TIntegerField
       FieldName = 'FORN_TPINCORPORADORA'
       Origin = 'CAD_FORN.FORN_TPINCORPORADORA'
-    end
-    object cdsCadESTCIVIL_CDG: TIntegerField
-      FieldName = 'ESTCIVIL_CDG'
-      Origin = '"CAD_ESTADOCIVIL"."ESTCIVIL_CDG"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object cdsCadESTCIVIL_DESC: TStringField
-      FieldName = 'ESTCIVIL_DESC'
-      Origin = '"CAD_ESTADOCIVIL"."ESTCIVIL_DESC"'
-      Size = 10
-    end
-    object cdsCadOCUPACAO_CDG: TIntegerField
-      FieldName = 'OCUPACAO_CDG'
-      Origin = '"FORNECEDOR_OCUPACAO"."OCUPACAO_CDG"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object cdsCadOCUPACAO_DESC: TStringField
-      FieldName = 'OCUPACAO_DESC'
-      Origin = '"FORNECEDOR_OCUPACAO"."OCUPACAO_DESC"'
-      Size = 50
-    end
-    object cdsCadTIPO_CDG: TIntegerField
-      FieldName = 'TIPO_CDG'
-      Origin = '"FORNECEDOR_TIPO"."TIPO_CDG"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object cdsCadTIPO_DESC: TStringField
-      FieldName = 'TIPO_DESC'
-      Origin = '"FORNECEDOR_TIPO"."TIPO_DESC"'
-      Size = 30
     end
   end
   object cdsEmpre: TClientDataSet

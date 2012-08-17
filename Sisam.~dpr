@@ -2,9 +2,9 @@ program Sisam;
 
 uses
   Forms,
+  UFRMLogin in 'Forms\UFRMLogin.pas' {FRMLogin},  
   UFRMMenu in 'Forms\UFRMMenu.pas' {FRMMenu},
   UDTMGeral in 'Data Modules\UDTMGeral.pas' {DTMGeral: TDataModule},
-  UFRMLogin in 'Forms\UFRMLogin.pas' {FRMLogin},
   UFRMCad in 'Forms\UFRMCad.pas' {FRM_CAD},
   UFRMEmpre in 'Forms\UFRMEmpre.pas' {FRM_EMPRE},
   UFRMCond in 'Forms\UFRMCond.pas' {FRM_COND},

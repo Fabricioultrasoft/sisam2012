@@ -1,7 +1,7 @@
 object DTM_CAD: TDTM_CAD
   OldCreateOrder = False
-  Left = 320
-  Top = 231
+  Left = 240
+  Top = 225
   Height = 230
   Width = 729
   object dspCad: TDataSetProvider
@@ -288,6 +288,7 @@ object DTM_CAD: TDTM_CAD
     object cdsCadFORN_CELULAR: TStringField
       FieldName = 'FORN_CELULAR'
       Origin = 'CAD_FORN.FORN_CELULAR'
+      EditMask = '(99)00000\-9999;1;_'
       Size = 18
     end
     object cdsCadFORN_CELULAR1: TStringField

@@ -81,12 +81,6 @@ type
     cdsCondCOND_FORNECEDOR: TStringField;
     cdsCondCOND_INCORPORADORA: TStringField;
     cdsCondCOND_INCORPCNPJ: TStringField;
-    cdsCadESTCIVIL_CDG: TIntegerField;
-    cdsCadESTCIVIL_DESC: TStringField;
-    cdsCadOCUPACAO_CDG: TIntegerField;
-    cdsCadOCUPACAO_DESC: TStringField;
-    cdsCadTIPO_CDG: TIntegerField;
-    cdsCadTIPO_DESC: TStringField;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
