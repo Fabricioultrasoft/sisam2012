@@ -1,18 +1,21 @@
-unit UFRMCond;
+unit UFRMEmpre;
 
 interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, StdCtrls, Mask, DBCtrls, Grids, DBGrids, ExtCtrls;
+  Dialogs, ComCtrls, UDT_CAD, DB, StdCtrls, Mask, DBCtrls, Grids, DBGrids,
+  ExtCtrls, Buttons;
 
 type
-  TFRM_COND = class(TForm)
-    PC_Condominio: TPageControl;
+  TFRM_EMPRE = class(TForm)
+    PC_Empresa: TPageControl;
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
+    DBGrid1: TDBGrid;
     Label1: TLabel;
     DBEdit1: TDBEdit;
+    dtsEmpre: TDataSource;
     Label2: TLabel;
     DBEdit2: TDBEdit;
     Label3: TLabel;
@@ -41,8 +44,9 @@ type
     DBEdit14: TDBEdit;
     Label15: TLabel;
     DBEdit15: TDBEdit;
+    Label16: TLabel;
+    DBEdit16: TDBEdit;
     DBNavigator1: TDBNavigator;
-    DBGrid1: TDBGrid;
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
@@ -51,20 +55,20 @@ type
   end;
 
 var
-  FRM_COND: TFRM_COND;
+  FRM_EMPRE: TFRM_EMPRE;
 
 implementation
 
-uses UDT_CAD;
+uses UDTMGeral;
 
 {$R *.dfm}
 
-procedure TFRM_COND.FormCreate(Sender: TObject);
+procedure TFRM_EMPRE.FormCreate(Sender: TObject);
 begin
-  DTM_CAD.cdsCond.Close;
-  DTM_CAD.cdsCond.Open;
+  DTM_CAD.cdsEmpre.Close;
+  DTM_CAD.cdsEmpre.Open;
 
-  PC_Condominio.ActivePageIndex := 1;
+  PC_Empresa.ActivePageIndex := 0;
 end;
 
 end.

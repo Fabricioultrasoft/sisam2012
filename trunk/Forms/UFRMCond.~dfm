@@ -18,7 +18,7 @@ object FRM_COND: TFRM_COND
     Top = 0
     Width = 705
     Height = 460
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     Align = alClient
     TabOrder = 0
     object TabSheet1: TTabSheet

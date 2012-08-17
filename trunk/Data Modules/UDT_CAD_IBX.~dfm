@@ -7,6 +7,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryCad: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    Active = True
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (
@@ -96,6 +97,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     object qryCadFORN_CELULAR1: TIBStringField
       FieldName = 'FORN_CELULAR1'
       Origin = 'CAD_FORN.FORN_CELULAR1'
+      EditMask = '(99)00000\-9999;1;_'
       Size = 18
     end
     object qryCadFORN_RG: TIBStringField
@@ -206,6 +208,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryEmpre: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    Active = True
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (
@@ -295,6 +298,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryCond: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    Active = True
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (

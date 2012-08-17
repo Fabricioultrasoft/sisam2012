@@ -64,7 +64,7 @@ begin
   DTM_CAD.cdsCond.Close;
   DTM_CAD.cdsCond.Open;
 
-  PC_Condominio.ActivePageIndex := 1;
+  PC_Condominio.ActivePageIndex := 0;
 end;
 
 end.
