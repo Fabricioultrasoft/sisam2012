@@ -1,6 +1,6 @@
 object FRM_EMPRE: TFRM_EMPRE
-  Left = 601
-  Top = 294
+  Left = 329
+  Top = 149
   Width = 806
   Height = 564
   Caption = 'Cadastro de Empresa'
@@ -20,7 +20,7 @@ object FRM_EMPRE: TFRM_EMPRE
     Top = 0
     Width = 798
     Height = 530
-    ActivePage = TabSheet2
+    ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0
     object TabSheet1: TTabSheet

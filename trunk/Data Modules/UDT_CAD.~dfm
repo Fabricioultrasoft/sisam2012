@@ -19,7 +19,6 @@ object DTM_CAD: TDTM_CAD
     Top = 16
   end
   object cdsCad: TClientDataSet
-    Active = True
     Aggregates = <>
     FieldDefs = <
       item
@@ -176,33 +175,6 @@ object DTM_CAD: TDTM_CAD
       item
         Name = 'FORN_TPINCORPORADORA'
         DataType = ftInteger
-      end
-      item
-        Name = 'ESTCIVIL_CDG'
-        DataType = ftInteger
-      end
-      item
-        Name = 'ESTCIVIL_DESC'
-        DataType = ftString
-        Size = 10
-      end
-      item
-        Name = 'OCUPACAO_CDG'
-        DataType = ftInteger
-      end
-      item
-        Name = 'OCUPACAO_DESC'
-        DataType = ftString
-        Size = 50
-      end
-      item
-        Name = 'TIPO_CDG'
-        DataType = ftInteger
-      end
-      item
-        Name = 'TIPO_DESC'
-        DataType = ftString
-        Size = 30
       end>
     IndexDefs = <>
     IndexFieldNames = 'FORN_CNPJ'
@@ -371,39 +343,8 @@ object DTM_CAD: TDTM_CAD
       FieldName = 'FORN_TPINCORPORADORA'
       Origin = 'CAD_FORN.FORN_TPINCORPORADORA'
     end
-    object cdsCadESTCIVIL_CDG: TIntegerField
-      FieldName = 'ESTCIVIL_CDG'
-      Origin = '"CAD_ESTADOCIVIL"."ESTCIVIL_CDG"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object cdsCadESTCIVIL_DESC: TStringField
-      FieldName = 'ESTCIVIL_DESC'
-      Origin = '"CAD_ESTADOCIVIL"."ESTCIVIL_DESC"'
-      Size = 10
-    end
-    object cdsCadOCUPACAO_CDG: TIntegerField
-      FieldName = 'OCUPACAO_CDG'
-      Origin = '"FORNECEDOR_OCUPACAO"."OCUPACAO_CDG"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object cdsCadOCUPACAO_DESC: TStringField
-      FieldName = 'OCUPACAO_DESC'
-      Origin = '"FORNECEDOR_OCUPACAO"."OCUPACAO_DESC"'
-      Size = 50
-    end
-    object cdsCadTIPO_CDG: TIntegerField
-      FieldName = 'TIPO_CDG'
-      Origin = '"FORNECEDOR_TIPO"."TIPO_CDG"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-    end
-    object cdsCadTIPO_DESC: TStringField
-      FieldName = 'TIPO_DESC'
-      Origin = '"FORNECEDOR_TIPO"."TIPO_DESC"'
-      Size = 30
-    end
   end
   object cdsEmpre: TClientDataSet
-    Active = True
     Aggregates = <>
     IndexFieldNames = 'EMPRE_CDG'
     Params = <>
@@ -511,7 +452,6 @@ object DTM_CAD: TDTM_CAD
     Top = 16
   end
   object cdsCond: TClientDataSet
-    Active = True
     Aggregates = <>
     IndexFieldNames = 'COND_CDG'
     Params = <>
@@ -596,6 +536,45 @@ object DTM_CAD: TDTM_CAD
   object dsCond: TDataSource
     DataSet = cdsCond
     Left = 216
+    Top = 128
+  end
+  object dspUser: TDataSetProvider
+    DataSet = DTM_CAD_IBX.qryUser
+    Options = [poAllowCommandText]
+    UpdateMode = upWhereKeyOnly
+    Left = 320
+    Top = 16
+  end
+  object cdsUser: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspUser'
+    AfterPost = gerAfterPost
+    AfterDelete = gerAfterDelete
+    AfterApplyUpdates = gerAfterApplyUpdates
+    Left = 320
+    Top = 72
+    object cdsUserUSUARIO_CDG: TIntegerField
+      FieldName = 'USUARIO_CDG'
+      Origin = '"CAD_USUARIO"."USUARIO_CDG"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object cdsUserUSUARIO_DESC: TStringField
+      FieldName = 'USUARIO_DESC'
+      Origin = '"CAD_USUARIO"."USUARIO_DESC"'
+      Size = 100
+    end
+    object cdsUserUSUARIO_SENHA: TStringField
+      FieldName = 'USUARIO_SENHA'
+      Origin = '"CAD_USUARIO"."USUARIO_SENHA"'
+      Size = 50
+    end
+  end
+  object dsUser: TDataSource
+    DataSet = cdsUser
+    Left = 320
     Top = 128
   end
 end

@@ -81,6 +81,12 @@ type
     cdsCondCOND_FORNECEDOR: TStringField;
     cdsCondCOND_INCORPORADORA: TStringField;
     cdsCondCOND_INCORPCNPJ: TStringField;
+    dspUser: TDataSetProvider;
+    cdsUser: TClientDataSet;
+    dsUser: TDataSource;
+    cdsUserUSUARIO_CDG: TIntegerField;
+    cdsUserUSUARIO_DESC: TStringField;
+    cdsUserUSUARIO_SENHA: TStringField;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);

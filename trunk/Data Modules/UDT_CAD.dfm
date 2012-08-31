@@ -1,7 +1,7 @@
 object DTM_CAD: TDTM_CAD
   OldCreateOrder = False
-  Left = 240
-  Top = 225
+  Left = 86
+  Top = 488
   Height = 230
   Width = 729
   object dspCad: TDataSetProvider
@@ -19,7 +19,6 @@ object DTM_CAD: TDTM_CAD
     Top = 16
   end
   object cdsCad: TClientDataSet
-    Active = True
     Aggregates = <>
     FieldDefs = <
       item
@@ -346,7 +345,6 @@ object DTM_CAD: TDTM_CAD
     end
   end
   object cdsEmpre: TClientDataSet
-    Active = True
     Aggregates = <>
     IndexFieldNames = 'EMPRE_CDG'
     Params = <>
@@ -454,7 +452,6 @@ object DTM_CAD: TDTM_CAD
     Top = 16
   end
   object cdsCond: TClientDataSet
-    Active = True
     Aggregates = <>
     IndexFieldNames = 'COND_CDG'
     Params = <>
@@ -539,6 +536,45 @@ object DTM_CAD: TDTM_CAD
   object dsCond: TDataSource
     DataSet = cdsCond
     Left = 216
+    Top = 128
+  end
+  object dspUser: TDataSetProvider
+    DataSet = DTM_CAD_IBX.qryUser
+    Options = [poAllowCommandText]
+    UpdateMode = upWhereKeyOnly
+    Left = 320
+    Top = 16
+  end
+  object cdsUser: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspUser'
+    AfterPost = gerAfterPost
+    AfterDelete = gerAfterDelete
+    AfterApplyUpdates = gerAfterApplyUpdates
+    Left = 320
+    Top = 72
+    object cdsUserUSUARIO_CDG: TIntegerField
+      FieldName = 'USUARIO_CDG'
+      Origin = '"CAD_USUARIO"."USUARIO_CDG"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object cdsUserUSUARIO_DESC: TStringField
+      FieldName = 'USUARIO_DESC'
+      Origin = '"CAD_USUARIO"."USUARIO_DESC"'
+      Size = 100
+    end
+    object cdsUserUSUARIO_SENHA: TStringField
+      FieldName = 'USUARIO_SENHA'
+      Origin = '"CAD_USUARIO"."USUARIO_SENHA"'
+      Size = 50
+    end
+  end
+  object dsUser: TDataSource
+    DataSet = cdsUser
+    Left = 320
     Top = 128
   end
 end
