@@ -18,9 +18,9 @@ object FRM_EMPRE: TFRM_EMPRE
   object PC_Empresa: TPageControl
     Left = 0
     Top = 0
-    Width = 790
-    Height = 526
-    ActivePage = TabSheet1
+    Width = 798
+    Height = 530
+    ActivePage = TabSheet2
     Align = alClient
     TabOrder = 0
     object TabSheet1: TTabSheet

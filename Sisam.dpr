@@ -11,7 +11,8 @@ uses
   UDT_CAD_IBX in 'Data Modules\UDT_CAD_IBX.pas' {DTM_CAD_IBX: TDataModule},
   UDT_CAD in 'Data Modules\UDT_CAD.pas' {DTM_CAD: TDataModule},
   UDT_FINAN in 'Data Modules\UDT_FINAN.pas' {DTM_FINAN: TDataModule},
-  UDT_FINAN_IBX in 'Data Modules\UDT_FINAN_IBX.pas' {DTM_FINAN_IBX: TDataModule};
+  UDT_FINAN_IBX in 'Data Modules\UDT_FINAN_IBX.pas' {DTM_FINAN_IBX: TDataModule},
+  UFRMUser in 'Forms\UFRMUser.pas' {FRM_USER};
 
 {$R *.res}
 
@@ -30,5 +31,6 @@ begin
   Application.CreateForm(TFRM_CAD, FRM_CAD);
   Application.CreateForm(TFRM_EMPRE, FRM_EMPRE);
   Application.CreateForm(TFRM_COND, FRM_COND);
+  Application.CreateForm(TFRM_USER, FRM_USER);
   Application.Run;
 end.

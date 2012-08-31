@@ -7,6 +7,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryCad: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    Active = True
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (
@@ -341,6 +342,32 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       FieldName = 'COND_INCORPCNPJ'
       Origin = '"CAD_COND"."COND_INCORPCNPJ"'
       Size = 14
+    end
+  end
+  object qryUser: TIBQuery
+    Database = DTMGeral.Database
+    Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
+    SQL.Strings = (
+      'select * from CAD_USUARIO')
+    Left = 112
+    Top = 96
+    object qryUserUSUARIO_CDG: TIntegerField
+      FieldName = 'USUARIO_CDG'
+      Origin = '"CAD_USUARIO"."USUARIO_CDG"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object qryUserUSUARIO_DESC: TIBStringField
+      FieldName = 'USUARIO_DESC'
+      Origin = '"CAD_USUARIO"."USUARIO_DESC"'
+      Size = 100
+    end
+    object qryUserUSUARIO_SENHA: TIBStringField
+      FieldName = 'USUARIO_SENHA'
+      Origin = '"CAD_USUARIO"."USUARIO_SENHA"'
+      Size = 50
     end
   end
 end
