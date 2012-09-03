@@ -7,6 +7,7 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
   object qryCpg: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    Active = True
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (

@@ -1,7 +1,7 @@
 object DTM_CAD: TDTM_CAD
   OldCreateOrder = False
-  Left = 86
-  Top = 488
+  Left = 197
+  Top = 419
   Height = 230
   Width = 729
   object dspCad: TDataSetProvider
@@ -19,6 +19,7 @@ object DTM_CAD: TDTM_CAD
     Top = 16
   end
   object cdsCad: TClientDataSet
+    Active = True
     Aggregates = <>
     FieldDefs = <
       item
@@ -345,6 +346,7 @@ object DTM_CAD: TDTM_CAD
     end
   end
   object cdsEmpre: TClientDataSet
+    Active = True
     Aggregates = <>
     IndexFieldNames = 'EMPRE_CDG'
     Params = <>
@@ -452,6 +454,7 @@ object DTM_CAD: TDTM_CAD
     Top = 16
   end
   object cdsCond: TClientDataSet
+    Active = True
     Aggregates = <>
     IndexFieldNames = 'COND_CDG'
     Params = <>

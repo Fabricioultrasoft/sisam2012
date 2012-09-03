@@ -1,7 +1,7 @@
 object DTM_CAD: TDTM_CAD
   OldCreateOrder = False
-  Left = 240
-  Top = 225
+  Left = 86
+  Top = 488
   Height = 230
   Width = 729
   object dspCad: TDataSetProvider

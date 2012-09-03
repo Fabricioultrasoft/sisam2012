@@ -75,6 +75,10 @@ type
     qryCondCOND_FORNECEDOR: TIBStringField;
     qryCondCOND_INCORPORADORA: TIBStringField;
     qryCondCOND_INCORPCNPJ: TIBStringField;
+    qryUser: TIBQuery;
+    qryUserUSUARIO_CDG: TIntegerField;
+    qryUserUSUARIO_DESC: TIBStringField;
+    qryUserUSUARIO_SENHA: TIBStringField;
   private
     { Private declarations }
   public
