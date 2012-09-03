@@ -369,6 +369,7 @@ object FRMMenu: TFRMMenu
       Top = 2
       Caption = 'tbReceber'
       ImageIndex = 4
+      OnClick = tbReceberClick
     end
   end
   object imglMenu: TImageList

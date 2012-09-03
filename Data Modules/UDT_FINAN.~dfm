@@ -9,6 +9,9 @@ object DTM_FINAN: TDTM_FINAN
     Aggregates = <>
     Params = <>
     ProviderName = 'dspCpg'
+    AfterPost = gerAfterPost
+    AfterDelete = gerAfterDelete
+    AfterApplyUpdates = gerAfterApplyUpdates
     Left = 40
     Top = 80
     object cdsCpgCPG_DTVENC: TDateField

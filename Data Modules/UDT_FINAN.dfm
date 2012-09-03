@@ -101,4 +101,87 @@ object DTM_FINAN: TDTM_FINAN
     Left = 40
     Top = 152
   end
+  object dspCrb: TDataSetProvider
+    DataSet = DTM_FINAN_IBX.qryCrb
+    Options = [poAllowCommandText]
+    UpdateMode = upWhereKeyOnly
+    Left = 144
+    Top = 16
+  end
+  object cdsCrb: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspCrb'
+    AfterPost = gerAfterPost
+    AfterDelete = gerAfterDelete
+    AfterApplyUpdates = gerAfterApplyUpdates
+    Left = 144
+    Top = 80
+    object cdsCrbCRB_CONDOMINO: TStringField
+      FieldName = 'CRB_CONDOMINO'
+      Origin = '"CAD_CRB"."CRB_CONDOMINO"'
+      Size = 80
+    end
+    object cdsCrbCRB_TOT: TFloatField
+      FieldName = 'CRB_TOT'
+      Origin = '"CAD_CRB"."CRB_TOT"'
+    end
+    object cdsCrbCRB_VLRCOND: TFloatField
+      FieldName = 'CRB_VLRCOND'
+      Origin = '"CAD_CRB"."CRB_VLRCOND"'
+    end
+    object cdsCrbCRB_FRACAO: TFloatField
+      FieldName = 'CRB_FRACAO'
+      Origin = '"CAD_CRB"."CRB_FRACAO"'
+    end
+    object cdsCrbCRB_CDG: TIntegerField
+      FieldName = 'CRB_CDG'
+      Origin = '"CAD_CRB"."CRB_CDG"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object cdsCrbCRB_UNIDADE: TIntegerField
+      FieldName = 'CRB_UNIDADE'
+      Origin = '"CAD_CRB"."CRB_UNIDADE"'
+    end
+    object cdsCrbCRB_DTVENC: TDateField
+      FieldName = 'CRB_DTVENC'
+      Origin = '"CAD_CRB"."CRB_DTVENC"'
+    end
+    object cdsCrbCRB_DTVENCORIG: TDateField
+      FieldName = 'CRB_DTVENCORIG'
+      Origin = '"CAD_CRB"."CRB_DTVENCORIG"'
+    end
+    object cdsCrbCRB_DTPGTO: TDateField
+      FieldName = 'CRB_DTPGTO'
+      Origin = '"CAD_CRB"."CRB_DTPGTO"'
+    end
+    object cdsCrbCRB_JUROS: TFloatField
+      FieldName = 'CRB_JUROS'
+      Origin = '"CAD_CRB"."CRB_JUROS"'
+    end
+    object cdsCrbCRB_MULTA: TFloatField
+      FieldName = 'CRB_MULTA'
+      Origin = '"CAD_CRB"."CRB_MULTA"'
+    end
+    object cdsCrbCRB_RATEIO: TFloatField
+      FieldName = 'CRB_RATEIO'
+      Origin = '"CAD_CRB"."CRB_RATEIO"'
+    end
+    object cdsCrbCRB_BLOCO: TStringField
+      FieldName = 'CRB_BLOCO'
+      Origin = '"CAD_CRB"."CRB_BLOCO"'
+      Size = 8
+    end
+    object cdsCrbCRB_BAIXA: TSmallintField
+      FieldName = 'CRB_BAIXA'
+      Origin = '"CAD_CRB"."CRB_BAIXA"'
+    end
+  end
+  object dsCrb: TDataSource
+    DataSet = cdsCrb
+    Left = 144
+    Top = 152
+  end
 end

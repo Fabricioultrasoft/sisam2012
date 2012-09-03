@@ -13,7 +13,8 @@ uses
   UDT_FINAN in 'Data Modules\UDT_FINAN.pas' {DTM_FINAN: TDataModule},
   UDT_FINAN_IBX in 'Data Modules\UDT_FINAN_IBX.pas' {DTM_FINAN_IBX: TDataModule},
   UFRMUser in 'Forms\UFRMUser.pas' {FRM_USER},
-  UFRMCpg in 'Forms\UFRMCpg.pas' {FRM_CPG};
+  UFRMCpg in 'Forms\UFRMCpg.pas' {FRM_CPG},
+  UFRMCrb in 'Forms\UFRMCrb.pas' {FRM_CRB};
 
 {$R *.res}
 
@@ -34,5 +35,6 @@ begin
   Application.CreateForm(TFRM_EMPRE, FRM_EMPRE);
   Application.CreateForm(TFRM_COND, FRM_COND);
   Application.CreateForm(TFRM_CPG, FRM_CPG);
+  Application.CreateForm(TFRM_CRB, FRM_CRB);
   Application.Run;
 end.
