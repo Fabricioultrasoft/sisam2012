@@ -25,6 +25,21 @@ type
     qryCpgCPG_STATUS: TIBStringField;
     qryCpgCPG_OBS: TIBStringField;
     qryCpgCPG_CDG: TIntegerField;
+    qryCrb: TIBQuery;
+    qryCrbCRB_CONDOMINO: TIBStringField;
+    qryCrbCRB_TOT: TFloatField;
+    qryCrbCRB_VLRCOND: TFloatField;
+    qryCrbCRB_FRACAO: TFloatField;
+    qryCrbCRB_CDG: TIntegerField;
+    qryCrbCRB_UNIDADE: TIntegerField;
+    qryCrbCRB_DTVENC: TDateField;
+    qryCrbCRB_DTVENCORIG: TDateField;
+    qryCrbCRB_DTPGTO: TDateField;
+    qryCrbCRB_JUROS: TFloatField;
+    qryCrbCRB_MULTA: TFloatField;
+    qryCrbCRB_RATEIO: TFloatField;
+    qryCrbCRB_BLOCO: TIBStringField;
+    qryCrbCRB_BAIXA: TSmallintField;
   private
     { Private declarations }
   public

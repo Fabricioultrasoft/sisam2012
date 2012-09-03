@@ -88,4 +88,75 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       Required = True
     end
   end
+  object qryCrb: TIBQuery
+    Database = DTMGeral.Database
+    Transaction = DTMGeral.Transaction
+    Active = True
+    BufferChunks = 1000
+    CachedUpdates = False
+    SQL.Strings = (
+      'select * from CAD_CRB')
+    Left = 104
+    Top = 24
+    object qryCrbCRB_CONDOMINO: TIBStringField
+      FieldName = 'CRB_CONDOMINO'
+      Origin = '"CAD_CRB"."CRB_CONDOMINO"'
+      Size = 80
+    end
+    object qryCrbCRB_TOT: TFloatField
+      FieldName = 'CRB_TOT'
+      Origin = '"CAD_CRB"."CRB_TOT"'
+    end
+    object qryCrbCRB_VLRCOND: TFloatField
+      FieldName = 'CRB_VLRCOND'
+      Origin = '"CAD_CRB"."CRB_VLRCOND"'
+    end
+    object qryCrbCRB_FRACAO: TFloatField
+      FieldName = 'CRB_FRACAO'
+      Origin = '"CAD_CRB"."CRB_FRACAO"'
+    end
+    object qryCrbCRB_CDG: TIntegerField
+      FieldName = 'CRB_CDG'
+      Origin = '"CAD_CRB"."CRB_CDG"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object qryCrbCRB_UNIDADE: TIntegerField
+      FieldName = 'CRB_UNIDADE'
+      Origin = '"CAD_CRB"."CRB_UNIDADE"'
+    end
+    object qryCrbCRB_DTVENC: TDateField
+      FieldName = 'CRB_DTVENC'
+      Origin = '"CAD_CRB"."CRB_DTVENC"'
+    end
+    object qryCrbCRB_DTVENCORIG: TDateField
+      FieldName = 'CRB_DTVENCORIG'
+      Origin = '"CAD_CRB"."CRB_DTVENCORIG"'
+    end
+    object qryCrbCRB_DTPGTO: TDateField
+      FieldName = 'CRB_DTPGTO'
+      Origin = '"CAD_CRB"."CRB_DTPGTO"'
+    end
+    object qryCrbCRB_JUROS: TFloatField
+      FieldName = 'CRB_JUROS'
+      Origin = '"CAD_CRB"."CRB_JUROS"'
+    end
+    object qryCrbCRB_MULTA: TFloatField
+      FieldName = 'CRB_MULTA'
+      Origin = '"CAD_CRB"."CRB_MULTA"'
+    end
+    object qryCrbCRB_RATEIO: TFloatField
+      FieldName = 'CRB_RATEIO'
+      Origin = '"CAD_CRB"."CRB_RATEIO"'
+    end
+    object qryCrbCRB_BLOCO: TIBStringField
+      FieldName = 'CRB_BLOCO'
+      Origin = '"CAD_CRB"."CRB_BLOCO"'
+      Size = 8
+    end
+    object qryCrbCRB_BAIXA: TSmallintField
+      FieldName = 'CRB_BAIXA'
+      Origin = '"CAD_CRB"."CRB_BAIXA"'
+    end
+  end
 end
