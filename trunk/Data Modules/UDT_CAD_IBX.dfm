@@ -347,6 +347,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryUser: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    Active = True
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (

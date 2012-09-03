@@ -35,6 +35,7 @@ type
     procedure Calculadora1Click(Sender: TObject);
     procedure Sair1Click(Sender: TObject);
     procedure Calendrio1Click(Sender: TObject);
+    procedure tbPagarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -46,7 +47,7 @@ var
 
 implementation
 
-uses UFRMCad, UFRMEmpre, UFRMCond, UFRMUser;
+uses UFRMCad, UFRMEmpre, UFRMCond, UFRMUser, UFRMCpg;
 
 {$R *.dfm}
 
@@ -79,6 +80,11 @@ end;
 procedure TFRMMenu.Calendrio1Click(Sender: TObject);
 begin
   FRM_USER.ShowModal;
+end;
+
+procedure TFRMMenu.tbPagarClick(Sender: TObject);
+begin
+  FRM_CPG.ShowModal;
 end;
 
 end.

@@ -362,6 +362,7 @@ object FRMMenu: TFRMMenu
       Top = 2
       Caption = 'tbPagar'
       ImageIndex = 3
+      OnClick = tbPagarClick
     end
     object tbReceber: TToolButton
       Left = 535
