@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, UDT_CAD, DB, StdCtrls, Mask, DBCtrls, Grids, DBGrids,
-  ExtCtrls, Buttons;
+  ExtCtrls, Buttons, ImgList, ToolWin;
 
 type
   TFRM_EMPRE = class(TForm)
@@ -46,8 +46,24 @@ type
     DBEdit15: TDBEdit;
     Label16: TLabel;
     DBEdit16: TDBEdit;
-    DBNavigator1: TDBNavigator;
+    ToolBar1: TToolBar;
+    tbAdd: TToolButton;
+    imgButtons: TImageList;
+    tbOk: TToolButton;
+    tbDelete: TToolButton;
+    tbEdit: TToolButton;
+    tbCancel: TToolButton;
+    tbnext: TToolButton;
+    ToolButton1: TToolButton;
+    Label17: TLabel;
     procedure FormCreate(Sender: TObject);
+    procedure tbAddClick(Sender: TObject);
+    procedure tbOkClick(Sender: TObject);
+    procedure tbDeleteClick(Sender: TObject);
+    procedure tbEditClick(Sender: TObject);
+    procedure tbCancelClick(Sender: TObject);
+    procedure tbnextClick(Sender: TObject);
+    procedure ToolButton1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -69,6 +85,41 @@ begin
   DTM_CAD.cdsEmpre.Open;
 
   PC_Empresa.ActivePageIndex := 0;
+end;
+
+procedure TFRM_EMPRE.tbAddClick(Sender: TObject);
+begin
+  DTM_CAD.cdsEmpre.Insert;
+end;
+
+procedure TFRM_EMPRE.tbOkClick(Sender: TObject);
+begin
+  DTM_CAD.cdsEmpre.Post;
+end;
+
+procedure TFRM_EMPRE.tbDeleteClick(Sender: TObject);
+begin
+  DTM_CAD.cdsEmpre.Delete;
+end;
+
+procedure TFRM_EMPRE.tbEditClick(Sender: TObject);
+begin
+  DTM_CAD.cdsEmpre.Edit;
+end;
+
+procedure TFRM_EMPRE.tbCancelClick(Sender: TObject);
+begin
+  DTM_CAD.cdsEmpre.Cancel;
+end;
+
+procedure TFRM_EMPRE.tbnextClick(Sender: TObject);
+begin
+  DTM_CAD.cdsEmpre.Next;
+end;
+
+procedure TFRM_EMPRE.ToolButton1Click(Sender: TObject);
+begin
+  DTM_CAD.cdsEmpre.Prior;
 end;
 
 end.
