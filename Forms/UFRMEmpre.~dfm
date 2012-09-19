@@ -158,6 +158,7 @@ object FRM_EMPRE: TFRM_EMPRE
         Top = 233
         Width = 503
         Height = 1
+        AutoSize = False
         Color = clBlack
         ParentColor = False
       end
