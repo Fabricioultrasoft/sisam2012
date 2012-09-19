@@ -1,6 +1,6 @@
 object FRM_EMPRE: TFRM_EMPRE
-  Left = 284
-  Top = 136
+  Left = 426
+  Top = 216
   Width = 554
   Height = 510
   Caption = 'Cadastro de Empresa'
@@ -18,8 +18,8 @@ object FRM_EMPRE: TFRM_EMPRE
   object PC_Empresa: TPageControl
     Left = 0
     Top = 0
-    Width = 546
-    Height = 476
+    Width = 538
+    Height = 472
     ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0
@@ -32,6 +32,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 13
         Caption = 'CNPJ'
         FocusControl = DBEdit1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
       end
       object Label2: TLabel
         Left = 152
@@ -40,6 +46,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 13
         Caption = 'Inscri'#231#227'o Estadual'
         FocusControl = DBEdit2
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
       end
       object Label3: TLabel
         Left = 16
@@ -48,6 +60,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 13
         Caption = 'Inscri'#231#227'o Municipal'
         FocusControl = DBEdit3
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
       end
       object Label4: TLabel
         Left = 16
@@ -56,6 +74,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 13
         Caption = 'Raz'#227'o Social'
         FocusControl = DBEdit4
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
       end
       object Label5: TLabel
         Left = 16
@@ -64,6 +88,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 13
         Caption = 'Nome Fantasia'
         FocusControl = DBEdit5
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
       end
       object Label6: TLabel
         Left = 256
@@ -72,6 +102,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 13
         Caption = 'Telefone'
         FocusControl = DBEdit6
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
       end
       object Label7: TLabel
         Left = 160
@@ -80,6 +116,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 13
         Caption = 'Fax'
         FocusControl = DBEdit7
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
       end
       object Label8: TLabel
         Left = 16
@@ -88,6 +130,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 13
         Caption = 'Logradouro'
         FocusControl = DBEdit8
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
       end
       object Label9: TLabel
         Left = 264
@@ -96,6 +144,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 13
         Caption = 'Bairro'
         FocusControl = DBEdit9
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
       end
       object Label10: TLabel
         Left = 16
@@ -104,6 +158,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 13
         Caption = 'Cidade'
         FocusControl = DBEdit10
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
       end
       object Label11: TLabel
         Left = 96
@@ -112,6 +172,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 13
         Caption = 'UF'
         FocusControl = DBEdit11
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
       end
       object Label12: TLabel
         Left = 16
@@ -120,6 +186,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 13
         Caption = 'CEP'
         FocusControl = DBEdit12
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
       end
       object Label13: TLabel
         Left = 352
@@ -128,6 +200,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 13
         Caption = 'Logotipo'
         FocusControl = DBEdit13
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
       end
       object Label14: TLabel
         Left = 200
@@ -136,6 +214,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 13
         Caption = 'Email'
         FocusControl = DBEdit14
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
       end
       object Label15: TLabel
         Left = 16
@@ -144,6 +228,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 13
         Caption = 'Site'
         FocusControl = DBEdit15
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
       end
       object Label16: TLabel
         Left = 16
@@ -152,6 +242,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 13
         Caption = 'C'#243'digo'
         FocusControl = DBEdit16
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
       end
       object Label17: TLabel
         Left = 16
@@ -167,8 +263,15 @@ object FRM_EMPRE: TFRM_EMPRE
         Top = 24
         Width = 97
         Height = 21
+        Color = clInfoBk
         DataField = 'EMPRE_CNPJ'
         DataSource = dtsEmpre
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 0
       end
       object DBEdit2: TDBEdit
@@ -178,6 +281,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 21
         DataField = 'EMPRE_INSESTAD'
         DataSource = dtsEmpre
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 1
       end
       object DBEdit3: TDBEdit
@@ -187,6 +296,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 21
         DataField = 'EMPRE_INSMUNI'
         DataSource = dtsEmpre
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 2
       end
       object DBEdit4: TDBEdit
@@ -194,8 +309,15 @@ object FRM_EMPRE: TFRM_EMPRE
         Top = 72
         Width = 401
         Height = 21
+        Color = clInfoBk
         DataField = 'EMPRE_RAZAO'
         DataSource = dtsEmpre
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 3
       end
       object DBEdit5: TDBEdit
@@ -203,8 +325,15 @@ object FRM_EMPRE: TFRM_EMPRE
         Top = 112
         Width = 401
         Height = 21
+        Color = clInfoBk
         DataField = 'EMPRE_FANTASIA'
         DataSource = dtsEmpre
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 4
       end
       object DBEdit6: TDBEdit
@@ -214,6 +343,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 21
         DataField = 'EMPRE_TELEFONE'
         DataSource = dtsEmpre
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 5
       end
       object DBEdit7: TDBEdit
@@ -223,6 +358,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 21
         DataField = 'EMPRE_FAX'
         DataSource = dtsEmpre
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 6
       end
       object DBEdit8: TDBEdit
@@ -232,6 +373,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 21
         DataField = 'EMPRE_ENDERECO'
         DataSource = dtsEmpre
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 7
       end
       object DBEdit9: TDBEdit
@@ -241,6 +388,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 21
         DataField = 'EMPRE_BAIRRO'
         DataSource = dtsEmpre
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 8
       end
       object DBEdit10: TDBEdit
@@ -250,6 +403,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 21
         DataField = 'EMPRE_CID'
         DataSource = dtsEmpre
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 9
       end
       object DBEdit11: TDBEdit
@@ -259,6 +418,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 21
         DataField = 'EMPRE_UF'
         DataSource = dtsEmpre
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 10
       end
       object DBEdit12: TDBEdit
@@ -268,6 +433,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 21
         DataField = 'EMPRE_CEP'
         DataSource = dtsEmpre
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 11
       end
       object DBEdit13: TDBEdit
@@ -277,6 +448,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 21
         DataField = 'EMPRE_LOGOTIPO'
         DataSource = dtsEmpre
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 12
       end
       object DBEdit14: TDBEdit
@@ -286,6 +463,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 21
         DataField = 'EMPRE_EMAIL'
         DataSource = dtsEmpre
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 13
       end
       object DBEdit15: TDBEdit
@@ -295,6 +478,12 @@ object FRM_EMPRE: TFRM_EMPRE
         Height = 21
         DataField = 'EMPRE_SITE'
         DataSource = dtsEmpre
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 14
       end
       object DBEdit16: TDBEdit
@@ -302,8 +491,15 @@ object FRM_EMPRE: TFRM_EMPRE
         Top = 24
         Width = 41
         Height = 21
+        Color = clInfoBk
         DataField = 'EMPRE_CDG'
         DataSource = dtsEmpre
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 15
       end
       object ToolBar1: TToolBar
@@ -394,7 +590,7 @@ object FRM_EMPRE: TFRM_EMPRE
     Left = 452
     Top = 56
     Bitmap = {
-      494C010107000900040010001000FFFFFFFFFF00FFFFFFFFFFFFFFFF424D3600
+      494C010107000900040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000003000000001002000000000000030
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -794,6 +990,7 @@ object FRM_EMPRE: TFRM_EMPRE
       FC3FF8FFFDFFFFE3FC3FF87FF8FFFFE3FC3FE03FF07FFFC3FC3FC01FE03FFF87
       C003C01FC01FFF0FC0038007C00FFE1FC003C003C007FC3FC003E001E203F87F
       C003E201F203F0FFFC3FFF03FF83E1FFFC3FFF87FFC7C3FFFC3FFFC7FFCFC7FF
-      FC3FFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+      FC3FFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000000000000000000000000000000
+      000000000000}
   end
 end
