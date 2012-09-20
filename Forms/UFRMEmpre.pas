@@ -22,27 +22,16 @@ type
     tbEdit: TToolButton;
     tbCancel: TToolButton;
     tbnext: TToolButton;
-    ToolButton1: TToolButton;
     GroupBox1: TGroupBox;
     Label12: TLabel;
-    DBEdit12: TDBEdit;
     Label8: TLabel;
-    DBEdit8: TDBEdit;
     Label10: TLabel;
-    DBEdit10: TDBEdit;
     Label15: TLabel;
-    DBEdit15: TDBEdit;
-    DBEdit14: TDBEdit;
     Label14: TLabel;
-    DBEdit13: TDBEdit;
     Label13: TLabel;
-    DBEdit6: TDBEdit;
     Label6: TLabel;
-    DBEdit7: TDBEdit;
     Label7: TLabel;
-    DBEdit11: TDBEdit;
     Label11: TLabel;
-    DBEdit9: TDBEdit;
     Label9: TLabel;
     Label18: TLabel;
     Label19: TLabel;
@@ -68,11 +57,22 @@ type
     Label1: TLabel;
     DBEdit1: TDBEdit;
     Label17: TLabel;
-    DBEdit17: TDBEdit;
     Label28: TLabel;
     Label29: TLabel;
+    tbPrior: TToolButton;
+    DBEdit12: TDBEdit;
+    DBEdit9: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBEdit17: TDBEdit;
+    DBEdit15: TDBEdit;
     DBEdit18: TDBEdit;
+    DBEdit10: TDBEdit;
+    DBEdit8: TDBEdit;
+    DBEdit11: TDBEdit;
+    DBEdit13: TDBEdit;
     DBEdit19: TDBEdit;
+    DBEdit14: TDBEdit;
+    DBEdit7: TDBEdit;
     procedure FormCreate(Sender: TObject);
     procedure tbAddClick(Sender: TObject);
     procedure tbOkClick(Sender: TObject);
@@ -80,7 +80,7 @@ type
     procedure tbEditClick(Sender: TObject);
     procedure tbCancelClick(Sender: TObject);
     procedure tbnextClick(Sender: TObject);
-    procedure ToolButton1Click(Sender: TObject);
+    procedure tbPriorClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -134,7 +134,9 @@ begin
   DTM_CAD.cdsEmpre.Next;
 end;
 
-procedure TFRM_EMPRE.ToolButton1Click(Sender: TObject);
+
+
+procedure TFRM_EMPRE.tbPriorClick(Sender: TObject);
 begin
   DTM_CAD.cdsEmpre.Prior;
 end;

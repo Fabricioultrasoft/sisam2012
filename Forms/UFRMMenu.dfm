@@ -10685,10 +10685,20 @@ object FRMMenu: TFRMMenu
     Images = imglMenu
     Left = 648
     Top = 128
+    object actEmpre: TAction
+      Caption = 'actEmpre'
+      OnExecute = actEmpreExecute
+    end
   end
   object MainMenu1: TMainMenu
     Left = 616
     Top = 128
+    object Mdulos1: TMenuItem
+      Caption = 'M'#243'dulos'
+      object Empresa1: TMenuItem
+        Action = actEmpre
+      end
+    end
     object Ferramentas1: TMenuItem
       Caption = '&Ferramentas'
       object Calculadora1: TMenuItem

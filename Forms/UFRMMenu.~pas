@@ -48,7 +48,7 @@ var
 
 implementation
 
-uses UFRMCad, UFRMEmpre, UFRMCond, UFRMUser, UFRMCpg;
+uses UFRMCad, UFRMEmpre, UFRMCond, UFRMUser, UFRMCpg, UFRMCrb;
 
 {$R *.dfm}
 
