@@ -64,7 +64,7 @@ end;
 procedure TFRMMenu.tbEmpresaClick(Sender: TObject);
 begin
   //CreateForm(Self, TFRM_EMPRE, FRM_EMPRE);
-  FRM_EMPRE.ShowModal;
+  //FRM_EMPRE.Show;
 end;
 
 procedure TFRMMenu.tbCadastroClick(Sender: TObject);
@@ -99,7 +99,13 @@ end;
 
 procedure TFRMMenu.actEmpreExecute(Sender: TObject);
 begin
-//  CreateForm(Self, TFRM_EMPRE, FRM_EMPRE);
+  Application.CreateForm(TFRM_EMPRE, FRM_EMPRE); //cria o form
+   try
+  FRM_EMPRE.Show; //mostra ele
+  finally
+  FRM_EMPRE.Release; //libera todas as informações
+  FRM_EMPRE := nil; //limpa ele da memória
+   end;
 end;
 
 end.
