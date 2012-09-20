@@ -29,6 +29,9 @@ type
     Sobre1: TMenuItem;
     Sisam1: TMenuItem;
     Help1: TMenuItem;
+    Mdulos1: TMenuItem;
+    actEmpre: TAction;
+    Empresa1: TMenuItem;
     procedure ToolButton1Click(Sender: TObject);
     procedure tbEmpresaClick(Sender: TObject);
     procedure tbCadastroClick(Sender: TObject);
@@ -37,6 +40,7 @@ type
     procedure Calendrio1Click(Sender: TObject);
     procedure tbPagarClick(Sender: TObject);
     procedure tbReceberClick(Sender: TObject);
+    procedure actEmpreExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -91,6 +95,11 @@ end;
 procedure TFRMMenu.tbReceberClick(Sender: TObject);
 begin
   FRM_CRB.ShowModal;
+end;
+
+procedure TFRMMenu.actEmpreExecute(Sender: TObject);
+begin
+//  CreateForm(Self, TFRM_EMPRE, FRM_EMPRE);
 end;
 
 end.
