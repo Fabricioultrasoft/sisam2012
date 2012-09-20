@@ -5,11 +5,13 @@ object FRMMenu: TFRMMenu
   Height = 509
   Caption = 'Menu'
   Color = clBtnFace
+  DefaultMonitor = dmMainForm
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
+  FormStyle = fsMDIForm
   Icon.Data = {
     0000010001001010000000000000680500001600000028000000100000002000
     0000010008000000000000010000000000000000000000010000000000000000
@@ -333,9 +335,7 @@ object FRMMenu: TFRMMenu
     object tbEmpresa: TToolButton
       Left = 0
       Top = 2
-      Caption = 'tbEmpresa'
-      ImageIndex = 0
-      OnClick = tbEmpresaClick
+      Action = actEmpre
     end
     object tbCadastro: TToolButton
       Left = 107
