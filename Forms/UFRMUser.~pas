@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Mask, DBCtrls;
+  Dialogs, StdCtrls, Mask, DBCtrls, ExtCtrls;
 
 type
   TFRM_USER = class(TForm)
@@ -14,6 +14,7 @@ type
     DBEdit2: TDBEdit;
     Label3: TLabel;
     DBEdit3: TDBEdit;
+    DBNavigator1: TDBNavigator;
   private
     { Private declarations }
   public

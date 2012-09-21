@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, UDT_CAD, DB, StdCtrls, Mask, DBCtrls, Grids, DBGrids,
-  ExtCtrls, Buttons, ImgList, ToolWin, UFuncoes;
+  ExtCtrls, Buttons, ImgList, ToolWin, ufuncoes;
 
 type
   TFRM_EMPRE = class(TForm)
@@ -96,7 +96,7 @@ var
 
 implementation
 
-uses UDTMGeral;
+uses UDTMGeral, SqlConst;
 
 {$R *.dfm}
 
@@ -158,7 +158,7 @@ begin
    SQL := SQL + #13 + Where;
 
   DTM_CAD.cdsEmpre.Close;
-//  DTM_CAD.cdsEmpre.Set(SQL);
+  DTM_CAD.cdsEmpre.Set(SQL);
   DTM_CAD.cdsEmpre.Open;
 end;
 

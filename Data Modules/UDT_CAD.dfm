@@ -546,6 +546,7 @@ object DTM_CAD: TDTM_CAD
     Top = 16
   end
   object cdsUser: TClientDataSet
+    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'dspUser'

@@ -85,6 +85,7 @@ type
     procedure tbnextClick(Sender: TObject);
     procedure tbPriorClick(Sender: TObject);
     procedure btnPesqClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -158,8 +159,14 @@ begin
    SQL := SQL + #13 + Where;
 
   DTM_CAD.cdsEmpre.Close;
-  DTM_CAD.cdsEmpre.Set(SQL);
+  //DTM_CAD.cdsEmpre.SetSqlCommand(SQL);
   DTM_CAD.cdsEmpre.Open;
+end;
+
+procedure TFRM_EMPRE.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+ Action:= cafree;
+ FRM_EMPRE := nil ;
 end;
 
 end.
