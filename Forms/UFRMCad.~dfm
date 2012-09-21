@@ -1,8 +1,8 @@
 object FRM_CAD: TFRM_CAD
-  Left = 234
-  Top = 120
+  Left = 358
+  Top = 209
   Width = 754
-  Height = 536
+  Height = 670
   Caption = 'Cadastro Diverso'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -18,8 +18,8 @@ object FRM_CAD: TFRM_CAD
   object PC_Cadastro: TPageControl
     Left = 0
     Top = 0
-    Width = 746
-    Height = 502
+    Width = 738
+    Height = 632
     ActivePage = tabCadastro
     Align = alClient
     TabOrder = 0
@@ -478,7 +478,7 @@ object FRM_CAD: TFRM_CAD
       end
       object DBCheckBox1: TDBCheckBox
         Left = 616
-        Top = 144
+        Top = 134
         Width = 97
         Height = 17
         Caption = 'Cond'#244'mino'
@@ -490,7 +490,7 @@ object FRM_CAD: TFRM_CAD
       end
       object DBCheckBox2: TDBCheckBox
         Left = 616
-        Top = 163
+        Top = 153
         Width = 97
         Height = 17
         Caption = 'Fornecedor'
@@ -502,13 +502,25 @@ object FRM_CAD: TFRM_CAD
       end
       object DBCheckBox3: TDBCheckBox
         Left = 616
-        Top = 182
+        Top = 172
         Width = 97
         Height = 17
         Caption = 'S'#237'ndico'
         DataField = 'FORN_TPSINDICO'
         DataSource = dtsCad
         TabOrder = 29
+        ValueChecked = '1'
+        ValueUnchecked = '0'
+      end
+      object DBCheckBox4: TDBCheckBox
+        Left = 616
+        Top = 191
+        Width = 97
+        Height = 17
+        Caption = 'Incorporadora'
+        DataField = 'FORN_TPINCORPORADORA'
+        DataSource = dtsCad
+        TabOrder = 30
         ValueChecked = '1'
         ValueUnchecked = '0'
       end
@@ -530,18 +542,6 @@ object FRM_CAD: TFRM_CAD
         TitleFont.Style = []
       end
     end
-  end
-  object DBCheckBox5: TDBCheckBox
-    Left = 620
-    Top = 224
-    Width = 97
-    Height = 17
-    Caption = 'Incorporadora'
-    DataField = 'FORN_TPINCORPORADORA'
-    DataSource = dtsCad
-    TabOrder = 1
-    ValueChecked = '1'
-    ValueUnchecked = '0'
   end
   object dtsCad: TDataSource
     DataSet = DTM_CAD.cdsCad

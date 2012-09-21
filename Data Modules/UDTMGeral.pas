@@ -3,7 +3,7 @@ unit UDTMGeral;
 interface
 
 uses
-  SysUtils, Classes, IBDatabase, DB, DBClient, DBLocal,
+  SysUtils, Classes, IBDatabase, DB, DBClient, DBLocal, ufuncoes,
   IBCustomDataSet, IBUpdateSQL, Provider, IBQuery;
 
 type
@@ -36,27 +36,23 @@ implementation
 procedure TDTMGeral.DataModuleCreate(Sender: TObject);
 begin
   // Desconectando
-
   Database.Connected := False;
   Transaction.Active := False;
 
   // Parametrizando Database
-
   Database.DefaultTransaction := Transaction;
   Database.Params.Clear;
-  Database.Params.Add('user_name=SYSDBA');
-  Database.Params.Add('password=masterkey');
+  Database.Params.Add('user_name=' + LerSessaoIni('GERAL','USUARIO') );
+  Database.Params.Add('password='+LerSessaoIni('GERAL','SENHA') );
   Database.Params.Add('lc_ctype=ISO8859_1');
-  Database.DatabaseName := 'C:\Sisam\Database\AMARILLIS.FDB';
+  Database.DatabaseName :=LerSessaoIni('GERAL','CAMINHO_BANCO');
   Database.LoginPrompt := False;
   Database.SQLDialect := 3;
 
   // Parametrizando Transaction
-
   Transaction.DefaultDatabase := Database;
 
   // Conectando
-
   Database.Connected := True;
   Transaction.Active := True;
 end;

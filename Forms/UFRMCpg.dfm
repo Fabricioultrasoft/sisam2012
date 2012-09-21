@@ -17,8 +17,8 @@ object FRM_CPG: TFRM_CPG
   object pgControl: TPageControl
     Left = 0
     Top = 0
-    Width = 688
-    Height = 509
+    Width = 680
+    Height = 505
     ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0

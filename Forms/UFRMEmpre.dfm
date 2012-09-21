@@ -151,7 +151,7 @@ object FRM_EMPRE: TFRM_EMPRE
     Top = 0
     Width = 702
     Height = 500
-    ActivePage = TabSheet2
+    ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0
     object TabSheet1: TTabSheet
@@ -822,6 +822,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -833,6 +834,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -844,6 +846,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -855,6 +858,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -866,6 +870,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -877,6 +882,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -888,6 +894,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -899,6 +906,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -910,6 +918,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -921,6 +930,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -932,6 +942,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -943,6 +954,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -954,6 +966,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item

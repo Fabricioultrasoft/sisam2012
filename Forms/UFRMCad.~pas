@@ -69,7 +69,7 @@ type
     DBCheckBox1: TDBCheckBox;
     DBCheckBox2: TDBCheckBox;
     DBCheckBox3: TDBCheckBox;
-    DBCheckBox5: TDBCheckBox;
+    DBCheckBox4: TDBCheckBox;
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }

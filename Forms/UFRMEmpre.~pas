@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, UDT_CAD, DB, StdCtrls, Mask, DBCtrls, Grids, DBGrids,
-  ExtCtrls, Buttons, ImgList, ToolWin;
+  ExtCtrls, Buttons, ImgList, ToolWin, UFuncoes;
 
 type
   TFRM_EMPRE = class(TForm)
@@ -138,8 +138,6 @@ begin
   DTM_CAD.cdsEmpre.Next;
 end;
 
-
-
 procedure TFRM_EMPRE.tbPriorClick(Sender: TObject);
 begin
   DTM_CAD.cdsEmpre.Prior;
@@ -151,17 +149,17 @@ begin
   Empre := '';
   Where := '';
 
-  if (Trim(dbEmpre.Text <> '')) then
+  if ((dbEmpre.Text <> '')) then
    Empre := dbEmpre.text;
 
-  Where := Where + #13 + ' (EMPRE_RAZAO LIKE + 'QuotStr(Empre)' +) ';
+  Where := Where + #13 + ' (EMPRE_RAZAO LIKE '+ QuotedStr(Empre) +') ';
 
   If (Trim(Where) <> '') then
-   SQL = SQL + #13 + Where;
+   SQL := SQL + #13 + Where;
 
   DTM_CAD.cdsEmpre.Close;
-  DTM_CAD.cdsEmpre.SqlCommand(SQL);
-  DTM_CAD.cdsEmpre.Open;  
+//  DTM_CAD.cdsEmpre.Set(SQL);
+  DTM_CAD.cdsEmpre.Open;
 end;
 
 end.

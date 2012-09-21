@@ -1,15 +1,17 @@
 object FRMMenu: TFRMMenu
-  Left = 253
-  Top = 131
-  Width = 698
-  Height = 509
+  Left = 307
+  Top = 177
+  Width = 883
+  Height = 740
   Caption = 'Menu'
   Color = clBtnFace
+  DefaultMonitor = dmMainForm
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
+  FormStyle = fsMDIForm
   Icon.Data = {
     0000010001001010000000000000680500001600000028000000100000002000
     0000010008000000000000010000000000000000000000010000000000000000
@@ -315,7 +317,7 @@ object FRMMenu: TFRMMenu
   object StatusBar: TStatusBar
     Left = 0
     Top = 0
-    Width = 825
+    Width = 867
     Height = 5
     Align = alTop
     Panels = <>
@@ -323,7 +325,7 @@ object FRMMenu: TFRMMenu
   object ToolBar1: TToolBar
     Left = 0
     Top = 5
-    Width = 825
+    Width = 867
     Height = 84
     ButtonHeight = 81
     ButtonWidth = 107
@@ -333,9 +335,7 @@ object FRMMenu: TFRMMenu
     object tbEmpresa: TToolButton
       Left = 0
       Top = 2
-      Caption = 'tbEmpresa'
-      ImageIndex = 0
-      OnClick = tbEmpresaClick
+      Action = actEmpre
     end
     object tbCadastro: TToolButton
       Left = 107

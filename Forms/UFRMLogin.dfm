@@ -1,8 +1,8 @@
 object FRMLogin: TFRMLogin
-  Left = 558
-  Top = 399
+  Left = 543
+  Top = 373
   Width = 368
-  Height = 298
+  Height = 281
   Caption = 'Sisam'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -10,8 +10,10 @@ object FRMLogin: TFRMLogin
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
+  FormStyle = fsStayOnTop
   OldCreateOrder = False
-  Position = poScreenCenter
+  Position = poMainFormCenter
+  Visible = True
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -73,7 +75,6 @@ object FRMLogin: TFRMLogin
     Top = 131
     Width = 201
     Height = 23
-    CharCase = ecUpperCase
     Font.Charset = ANSI_CHARSET
     Font.Color = clBlack
     Font.Height = -12
