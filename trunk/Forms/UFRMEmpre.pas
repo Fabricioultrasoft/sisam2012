@@ -73,6 +73,9 @@ type
     DBEdit19: TDBEdit;
     DBEdit14: TDBEdit;
     DBEdit7: TDBEdit;
+    btnPesq: TBitBtn;
+    dbEmpre: TDBEdit;
+    Label30: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure tbAddClick(Sender: TObject);
     procedure tbOkClick(Sender: TObject);
@@ -81,6 +84,7 @@ type
     procedure tbCancelClick(Sender: TObject);
     procedure tbnextClick(Sender: TObject);
     procedure tbPriorClick(Sender: TObject);
+    procedure btnPesqClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -134,11 +138,28 @@ begin
   DTM_CAD.cdsEmpre.Next;
 end;
 
-
-
 procedure TFRM_EMPRE.tbPriorClick(Sender: TObject);
 begin
   DTM_CAD.cdsEmpre.Prior;
+end;
+
+procedure TFRM_EMPRE.btnPesqClick(Sender: TObject);
+Var Empre, Where, SQL : String;
+begin
+  Empre := '';
+  Where := '';
+
+  if ((dbEmpre.Text <> '')) then
+   Empre := dbEmpre.text;
+
+  Where := Where + #13 + ' (EMPRE_RAZAO LIKE '+ QuotedStr(Empre) +') ';
+
+  If (Trim(Where) <> '') then
+   SQL := SQL + #13 + Where;
+
+  DTM_CAD.cdsEmpre.Close;
+  DTM_CAD.cdsEmpre.CommandText(SQL);
+  DTM_CAD.cdsEmpre.Open;  
 end;
 
 end.
