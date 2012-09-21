@@ -109,13 +109,16 @@ end;
 
 procedure TFRMMenu.actEmpreExecute(Sender: TObject);
 begin
+  if FRM_EMPRE = nil then
+    FRM_EMPRE:= TFRM_EMPRE.create(self);
+  FRM_CRB.ShowModal;{
   Application.CreateForm(TFRM_EMPRE, FRM_EMPRE); //cria o form
    try
   FRM_EMPRE.Show; //mostra ele
   finally
   FRM_EMPRE.Release; //libera todas as informações
   FRM_EMPRE := nil; //limpa ele da memória
-   end;
+   end;                                   }
 end;
 
 end.
