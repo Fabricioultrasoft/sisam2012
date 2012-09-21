@@ -10,7 +10,6 @@ object FRM_EMPRE: TFRM_EMPRE
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
-  FormStyle = fsMDIChild
   OldCreateOrder = False
   Position = poScreenCenter
   Visible = True
@@ -150,9 +149,9 @@ object FRM_EMPRE: TFRM_EMPRE
   object PC_Empresa: TPageControl
     Left = 0
     Top = 0
-    Width = 694
-    Height = 496
-    ActivePage = TabSheet1
+    Width = 702
+    Height = 500
+    ActivePage = TabSheet2
     Align = alClient
     TabOrder = 0
     object TabSheet1: TTabSheet
@@ -777,6 +776,19 @@ object FRM_EMPRE: TFRM_EMPRE
     object TabSheet2: TTabSheet
       Caption = 'Consulta'
       ImageIndex = 1
+      object Label30: TLabel
+        Left = 32
+        Top = 32
+        Width = 44
+        Height = 13
+        Caption = 'Empresa:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
       object DBGrid1: TDBGrid
         Left = 24
         Top = 168
@@ -789,6 +801,196 @@ object FRM_EMPRE: TFRM_EMPRE
         TitleFont.Height = -11
         TitleFont.Name = 'MS Sans Serif'
         TitleFont.Style = []
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'EMPRE_CNPJ'
+            Title.Caption = 'CNPJ'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'EMPRE_INSESTAD'
+            Title.Caption = 'Insc. Estadual'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'EMPRE_INSMUNI'
+            Title.Caption = 'Insc. Municipal'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'EMPRE_RAZAO'
+            Title.Caption = 'Raz'#227'o Social'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'EMPRE_FANTASIA'
+            Title.Caption = 'Nome Fantasia'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'EMPRE_TELEFONE'
+            Title.Caption = 'Telefone'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'EMPRE_FAX'
+            Title.Caption = 'Fax'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'EMPRE_ENDERECO'
+            Title.Caption = 'Logradouro'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'EMPRE_BAIRRO'
+            Title.Caption = 'Bairro'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'EMPRE_CID'
+            Title.Caption = 'Cidade'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'EMPRE_UF'
+            Title.Caption = 'UF'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'EMPRE_CEP'
+            Title.Caption = 'Cep'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'EMPRE_EMAIL'
+            Title.Caption = 'Email'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'EMPRE_SITE'
+            Title.Caption = 'Site'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'EMPRE_CDG'
+            Title.Caption = 'C'#243'digo'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Visible = True
+          end>
+      end
+      object btnPesq: TBitBtn
+        Left = 224
+        Top = 32
+        Width = 75
+        Height = 25
+        Caption = 'Pesquisar'
+        TabOrder = 1
+        OnClick = btnPesqClick
+      end
+      object dbEmpre: TDBEdit
+        Left = 80
+        Top = 32
+        Width = 121
+        Height = 21
+        DataField = 'EMPRE_RAZAO'
+        DataSource = dtsEmpre
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
       end
     end
   end
