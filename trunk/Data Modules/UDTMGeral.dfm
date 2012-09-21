@@ -1,29 +1,32 @@
 object DTMGeral: TDTMGeral
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Left = 358
-  Top = 213
+  Left = 508
+  Top = 270
   Height = 318
   Width = 362
   object Database: TIBDatabase
-    Connected = True
-    DatabaseName = 'C:\Sisam\Database\AMARILLIS.FDB'
+    DatabaseName = 'C:\Sisam2012\Database\AMARILLIS.FDB'
     Params.Strings = (
       'user_name=SYSDBA'
       'password=masterkey'
       'lc_ctype=ISO8859_1')
     LoginPrompt = False
     DefaultTransaction = Transaction
+    IdleTimer = 0
+    SQLDialect = 3
+    TraceFlags = []
     Left = 16
     Top = 16
   end
   object Transaction: TIBTransaction
-    Active = True
+    Active = False
     DefaultDatabase = Database
     Params.Strings = (
       'read_committed'
       'rec_version'
       'nowait')
+    AutoStopAction = saNone
     Left = 72
     Top = 16
   end

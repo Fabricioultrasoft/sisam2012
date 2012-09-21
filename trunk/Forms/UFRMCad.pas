@@ -2,9 +2,11 @@ unit UFRMCad;
 
 interface
 
-uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, DBCtrls, DB, StdCtrls, Mask, ComCtrls, Grids, DBGrids,UDT_CAD;
+  uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, ufuncoes,
+  Dialogs, ComCtrls, UDT_CAD, DB, StdCtrls, Mask, DBCtrls, Grids, DBGrids,
+  ExtCtrls, Buttons, ImgList, ToolWin;
+
 
 type
   TFRM_CAD = class(TForm)

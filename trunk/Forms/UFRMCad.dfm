@@ -1,8 +1,8 @@
 object FRM_CAD: TFRM_CAD
-  Left = 234
-  Top = 120
+  Left = 358
+  Top = 209
   Width = 754
-  Height = 536
+  Height = 670
   Caption = 'Cadastro Diverso'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -19,7 +19,7 @@ object FRM_CAD: TFRM_CAD
     Left = 0
     Top = 0
     Width = 746
-    Height = 502
+    Height = 636
     ActivePage = tabCadastro
     Align = alClient
     TabOrder = 0

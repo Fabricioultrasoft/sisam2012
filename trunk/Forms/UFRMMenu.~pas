@@ -58,17 +58,21 @@ uses UFRMCad, UFRMEmpre, UFRMCond, UFRMUser, UFRMCpg, UFRMCrb;
 
 procedure TFRMMenu.ToolButton1Click(Sender: TObject);
 begin
+  if frm_cond = nil then
+    frm_cond := tfrm_cond.create(self);
   FRM_COND.ShowModal;
 end;
 
 procedure TFRMMenu.tbEmpresaClick(Sender: TObject);
 begin
   //CreateForm(Self, TFRM_EMPRE, FRM_EMPRE);
-  FRM_EMPRE.ShowModal;
+  //FRM_EMPRE.Show;
 end;
 
 procedure TFRMMenu.tbCadastroClick(Sender: TObject);
 begin
+  if FRM_CAD = nil then
+    FRM_CAD:= TFRM_CAD.create(self);
   FRM_CAD.ShowModal;
 end;
 
@@ -84,22 +88,34 @@ end;
 
 procedure TFRMMenu.Calendrio1Click(Sender: TObject);
 begin
+  if FRM_USER = nil then
+    FRM_USER:= TFRM_USER.create(self);
   FRM_USER.ShowModal;
 end;
 
 procedure TFRMMenu.tbPagarClick(Sender: TObject);
 begin
+  if FRM_CPG = nil then
+    FRM_CPG:= TFRM_CPG.create(self);
   FRM_CPG.ShowModal;
 end;
 
 procedure TFRMMenu.tbReceberClick(Sender: TObject);
 begin
+  if FRM_CRB = nil then
+    FRM_CRB:= TFRM_CRB.create(self);
   FRM_CRB.ShowModal;
 end;
 
 procedure TFRMMenu.actEmpreExecute(Sender: TObject);
 begin
-//  CreateForm(Self, TFRM_EMPRE, FRM_EMPRE);
+  Application.CreateForm(TFRM_EMPRE, FRM_EMPRE); //cria o form
+   try
+  FRM_EMPRE.Show; //mostra ele
+  finally
+  FRM_EMPRE.Release; //libera todas as informações
+  FRM_EMPRE := nil; //limpa ele da memória
+   end;
 end;
 
 end.

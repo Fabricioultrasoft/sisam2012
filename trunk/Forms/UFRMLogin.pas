@@ -3,7 +3,7 @@ unit UFRMLogin;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, ufuncoes,
   Dialogs, StdCtrls, Buttons, UDTMGeral;
 
 type
@@ -53,11 +53,14 @@ end;
 
 procedure TFRMLogin.btnEntrarClick(Sender: TObject);
 begin
-  if Verifica then
+    if Verifica then
+  begin
     DTMGeral.cdsGeral.Close;
-    DTMGeral.qryGeral.sql.add(' SELECT * FROM CAD_USUARIO ' + #13 +
-                                    ' WHERE USUARIO_DESC  = :user  AND ' + #13 +
-                                    '       USUARIO_SENHA = :senha   ');
+    setsqlcommand(' SELECT 1 FROM CAD_USUARIO                       ' + #13 +
+                  ' WHERE UPPER(USUARIO_DESC) = UPPER(:user)  AND   ' + #13 +
+                  '       USUARIO_SENHA = :senha   ',
+                  DTMGeral.cdsgeral);
+
     DTMGeral.cdsGeral.Params.ParamByName('user').AsString := edtUsuario.Text;
     DTMGeral.cdsGeral.Params.ParamByName('senha').AsString := edtSenha.Text;
     DTMGeral.cdsGeral.Open;
@@ -74,10 +77,12 @@ begin
       DTMGeral.qryLogin.Close;
       ModalResult := mrYes;
       Hide;
+      IF FRMMenu = NIL then
+        FRMMenu :=  TFRMMenu.Create(self);
+      FRMMenu.ShowModal;
     end;
-
-  FRMMenu.ShowModal;
- end;
+  end;
+end;
 
 procedure TFRMLogin.FormShow(Sender: TObject);
 begin
