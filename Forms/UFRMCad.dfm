@@ -12,14 +12,15 @@ object FRM_CAD: TFRM_CAD
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnClose = FormClose
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object PC_Cadastro: TPageControl
     Left = 0
     Top = 0
-    Width = 746
-    Height = 636
+    Width = 738
+    Height = 632
     ActivePage = tabCadastro
     Align = alClient
     TabOrder = 0

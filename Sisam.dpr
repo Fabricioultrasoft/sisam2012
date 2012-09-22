@@ -16,7 +16,9 @@ uses
   UFRMCpg in 'Forms\UFRMCpg.pas' {FRM_CPG},
   UFRMCrb in 'Forms\UFRMCrb.pas' {FRM_CRB},
   UFuncoes in 'UFuncoes.pas',
-  SqlConst in 'Lib\SqlConst.pas';
+  SqlConst in 'Lib\SqlConst.pas',
+  UTrocarSenha in 'Forms\Acessos\UTrocarSenha.pas' {FRMTrocarSenha},
+  Registro in 'Forms\Acessos\registro.pas';
 
 {$R *.res}
 
@@ -30,6 +32,7 @@ begin
   Application.CreateForm(TDTM_FINAN_IBX, DTM_FINAN_IBX);
   Application.CreateForm(TDTM_FINAN, DTM_FINAN);
   Application.CreateForm(TFRMLogin, FRMLogin);
+  Application.CreateForm(TFRMTrocarSenha, FRMTrocarSenha);
   Application.ShowMainForm:=false;
   Application.Run;
   //FRMLogin.Show;

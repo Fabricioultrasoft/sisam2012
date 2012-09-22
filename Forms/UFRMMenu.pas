@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, ExtCtrls, ComCtrls, ToolWin, Menus, ImgList,
-  ActnList, jpeg;
+  ActnList, ufuncoes, jpeg;
 
 type
   TFRMMenu = class(TForm)
@@ -32,6 +32,10 @@ type
     Mdulos1: TMenuItem;
     actEmpre: TAction;
     Empresa1: TMenuItem;
+    Principal1: TMenuItem;
+    SairAltF41: TMenuItem;
+    Logoff1: TMenuItem;
+    AlterarSenhaF21: TMenuItem;
     procedure ToolButton1Click(Sender: TObject);
     procedure tbEmpresaClick(Sender: TObject);
     procedure tbCadastroClick(Sender: TObject);
@@ -41,8 +45,16 @@ type
     procedure tbPagarClick(Sender: TObject);
     procedure tbReceberClick(Sender: TObject);
     procedure actEmpreExecute(Sender: TObject);
+    procedure Help1Click(Sender: TObject);
+    procedure SairAltF41Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure AlterarSenhaF21Click(Sender: TObject);
+    procedure Logoff1Click(Sender: TObject);
   private
     { Private declarations }
+    procedure trocarSenha(modo:integer);
+    procedure deslogar(relogar: boolean);
+    procedure logoff;
   public
     { Public declarations }
   end;
@@ -52,7 +64,8 @@ var
 
 implementation
 
-uses UFRMCad, UFRMEmpre, UFRMCond, UFRMUser, UFRMCpg, UFRMCrb;
+uses UFRMCad, UFRMEmpre, UFRMCond, UFRMUser, UFRMCpg, UFRMCrb,
+  UTrocarSenha, UFRMLogin, UDTMGeral;
 
 {$R *.dfm}
 
@@ -119,6 +132,74 @@ begin
   FRM_EMPRE.Release; //libera todas as informações
   FRM_EMPRE := nil; //limpa ele da memória
    end;                                   }
+end;
+
+procedure TFRMMenu.Help1Click(Sender: TObject);
+var texto:string;
+begin
+texto:=#10+       #9+
+               'Sassim 2012 - Sistema Financeiro '+versao+' '+#10+
+               #9+#9+'------------'+#10+#10+
+               #9+'Licenciado  © 2012 Sisam  '+#10+
+               '                                      '+#10+#10+
+               #9+' - Versão '+versao+'  -  '+ #10+
+               '( ••••••••••••••••••••••••••••••••••••••••••••••••••)'+#10+#10+
+               #9+'     Email: palominha@hotmail.com'+#10+
+               #9+'     Paloma Pereira '+#10+
+               '                       '+#10;
+
+
+  MessageBox(0,pchar(texto),'About Sassim 2012 ',MB_OK + MB_ICONINFORMATION);
+end;
+
+procedure TFRMMenu.SairAltF41Click(Sender: TObject);
+begin
+close;
+end;
+
+procedure TFRMMenu.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Action:= caFree;
+FRMMenu:=nil;
+end;
+
+procedure TFRMMenu.AlterarSenhaF21Click(Sender: TObject);
+begin
+trocarsenha(0);
+end;
+
+procedure TFRMMenu.trocarSenha(modo: integer);
+begin
+if frmtrocarsenha = nil then
+        FrmTrocarSenha := TFrmTrocarSenha.Create(self);
+// modo 1  fecha  sistema se cancelar
+//      0  voltar para  o sistema normalmente
+FrmTrocarSenha.tag := modo;
+FrmTrocarSenha.ShowModal;
+
+end;
+
+procedure TFRMMenu.Logoff1Click(Sender: TObject);
+begin
+  deslogar(true) ;
+end;
+
+procedure TFRMmenu.deslogar(relogar: boolean);
+begin
+    if FRMlogin <> nil then
+           FRMlogin.Close;
+    logoff;
+    if relogar then
+    begin
+          FRMlogin:=TFRMlogin.Create(self);
+          FRMlogin.Show;
+    end;
+    enabled := false;
+end;
+
+procedure TFRMMenu.logoff;
+begin
+dtmgeral.usuarionome:='';
 end;
 
 end.

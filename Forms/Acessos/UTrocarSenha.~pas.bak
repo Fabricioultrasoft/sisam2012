@@ -1,0 +1,91 @@
+unit U_TrocarSenha;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, Mask;
+
+type
+  TFrm_TrocarSenha = class(TForm)
+    btnconfirma: TButton;
+    btncancela: TButton;
+    GroupBox1: TGroupBox;
+    GroupBox2: TGroupBox;
+    edantiga: TMaskEdit;
+    ednova: TMaskEdit;
+    edconfirma: TMaskEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    procedure btnconfirmaClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btncancelaClick(Sender: TObject);
+    procedure edantigaKeyPress(Sender: TObject; var Key: Char);
+  private
+    { Private declarations }
+    procedure trocarsenha;
+  public
+    { Public declarations }
+  end;
+
+var
+  Frm_TrocarSenha: TFrm_TrocarSenha;
+
+implementation
+
+uses U_DM, U_main;
+
+
+
+{$R *.dfm}
+
+procedure TFrm_TrocarSenha.btnconfirmaClick(Sender: TObject);
+begin
+if (ednova.text <> '') and (edantiga.text <> '') and (edconfirma.text <> '') then
+		trocarSenha
+else
+      showmessage(' Preencha todos os Campos !!!');
+end;
+
+procedure TFrm_TrocarSenha.trocarsenha;
+begin
+if edantiga.Text = dm.senha then
+	if ednova.Text = edconfirma.Text then
+   begin
+			dm.add(' update usuario set senha  = '''+ednova.Text+''',trocarsenha = 0  where nome = '''+dm.usuario+'''   ');
+         dm.Query1.ExecSQL;
+         frm_main.Enabled:=true;
+         close;
+         showmessage(' Sua senha foi alterada com sucesso.');
+   end else
+   		showmessage(' confirme a senha corretamente ...')
+ELsE
+	showmessage('Senha atual incorreta !!!!');
+end;
+procedure TFrm_TrocarSenha.FormCreate(Sender: TObject);
+begin
+caption := ' Trocar senha de '+dm.usuario;
+end;
+
+procedure TFrm_TrocarSenha.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+action:=cafree;
+Frm_TrocarSenha:=nil;
+end;
+
+procedure TFrm_TrocarSenha.btncancelaClick(Sender: TObject);
+begin
+close;
+end;
+
+procedure TFrm_TrocarSenha.edantigaKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+if key = #27 then
+  close;
+end;
+
+end.

@@ -47,6 +47,7 @@ type
     DBEdit17: TDBEdit;
     DBNavigator1: TDBNavigator;
     procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -65,6 +66,12 @@ uses UDT_FINAN;
 procedure TFRM_CPG.FormCreate(Sender: TObject);
 begin
   pgControl.ActivePageIndex := 0;
+end;
+
+procedure TFRM_CPG.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+action:= cafree;
+FRM_CPG:=nil;
 end;
 
 end.
