@@ -4,7 +4,7 @@ interface
 
 uses
   SysUtils, Classes, IBDatabase, DB, DBClient, DBLocal, ufuncoes,
-  IBCustomDataSet, IBUpdateSQL, Provider, IBQuery;
+  IBCustomDataSet, IBUpdateSQL, Provider, IBQuery, ImgList, Controls;
 
 type
   TDTMGeral = class(TDataModule)
@@ -13,10 +13,7 @@ type
     qryGeral: TIBQuery;
     dspGeral: TDataSetProvider;
     cdsGeral: TClientDataSet;
-    qryLogin: TIBQuery;
-    qryLoginUSUARIO_CDG: TIntegerField;
-    qryLoginUSUARIO_DESC: TIBStringField;
-    qryLoginUSUARIO_SENHA: TIBStringField;
+    ImgListlButtons: TImageList;
     procedure DataModuleCreate(Sender: TObject);
     procedure cdsGeralAfterPost(DataSet: TDataSet);
     procedure cdsGeralAfterDelete(DataSet: TDataSet);
@@ -26,6 +23,7 @@ type
   public
     { Public declarations }
     usuarioNome,senha:string;
+    usuariocdg:Integer;
     procedure executarSQL(Sql: string);
   end;
 

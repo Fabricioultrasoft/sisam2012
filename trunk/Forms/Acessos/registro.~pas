@@ -171,6 +171,7 @@ existe:boolean;
 n,i:integer;
 begin
   existe:=false;
+  result:=false;
   codusuario:='';
   Reg := TRegIniFile.Create;
   Reg.RootKey := HKEY_CURRENT_USER;

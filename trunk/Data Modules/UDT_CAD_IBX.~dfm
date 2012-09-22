@@ -177,7 +177,22 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (
-      'select * from CAD_EMPRESA')
+      
+        ' SELECT EMPRE_BAIRRO,   EMPRE_CDG,      EMPRE_CEP,      EMPRE_CI' +
+        'D,   '
+      
+        '                    EMPRE_CNPJ,     EMPRE_CONTATO,  EMPRE_DDD,  ' +
+        '    EMPRE_EMAIL,  '
+      
+        '                    EMPRE_ENDERECO, EMPRE_FANTASIA, EMPRE_FAX,  ' +
+        '    EMPRE_INSESTAD,'
+      
+        '                    EMPRE_INSMUNI,  EMPRE_LOGOTIPO, EMPRE_PAIS, ' +
+        '    EMPRE_RAMAL,  '
+      
+        '                    EMPRE_RAZAO,    EMPRE_SITE,     EMPRE_TELEFO' +
+        'NE, EMPRE_UF    '
+      '             FROM   CAD_EMPRESA')
     Left = 112
     Top = 24
     object qryEmpreEMPRE_CNPJ: TIBStringField

@@ -32,7 +32,6 @@ begin
   Application.CreateForm(TDTM_FINAN_IBX, DTM_FINAN_IBX);
   Application.CreateForm(TDTM_FINAN, DTM_FINAN);
   Application.CreateForm(TFRMLogin, FRMLogin);
-  Application.CreateForm(TFRMTrocarSenha, FRMTrocarSenha);
   Application.ShowMainForm:=false;
   Application.Run;
   //FRMLogin.Show;

@@ -17,7 +17,6 @@ type
     Label1: TLabel;
     chblembrar: TCheckBox;
     chblembrarsenha: TCheckBox;
-    CHBentrarauto: TCheckBox;
     edtUsuario: TComboBox;
     cbsenhas: TComboBox;
     labesquecer: TLabel;
@@ -31,6 +30,8 @@ type
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure labesquecerClick(Sender: TObject);
     procedure edtUsuarioChange(Sender: TObject);
+    procedure chblembrarClick(Sender: TObject);
+    procedure chblembrarsenhaClick(Sender: TObject);
   private
      reg:treg;
     function Verifica : Boolean;
@@ -94,8 +95,8 @@ begin
 
       //operacoes com o registro do windows  para gravar usuario e senha
       reg.gravarULtimoLogin(edtusuario.Text,edtsenha.Text); //gravar ultimo acesso
-      if CHBentrarauto.Checked then
-           reg.loginauto(true);     //gravar autologin
+     // if CHBentrarauto.Checked then
+     //      reg.loginauto(true);     //gravar autologin
       if chblembrarsenha.Checked then
             reg.gravarUsuario(edtusuario.Text,edtsenha.Text) //gravar lembrar senha
       else if chblembrar.Checked then
@@ -131,6 +132,7 @@ end;
 procedure TFRMLogin.FormShow(Sender: TObject);
 begin
   edtUsuario.SetFocus;
+
 end;
 
 procedure TFRMLogin.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -186,6 +188,7 @@ edtsenha.Text:=  trim(cbsenhas.Items[edtusuario.itemindex]); //se guardar vazio 
 if edtsenha.text <> '' then
     chblembrarsenha.Checked:=true;
 chblembrar.Checked:=  reg.lembrar();
+
 end;
 
 procedure TFRMLogin.FormKeyPress(Sender: TObject; var Key: Char);
@@ -203,7 +206,7 @@ begin
      edtusuario.Clear;
      edtsenha.Clear;
      cbsenhas.Clear;
-     CHBentrarauto.Checked:=false;
+   //  CHBentrarauto.Checked:=false;
      chblembrarsenha.Checked:=false;
      edtusuario.Items.Text:=  reg.LerUsuarios;
      cbsenhas.items.text:= reg.LerSenhas;
@@ -215,11 +218,27 @@ end;
 procedure TFRMLogin.edtUsuarioChange(Sender: TObject);
 begin
 edtsenha.Text:= trim(cbsenhas.Items[edtusuario.itemindex]);
-if cbsenhas.Items[edtusuario.itemindex] <> '' then
+if trim(cbsenhas.Items[edtusuario.itemindex]) <> '' then
      chblembrarsenha.Checked:=true
 else
    chblembrarsenha.Checked:=false;
 
+end;
+
+procedure TFRMLogin.chblembrarClick(Sender: TObject);
+begin
+if not chblembrar.Checked then
+begin
+      chblembrarsenha.Checked:=false;
+   //   CHBentrarauto.Checked:=false;
+end;
+end;
+
+procedure TFRMLogin.chblembrarsenhaClick(Sender: TObject);
+begin
+
+if chblembrarsenha.Checked then
+        chblembrar.Checked:=true
 
 end;
 

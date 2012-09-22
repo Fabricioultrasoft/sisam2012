@@ -18,7 +18,6 @@ type
     tbReceber: TToolButton;
     imglMenu: TImageList;
     imgltoolbar: TImageList;
-    aclMenu: TActionList;
     Image1: TImage;
     ToolButton1: TToolButton;
     MainMenu1: TMainMenu;
@@ -30,14 +29,17 @@ type
     Sisam1: TMenuItem;
     Help1: TMenuItem;
     Mdulos1: TMenuItem;
-    actEmpre: TAction;
     Empresa1: TMenuItem;
     Principal1: TMenuItem;
     SairAltF41: TMenuItem;
     Logoff1: TMenuItem;
     AlterarSenhaF21: TMenuItem;
+    FornecedoresClientes1: TMenuItem;
+    Funcionrios1: TMenuItem;
+    Condomnios1: TMenuItem;
+    Contasapagar1: TMenuItem;
+    Contasareceber1: TMenuItem;
     procedure ToolButton1Click(Sender: TObject);
-    procedure tbEmpresaClick(Sender: TObject);
     procedure tbCadastroClick(Sender: TObject);
     procedure Calculadora1Click(Sender: TObject);
     procedure Sair1Click(Sender: TObject);
@@ -50,11 +52,24 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure AlterarSenhaF21Click(Sender: TObject);
     procedure Logoff1Click(Sender: TObject);
+    procedure tbFuncionarioClick(Sender: TObject);
+    procedure FornecedoresClientes1Click(Sender: TObject);
+    procedure Funcionrios1Click(Sender: TObject);
+    procedure Condomnios1Click(Sender: TObject);
+    procedure Contasapagar1Click(Sender: TObject);
+    procedure Contasareceber1Click(Sender: TObject);
   private
     { Private declarations }
-    procedure trocarSenha(modo:integer);
     procedure deslogar(relogar: boolean);
     procedure logoff;
+    procedure abrirFRMEmpre();
+    procedure abrirFRMForn();
+    procedure abrirFRMFunc();
+    procedure abrirFRMCond();
+    procedure abrirFRMCRB();
+    procedure abrirFRMCPG();
+    procedure abrirFRMUsuario();
+    procedure abrirFRMtrocasenha(Modo:integer);
   public
     { Public declarations }
   end;
@@ -71,22 +86,12 @@ uses UFRMCad, UFRMEmpre, UFRMCond, UFRMUser, UFRMCpg, UFRMCrb,
 
 procedure TFRMMenu.ToolButton1Click(Sender: TObject);
 begin
-  if frm_cond = nil then
-    frm_cond := tfrm_cond.create(self);
-  FRM_COND.ShowModal;
-end;
-
-procedure TFRMMenu.tbEmpresaClick(Sender: TObject);
-begin
-  //CreateForm(Self, TFRM_EMPRE, FRM_EMPRE);
-  //FRM_EMPRE.Show;
+abrirFRMCond;
 end;
 
 procedure TFRMMenu.tbCadastroClick(Sender: TObject);
 begin
-  if FRM_CAD = nil then
-    FRM_CAD:= TFRM_CAD.create(self);
-  FRM_CAD.ShowModal;
+  abrirFRMForn;
 end;
 
 procedure TFRMMenu.Calculadora1Click(Sender: TObject);
@@ -101,37 +106,22 @@ end;
 
 procedure TFRMMenu.Calendrio1Click(Sender: TObject);
 begin
-  if FRM_USER = nil then
-    FRM_USER:= TFRM_USER.create(self);
-  FRM_USER.ShowModal;
+abrirfrmUsuario;
 end;
 
 procedure TFRMMenu.tbPagarClick(Sender: TObject);
 begin
-  if FRM_CPG = nil then
-    FRM_CPG:= TFRM_CPG.create(self);
-  FRM_CPG.ShowModal;
+abrirfrmcpg;
 end;
 
 procedure TFRMMenu.tbReceberClick(Sender: TObject);
 begin
-  if FRM_CRB = nil then
-    FRM_CRB:= TFRM_CRB.create(self);
-  FRM_CRB.ShowModal;
+  abrirfrmcrb;
 end;
 
 procedure TFRMMenu.actEmpreExecute(Sender: TObject);
 begin
-  if FRM_EMPRE = nil then
-    FRM_EMPRE:= TFRM_EMPRE.create(self);
-  FRM_CRB.ShowModal;{
-  Application.CreateForm(TFRM_EMPRE, FRM_EMPRE); //cria o form
-   try
-  FRM_EMPRE.Show; //mostra ele
-  finally
-  FRM_EMPRE.Release; //libera todas as informações
-  FRM_EMPRE := nil; //limpa ele da memória
-   end;                                   }
+  abrirFRMEmpre;
 end;
 
 procedure TFRMMenu.Help1Click(Sender: TObject);
@@ -165,18 +155,7 @@ end;
 
 procedure TFRMMenu.AlterarSenhaF21Click(Sender: TObject);
 begin
-trocarsenha(0);
-end;
-
-procedure TFRMMenu.trocarSenha(modo: integer);
-begin
-if frmtrocarsenha = nil then
-        FrmTrocarSenha := TFrmTrocarSenha.Create(self);
-// modo 1  fecha  sistema se cancelar
-//      0  voltar para  o sistema normalmente
-FrmTrocarSenha.tag := modo;
-FrmTrocarSenha.ShowModal;
-
+abrirFRMtrocasenha(0);
 end;
 
 procedure TFRMMenu.Logoff1Click(Sender: TObject);
@@ -199,7 +178,98 @@ end;
 
 procedure TFRMMenu.logoff;
 begin
-dtmgeral.usuarionome:='';
+  dtmgeral.usuarionome:='';
+end;
+
+procedure TFRMMenu.tbFuncionarioClick(Sender: TObject);
+begin
+  abrirFRMFunc;
+end;
+
+procedure TFRMMenu.abrirFRMCond;
+begin
+  if FRM_Cond = nil then
+    FRM_Cond:= TFRM_Cond.create(self);
+  FRM_Cond.show;
+end;
+
+procedure TFRMMenu.abrirFRMCPG;
+begin
+  if FRM_CPG = nil then
+    FRM_CPG:= TFRM_CPG.create(self);
+  FRM_CPG.show;
+end;
+
+procedure TFRMMenu.abrirFRMCRB;
+begin
+  if FRM_CRB = nil then
+    FRM_CRB:= TFRM_CRB.create(self);
+  FRM_CRB.show;
+end;
+
+procedure TFRMMenu.abrirFRMEmpre;
+begin
+  if FRM_EMPRE = nil then
+    FRM_EMPRE:= TFRM_EMPRE.create(self);
+  FRM_EMPRE.show;
+end;
+
+procedure TFRMMenu.abrirFRMForn;
+begin
+  if FRM_CAD = nil then
+    FRM_CAD:= TFRM_CAD.create(self);
+  FRM_CAD.show;
+end;
+
+procedure TFRMMenu.abrirFRMFunc;
+begin
+//  if FRM_Func = nil then
+  //  FRM_Func:= TFRM_Func.create(self);
+  //FRMFunc.show;
+end;
+
+procedure TFRMMenu.FornecedoresClientes1Click(Sender: TObject);
+begin
+abrirFRMForn;
+end;
+
+procedure TFRMMenu.Funcionrios1Click(Sender: TObject);
+begin
+abrirFRMFunc;
+end;
+
+procedure TFRMMenu.Condomnios1Click(Sender: TObject);
+begin
+abrirFRMCond;
+end;
+
+procedure TFRMMenu.Contasapagar1Click(Sender: TObject);
+begin
+abrirFRMCPG;
+end;
+
+procedure TFRMMenu.Contasareceber1Click(Sender: TObject);
+begin
+abrirFRMCRB;
+end;
+
+procedure TFRMMenu.abrirFRMUsuario;
+begin
+  if FRM_USER = nil then
+    FRM_USER:= TFRM_USER.create(self);
+  FRM_USER.ShowModal;
+end;
+
+procedure TFRMMenu.abrirFRMtrocasenha(Modo:integer);
+begin
+  if frmtrocarsenha = nil then
+    FrmTrocarSenha := TFrmTrocarSenha.Create(self);
+  // modo:
+  // 1  fecha  sistema se cancelar
+  // 0  voltar para  o sistema normalmente
+  FrmTrocarSenha.tag := modo;
+  FrmTrocarSenha.ShowModal;
 end;
 
 end.
+
