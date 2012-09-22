@@ -13,17 +13,17 @@ type
     qryGeral: TIBQuery;
     dspGeral: TDataSetProvider;
     cdsGeral: TClientDataSet;
-    qryLogin: TIBQuery;
-    qryLoginUSUARIO_CDG: TIntegerField;
-    qryLoginUSUARIO_DESC: TIBStringField;
-    qryLoginUSUARIO_SENHA: TIBStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure cdsGeralAfterPost(DataSet: TDataSet);
     procedure cdsGeralAfterDelete(DataSet: TDataSet);
   private
+
     { Private declarations }
   public
     { Public declarations }
+    usuarioNome,senha:string;
+    usuariocdg:Integer;
+    procedure executarSQL(Sql: string);
   end;
 
 var
@@ -32,6 +32,31 @@ var
 implementation
 
 {$R *.dfm}
+
+
+
+
+procedure TDTMgeral.executarSQL(Sql: string);
+begin
+   QryGeral.Close;
+ try
+   if pos('SELECT',UpperCase(SQL)) >= 0 THEN
+   begin
+      QryGeral.SQL.Clear;
+      QryGeral.SQL.Add(sql);
+      QryGeral.OPEN;
+   end ELSE
+   begin
+      QryGeral.SQL.Clear;
+      QryGeral.SQL.Add(sql);
+      QryGeral.ExecSQL;
+   end;
+ except on E:exception  do
+    raise Exception.Create(e.Message);
+ end;
+end;
+
+
 
 procedure TDTMGeral.DataModuleCreate(Sender: TObject);
 begin

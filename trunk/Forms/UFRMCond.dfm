@@ -11,13 +11,14 @@ object FRM_COND: TFRM_COND
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object PC_Condominio: TPageControl
     Left = 0
     Top = 0
-    Width = 705
-    Height = 460
+    Width = 697
+    Height = 456
     ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0

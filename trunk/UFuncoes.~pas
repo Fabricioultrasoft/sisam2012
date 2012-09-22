@@ -12,8 +12,10 @@ uses
   Mask ,  Messages, Math, MAPI
   {$IFDEF DELPHI7} MaskUtils, Variants{$ENDIF}  ;
 
+const
+    versao   = '0.9';
 
-
+procedure SetSqlCommand(SQL : String;  var cds:TClientDataSet);
 function NomeComputador : string;
 procedure AbreIni(Path: string);
 function LerSessaoIni(Sessao, Ident: string): string;
@@ -27,6 +29,19 @@ var Ini: TIniFile;
     Str:STRING;
 
 implementation
+
+
+procedure SetSqlCommand(SQL : String;  var cds:TClientDataSet);
+var
+  s: PChar;
+begin
+  cds.Params.Clear;
+  s := StrNew(PChar(sql));
+  cds.Params.ParseSQL(s,true);
+  cds.CommandText := SQL;
+  StrDispose(s);
+end;
+
 
 function TempDir: string;
 var

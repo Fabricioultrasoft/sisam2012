@@ -4,45 +4,49 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ExtCtrls, DBCtrls, StdCtrls, Mask;
+  Dialogs, ExtCtrls, DBCtrls, StdCtrls, Mask, ComCtrls;
 
 type
   TFRM_CPG = class(TForm)
+    pgControl: TPageControl;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
     Label1: TLabel;
-    DBEdit1: TDBEdit;
     Label2: TLabel;
-    DBEdit2: TDBEdit;
     Label3: TLabel;
-    DBEdit3: TDBEdit;
     Label4: TLabel;
-    DBEdit4: TDBEdit;
     Label5: TLabel;
-    DBEdit5: TDBEdit;
     Label6: TLabel;
-    DBEdit6: TDBEdit;
     Label7: TLabel;
-    DBEdit7: TDBEdit;
     Label8: TLabel;
-    DBEdit8: TDBEdit;
     Label9: TLabel;
-    DBEdit9: TDBEdit;
     Label10: TLabel;
-    DBEdit10: TDBEdit;
     Label11: TLabel;
-    DBEdit11: TDBEdit;
     Label12: TLabel;
-    DBEdit12: TDBEdit;
     Label13: TLabel;
-    DBEdit13: TDBEdit;
     Label14: TLabel;
-    DBEdit14: TDBEdit;
     Label15: TLabel;
-    DBEdit15: TDBEdit;
     Label16: TLabel;
-    DBEdit16: TDBEdit;
     Label17: TLabel;
+    DBEdit1: TDBEdit;
+    DBEdit2: TDBEdit;
+    DBEdit3: TDBEdit;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBEdit7: TDBEdit;
+    DBEdit8: TDBEdit;
+    DBEdit9: TDBEdit;
+    DBEdit10: TDBEdit;
+    DBEdit11: TDBEdit;
+    DBEdit12: TDBEdit;
+    DBEdit13: TDBEdit;
+    DBEdit14: TDBEdit;
+    DBEdit15: TDBEdit;
+    DBEdit16: TDBEdit;
     DBEdit17: TDBEdit;
     DBNavigator1: TDBNavigator;
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -57,5 +61,10 @@ implementation
 uses UDT_FINAN;
 
 {$R *.dfm}
+
+procedure TFRM_CPG.FormCreate(Sender: TObject);
+begin
+  pgControl.ActivePageIndex := 0;
+end;
 
 end.

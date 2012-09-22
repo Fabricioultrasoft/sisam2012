@@ -12,14 +12,16 @@ uses
   Mask ,  Messages, Math, MAPI
   {$IFDEF DELPHI7} MaskUtils, Variants{$ENDIF}  ;
 
+const
+    versao   = '0.9';
 
 procedure SetSqlCommand(SQL : String;  var cds:TClientDataSet);
 function NomeComputador : string;
 procedure AbreIni(Path: string);
 function LerSessaoIni(Sessao, Ident: string): string;
 procedure EscreverSessaoIni(Sessao, Ident, Valor: string);
-function Encriptar(pStr: string): string;
-Function Desencriptar(pStr: string): string;
+function Encriptar(senha: string): string;
+Function Desencriptar(senha: string): string;
 function TempDir: string;
 
 var Ini: TIniFile;
@@ -74,21 +76,43 @@ end;
 
 
 
-function Encriptar(pStr: string): string;
-var c: Integer;
+function Encriptar(senha: string): string;
+var
+   i,k :integer;
+   X :char;
+   Str:string;
 begin
-  Result := '';
-  for c := 1 to Length(pStr) do
-    Result := Result + Chr(Ord(pStr[c]) + 10);
+   For k:=1 to length(Senha) do
+   Begin
+     str:='';
+     for i:=1 to length(Senha) do
+     begin
+          X:=Chr(ord(Senha[i])+I+Length(Senha));
+          str:=str+X;
+     end;
+     senha:=str;
+    End;
+    Result:=Str;
 end;
 
 
-function Desencriptar(pStr: string): string;
-var c: Integer;
+function Desencriptar(senha: string): string;
+var
+   i,k :integer;
+   X :char;
+   str:string;
 begin
-  Result := '';
-  for c := 1 to Length(pStr) do
-    Result := Result + Chr(Ord(pStr[c]) - 10);
+   For k:=1 to length(Senha) do
+   begin
+     str:='';
+     for i:=1 to length(Senha) do
+     begin
+          X:=chr(ord(Senha[i])-I-Length(Senha));
+          str:=str+X;
+     end;
+     senha:=str;
+   end;
+   Result:=Str;
 end;
 
 

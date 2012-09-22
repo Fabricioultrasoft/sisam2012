@@ -44,6 +44,7 @@ type
     DBNavigator1: TDBNavigator;
     DBGrid1: TDBGrid;
     procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -65,6 +66,12 @@ begin
   DTM_CAD.cdsCond.Open;
 
   PC_Condominio.ActivePageIndex := 1;
+end;
+
+procedure TFRM_COND.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+action:= cafree;
+FRM_COND:=nil;
 end;
 
 end.

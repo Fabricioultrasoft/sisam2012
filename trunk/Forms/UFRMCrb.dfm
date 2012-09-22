@@ -11,13 +11,14 @@ object FRM_CRB: TFRM_CRB
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object PageControl1: TPageControl
     Left = 0
     Top = 0
-    Width = 688
-    Height = 446
+    Width = 680
+    Height = 442
     ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0

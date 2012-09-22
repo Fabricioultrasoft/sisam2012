@@ -15,6 +15,7 @@ type
     Label3: TLabel;
     DBEdit3: TDBEdit;
     DBNavigator1: TDBNavigator;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -29,5 +30,11 @@ implementation
 uses UDT_CAD;
 
 {$R *.dfm}
+
+procedure TFRM_USER.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+action:= cafree;
+FRM_USER:=nil;
+end;
 
 end.

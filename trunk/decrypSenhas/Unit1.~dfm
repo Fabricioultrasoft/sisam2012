@@ -1,0 +1,285 @@
+object Form1: TForm1
+  Left = 377
+  Top = 181
+  Width = 870
+  Height = 640
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object GroupBox1: TGroupBox
+    Left = 0
+    Top = 0
+    Width = 854
+    Height = 105
+    Align = alTop
+    TabOrder = 0
+    object Button1: TButton
+      Left = 768
+      Top = 72
+      Width = 75
+      Height = 25
+      Caption = 'Refresh'
+      TabOrder = 0
+      OnClick = Button1Click
+    end
+    object Edit1: TEdit
+      Left = 560
+      Top = 8
+      Width = 273
+      Height = 21
+      TabOrder = 1
+      Text = 'Edit1'
+    end
+    object Button2: TButton
+      Left = 560
+      Top = 32
+      Width = 75
+      Height = 25
+      Caption = 'decrypt'
+      TabOrder = 2
+      OnClick = Button2Click
+    end
+    object Button3: TButton
+      Left = 640
+      Top = 32
+      Width = 75
+      Height = 25
+      Caption = 'crypt'
+      TabOrder = 3
+      OnClick = Button3Click
+    end
+    object edbanco: TEdit
+      Left = 8
+      Top = 16
+      Width = 361
+      Height = 21
+      TabOrder = 4
+      Text = 'C:\banco\ERPDADOS.FDB'
+    end
+    object Button4: TButton
+      Left = 8
+      Top = 40
+      Width = 89
+      Height = 25
+      Caption = 'Connect'
+      TabOrder = 5
+      OnClick = Button4Click
+    end
+  end
+  object JvDBGrid1: TJvDBGrid
+    Left = 0
+    Top = 105
+    Width = 854
+    Height = 497
+    Align = alClient
+    DataSource = DtsUSUARIO
+    TabOrder = 1
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'MS Sans Serif'
+    TitleFont.Style = []
+    SelectColumnsDialogStrings.Caption = 'Select columns'
+    SelectColumnsDialogStrings.OK = '&OK'
+    SelectColumnsDialogStrings.NoSelectionWarning = 'At least one column must be visible!'
+    EditControls = <>
+    RowsHeight = 17
+    TitleRowHeight = 17
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'USUARIO_CDG'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'USUARIO_LOGIN'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'USUARIO_NOME'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'USUARIO_SENHA'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'SENHA'
+        Visible = True
+      end>
+  end
+  object IBTransaction: TIBTransaction
+    Active = False
+    AutoStopAction = saNone
+    Left = 440
+    Top = 72
+  end
+  object IBDatabase: TIBDatabase
+    DatabaseName = 'C:\banco\ERPDADOS.FDB'
+    Params.Strings = (
+      'user_name=SYSDBA'
+      'password=masterkey')
+    LoginPrompt = False
+    DefaultTransaction = IBTransaction
+    IdleTimer = 0
+    SQLDialect = 3
+    TraceFlags = []
+    Left = 464
+    Top = 56
+  end
+  object DtsUSUARIO: TJvDataSource
+    DataSet = CdsUSUARIO
+    Left = 72
+    Top = 152
+  end
+  object CdsUSUARIO: TMClientDataSet
+    Aggregates = <>
+    CommandText = 'SELECT c.*, usuario_senha senha FROM CAD_USUARIO c'
+    Params = <>
+    ProviderName = 'DspUSUARIO'
+    Left = 88
+    Top = 112
+    object CdsUSUARIOUSUARIO_CDG: TIntegerField
+      DisplayWidth = 16
+      FieldName = 'USUARIO_CDG'
+      Origin = 'CAD_USUARIO.USUARIO_CDG'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object CdsUSUARIOUSUARIO_LOGIN: TStringField
+      DisplayWidth = 24
+      FieldName = 'USUARIO_LOGIN'
+      Origin = 'CAD_USUARIO.USUARIO_LOGIN'
+      Size = 30
+    end
+    object CdsUSUARIOUSUARIO_NOME: TStringField
+      DisplayWidth = 36
+      FieldName = 'USUARIO_NOME'
+      Origin = 'CAD_USUARIO.USUARIO_NOME'
+      Size = 30
+    end
+    object CdsUSUARIOUSUARIO_SENHA: TStringField
+      DisplayWidth = 24
+      FieldName = 'USUARIO_SENHA'
+      Origin = 'CAD_USUARIO.USUARIO_SENHA'
+    end
+    object CdsUSUARIOUSUARIO_ATIVO: TSmallintField
+      DisplayWidth = 18
+      FieldName = 'USUARIO_ATIVO'
+      Origin = 'CAD_USUARIO.USUARIO_ATIVO'
+    end
+    object CdsUSUARIOUSUARIO_TROCARSENHA: TSmallintField
+      DisplayWidth = 28
+      FieldName = 'USUARIO_TROCARSENHA'
+      Origin = 'CAD_USUARIO.USUARIO_TROCARSENHA'
+    end
+    object CdsUSUARIOUSUARIO_APPADMIN: TSmallintField
+      DisplayWidth = 22
+      FieldName = 'USUARIO_APPADMIN'
+      Origin = 'CAD_USUARIO.USUARIO_APPADMIN'
+    end
+    object CdsUSUARIOUSUARIO_APPSISTEMA: TSmallintField
+      DisplayWidth = 25
+      FieldName = 'USUARIO_APPSISTEMA'
+      Origin = 'CAD_USUARIO.USUARIO_APPSISTEMA'
+    end
+    object CdsUSUARIOSENHA: TStringField
+      DisplayWidth = 24
+      FieldName = 'SENHA'
+      Origin = 'CAD_USUARIO.USUARIO_SENHA'
+      OnGetText = CdsUSUARIOSENHAGetText
+    end
+  end
+  object DspUSUARIO: TDataSetProvider
+    DataSet = QryUsuario
+    ResolveToDataSet = True
+    Options = [poAllowCommandText]
+    UpdateMode = upWhereKeyOnly
+    Left = 512
+    Top = 48
+  end
+  object QryUsuario: TMIBDataSet
+    Database = IBDatabase
+    Transaction = IBTransaction
+    BufferChunks = 1000
+    CachedUpdates = False
+    DeleteSQL.Strings = (
+      
+        'UPDATE CAD_USUARIO SET USUARIO_ATIVO = 0  WHERE USUARIO_CDG = :U' +
+        'SUARIO_CDG')
+    InsertSQL.Strings = (
+      'INSERT INTO CAD_USUARIO(USUARIO_CDG,USUARIO_LOGIN,'
+      '      USUARIO_NOME,'
+      '      USUARIO_TROCARSENHA,USUARIO_APPSISTEMA,'
+      '     USUARIO_APPADMIN)'
+      'VALUES  (GEN_ID(G_CAD_USUARIO,1),:USUARIO_LOGIN,'
+      '     :USUARIO_NOME,'
+      '      :USUARIO_TROCARSENHA, :USUARIO_APPSISTEMA,'
+      '      :USUARIO_APPADMIN)')
+    RefreshSQL.Strings = (
+      'SELECT * FROM CAD_USUARIO')
+    SelectSQL.Strings = (
+      'SELECT c.*, usuario_senha senha FROM CAD_USUARIO c')
+    ModifySQL.Strings = (
+      ' UPDATE  CAD_USUARIO'
+      'SET USUARIO_LOGIN =  :USUARIO_LOGIN,'
+      'USUARIO_NOME = :USUARIO_NOME,'
+      'USUARIO_TROCARSENHA = :USUARIO_TROCARSENHA,'
+      'USUARIO_APPADMIN = :USUARIO_APPADMIN,'
+      'USUARIO_APPSISTEMA = :USUARIO_APPSISTEMA'
+      'WHERE USUARIO_CDG = :USUARIO_CDG'
+      '')
+    Left = 504
+    Top = 72
+    object QryUsuarioUSUARIO_CDG: TIntegerField
+      FieldName = 'USUARIO_CDG'
+      Origin = 'CAD_USUARIO.USUARIO_CDG'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QryUsuarioUSUARIO_LOGIN: TIBStringField
+      FieldName = 'USUARIO_LOGIN'
+      Origin = 'CAD_USUARIO.USUARIO_LOGIN'
+      Size = 30
+    end
+    object QryUsuarioUSUARIO_NOME: TIBStringField
+      FieldName = 'USUARIO_NOME'
+      Origin = 'CAD_USUARIO.USUARIO_NOME'
+      Size = 30
+    end
+    object QryUsuarioUSUARIO_SENHA: TIBStringField
+      FieldName = 'USUARIO_SENHA'
+      Origin = 'CAD_USUARIO.USUARIO_SENHA'
+    end
+    object QryUsuarioUSUARIO_ATIVO: TSmallintField
+      FieldName = 'USUARIO_ATIVO'
+      Origin = 'CAD_USUARIO.USUARIO_ATIVO'
+    end
+    object QryUsuarioUSUARIO_TROCARSENHA: TSmallintField
+      FieldName = 'USUARIO_TROCARSENHA'
+      Origin = 'CAD_USUARIO.USUARIO_TROCARSENHA'
+    end
+    object QryUsuarioUSUARIO_APPADMIN: TSmallintField
+      FieldName = 'USUARIO_APPADMIN'
+      Origin = 'CAD_USUARIO.USUARIO_APPADMIN'
+    end
+    object QryUsuarioUSUARIO_APPSISTEMA: TSmallintField
+      FieldName = 'USUARIO_APPSISTEMA'
+      Origin = 'CAD_USUARIO.USUARIO_APPSISTEMA'
+    end
+    object QryUsuarioSENHA: TIBStringField
+      FieldName = 'SENHA'
+      Origin = 'CAD_USUARIO.USUARIO_SENHA'
+    end
+  end
+end

@@ -73,6 +73,7 @@ type
     DBCheckBox3: TDBCheckBox;
     DBCheckBox4: TDBCheckBox;
     procedure FormCreate(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -94,6 +95,12 @@ begin
   DTM_CAD.cdsCad.Open;
 
   PC_Cadastro.ActivePageIndex := 0;
+end;
+
+procedure TFRM_CAD.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+action:= cafree;
+FRM_CAD:=nil;
 end;
 
 end.

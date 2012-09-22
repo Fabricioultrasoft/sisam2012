@@ -1,6 +1,6 @@
 object FRMMenu: TFRMMenu
-  Left = 307
-  Top = 177
+  Left = 248
+  Top = 149
   Width = 883
   Height = 740
   Caption = 'Menu'
@@ -61,6 +61,7 @@ object FRMMenu: TFRMMenu
   OldCreateOrder = False
   Position = poDefault
   WindowState = wsMaximized
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
@@ -317,7 +318,7 @@ object FRMMenu: TFRMMenu
   object StatusBar: TStatusBar
     Left = 0
     Top = 0
-    Width = 875
+    Width = 867
     Height = 5
     Align = alTop
     Panels = <>
@@ -325,7 +326,7 @@ object FRMMenu: TFRMMenu
   object ToolBar1: TToolBar
     Left = 0
     Top = 5
-    Width = 875
+    Width = 867
     Height = 84
     ButtonHeight = 81
     ButtonWidth = 107
@@ -10693,6 +10694,22 @@ object FRMMenu: TFRMMenu
   object MainMenu1: TMainMenu
     Left = 616
     Top = 128
+    object Principal1: TMenuItem
+      Caption = 'Principal'
+      object AlterarSenhaF21: TMenuItem
+        Caption = 'Alterar Senha '
+        ShortCut = 113
+        OnClick = AlterarSenhaF21Click
+      end
+      object Logoff1: TMenuItem
+        Caption = 'Logoff'
+        ShortCut = 114
+      end
+      object SairAltF41: TMenuItem
+        Caption = 'Sair              Alt+F4'
+        OnClick = SairAltF41Click
+      end
+    end
     object Mdulos1: TMenuItem
       Caption = 'M'#243'dulos'
       object Empresa1: TMenuItem
@@ -10721,6 +10738,7 @@ object FRMMenu: TFRMMenu
       end
       object Help1: TMenuItem
         Caption = 'Help '
+        OnClick = Help1Click
       end
     end
   end
