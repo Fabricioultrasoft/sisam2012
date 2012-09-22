@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, UDT_CAD, DB, StdCtrls, Mask, DBCtrls, Grids, DBGrids,
+  Dialogs, ComCtrls, UDT_CAD, DB, StdCtrls, Mask, DBCtrls, Grids, DBGrids,SqlConst,
   ExtCtrls, Buttons, ImgList, ToolWin, ufuncoes;
 
 type
@@ -19,7 +19,6 @@ type
     imgButtons: TImageList;
     tbOk: TToolButton;
     tbDelete: TToolButton;
-    tbEdit: TToolButton;
     tbCancel: TToolButton;
     tbnext: TToolButton;
     GroupBox1: TGroupBox;
@@ -73,9 +72,17 @@ type
     DBEdit19: TDBEdit;
     DBEdit14: TDBEdit;
     DBEdit7: TDBEdit;
-    btnPesq: TBitBtn;
-    dbEmpre: TDBEdit;
+    GroupBox3: TGroupBox;
     Label30: TLabel;
+    btnPesq: TBitBtn;
+    Label31: TLabel;
+    Label32: TLabel;
+    edcontato: TEdit;
+    Edfantasia: TEdit;
+    edrazao: TEdit;
+    lbl1: TLabel;
+    lbl2: TLabel;
+    edcnpj: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure tbAddClick(Sender: TObject);
     procedure tbOkClick(Sender: TObject);
@@ -86,7 +93,11 @@ type
     procedure tbPriorClick(Sender: TObject);
     procedure btnPesqClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure edrazaoKeyPress(Sender: TObject; var Key: Char);
+    procedure DBGrid1DblClick(Sender: TObject);
+    procedure dtsEmpreStateChange(Sender: TObject);
   private
+    procedure filtrarEmpresa();
     { Private declarations }
   public
     { Public declarations }
@@ -97,7 +108,7 @@ var
 
 implementation
 
-uses UDTMGeral, SqlConst;
+uses UDTMGeral;
 
 {$R *.dfm}
 
@@ -106,7 +117,6 @@ begin
   DTM_CAD.cdsEmpre.Close;
   DTM_CAD.cdsEmpre.Open;
 
-  PC_Empresa.ActivePageIndex := 0;
 end;
 
 procedure TFRM_EMPRE.tbAddClick(Sender: TObject);
@@ -144,29 +154,58 @@ begin
   DTM_CAD.cdsEmpre.Prior;
 end;
 
+
+
+
 procedure TFRM_EMPRE.btnPesqClick(Sender: TObject);
-Var Empre, Where, SQL : String;
 begin
-  Empre := '';
-  Where := '';
-
-  if ((dbEmpre.Text <> '')) then
-   Empre := dbEmpre.text;
-
-  Where := Where + #13 + ' (EMPRE_RAZAO LIKE '+ QuotedStr(Empre) +') ';
-
-  If (Trim(Where) <> '') then
-   SQL := SQL + #13 + Where;
-
-  DTM_CAD.cdsEmpre.Close;
-  //DTM_CAD.cdsEmpre.SetSqlCommand(SQL);
-  DTM_CAD.cdsEmpre.Open;
+  filtrarEmpresa;
 end;
 
 procedure TFRM_EMPRE.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
  Action:= cafree;
  FRM_EMPRE := nil ;
+end;
+
+procedure TFRM_EMPRE.edrazaoKeyPress(Sender: TObject; var Key: Char);
+begin
+if key = #13 then
+  btnPesqClick(self);
+end;
+
+procedure TFRM_EMPRE.DBGrid1DblClick(Sender: TObject);
+begin
+  //abrir cadastro do registro selecionado
+  IF DTM_CAD.cdsEmpre.Locate('EMPRE_CDG',DTM_CAD.cdsConsEmpre.fieldbyname('EMPRE_CDG').AsInteger,[loPartialKey]) THEN
+    PC_Empresa.ActivePageIndex:= 0;
+end;
+
+procedure TFRM_EMPRE.dtsEmpreStateChange(Sender: TObject);
+begin
+  // adivar botoes do navigator qndo estiver em edição
+   tbOk.enabled:= (dtsEmpre.State in [dsinsert,dsedit]) ;
+   tbcancel.enabled:=(dtsEmpre.State in [dsinsert,dsedit]) ;
+end;
+
+procedure TFRM_EMPRE.filtrarEmpresa;
+  var  SQL : String;
+begin
+ // montando filtro de pesquisa dinamicamente
+ SQL:= SQL_EMPRESA;
+ if (Trim(edrazao.Text) <> '') then
+   SQL  := SQL + ' AND UPPER(EMPRE_RAZAO) LIKE UPPER(''%'+ trim(edrazao.Text) +'%'') ';
+
+ if (Trim(Edfantasia.Text) <> '') then
+   SQL  := SQL + ' AND UPPER(EMPRE_FANTASIA) LIKE UPPER(''%'+ trim(Edfantasia.Text) +'%'') ';
+
+ if (Trim(edcontato.Text) <> '') then
+   SQL  := SQL + ' AND UPPER(EMPRE_CONTATO) LIKE UPPER(''%'+ Trim(edcontato.Text) +'%'') ';
+
+ if (Trim(edcnpj.Text) <> '') then
+   SQL  := SQL + ' AND UPPER(EMPRE_CNPJ) LIKE UPPER(''%'+ trim(edcnpj.TEXT) +'%'') ';
+
+ DTM_CAD.consultarEmpresas(SQL);
 end;
 
 end.

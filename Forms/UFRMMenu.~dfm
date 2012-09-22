@@ -1,8 +1,8 @@
 object FRMMenu: TFRMMenu
-  Left = 248
-  Top = 149
+  Left = 327
+  Top = 205
   Width = 883
-  Height = 740
+  Height = 706
   Caption = 'Menu'
   Color = clBtnFace
   DefaultMonitor = dmMainForm
@@ -329,44 +329,47 @@ object FRMMenu: TFRMMenu
     Width = 867
     Height = 84
     ButtonHeight = 81
-    ButtonWidth = 107
+    ButtonWidth = 113
     Caption = 'ToolBar'
     Images = imgltoolbar
     TabOrder = 1
     object tbEmpresa: TToolButton
       Left = 0
       Top = 2
-      Action = actEmpre
+      Caption = 'tbEmpre'
+      ImageIndex = 0
+      OnClick = actEmpreExecute
     end
     object tbCadastro: TToolButton
-      Left = 107
+      Left = 113
       Top = 2
       Caption = 'tbCadastro'
       ImageIndex = 1
       OnClick = tbCadastroClick
     end
     object tbFuncionario: TToolButton
-      Left = 214
+      Left = 226
       Top = 2
       Caption = 'tbFuncionario'
       ImageIndex = 2
+      OnClick = tbFuncionarioClick
     end
     object ToolButton1: TToolButton
-      Left = 321
+      Left = 339
       Top = 2
       Caption = 'ToolButton1'
       ImageIndex = 5
       OnClick = ToolButton1Click
     end
     object tbPagar: TToolButton
-      Left = 428
+      Left = 452
       Top = 2
       Caption = 'tbPagar'
       ImageIndex = 3
       OnClick = tbPagarClick
     end
     object tbReceber: TToolButton
-      Left = 535
+      Left = 565
       Top = 2
       Caption = 'tbReceber'
       ImageIndex = 4
@@ -10682,15 +10685,6 @@ object FRMMenu: TFRMMenu
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000000000000000000000000
       000000000000}
   end
-  object aclMenu: TActionList
-    Images = imglMenu
-    Left = 648
-    Top = 128
-    object actEmpre: TAction
-      Caption = 'actEmpre'
-      OnExecute = actEmpreExecute
-    end
-  end
   object MainMenu1: TMainMenu
     Left = 616
     Top = 128
@@ -10704,6 +10698,7 @@ object FRMMenu: TFRMMenu
       object Logoff1: TMenuItem
         Caption = 'Logoff'
         ShortCut = 114
+        OnClick = Logoff1Click
       end
       object SairAltF41: TMenuItem
         Caption = 'Sair              Alt+F4'
@@ -10713,7 +10708,28 @@ object FRMMenu: TFRMMenu
     object Mdulos1: TMenuItem
       Caption = 'M'#243'dulos'
       object Empresa1: TMenuItem
-        Action = actEmpre
+        Caption = 'Empresas'
+        OnClick = actEmpreExecute
+      end
+      object FornecedoresClientes1: TMenuItem
+        Caption = 'Fornecedores/Clientes'
+        OnClick = FornecedoresClientes1Click
+      end
+      object Funcionrios1: TMenuItem
+        Caption = 'Funcion'#225'rios'
+        OnClick = Funcionrios1Click
+      end
+      object Condomnios1: TMenuItem
+        Caption = 'Condom'#237'nios'
+        OnClick = Condomnios1Click
+      end
+      object Contasapagar1: TMenuItem
+        Caption = 'Contas a pagar'
+        OnClick = Contasapagar1Click
+      end
+      object Contasareceber1: TMenuItem
+        Caption = 'Contas a receber'
+        OnClick = Contasareceber1Click
       end
     end
     object Ferramentas1: TMenuItem

@@ -193,22 +193,31 @@ end;
 
 procedure Treg.loginauto(ativar: boolean);
 var Reg: TRegIniFile;
+valor:integer;
 begin
+  if ativar then
+    valor:= 1
+  else
+    valor:=0;
   Reg := TRegIniFile.Create;
   Reg.RootKey := HKEY_CURRENT_USER;
   Reg.OpenKey('software\'+aplicacao,true);
-  reg.WriteBool('autoL','EntrarAuto',ativar);
+  reg.WriteInteger('n','EntrarAuto',valor);
   reg.Free;
 end;
 
 function Treg.Logarautomaticamente: boolean;
 var Reg: TRegIniFile;
+
 begin
   result:=false;
   Reg := TRegIniFile.Create;
   Reg.RootKey := HKEY_CURRENT_USER;
   Reg.OpenKey('software\'+aplicacao,true);
-  result:= reg.ReadBool('autoL','EntrarAuto',false);
+  if reg.ReadInteger('n','EntrarAuto',0) = 1 then
+    result:= True
+  else
+    result:= False;
 end;
 
 procedure Treg.esquecer(usuario: string);

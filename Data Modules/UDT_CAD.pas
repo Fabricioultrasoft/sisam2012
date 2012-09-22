@@ -3,7 +3,7 @@ unit UDT_CAD;
 interface
 
 uses
-  SysUtils, Classes, UDTMGeral, UDT_CAD_IBX, DB, DBClient, Provider;
+  SysUtils, Classes, UDTMGeral, UDT_CAD_IBX, DB, DBClient, Provider,ufuncoes;
 
 type
   TDTM_CAD = class(TDataModule)
@@ -87,6 +87,62 @@ type
     cdsUserUSUARIO_CDG: TIntegerField;
     cdsUserUSUARIO_DESC: TStringField;
     cdsUserUSUARIO_SENHA: TStringField;
+    dspConsEmpre: TDataSetProvider;
+    cdsConsEmpre: TClientDataSet;
+    StringField1: TStringField;
+    StringField2: TStringField;
+    StringField3: TStringField;
+    StringField4: TStringField;
+    StringField5: TStringField;
+    StringField6: TStringField;
+    StringField7: TStringField;
+    StringField8: TStringField;
+    StringField9: TStringField;
+    StringField10: TStringField;
+    StringField11: TStringField;
+    StringField12: TStringField;
+    StringField13: TStringField;
+    StringField14: TStringField;
+    StringField15: TStringField;
+    IntegerField1: TIntegerField;
+    dsConsEmpre: TDataSource;
+    dspConsCad: TDataSetProvider;
+    cdsConsCad: TClientDataSet;
+    StringField16: TStringField;
+    StringField17: TStringField;
+    StringField18: TStringField;
+    StringField19: TStringField;
+    StringField20: TStringField;
+    StringField21: TStringField;
+    StringField22: TStringField;
+    StringField23: TStringField;
+    StringField24: TStringField;
+    StringField25: TStringField;
+    StringField26: TStringField;
+    StringField27: TStringField;
+    StringField28: TStringField;
+    StringField29: TStringField;
+    StringField30: TStringField;
+    StringField31: TStringField;
+    StringField32: TStringField;
+    IntegerField2: TIntegerField;
+    IntegerField3: TIntegerField;
+    DateField1: TDateField;
+    SmallintField1: TSmallintField;
+    IntegerField4: TIntegerField;
+    StringField33: TStringField;
+    TimeField1: TTimeField;
+    TimeField2: TTimeField;
+    TimeField3: TTimeField;
+    TimeField4: TTimeField;
+    DateField2: TDateField;
+    IntegerField5: TIntegerField;
+    SmallintField2: TSmallintField;
+    SmallintField3: TSmallintField;
+    IntegerField6: TIntegerField;
+    IntegerField7: TIntegerField;
+    IntegerField8: TIntegerField;
+    dsConsCad: TDataSource;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
@@ -94,6 +150,9 @@ type
     { Private declarations }
   public
     { Public declarations }
+    procedure consultarEmpresas(SQL:string);
+    procedure consultarForns(SQL:string);
+
   end;
 
 var
@@ -117,7 +176,22 @@ end;
 
 procedure TDTM_CAD.gerAfterPost(DataSet: TDataSet);
 begin
-  TClientDataSet(DataSet).ApplyUpdates(-1);
+ TClientDataSet(DataSet).ApplyUpdates(-1) ;
+
+end;
+
+procedure TDTM_CAD.consultarEmpresas(SQL: string);
+begin
+  cdsConsEmpre.Close;
+  setSqlCommand(SQL,DTM_CAD.cdsConsEmpre);
+  cdsConsEmpre.Open;
+end;
+
+procedure TDTM_CAD.consultarForns(SQL: string);
+begin
+  cdsConsCad.Close;
+  setSqlCommand(SQL,DTM_CAD.cdsConsCad);
+  cdsConsCad.Open;
 end;
 
 end.

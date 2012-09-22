@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, ufuncoes,registro,
-  Dialogs, StdCtrls, Buttons, UDTMGeral;
+  Dialogs, StdCtrls, Buttons, UDTMGeral, jpeg, ExtCtrls;
 
 type
   TFRMLogin = class(TForm)
@@ -17,10 +17,10 @@ type
     Label1: TLabel;
     chblembrar: TCheckBox;
     chblembrarsenha: TCheckBox;
-    CHBentrarauto: TCheckBox;
     edtUsuario: TComboBox;
     cbsenhas: TComboBox;
     labesquecer: TLabel;
+    img1: TImage;
     procedure btnSairClick(Sender: TObject);
     procedure btnEntrarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -33,7 +33,6 @@ type
     procedure edtUsuarioChange(Sender: TObject);
     procedure chblembrarClick(Sender: TObject);
     procedure chblembrarsenhaClick(Sender: TObject);
-    procedure CHBentrarautoClick(Sender: TObject);
   private
      reg:treg;
     function Verifica : Boolean;
@@ -72,6 +71,7 @@ end;
 procedure TFRMLogin.btnEntrarClick(Sender: TObject);
 var usuariocdg:Integer;
 begin
+  //verificaçoes basicas
   if Verifica then
   begin
     DTMGeral.cdsGeral.Close;
@@ -97,8 +97,8 @@ begin
 
       //operacoes com o registro do windows  para gravar usuario e senha
       reg.gravarULtimoLogin(edtusuario.Text,edtsenha.Text); //gravar ultimo acesso
-      if CHBentrarauto.Checked then
-           reg.loginauto(true);     //gravar autologin
+     // if CHBentrarauto.Checked then
+     //      reg.loginauto(true);     //gravar autologin
       if chblembrarsenha.Checked then
             reg.gravarUsuario(edtusuario.Text,edtsenha.Text) //gravar lembrar senha
       else if chblembrar.Checked then
@@ -107,7 +107,7 @@ begin
            reg.lembrar(edtusuario.text,false) //se  nao for pra lembrar  entao esquecer ...
       else reg.lembrar(edtusuario.text,true);
 
-
+      //entrar no sistema
       entrar(usuariocdg);
     end;
   end;
@@ -134,11 +134,12 @@ end;
 procedure TFRMLogin.FormShow(Sender: TObject);
 begin
   edtUsuario.SetFocus;
+
 end;
 
 procedure TFRMLogin.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-//se usuarionome vazio  é pq nao esta logado
+//se usuarionome vazio  é pq nao esta logado  (fehcar sistema)
 IF dtmgeral.usuarioNome = '' THEN Application.Terminate;
 
 //abilitar frm  principal
@@ -167,28 +168,28 @@ if (key = #27)and (tag = 0) then
       Key := #0;
       btnentrarClick(nil);
    end;
-
 end;
 
 procedure TFRMLogin.FormCreate(Sender: TObject);
 begin
-     if (time>strtotime('5:00')) and (time<strtotime('13:00')) then  //texto de acordo com o horario
-              labtitulo.Caption := 'Bom dia!' ;
-        if (time>strtotime('13:00')) and (time<strtotime('18:00')) then
-              labtitulo.Caption := 'Boa Tarde!';
-        if (time>strtotime('18:00')) or  (time<strtotime('5:00')) then
-              labtitulo.Caption := 'Boa Noite!';
+ if (time>strtotime('5:00')) and (time<strtotime('13:00')) then  //texto de acordo com o horario
+          labtitulo.Caption := 'Bom dia!' ;
+    if (time>strtotime('13:00')) and (time<strtotime('18:00')) then
+          labtitulo.Caption := 'Boa Tarde!';
+    if (time>strtotime('18:00')) or  (time<strtotime('5:00')) then
+          labtitulo.Caption := 'Boa Noite!';
 
 
-reg:=Treg.create;
-edtUsuario.Items.Text:=  reg.LerUsuarios;  //preencher comboboxs
-cbsenhas.items.text:= reg.LerSenhas;
-edtusuario.itemindex:= edtusuario.items.indexof(reg.ultimologin);  //ultimo login
-edtsenha.Text:=  trim(cbsenhas.Items[edtusuario.itemindex]); //se guardar vazio direto no cbsenha  da access violation aki na hora de pegar o valor
+  //carregar usuario e senhas do registro caso tenha gravado
+  reg:=Treg.create;
+  edtUsuario.Items.Text:=  reg.LerUsuarios;  //preencher comboboxs
+  cbsenhas.items.text:= reg.LerSenhas;
+  edtusuario.itemindex:= edtusuario.items.indexof(reg.ultimologin);  //ultimo login
+  edtsenha.Text:=  trim(cbsenhas.Items[edtusuario.itemindex]); //se guardar vazio direto no cbsenha  da access violation aqui na hora de pegar o valor
 
-if edtsenha.text <> '' then
+  if edtsenha.text <> '' then
     chblembrarsenha.Checked:=true;
-chblembrar.Checked:=  reg.lembrar();
+  chblembrar.Checked:=  reg.lembrar();
 end;
 
 procedure TFRMLogin.FormKeyPress(Sender: TObject; var Key: Char);
@@ -206,7 +207,7 @@ begin
      edtusuario.Clear;
      edtsenha.Clear;
      cbsenhas.Clear;
-     CHBentrarauto.Checked:=false;
+   //  CHBentrarauto.Checked:=false;
      chblembrarsenha.Checked:=false;
      edtusuario.Items.Text:=  reg.LerUsuarios;
      cbsenhas.items.text:= reg.LerSenhas;
@@ -218,11 +219,10 @@ end;
 procedure TFRMLogin.edtUsuarioChange(Sender: TObject);
 begin
 edtsenha.Text:= trim(cbsenhas.Items[edtusuario.itemindex]);
-if cbsenhas.Items[edtusuario.itemindex] <> '' then
+if trim(cbsenhas.Items[edtusuario.itemindex]) <> '' then
      chblembrarsenha.Checked:=true
 else
    chblembrarsenha.Checked:=false;
-
 
 end;
 
@@ -231,7 +231,7 @@ begin
 if not chblembrar.Checked then
 begin
       chblembrarsenha.Checked:=false;
-      CHBentrarauto.Checked:=false;
+   //   CHBentrarauto.Checked:=false;
 end;
 end;
 
@@ -240,18 +240,7 @@ begin
 
 if chblembrarsenha.Checked then
         chblembrar.Checked:=true
-else
-      CHBentrarauto.Checked:=false;
-end;
 
-procedure TFRMLogin.CHBentrarautoClick(Sender: TObject);
-begin
-
-if CHBentrarauto.Checked then
-begin
-      chblembrar.Checked:=true;
-      chblembrarsenha.Checked:=true;
-end;
 end;
 
 end.

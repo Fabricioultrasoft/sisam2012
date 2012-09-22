@@ -1,6 +1,6 @@
 object FRM_COND: TFRM_COND
-  Left = 232
-  Top = 178
+  Left = 283
+  Top = 275
   Width = 713
   Height = 494
   Caption = 'Condom'#237'nios'
