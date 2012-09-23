@@ -69,9 +69,9 @@ type
     procedure abrirFRMCRB();
     procedure abrirFRMCPG();
     procedure abrirFRMUsuario();
-    procedure abrirFRMtrocasenha(Modo:integer);
   public
     { Public declarations }
+    procedure abrirFRMtrocasenha(Modo:integer);
   end;
 
 var
@@ -268,7 +268,7 @@ begin
   // 1  fecha  sistema se cancelar
   // 0  voltar para  o sistema normalmente
   FrmTrocarSenha.tag := modo;
-  FrmTrocarSenha.ShowModal;
+  FrmTrocarSenha.Show;
 end;
 
 end.

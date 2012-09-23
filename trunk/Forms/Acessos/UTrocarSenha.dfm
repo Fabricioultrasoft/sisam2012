@@ -4,8 +4,8 @@ object FRMTrocarSenha: TFRMTrocarSenha
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'Trocar Senha'
-  ClientHeight = 159
-  ClientWidth = 172
+  ClientHeight = 185
+  ClientWidth = 190
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,13 +19,13 @@ object FRMTrocarSenha: TFRMTrocarSenha
   OnKeyPress = edantigaKeyPress
   OnShow = FormShow
   DesignSize = (
-    172
-    159)
+    190
+    185)
   PixelsPerInch = 96
   TextHeight = 13
   object btnconfirma: TButton
-    Left = 88
-    Top = 130
+    Left = 98
+    Top = 156
     Width = 83
     Height = 25
     Anchors = [akLeft, akBottom]
@@ -35,8 +35,8 @@ object FRMTrocarSenha: TFRMTrocarSenha
     OnKeyPress = edantigaKeyPress
   end
   object btncancela: TButton
-    Left = 3
-    Top = 131
+    Left = 6
+    Top = 156
     Width = 82
     Height = 24
     Anchors = [akLeft, akBottom]
@@ -46,10 +46,11 @@ object FRMTrocarSenha: TFRMTrocarSenha
     OnKeyPress = edantigaKeyPress
   end
   object GroupBox1: TGroupBox
-    Left = 1
-    Top = 44
-    Width = 170
-    Height = 83
+    Left = 8
+    Top = 57
+    Width = 173
+    Height = 90
+    Anchors = [akRight, akBottom]
     TabOrder = 1
     object Label2: TLabel
       Left = 10
@@ -90,10 +91,10 @@ object FRMTrocarSenha: TFRMTrocarSenha
       OnKeyPress = edantigaKeyPress
     end
   end
-  object GroupBox2: TGroupBox
-    Left = 2
-    Top = -2
-    Width = 169
+  object grpSenhaantiga: TGroupBox
+    Left = 9
+    Top = 5
+    Width = 172
     Height = 48
     TabOrder = 0
     object Label1: TLabel

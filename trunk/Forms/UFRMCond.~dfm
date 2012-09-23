@@ -1,12 +1,12 @@
 object FRM_COND: TFRM_COND
-  Left = 324
-  Top = 252
+  Left = 332
+  Top = 198
   Width = 885
-  Height = 446
+  Height = 638
   Caption = 'Condom'#237'nios'
   Color = clBtnFace
-  Constraints.MaxWidth = 885
   Constraints.MinHeight = 446
+  Constraints.MinWidth = 885
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -50,7 +50,7 @@ object FRM_COND: TFRM_COND
     Left = 0
     Top = 0
     Width = 869
-    Height = 408
+    Height = 600
     ActivePage = TabSheet2
     Align = alClient
     TabOrder = 0
@@ -58,12 +58,12 @@ object FRM_COND: TFRM_COND
       Caption = 'Cadastro'
       DesignSize = (
         861
-        380)
+        572)
       object grp1: TGroupBox
         Left = 6
         Top = 3
         Width = 847
-        Height = 335
+        Height = 527
         Anchors = [akLeft, akTop, akRight, akBottom]
         TabOrder = 0
         object lbl1: TLabel
@@ -403,7 +403,7 @@ object FRM_COND: TFRM_COND
       end
       object tlb1: TToolBar
         Left = 5
-        Top = 346
+        Top = 538
         Width = 846
         Height = 27
         Align = alNone
@@ -835,7 +835,7 @@ object FRM_COND: TFRM_COND
         Left = 0
         Top = 105
         Width = 861
-        Height = 275
+        Height = 467
         Align = alClient
         DataSource = DTM_CAD.dsConsCond
         Font.Charset = DEFAULT_CHARSET
@@ -866,11 +866,13 @@ object FRM_COND: TFRM_COND
           item
             Expanded = False
             FieldName = 'COND_INCORPORADORA'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'COND_CID'
+            Width = 64
             Visible = True
           end
           item
