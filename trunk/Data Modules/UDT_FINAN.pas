@@ -3,7 +3,7 @@ unit UDT_FINAN;
 interface
 
 uses
-  SysUtils, Classes, UDTMGeral, UDT_FINAN_IBX, DB, Provider, DBClient;
+  SysUtils, Classes, UDTMGeral, UDT_FINAN_IBX, DB, Provider, DBClient, ufuncoes;
 
 type
   TDTM_FINAN = class(TDataModule)
@@ -44,13 +44,60 @@ type
     cdsCrbCRB_BLOCO: TStringField;
     cdsCrbCRB_BAIXA: TSmallintField;
     dsCrb: TDataSource;
+    cdsCpgCPG_JUROS: TBCDField;
+    cdsCpgCPG_MULTA: TBCDField;
+    cdsCpgCPG_DESCONTO: TBCDField;
+    cdsCpgCPG_ACRESCIMO: TBCDField;
+    cdsCpgCPG_COND: TIntegerField;
+    cdsConsCpg: TClientDataSet;
+    DateField1: TDateField;
+    DateField2: TDateField;
+    FloatField1: TFloatField;
+    StringField1: TStringField;
+    StringField2: TStringField;
+    FloatField2: TFloatField;
+    FloatField3: TFloatField;
+    FloatField4: TFloatField;
+    FloatField5: TFloatField;
+    FloatField6: TFloatField;
+    FloatField7: TFloatField;
+    FloatField8: TFloatField;
+    FloatField9: TFloatField;
+    DateField3: TDateField;
+    StringField3: TStringField;
+    StringField4: TStringField;
+    IntegerField1: TIntegerField;
+    BCDField1: TBCDField;
+    BCDField2: TBCDField;
+    BCDField3: TBCDField;
+    BCDField4: TBCDField;
+    IntegerField2: TIntegerField;
+    dspConsCpg: TDataSetProvider;
+    dsConsCpg: TDataSource;
+    dspConsCrb: TDataSetProvider;
+    cdsConsCrb: TClientDataSet;
+    StringField5: TStringField;
+    FloatField10: TFloatField;
+    FloatField11: TFloatField;
+    FloatField12: TFloatField;
+    IntegerField3: TIntegerField;
+    IntegerField4: TIntegerField;
+    DateField4: TDateField;
+    DateField5: TDateField;
+    DateField6: TDateField;
+    FloatField13: TFloatField;
+    FloatField14: TFloatField;
+    FloatField15: TFloatField;
+    StringField6: TStringField;
+    SmallintField1: TSmallintField;
+    dsConsCrb: TDataSource;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
   private
     { Private declarations }
   public
-    { Public declarations }
+    procedure consultarContas(SQL : String);
   end;
 
 var
@@ -81,6 +128,13 @@ end;
 procedure TDTM_FINAN.gerAfterPost(DataSet: TDataSet);
 begin
   TClientDataSet(DataSet).ApplyUpdates(-1);
+end;
+
+procedure TDTM_FINAN.consultarContas(SQL: string);
+begin
+  cdsConsCpg.Close;
+  setSqlCommand(SQL,DTM_FINAN.cdsConsCpg);
+  cdsConsCpg.Open;
 end;
 
 end.
