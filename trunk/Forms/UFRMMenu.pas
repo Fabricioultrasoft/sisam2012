@@ -216,9 +216,9 @@ end;
 
 procedure TFRMMenu.abrirFRMForn;
 begin
-  if FRM_CAD = nil then
-    FRM_CAD:= TFRM_CAD.create(self);
-  FRM_CAD.show;
+  if FRM_CADdvs = nil then
+    FRM_CADdvs:= TFRM_CADdvs.create(self);
+  FRM_CADdvs.show;
 end;
 
 procedure TFRMMenu.abrirFRMFunc;

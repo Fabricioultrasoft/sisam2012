@@ -1,6 +1,6 @@
 object FRMMenu: TFRMMenu
-  Left = 327
-  Top = 205
+  Left = 307
+  Top = 186
   Width = 883
   Height = 706
   Caption = 'Menu'

@@ -16,7 +16,6 @@ type
     dtsEmpre: TDataSource;
     ToolBar1: TToolBar;
     tbAdd: TToolButton;
-    imgButtons: TImageList;
     tbOk: TToolButton;
     tbDelete: TToolButton;
     tbCancel: TToolButton;

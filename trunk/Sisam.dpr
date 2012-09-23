@@ -5,7 +5,7 @@ uses
   UFRMLogin in 'Forms\UFRMLogin.pas' {FRMLogin},
   UFRMMenu in 'Forms\UFRMMenu.pas' {FRMMenu},
   UDTMGeral in 'Data Modules\UDTMGeral.pas' {DTMGeral: TDataModule},
-  UFRMCad in 'Forms\UFRMCad.pas' {FRM_CAD},
+  UFRMCad in 'Forms\UFRMCad.pas' {FRM_CADDVS},
   UFRMEmpre in 'Forms\UFRMEmpre.pas' {FRM_EMPRE},
   UFRMCond in 'Forms\UFRMCond.pas' {FRM_COND},
   UDT_CAD_IBX in 'Data Modules\UDT_CAD_IBX.pas' {DTM_CAD_IBX: TDataModule},

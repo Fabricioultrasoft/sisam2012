@@ -9,8 +9,8 @@ interface
 
 
 type
-  TFRM_CAD = class(TForm)
-    PC_Cadastro: TPageControl;
+  TFRM_CADDVS = class(TForm)
+    PC_CadastrosDvs: TPageControl;
     tabCadastro: TTabSheet;
     dtsCad: TDataSource;
     tbConsulta: TTabSheet;
@@ -113,7 +113,7 @@ type
   end;
 
 var
-  FRM_CAD: TFRM_CAD;
+  FRM_CADDVS: TFRM_CADDVS;
 
 implementation
 
@@ -121,63 +121,63 @@ uses UDTMGeral;
 
 {$R *.dfm}
 
-procedure TFRM_CAD.FormCreate(Sender: TObject);
+procedure TFRM_CADDVS.FormCreate(Sender: TObject);
 begin
-  DTM_CAD.cdsCad.Close;
-  DTM_CAD.cdsCad.Open;
+  DTM_CAD.cdsCaddvs.Close;
+  DTM_CAD.cdsCaddvs.Open;
 
-  PC_Cadastro.ActivePageIndex := 0;
+  PC_CadastrosDvs.ActivePageIndex := 0;
 end;
 
-procedure TFRM_CAD.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFRM_CADDVS.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
 action:= cafree;
-FRM_CAD:=nil;
+FRM_CADdvs:=nil;
 end;
 
-procedure TFRM_CAD.dtsCadStateChange(Sender: TObject);
+procedure TFRM_CADDVS.dtsCadStateChange(Sender: TObject);
 begin
   // adivar botoes do navigator qndo estiver em edição
    btnOk.enabled:= (dtsCad.State in [dsinsert,dsedit]) ;
    btnCancel.enabled:=(dtsCad.State in [dsinsert,dsedit]) ;
 end;
 
-procedure TFRM_CAD.btnPriorClick(Sender: TObject);
+procedure TFRM_CADDVS.btnPriorClick(Sender: TObject);
 begin
- DTM_CAD.cdsCad.prior;
+ DTM_CAD.cdsCaddvs.prior;
 end;
 
-procedure TFRM_CAD.btntbnextClick(Sender: TObject);
+procedure TFRM_CADDVS.btntbnextClick(Sender: TObject);
 begin
- DTM_CAD.cdsCad.Next;
+ DTM_CAD.cdsCaddvs.Next;
 end;
 
-procedure TFRM_CAD.btnAddClick(Sender: TObject);
+procedure TFRM_CADDVS.btnAddClick(Sender: TObject);
 begin
- DTM_CAD.cdsCad.Insert;
+ DTM_CAD.cdsCaddvs.Insert;
 end;
 
-procedure TFRM_CAD.btnDeleteClick(Sender: TObject);
+procedure TFRM_CADDVS.btnDeleteClick(Sender: TObject);
 begin
- DTM_CAD.cdsCad.Delete;
+ DTM_CAD.cdsCaddvs.Delete;
 end;
 
-procedure TFRM_CAD.btnOkClick(Sender: TObject);
+procedure TFRM_CADDVS.btnOkClick(Sender: TObject);
 begin
- DTM_CAD.cdsCad.Post;
+ DTM_CAD.cdsCaddvs.Post;
 end;
 
-procedure TFRM_CAD.btnCancelClick(Sender: TObject);
+procedure TFRM_CADDVS.btnCancelClick(Sender: TObject);
 begin
- DTM_CAD.cdsCad.Cancel;
+ DTM_CAD.cdsCaddvs.Cancel;
 end;
 
 
-procedure TFRM_CAD.filtrarForns;
+procedure TFRM_CADDVS.filtrarForns;
   var  SQL : String;
 begin
  // montando filtro de pesquisa dinamicamente
- SQL:= SQL_FORN;
+ SQL:= SQL_CADDVS;
  if (Trim(edtrazao.Text) <> '') then
    SQL  := SQL + ' AND UPPER(FORN_RAZAO) LIKE UPPER(''%'+ trim(edtrazao.Text) +'%'') ';
 
@@ -194,22 +194,22 @@ begin
 end;
 
 
-procedure TFRM_CAD.btnPesqClick(Sender: TObject);
+procedure TFRM_CADDVS.btnPesqClick(Sender: TObject);
 begin
 filtrarForns;
 end;
 
-procedure TFRM_CAD.edtrazaoKeyPress(Sender: TObject; var Key: Char);
+procedure TFRM_CADDVS.edtrazaoKeyPress(Sender: TObject; var Key: Char);
 begin
 if key = #13 then
   btnPesqClick(self);
 end;
 
-procedure TFRM_CAD.dbgrd1DblClick(Sender: TObject);
+procedure TFRM_CADDVS.dbgrd1DblClick(Sender: TObject);
 begin
  //abrir cadastro do registro selecionado
-  IF DTM_CAD.cdsCad.Locate('FORN_CNPJ',DTM_CAD.cdsConsCAD.fieldbyname('FORN_CNPJ').AsInteger,[loPartialKey]) THEN
-    PC_Cadastro.ActivePageIndex:= 0;
+  IF DTM_CAD.cdsCaddvs.Locate('FORN_CNPJ',DTM_CAD.cdsConsCADdvs.fieldbyname('FORN_CNPJ').AsInteger,[loPartialKey]) THEN
+    PC_Cadastrosdvs.ActivePageIndex:= 0;
 end;
 
 end.

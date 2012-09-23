@@ -1,4 +1,4 @@
-object FRM_CAD: TFRM_CAD
+object FRM_CADDVS: TFRM_CADDVS
   Left = 346
   Top = 217
   Width = 801
@@ -10,8 +10,10 @@ object FRM_CAD: TFRM_CAD
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
+  FormStyle = fsMDIChild
   OldCreateOrder = False
   Position = poScreenCenter
+  Visible = True
   OnClose = FormClose
   OnCreate = FormCreate
   PixelsPerInch = 96
@@ -29,12 +31,12 @@ object FRM_CAD: TFRM_CAD
     Font.Style = []
     ParentFont = False
   end
-  object PC_Cadastro: TPageControl
+  object PC_CadastrosDvs: TPageControl
     Left = 0
     Top = 0
     Width = 785
     Height = 650
-    ActivePage = tbConsulta
+    ActivePage = tabCadastro
     Align = alClient
     TabOrder = 0
     object tabCadastro: TTabSheet
@@ -195,7 +197,7 @@ object FRM_CAD: TFRM_CAD
         object lbl12: TLabel
           Left = 545
           Top = 179
-          Width = 19
+          Width = 17
           Height = 13
           Caption = 'U.F'
           Font.Charset = DEFAULT_CHARSET
@@ -221,7 +223,7 @@ object FRM_CAD: TFRM_CAD
         object lbl14: TLabel
           Left = 445
           Top = 261
-          Width = 31
+          Width = 32
           Height = 13
           Caption = 'Celular'
           Font.Charset = DEFAULT_CHARSET
@@ -1135,7 +1137,7 @@ object FRM_CAD: TFRM_CAD
         Width = 777
         Height = 479
         Align = alClient
-        DataSource = DTM_CAD.dsConsCad
+        DataSource = DTM_CAD.dsConsCaddvs
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
         TabOrder = 1
         TitleFont.Charset = DEFAULT_CHARSET
@@ -1213,7 +1215,7 @@ object FRM_CAD: TFRM_CAD
     end
   end
   object dtsCad: TDataSource
-    DataSet = DTM_CAD.cdsCad
+    DataSet = DTM_CAD.cdsCaddvs
     OnStateChange = dtsCadStateChange
     Left = 632
     Top = 48
