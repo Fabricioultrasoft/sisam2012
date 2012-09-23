@@ -88,6 +88,7 @@ begin
     begin
       MessageDlg('Usuário ou senha inválidos.', mtWarning, [mbOK], 0);
      // UsuarioAtivo := -1;
+      edtSenha.SetFocus;
       DTMGeral.cdsGeral.Close;
     end
     else

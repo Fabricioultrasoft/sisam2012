@@ -4,18 +4,36 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Mask, DBCtrls, ExtCtrls;
+  Dialogs, StdCtrls, Mask, DBCtrls, ExtCtrls, Buttons, ComCtrls, ToolWin,
+  DB;
 
 type
   TFRM_USER = class(TForm)
-    Label1: TLabel;
-    DBEdit1: TDBEdit;
-    Label2: TLabel;
+    tlb1: TToolBar;
+    btnPrior: TToolButton;
+    btntbnext: TToolButton;
+    btnAdd: TToolButton;
+    btnDelete: TToolButton;
+    btnOk: TToolButton;
+    btnCancel: TToolButton;
+    grp1: TGroupBox;
+    btntrocarsenha: TBitBtn;
+    lbl2: TLabel;
     DBEdit2: TDBEdit;
-    Label3: TLabel;
-    DBEdit3: TDBEdit;
-    DBNavigator1: TDBNavigator;
+    lbl1: TLabel;
+    lbl3: TLabel;
+    DBEdit1: TDBEdit;
+    dsuser: TDataSource;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btntrocarsenhaClick(Sender: TObject);
+    procedure btnPriorClick(Sender: TObject);
+    procedure btntbnextClick(Sender: TObject);
+    procedure btnAddClick(Sender: TObject);
+    procedure btnDeleteClick(Sender: TObject);
+    procedure btnOkClick(Sender: TObject);
+    procedure btnCancelClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure dsuserStateChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,7 +45,7 @@ var
 
 implementation
 
-uses UDT_CAD;
+uses UDT_CAD, UFRMMenu, UDTMGeral, UTrocarSenha;
 
 {$R *.dfm}
 
@@ -35,6 +53,58 @@ procedure TFRM_USER.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
 action:= cafree;
 FRM_USER:=nil;
+end;
+
+procedure TFRM_USER.btntrocarsenhaClick(Sender: TObject);
+begin
+if dsuser.State in [dsinsert,dsedit] then
+  DTM_CAD.cdsUser.Post;
+FRMMenu.abrirFRMtrocasenha(0);
+FRMTrocarSenha.setVerificaSenhaantiga(FALSE);
+FRMTrocarSenha.setUsuario(DTM_CAD.CDSUser.fieldbyname('USUARIO_CDG').AsInteger);
+end;
+
+procedure TFRM_USER.btnPriorClick(Sender: TObject);
+begin
+DTM_CAD.cdsUser.Prior
+end;
+
+procedure TFRM_USER.btntbnextClick(Sender: TObject);
+begin
+  DTM_CAD.cdsUser.Next;
+end;
+
+procedure TFRM_USER.btnAddClick(Sender: TObject);
+begin
+DTM_CAD.cdsUser.Insert;
+end;
+
+procedure TFRM_USER.btnDeleteClick(Sender: TObject);
+begin
+DTM_CAD.cdsUser.Delete;
+end;
+
+procedure TFRM_USER.btnOkClick(Sender: TObject);
+begin
+DTM_CAD.cdsUser.Post;
+end;
+
+procedure TFRM_USER.btnCancelClick(Sender: TObject);
+begin
+DTM_CAD.cdsUser.Cancel;
+end;
+
+procedure TFRM_USER.FormCreate(Sender: TObject);
+begin
+DTM_CAD.cdsUser.Close;
+DTM_CAD.cdsUser.Open;
+end;
+
+procedure TFRM_USER.dsuserStateChange(Sender: TObject);
+begin
+ // adivar botoes do navigator qndo estiver em edição
+   btnOk.enabled:= (dsuser.State in [dsinsert,dsedit]) ;
+   btncancel.enabled:=(dsuser.State in [dsinsert,dsedit]) ;
 end;
 
 end.

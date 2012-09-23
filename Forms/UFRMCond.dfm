@@ -16,6 +16,7 @@ object FRM_COND: TFRM_COND
   OldCreateOrder = False
   Position = poDefault
   Visible = True
+  WindowState = wsMaximized
   OnClose = FormClose
   OnCreate = FormCreate
   PixelsPerInch = 96
@@ -866,11 +867,13 @@ object FRM_COND: TFRM_COND
           item
             Expanded = False
             FieldName = 'COND_INCORPORADORA'
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'COND_CID'
+            Width = 64
             Visible = True
           end
           item
