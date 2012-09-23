@@ -35,10 +35,12 @@ type
     Logoff1: TMenuItem;
     AlterarSenhaF21: TMenuItem;
     FornecedoresClientes1: TMenuItem;
-    Funcionrios1: TMenuItem;
     Condomnios1: TMenuItem;
     Contasapagar1: TMenuItem;
     Contasareceber1: TMenuItem;
+    Relatrios1: TMenuItem;
+    Empresas1: TMenuItem;
+    Condominios1: TMenuItem;
     procedure ToolButton1Click(Sender: TObject);
     procedure tbCadastroClick(Sender: TObject);
     procedure Calculadora1Click(Sender: TObject);
@@ -58,6 +60,8 @@ type
     procedure Condomnios1Click(Sender: TObject);
     procedure Contasapagar1Click(Sender: TObject);
     procedure Contasareceber1Click(Sender: TObject);
+    procedure Empresas1Click(Sender: TObject);
+    procedure Condominios1Click(Sender: TObject);
   private
     { Private declarations }
     procedure deslogar(relogar: boolean);
@@ -69,6 +73,8 @@ type
     procedure abrirFRMCRB();
     procedure abrirFRMCPG();
     procedure abrirFRMUsuario();
+    procedure abrirFRMRELEmpresa;
+    procedure abrirFRMRELCondominio;
   public
     { Public declarations }
     procedure abrirFRMtrocasenha(Modo:integer);
@@ -80,7 +86,7 @@ var
 implementation
 
 uses UFRMCad, UFRMEmpre, UFRMCond, UFRMUser, UFRMCpg, UFRMCrb,
-  UTrocarSenha, UFRMLogin, UDTMGeral;
+  UTrocarSenha, UFRMLogin, UDTMGeral, UFRMREL_Empresa, UFRMREL_Condominio;
 
 {$R *.dfm}
 
@@ -260,15 +266,42 @@ begin
   FRM_USER.ShowModal;
 end;
 
+
+procedure TFRMMenu.abrirFRMRELEmpresa;
+begin
+  if FRMREL_empresa = nil then
+    FRMREL_empresa:= TFRMREL_empresa.create(self);
+  FRMREL_empresa.ShowModal;
+end;
+
+
+procedure TFRMMenu.abrirFRMRELCondominio;
+begin
+  if FRMREL_Condominio = nil then
+    FRMREL_Condominio:= TFRMREL_Condominio.create(self);
+  FRMREL_Condominio.ShowModal;
+end;
+
+
 procedure TFRMMenu.abrirFRMtrocasenha(Modo:integer);
 begin
-  if frmtrocarsenha = nil then
-    FrmTrocarSenha := TFrmTrocarSenha.Create(self);
+  if frm_trocarsenha = nil then
+    Frm_TrocarSenha := TFrm_TrocarSenha.Create(self);
   // modo:
   // 1  fecha  sistema se cancelar
   // 0  voltar para  o sistema normalmente
-  FrmTrocarSenha.tag := modo;
-  FrmTrocarSenha.Show;
+  Frm_TrocarSenha.tag := modo;
+  Frm_TrocarSenha.Show;
+end;
+
+procedure TFRMMenu.Empresas1Click(Sender: TObject);
+begin
+abrirFRMRELEmpresa;
+end;
+
+procedure TFRMMenu.Condominios1Click(Sender: TObject);
+begin
+abrirFRMRELCondominio;
 end;
 
 end.

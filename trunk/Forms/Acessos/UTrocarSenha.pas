@@ -12,7 +12,7 @@ uses
   Dialogs, StdCtrls, ExtCtrls, Mask, ufuncoes;
 
 type
-  TFRMTrocarSenha = class(TForm)
+  TFRM_TrocarSenha = class(TForm)
     btnconfirma: TButton;
     btncancela: TButton;
     GroupBox1: TGroupBox;
@@ -44,7 +44,7 @@ type
   end;
 
 var
-  FRMTrocarSenha: TFRMTrocarSenha;
+  FRM_TrocarSenha: TFRM_TrocarSenha;
 
 implementation
 
@@ -55,7 +55,7 @@ uses UDTMgeral, UFRMmenu;
 
 {$R *.dfm}
 
-procedure TFRMTrocarSenha.btnconfirmaClick(Sender: TObject);
+procedure TFRM_TrocarSenha.btnconfirmaClick(Sender: TObject);
 begin
   if verificasenhaAntiga then
   begin
@@ -68,7 +68,7 @@ begin
      trocarsenhasemverificar;
 end;
 
-procedure TFRMTrocarSenha.trocarsenha;
+procedure TFRM_TrocarSenha.trocarsenha;
 begin
 
 if edantiga.Text = dtmgeral.senha then
@@ -85,7 +85,7 @@ ELsE
 	showmessage('Senha atual incorreta !!!!');
 end;
 
-procedure TFRMTrocarSenha.FormCreate(Sender: TObject);
+procedure TFRM_TrocarSenha.FormCreate(Sender: TObject);
 begin
 
 setUsuario(dtmgeral.usuariocdg);
@@ -93,7 +93,7 @@ cancelou:=true;
 caption := ' Trocar senha ';
 end;
 
-procedure TFRMTrocarSenha.FormClose(Sender: TObject;
+procedure TFRM_TrocarSenha.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
 if (tag = 1) and cancelou then
@@ -101,15 +101,15 @@ if (tag = 1) and cancelou then
 
 FRMmenu.Enabled:=true;
 action:=cafree;
-FrmtrocarSenha:=nil;
+Frm_trocarSenha:=nil;
 end;
 
-procedure TFRMTrocarSenha.btncancelaClick(Sender: TObject);
+procedure TFRM_TrocarSenha.btncancelaClick(Sender: TObject);
 begin
  close;
 end;
 
-procedure TFRMTrocarSenha.edantigaKeyPress(Sender: TObject;
+procedure TFRM_TrocarSenha.edantigaKeyPress(Sender: TObject;
   var Key: Char);
 begin
 if key = #27 then
@@ -119,13 +119,13 @@ if key = #13 then
    btnconfirmaClick(self);
 end;
 
-procedure TFRMTrocarSenha.FormShow(Sender: TObject);
+procedure TFRM_TrocarSenha.FormShow(Sender: TObject);
 begin
 FRMMenu.Enabled:=false;
 setverificasenhaAntiga(True);
 end;
 
-procedure TFRMTrocarSenha.trocarsenhasemverificar;
+procedure TFRM_TrocarSenha.trocarsenhasemverificar;
 begin
 	if ednova.Text = edconfirma.Text then
   begin
@@ -134,7 +134,7 @@ begin
  		showmessage(' confirme a senha corretamente ...')
 end;
 
-procedure TFRMTrocarSenha.executaSqlTrocaSenha();
+procedure TFRM_TrocarSenha.executaSqlTrocaSenha();
 begin
 		dtmgeral.executarSQL(' update cad_usuario set usuario_senha  = '''
                      +Encriptar(ednova.Text)+'''  '
@@ -144,19 +144,19 @@ begin
    close;
 end;
 
-procedure TFRMTrocarSenha.setUsuario(user: integer);
+procedure TFRM_TrocarSenha.setUsuario(user: integer);
 begin
 usuario:= user;
 end;
 
-procedure TFRMTrocarSenha.setVerificaSenhaantiga(modo: boolean);
+procedure TFRM_TrocarSenha.setVerificaSenhaantiga(modo: boolean);
 begin
   verificasenhaAntiga:=modo;
   grpSenhaantiga.Visible:=modo;
   if modo then
-    FRMTrocarSenha.Height:= 223
+    FRM_TrocarSenha.Height:= 223
   else
-     FRMTrocarSenha.Height:= 170;
+     FRM_TrocarSenha.Height:= 170;
 end;
 
 end.

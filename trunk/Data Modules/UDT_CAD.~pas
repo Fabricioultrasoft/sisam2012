@@ -3,7 +3,8 @@ unit UDT_CAD;
 interface
 
 uses
-  SysUtils, Classes, UDTMGeral, UDT_CAD_IBX, DB, DBClient, Provider,ufuncoes,sqlconst;
+  SysUtils, Classes, UDTMGeral, UDT_CAD_IBX, DB, DBClient, Provider,ufuncoes,sqlconst,
+  IBCustomDataSet, IBQuery;
 
 type
   TDTM_CAD = class(TDataModule)
@@ -198,6 +199,7 @@ type
     cdsLkpCaddvsFORN_TPFORNECEDOR: TIntegerField;
     cdsLkpCaddvsFORN_TPSINDICO: TIntegerField;
     cdsLkpCaddvsFORN_TPINCORPORADORA: TIntegerField;
+    qryREL: TIBQuery;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);

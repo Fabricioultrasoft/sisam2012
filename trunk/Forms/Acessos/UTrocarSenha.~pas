@@ -130,7 +130,8 @@ begin
 	if ednova.Text = edconfirma.Text then
   begin
     executaSqlTrocaSenha;
-  end;
+  end else
+ 		showmessage(' confirme a senha corretamente ...')
 end;
 
 procedure TFRMTrocarSenha.executaSqlTrocaSenha();

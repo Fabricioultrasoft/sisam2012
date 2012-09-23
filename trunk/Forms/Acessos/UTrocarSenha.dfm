@@ -1,4 +1,4 @@
-object FRMTrocarSenha: TFRMTrocarSenha
+object FRM_TrocarSenha: TFRM_TrocarSenha
   Left = 481
   Top = 296
   BorderIcons = []

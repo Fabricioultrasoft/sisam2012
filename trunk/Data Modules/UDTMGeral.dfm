@@ -13,8 +13,8 @@ object DTMGeral: TDTMGeral
       'lc_ctype=ISO8859_1')
     LoginPrompt = False
     DefaultTransaction = Transaction
-    Left = 16
-    Top = 16
+    Left = 24
+    Top = 40
   end
   object Transaction: TIBTransaction
     DefaultDatabase = Database
@@ -23,7 +23,7 @@ object DTMGeral: TDTMGeral
       'rec_version'
       'nowait')
     Left = 104
-    Top = 16
+    Top = 32
   end
   object qryGeral: TIBQuery
     Database = Database
