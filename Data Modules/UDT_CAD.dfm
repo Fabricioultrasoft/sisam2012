@@ -1269,4 +1269,14 @@ object DTM_CAD: TDTM_CAD
     Left = 216
     Top = 472
   end
+  object qryREL: TIBQuery
+    Database = DTMGeral.Database
+    Transaction = DTMGeral.Transaction
+    Active = True
+    SQL.Strings = (
+      'select * from cad_empresa'
+      '')
+    Left = 520
+    Top = 24
+  end
 end

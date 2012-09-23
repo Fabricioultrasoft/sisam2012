@@ -17,8 +17,10 @@ uses
   UFRMCrb in 'Forms\UFRMCrb.pas' {FRM_CRB},
   UFuncoes in 'UFuncoes.pas',
   SqlConst in 'Lib\SqlConst.pas',
-  UTrocarSenha in 'Forms\Acessos\UTrocarSenha.pas' {FRMTrocarSenha},
-  Registro in 'Forms\Acessos\registro.pas';
+  UTrocarSenha in 'Forms\Acessos\UTrocarSenha.pas' {FRM_TrocarSenha},
+  Registro in 'Forms\Acessos\registro.pas',
+  UFRMREL_Empresa in 'Relatorios\UFRMREL_Empresa.pas' {FRMREL_Empresa},
+  UFRMREL_Condominio in 'Relatorios\UFRMREL_Condominio.pas' {FRMREL_Condominio};
 
 {$R *.res}
 

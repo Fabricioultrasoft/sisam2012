@@ -3,7 +3,8 @@ unit UDT_CAD;
 interface
 
 uses
-  SysUtils, Classes, UDTMGeral, UDT_CAD_IBX, DB, DBClient, Provider,ufuncoes,sqlconst;
+  SysUtils, Classes, UDTMGeral, UDT_CAD_IBX, DB, DBClient, Provider,ufuncoes,sqlconst,
+  IBCustomDataSet, IBQuery;
 
 type
   TDTM_CAD = class(TDataModule)
@@ -198,20 +199,24 @@ type
     cdsLkpCaddvsFORN_TPFORNECEDOR: TIntegerField;
     cdsLkpCaddvsFORN_TPSINDICO: TIntegerField;
     cdsLkpCaddvsFORN_TPINCORPORADORA: TIntegerField;
+    qryREL: TIBQuery;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
   private
+    procedure prepararRelatorio(SQL:string);
     { Private declarations }
   public
     { Public declarations }
-
-   procedure atualizarLkpCaddvs(); 
+    //lookups
+    procedure atualizarLkpCaddvs();
     // consultas
     procedure consultarEmpresas(SQL:string);
     procedure consultarForns(SQL:string);
     procedure consultarCondominios(SQL:string);
-
+    //Relatorios
+    procedure prepararRelatorioEmpresa;
+    procedure prepararRelatorioCondominio;    
   end;
 
 var
@@ -266,9 +271,30 @@ end;
 
 procedure TDTM_CAD.atualizarLkpCaddvs;
 begin
-cdsLkpCaddvs.Close;
-SetSqlCommand(sql_caddvs,cdsLkpCaddvs) ;
-cdsLkpCaddvs.Open;
+  cdsLkpCaddvs.Close;
+  SetSqlCommand(sql_caddvs,cdsLkpCaddvs) ;
+  cdsLkpCaddvs.Open;
 end;
+
+procedure TDTM_CAD.prepararRelatorio(SQL:string);
+begin
+  qryREL.Close;
+  qryREL.SQL.Clear;
+  qryREL.SQL.Add(SQL);
+  qryREL.Open;
+end;
+
+procedure TDTM_CAD.prepararRelatorioEmpresa();
+begin
+  prepararRelatorio('SELECT * FROM CAD_EMPRESA ');
+end;
+
+
+procedure TDTM_CAD.prepararRelatorioCondominio;
+begin
+  prepararRelatorio('SELECT * FROM CAD_COND ');
+end;
+
+
 
 end.

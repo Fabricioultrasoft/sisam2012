@@ -179,7 +179,7 @@ object DTM_CAD: TDTM_CAD
     IndexDefs = <>
     IndexFieldNames = 'FORN_CNPJ'
     Params = <>
-    ProviderName = 'dspCad'
+    ProviderName = 'dspCaddvs'
     StoreDefs = True
     AfterPost = gerAfterPost
     AfterDelete = gerAfterDelete
@@ -846,7 +846,7 @@ object DTM_CAD: TDTM_CAD
     IndexDefs = <>
     IndexFieldNames = 'FORN_CNPJ'
     Params = <>
-    ProviderName = 'dspConsCad'
+    ProviderName = 'dspConsCaddvs'
     StoreDefs = True
     AfterPost = gerAfterPost
     AfterDelete = gerAfterDelete
@@ -1268,5 +1268,15 @@ object DTM_CAD: TDTM_CAD
     DataSet = cdsLkpCaddvs
     Left = 216
     Top = 472
+  end
+  object qryREL: TIBQuery
+    Database = DTMGeral.Database
+    Transaction = DTMGeral.Transaction
+    Active = True
+    SQL.Strings = (
+      'select * from cad_empresa'
+      '')
+    Left = 520
+    Top = 24
   end
 end

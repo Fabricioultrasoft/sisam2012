@@ -1,7 +1,7 @@
 object FRM_USER: TFRM_USER
   Left = 433
   Top = 369
-  Width = 310
+  Width = 318
   Height = 302
   Caption = 'Cadastro de Usu'#225'rio'
   Color = clBtnFace
@@ -14,7 +14,7 @@ object FRM_USER: TFRM_USER
   OnClose = FormClose
   OnCreate = FormCreate
   DesignSize = (
-    294
+    302
     264)
   PixelsPerInch = 96
   TextHeight = 13
@@ -136,13 +136,13 @@ object FRM_USER: TFRM_USER
       Font.Style = [fsBold]
       ParentFont = False
     end
-    object btn1: TBitBtn
+    object btntrocarsenha: TBitBtn
       Left = 10
       Top = 160
       Width = 80
       Height = 45
       TabOrder = 0
-      OnClick = btn1Click
+      OnClick = btntrocarsenhaClick
       Glyph.Data = {
         360C0000424D360C000000000000360000002800000020000000200000000100
         180000000000000C0000C40E0000C40E00000000000000000000FFFFFFFFFFFF
@@ -261,5 +261,11 @@ object FRM_USER: TFRM_USER
       DataSource = DTM_CAD.dsUser
       TabOrder = 2
     end
+  end
+  object dsuser: TDataSource
+    DataSet = DTM_CAD.cdsUser
+    OnStateChange = dsuserStateChange
+    Left = 216
+    Top = 16
   end
 end

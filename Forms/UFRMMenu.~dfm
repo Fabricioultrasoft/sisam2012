@@ -10712,12 +10712,8 @@ object FRMMenu: TFRMMenu
         OnClick = actEmpreExecute
       end
       object FornecedoresClientes1: TMenuItem
-        Caption = 'Fornecedores/Clientes'
+        Caption = 'Cadastros Diversos'
         OnClick = FornecedoresClientes1Click
-      end
-      object Funcionrios1: TMenuItem
-        Caption = 'Funcion'#225'rios'
-        OnClick = Funcionrios1Click
       end
       object Condomnios1: TMenuItem
         Caption = 'Condom'#237'nios'
@@ -10745,6 +10741,16 @@ object FRMMenu: TFRMMenu
       object Sair1: TMenuItem
         Caption = 'Sair'
         OnClick = Sair1Click
+      end
+    end
+    object Relatrios1: TMenuItem
+      Caption = 'Relat'#243'rios'
+      object Empresas1: TMenuItem
+        Caption = 'Empresas'
+        OnClick = Empresas1Click
+      end
+      object Condominios1: TMenuItem
+        Caption = 'Condominios'
       end
     end
     object Sobre1: TMenuItem

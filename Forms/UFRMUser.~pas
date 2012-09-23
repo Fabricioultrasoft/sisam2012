@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Mask, DBCtrls, ExtCtrls, Buttons, ComCtrls, ToolWin;
+  Dialogs, StdCtrls, Mask, DBCtrls, ExtCtrls, Buttons, ComCtrls, ToolWin,
+  DB;
 
 type
   TFRM_USER = class(TForm)
@@ -16,14 +17,15 @@ type
     btnOk: TToolButton;
     btnCancel: TToolButton;
     grp1: TGroupBox;
-    btn1: TBitBtn;
+    btntrocarsenha: TBitBtn;
     lbl2: TLabel;
     DBEdit2: TDBEdit;
     lbl1: TLabel;
     lbl3: TLabel;
     DBEdit1: TDBEdit;
+    dsuser: TDataSource;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure btn1Click(Sender: TObject);
+    procedure btntrocarsenhaClick(Sender: TObject);
     procedure btnPriorClick(Sender: TObject);
     procedure btntbnextClick(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
@@ -31,6 +33,7 @@ type
     procedure btnOkClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure dsuserStateChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,11 +55,13 @@ action:= cafree;
 FRM_USER:=nil;
 end;
 
-procedure TFRM_USER.btn1Click(Sender: TObject);
+procedure TFRM_USER.btntrocarsenhaClick(Sender: TObject);
 begin
-frmmenu.abrirFRMtrocasenha(0);
-FRMTROCARSENHA.setUsuario(DTM_CAD.cdsUser.FieldByName('USUARIO_CDG').AsInteger);
-FRMTROCARSENHA.setVerificaSenhaantiga(false);
+if dsuser.State in [dsinsert,dsedit] then
+  DTM_CAD.cdsUser.Post;
+FRMMenu.abrirFRMtrocasenha(0);
+FRMTrocarSenha.setVerificaSenhaantiga(FALSE);
+FRMTrocarSenha.setUsuario(DTM_CAD.CDSUser.fieldbyname('USUARIO_CDG').AsInteger);
 end;
 
 procedure TFRM_USER.btnPriorClick(Sender: TObject);
@@ -93,6 +98,13 @@ procedure TFRM_USER.FormCreate(Sender: TObject);
 begin
 DTM_CAD.cdsUser.Close;
 DTM_CAD.cdsUser.Open;
+end;
+
+procedure TFRM_USER.dsuserStateChange(Sender: TObject);
+begin
+ // adivar botoes do navigator qndo estiver em edição
+   btnOk.enabled:= (dsuser.State in [dsinsert,dsedit]) ;
+   btncancel.enabled:=(dsuser.State in [dsinsert,dsedit]) ;
 end;
 
 end.
