@@ -1,4 +1,4 @@
-object FRM_CAD: TFRM_CAD
+object FRM_CADDVS: TFRM_CADDVS
   Left = 346
   Top = 217
   Width = 801
@@ -29,12 +29,12 @@ object FRM_CAD: TFRM_CAD
     Font.Style = []
     ParentFont = False
   end
-  object PC_Cadastro: TPageControl
+  object PC_CadastrosDvs: TPageControl
     Left = 0
     Top = 0
     Width = 785
     Height = 650
-    ActivePage = tbConsulta
+    ActivePage = tabCadastro
     Align = alClient
     TabOrder = 0
     object tabCadastro: TTabSheet
@@ -195,7 +195,7 @@ object FRM_CAD: TFRM_CAD
         object lbl12: TLabel
           Left = 545
           Top = 179
-          Width = 19
+          Width = 17
           Height = 13
           Caption = 'U.F'
           Font.Charset = DEFAULT_CHARSET
@@ -221,7 +221,7 @@ object FRM_CAD: TFRM_CAD
         object lbl14: TLabel
           Left = 445
           Top = 261
-          Width = 31
+          Width = 32
           Height = 13
           Caption = 'Celular'
           Font.Charset = DEFAULT_CHARSET
@@ -834,6 +834,7 @@ object FRM_CAD: TFRM_CAD
           Height = 64
           TabOrder = 4
           WordWrap = True
+          OnClick = btnPesqClick
           Glyph.Data = {
             261F0000424D261F00000000000036000000280000002C0000003C0000000100
             180000000000F01E000000000000000000000000000000000000FFFFFFFFFFFF
@@ -1093,6 +1094,7 @@ object FRM_CAD: TFRM_CAD
           Width = 274
           Height = 21
           TabOrder = 1
+          OnKeyPress = edtrazaoKeyPress
         end
         object edtfantasia: TEdit
           Left = 10
@@ -1100,6 +1102,7 @@ object FRM_CAD: TFRM_CAD
           Width = 273
           Height = 21
           TabOrder = 2
+          OnKeyPress = edtrazaoKeyPress
         end
         object edtrazao: TEdit
           Left = 11
@@ -1107,13 +1110,15 @@ object FRM_CAD: TFRM_CAD
           Width = 273
           Height = 21
           TabOrder = 0
+          OnKeyPress = edtrazaoKeyPress
         end
-        object edtedcnpj: TEdit
+        object edtcnpj: TEdit
           Left = 294
           Top = 72
           Width = 273
           Height = 21
           TabOrder = 3
+          OnKeyPress = edtrazaoKeyPress
         end
         object edtrg: TEdit
           Left = 294
@@ -1121,6 +1126,7 @@ object FRM_CAD: TFRM_CAD
           Width = 273
           Height = 21
           TabOrder = 5
+          OnKeyPress = edtrazaoKeyPress
         end
       end
       object dbgrd1: TDBGrid
@@ -1129,7 +1135,7 @@ object FRM_CAD: TFRM_CAD
         Width = 777
         Height = 479
         Align = alClient
-        DataSource = DTM_CAD.dsConsCad
+        DataSource = DTM_CAD.dsConsCaddvs
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
         TabOrder = 1
         TitleFont.Charset = DEFAULT_CHARSET
@@ -1137,11 +1143,77 @@ object FRM_CAD: TFRM_CAD
         TitleFont.Height = -11
         TitleFont.Name = 'MS Sans Serif'
         TitleFont.Style = []
+        OnDblClick = dbgrd1DblClick
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'FORN_CNPJ'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'FORN_RAZAO'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Width = 149
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'FORN_RG'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Width = 87
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'FORN_ENDERECO'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Width = 252
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'FORN_TELEFONE'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'FORN_COND'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
+            Width = 80
+            Visible = True
+          end>
       end
     end
   end
   object dtsCad: TDataSource
-    DataSet = DTM_CAD.cdsCad
+    DataSet = DTM_CAD.cdsCaddvs
     OnStateChange = dtsCadStateChange
     Left = 632
     Top = 48

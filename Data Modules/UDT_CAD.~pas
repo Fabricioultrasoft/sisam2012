@@ -3,50 +3,50 @@ unit UDT_CAD;
 interface
 
 uses
-  SysUtils, Classes, UDTMGeral, UDT_CAD_IBX, DB, DBClient, Provider,ufuncoes;
+  SysUtils, Classes, UDTMGeral, UDT_CAD_IBX, DB, DBClient, Provider,ufuncoes,sqlconst;
 
 type
   TDTM_CAD = class(TDataModule)
-    dspCad: TDataSetProvider;
+    dspCaddvs: TDataSetProvider;
     dspEmpre: TDataSetProvider;
-    cdsCad: TClientDataSet;
+    cdsCaddvs: TClientDataSet;
     cdsEmpre: TClientDataSet;
-    dsCad: TDataSource;
+    dsCaddvs: TDataSource;
     dsEmpre: TDataSource;
-    cdsCadFORN_CNPJ: TStringField;
-    cdsCadFORN_CPFCNPJ: TStringField;
-    cdsCadFORN_RAZAO: TStringField;
-    cdsCadFORN_CEP: TStringField;
-    cdsCadFORN_ENDERECO: TStringField;
-    cdsCadFORN_BAIRRO: TStringField;
-    cdsCadFORN_CIDADE: TStringField;
-    cdsCadFORN_UF: TStringField;
-    cdsCadFORN_TELEFONE: TStringField;
-    cdsCadFORN_RAMAL: TStringField;
-    cdsCadFORN_TELEFONE1: TStringField;
-    cdsCadFORN_EMAIL: TStringField;
-    cdsCadFORN_EMAIL1: TStringField;
-    cdsCadFORN_SITE: TStringField;
-    cdsCadFORN_CELULAR: TStringField;
-    cdsCadFORN_CELULAR1: TStringField;
-    cdsCadFORN_RG: TStringField;
-    cdsCadFORN_TIPO: TIntegerField;
-    cdsCadFORN_ESTADOCIVIL: TIntegerField;
-    cdsCadFORN_DTNASCIMENTO: TDateField;
-    cdsCadFORN_SEXO: TSmallintField;
-    cdsCadFORN_OCUPACAO: TIntegerField;
-    cdsCadFORN_CONJUGE: TStringField;
-    cdsCadFORN_HRENTRADA1: TTimeField;
-    cdsCadFORN_HRENTRADA2: TTimeField;
-    cdsCadFORN_HRSAIDA1: TTimeField;
-    cdsCadFORN_HRSAIDA2: TTimeField;
-    cdsCadFORN_DTCADASTRO: TDateField;
-    cdsCadFORN_COND: TIntegerField;
-    cdsCadFORN_TPCONDOMINO: TSmallintField;
-    cdsCadFORN_TPFUNCIONARIO: TSmallintField;
-    cdsCadFORN_TPFORNECEDOR: TIntegerField;
-    cdsCadFORN_TPSINDICO: TIntegerField;
-    cdsCadFORN_TPINCORPORADORA: TIntegerField;
+    cdsCaddvsFORN_CNPJ: TStringField;
+    cdsCaddvsFORN_CPFCNPJ: TStringField;
+    cdsCaddvsFORN_RAZAO: TStringField;
+    cdsCaddvsFORN_CEP: TStringField;
+    cdsCaddvsFORN_ENDERECO: TStringField;
+    cdsCaddvsFORN_BAIRRO: TStringField;
+    cdsCaddvsFORN_CIDADE: TStringField;
+    cdsCaddvsFORN_UF: TStringField;
+    cdsCaddvsFORN_TELEFONE: TStringField;
+    cdsCaddvsFORN_RAMAL: TStringField;
+    cdsCaddvsFORN_TELEFONE1: TStringField;
+    cdsCaddvsFORN_EMAIL: TStringField;
+    cdsCaddvsFORN_EMAIL1: TStringField;
+    cdsCaddvsFORN_SITE: TStringField;
+    cdsCaddvsFORN_CELULAR: TStringField;
+    cdsCaddvsFORN_CELULAR1: TStringField;
+    cdsCaddvsFORN_RG: TStringField;
+    cdsCaddvsFORN_TIPO: TIntegerField;
+    cdsCaddvsFORN_ESTADOCIVIL: TIntegerField;
+    cdsCaddvsFORN_DTNASCIMENTO: TDateField;
+    cdsCaddvsFORN_SEXO: TSmallintField;
+    cdsCaddvsFORN_OCUPACAO: TIntegerField;
+    cdsCaddvsFORN_CONJUGE: TStringField;
+    cdsCaddvsFORN_HRENTRADA1: TTimeField;
+    cdsCaddvsFORN_HRENTRADA2: TTimeField;
+    cdsCaddvsFORN_HRSAIDA1: TTimeField;
+    cdsCaddvsFORN_HRSAIDA2: TTimeField;
+    cdsCaddvsFORN_DTCADASTRO: TDateField;
+    cdsCaddvsFORN_COND: TIntegerField;
+    cdsCaddvsFORN_TPCONDOMINO: TSmallintField;
+    cdsCaddvsFORN_TPFUNCIONARIO: TSmallintField;
+    cdsCaddvsFORN_TPFORNECEDOR: TIntegerField;
+    cdsCaddvsFORN_TPSINDICO: TIntegerField;
+    cdsCaddvsFORN_TPINCORPORADORA: TIntegerField;
     cdsEmpreEMPRE_CNPJ: TStringField;
     cdsEmpreEMPRE_INSESTAD: TStringField;
     cdsEmpreEMPRE_INSMUNI: TStringField;
@@ -106,8 +106,8 @@ type
     StringField15: TStringField;
     IntegerField1: TIntegerField;
     dsConsEmpre: TDataSource;
-    dspConsCad: TDataSetProvider;
-    cdsConsCad: TClientDataSet;
+    dspConsCaddvs: TDataSetProvider;
+    cdsConsCaddvs: TClientDataSet;
     StringField16: TStringField;
     StringField17: TStringField;
     StringField18: TStringField;
@@ -142,7 +142,62 @@ type
     IntegerField6: TIntegerField;
     IntegerField7: TIntegerField;
     IntegerField8: TIntegerField;
-    dsConsCad: TDataSource;
+    dsConsCaddvs: TDataSource;
+    dspConsCond: TDataSetProvider;
+    cdsConsCond: TClientDataSet;
+    StringField34: TStringField;
+    IntegerField9: TIntegerField;
+    IntegerField10: TIntegerField;
+    IntegerField11: TIntegerField;
+    IntegerField12: TIntegerField;
+    IntegerField13: TIntegerField;
+    StringField35: TStringField;
+    StringField36: TStringField;
+    StringField37: TStringField;
+    IntegerField14: TIntegerField;
+    IntegerField15: TIntegerField;
+    StringField38: TStringField;
+    StringField39: TStringField;
+    StringField40: TStringField;
+    StringField41: TStringField;
+    dsConsCond: TDataSource;
+    dspLkpcaddvs: TDataSetProvider;
+    cdsLkpCaddvs: TClientDataSet;
+    dsLkpcaddvs: TDataSource;
+    cdsLkpCaddvsFORN_CNPJ: TStringField;
+    cdsLkpCaddvsFORN_CPFCNPJ: TStringField;
+    cdsLkpCaddvsFORN_RAZAO: TStringField;
+    cdsLkpCaddvsFORN_CEP: TStringField;
+    cdsLkpCaddvsFORN_ENDERECO: TStringField;
+    cdsLkpCaddvsFORN_BAIRRO: TStringField;
+    cdsLkpCaddvsFORN_CIDADE: TStringField;
+    cdsLkpCaddvsFORN_UF: TStringField;
+    cdsLkpCaddvsFORN_TELEFONE: TStringField;
+    cdsLkpCaddvsFORN_RAMAL: TStringField;
+    cdsLkpCaddvsFORN_TELEFONE1: TStringField;
+    cdsLkpCaddvsFORN_EMAIL: TStringField;
+    cdsLkpCaddvsFORN_EMAIL1: TStringField;
+    cdsLkpCaddvsFORN_SITE: TStringField;
+    cdsLkpCaddvsFORN_CELULAR: TStringField;
+    cdsLkpCaddvsFORN_CELULAR1: TStringField;
+    cdsLkpCaddvsFORN_RG: TStringField;
+    cdsLkpCaddvsFORN_TIPO: TIntegerField;
+    cdsLkpCaddvsFORN_ESTADOCIVIL: TIntegerField;
+    cdsLkpCaddvsFORN_DTNASCIMENTO: TDateField;
+    cdsLkpCaddvsFORN_SEXO: TSmallintField;
+    cdsLkpCaddvsFORN_OCUPACAO: TIntegerField;
+    cdsLkpCaddvsFORN_CONJUGE: TStringField;
+    cdsLkpCaddvsFORN_HRENTRADA1: TTimeField;
+    cdsLkpCaddvsFORN_HRENTRADA2: TTimeField;
+    cdsLkpCaddvsFORN_HRSAIDA1: TTimeField;
+    cdsLkpCaddvsFORN_HRSAIDA2: TTimeField;
+    cdsLkpCaddvsFORN_DTCADASTRO: TDateField;
+    cdsLkpCaddvsFORN_COND: TIntegerField;
+    cdsLkpCaddvsFORN_TPCONDOMINO: TSmallintField;
+    cdsLkpCaddvsFORN_TPFUNCIONARIO: TSmallintField;
+    cdsLkpCaddvsFORN_TPFORNECEDOR: TIntegerField;
+    cdsLkpCaddvsFORN_TPSINDICO: TIntegerField;
+    cdsLkpCaddvsFORN_TPINCORPORADORA: TIntegerField;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
@@ -150,7 +205,13 @@ type
     { Private declarations }
   public
     { Public declarations }
+
+   procedure atualizarLkpCaddvs(); 
+    // consultas
     procedure consultarEmpresas(SQL:string);
+    procedure consultarForns(SQL:string);
+    procedure consultarCondominios(SQL:string);
+
   end;
 
 var
@@ -183,6 +244,31 @@ begin
   cdsConsEmpre.Close;
   setSqlCommand(SQL,DTM_CAD.cdsConsEmpre);
   cdsConsEmpre.Open;
+end;
+
+procedure TDTM_CAD.consultarForns(SQL: string);
+begin
+  cdsConsCaddvs.Close;
+  setSqlCommand(SQL,DTM_CAD.cdsConsCadDVS);
+  cdsConsCaddvs.Open;
+end;
+
+procedure TDTM_CAD.consultarCondominios(SQL: string);
+begin
+  cdsConsCond.Close;
+  setSqlCommand(SQL,DTM_CAD.cdsConsCond);
+  cdsConsCond.Open;
+end;
+
+
+
+
+
+procedure TDTM_CAD.atualizarLkpCaddvs;
+begin
+cdsLkpCaddvs.Close;
+SetSqlCommand(sql_caddvs,cdsLkpCaddvs) ;
+cdsLkpCaddvs.Open;
 end;
 
 end.
