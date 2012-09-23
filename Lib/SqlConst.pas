@@ -23,10 +23,10 @@ const
             '        EMPRE_RAZAO,    EMPRE_SITE,     EMPRE_TELEFONE, EMPRE_UF       ' + #13 +
             ' FROM   CAD_EMPRESA WHERE (1=1) ';
 
-  SQL_PAGAR = 'SELECT CPG_ IRRF,  CPG_CDG,       CPG_COFINS,  CPG_CONTSINDIC,  CPG_NDESC,  ' + #13 +
+  SQL_PAGAR = 'SELECT CPG_IRRF,  CPG_CDG,       CPG_COFINS,  CPG_CONTSINDIC,  CPG_NDESC,  ' + #13 +
           '       CPG_CSLS,   CPG_DTEMISSAO, CPG_DTPGTO,  CPG_DTVENC,      CPG_OBS,    ' + #13 +
           '       CPG_FGTS,   CPG_INSS,      CPG_ISS,     CPG_NATUREZA,    CPG_PIS,    ' + #13 +
-          '       CPG_STATUS, CPG_VLRNOTA    '  + #13 +
+          '       CPG_STATUS, CPG_VLRNOTA  , CPG_JUROS ,  CPG_MULTA , CPG_DESCONTO , CPG_ACRESCIMO ,CPG_COND  '  + #13 +
           'FROM   CAD_CPG ';
 
   SQL_RECEBER = 'SELECT  CRB_BAIXA,   CRB_BLOCO,   CRB_CDG,         CRB_CONDOMINO, ' + #13 +

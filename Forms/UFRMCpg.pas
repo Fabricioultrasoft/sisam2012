@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, DBCtrls, StdCtrls, Mask, ComCtrls, Grids, DBGrids,
-  Buttons, sqlConst, uFuncoes, ToolWin;
+  Buttons, sqlConst, uFuncoes, ToolWin,db;
 
 type
   TFRM_CPG = class(TForm)
@@ -113,6 +113,8 @@ uses UDT_FINAN;
 
 procedure TFRM_CPG.FormCreate(Sender: TObject);
 begin
+  DTM_FINAN.cdsCpg.Close;
+    DTM_FINAN.cdsCpg.Open;
   pgControl.ActivePageIndex := 0;
 end;
 
@@ -224,8 +226,9 @@ end;
 procedure TFRM_CPG.DBGrid1DblClick(Sender: TObject);
 begin
  //abrir cadastro do registro selecionado
- { IF DTM_FINAN.cdsCpg.Locate('CPG_CDG',DTM_FINAN.cdsConsCpg.fieldbyname('CPG_CDG').AsInteger,[loPartialKey]) THEN
-    PC_Contas.ActivePageIndex:= 0;}
+  IF DTM_FINAN.cdsCpg.Locate('CPG_CDG',DTM_FINAN.cdsConsCpg.fieldbyname('CPG_CDG').AsInteger,[loPartialKey]) THEN
+    pgControl.ActivePageIndex:=0;
+
 end;
 
 procedure TFRM_CPG.btnPesqClick(Sender: TObject);
