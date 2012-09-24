@@ -867,6 +867,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -878,6 +879,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -889,6 +891,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -900,6 +903,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -911,6 +915,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -922,11 +927,13 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'EMPRE_CDG'
+            Width = 64
             Visible = True
           end
           item

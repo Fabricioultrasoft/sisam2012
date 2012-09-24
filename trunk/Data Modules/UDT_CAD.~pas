@@ -203,17 +203,21 @@ type
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
+    procedure cdsEmpreAfterInsert(DataSet: TDataSet);
   private
+    procedure prepararRelatorio(SQL:string);
     { Private declarations }
   public
     { Public declarations }
-
-   procedure atualizarLkpCaddvs(); 
+    //lookups
+    procedure atualizarLkpCaddvs();
     // consultas
     procedure consultarEmpresas(SQL:string);
     procedure consultarForns(SQL:string);
     procedure consultarCondominios(SQL:string);
-
+    //Relatorios
+    procedure prepararRelatorioEmpresa;
+    procedure prepararRelatorioCondominio;    
   end;
 
 var
@@ -268,9 +272,36 @@ end;
 
 procedure TDTM_CAD.atualizarLkpCaddvs;
 begin
-cdsLkpCaddvs.Close;
-SetSqlCommand(sql_caddvs,cdsLkpCaddvs) ;
-cdsLkpCaddvs.Open;
+  cdsLkpCaddvs.Close;
+  SetSqlCommand(sql_caddvs,cdsLkpCaddvs) ;
+  cdsLkpCaddvs.Open;
+end;
+
+procedure TDTM_CAD.prepararRelatorio(SQL:string);
+begin
+  qryREL.Close;
+  qryREL.SQL.Clear;
+  qryREL.SQL.Add(SQL);
+  qryREL.Open;
+end;
+
+procedure TDTM_CAD.prepararRelatorioEmpresa();
+begin
+  prepararRelatorio('SELECT * FROM CAD_EMPRESA ');
+end;
+
+
+procedure TDTM_CAD.prepararRelatorioCondominio;
+begin
+  prepararRelatorio('SELECT * FROM CAD_COND ');
+end;
+
+
+
+procedure TDTM_CAD.cdsEmpreAfterInsert(DataSet: TDataSet);
+begin
+ DTMGERAL.executarSQL(' SELECT (GEN_ID(G_CAD_EMPRESA,0) +1)   FROM RDB$DATABASE ');
+ cdsEmpre.FieldByName('EMPRE_CDG').AsInteger:=  DTMgeral.qryGeral.FieldS.Fields[0].ASINTEGER;
 end;
 
 end.

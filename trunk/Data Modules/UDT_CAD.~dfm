@@ -349,6 +349,7 @@ object DTM_CAD: TDTM_CAD
     IndexFieldNames = 'EMPRE_CDG'
     Params = <>
     ProviderName = 'dspEmpre'
+    AfterInsert = cdsEmpreAfterInsert
     AfterPost = gerAfterPost
     AfterDelete = gerAfterDelete
     AfterApplyUpdates = gerAfterApplyUpdates

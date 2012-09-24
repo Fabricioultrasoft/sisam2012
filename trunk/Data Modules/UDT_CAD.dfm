@@ -1,7 +1,7 @@
 object DTM_CAD: TDTM_CAD
   OldCreateOrder = False
-  Left = 314
-  Top = 256
+  Left = 575
+  Top = 266
   Height = 580
   Width = 780
   object dspCaddvs: TDataSetProvider
@@ -181,6 +181,7 @@ object DTM_CAD: TDTM_CAD
     Params = <>
     ProviderName = 'dspCaddvs'
     StoreDefs = True
+    AfterInsert = cdsCaddvsAfterInsert
     AfterPost = gerAfterPost
     AfterDelete = gerAfterDelete
     AfterApplyUpdates = gerAfterApplyUpdates
@@ -349,6 +350,7 @@ object DTM_CAD: TDTM_CAD
     IndexFieldNames = 'EMPRE_CDG'
     Params = <>
     ProviderName = 'dspEmpre'
+    AfterInsert = cdsEmpreAfterInsert
     AfterPost = gerAfterPost
     AfterDelete = gerAfterDelete
     AfterApplyUpdates = gerAfterApplyUpdates
@@ -456,6 +458,7 @@ object DTM_CAD: TDTM_CAD
     IndexFieldNames = 'COND_CDG'
     Params = <>
     ProviderName = 'dspCond'
+    AfterInsert = cdsCondAfterInsert
     AfterPost = gerAfterPost
     AfterDelete = gerAfterDelete
     AfterApplyUpdates = gerAfterApplyUpdates
@@ -549,6 +552,7 @@ object DTM_CAD: TDTM_CAD
     Aggregates = <>
     Params = <>
     ProviderName = 'dspUser'
+    AfterInsert = cdsUserAfterInsert
     AfterPost = gerAfterPost
     AfterDelete = gerAfterDelete
     AfterApplyUpdates = gerAfterApplyUpdates

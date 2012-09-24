@@ -10753,9 +10753,9 @@ object FRMMenu: TFRMMenu
         Caption = 'Condominios'
         OnClick = Condominios1Click
       end
-      object ContasaPagar: TMenuItem
+      object RelContasaPagar: TMenuItem
         Caption = 'Contas a Pagar'
-        OnClick = Contasapagar1Click
+        OnClick = RelContasapagar1Click
       end
     end
     object Sobre1: TMenuItem

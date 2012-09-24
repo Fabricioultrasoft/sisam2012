@@ -96,6 +96,8 @@ type
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
+    procedure cdsCpgAfterInsert(DataSet: TDataSet);
+    procedure cdsCrbAfterInsert(DataSet: TDataSet);
   private
     procedure prepararrelatorio(SQL : String);
     { Private declarations }
@@ -169,4 +171,16 @@ procedure TDTM_FINAN.prepararRelatorioReceitas;
 begin
   prepararrelatorio('SELECT * FROM CAD_CRB');
 end;
+procedure TDTM_FINAN.cdsCpgAfterInsert(DataSet: TDataSet);
+begin
+  DTMGERAL.executarSQL(' SELECT (GEN_ID(G_CAD_CPG,0) +1)   FROM RDB$DATABASE ');
+  cdsCpg.FieldByName('CPG_CDG').AsInteger:=  DTMgeral.qryGeral.FieldS.Fields[0].ASINTEGER;
+end;
+
+procedure TDTM_FINAN.cdsCrbAfterInsert(DataSet: TDataSet);
+begin
+  DTMGERAL.executarSQL(' SELECT (GEN_ID(G_CAD_CRB,0) +1)   FROM RDB$DATABASE ');
+  cdsCrb.FieldByName('CRB_CDG').AsInteger:=  DTMgeral.qryGeral.FieldS.Fields[0].ASINTEGER;
+end;
+
 end.
