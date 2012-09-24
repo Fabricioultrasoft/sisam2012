@@ -113,6 +113,8 @@ uses UDT_FINAN;
 
 procedure TFRM_CPG.FormCreate(Sender: TObject);
 begin
+  DTM_FINAN.cdsCpg.Close;
+    DTM_FINAN.cdsCpg.Open;
   pgControl.ActivePageIndex := 0;
 end;
 
@@ -225,8 +227,8 @@ procedure TFRM_CPG.DBGrid1DblClick(Sender: TObject);
 begin
  //abrir cadastro do registro selecionado
   IF DTM_FINAN.cdsCpg.Locate('CPG_CDG',DTM_FINAN.cdsConsCpg.fieldbyname('CPG_CDG').AsInteger,[loPartialKey]) THEN
-    PC_Contas.PageIndex:=0;
-//    ActivePageIndex:= 0;
+    pgControl.ActivePageIndex:=0;
+
 end;
 
 procedure TFRM_CPG.btnPesqClick(Sender: TObject);

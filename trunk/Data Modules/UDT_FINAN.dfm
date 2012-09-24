@@ -622,4 +622,14 @@ object DTM_FINAN: TDTM_FINAN
     Left = 144
     Top = 360
   end
+  object qryREL: TIBQuery
+    Database = DTMGeral.Database
+    Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
+    SQL.Strings = (
+      'select * from CAD_CPG')
+    Left = 256
+    Top = 24
+  end
 end

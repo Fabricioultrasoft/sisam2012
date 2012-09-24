@@ -1,6 +1,6 @@
 object FRM_CPG: TFRM_CPG
-  Left = 377
-  Top = 302
+  Left = 311
+  Top = 199
   Width = 647
   Height = 466
   Caption = 'Contas a Pagar'
@@ -59,9 +59,9 @@ object FRM_CPG: TFRM_CPG
   object pgControl: TPageControl
     Left = 0
     Top = 0
-    Width = 631
-    Height = 428
-    ActivePage = PC_Contas
+    Width = 639
+    Height = 432
+    ActivePage = PC_Cons
     Align = alClient
     TabOrder = 0
     object PC_Contas: TTabSheet
@@ -857,8 +857,8 @@ object FRM_CPG: TFRM_CPG
       end
       object DBGrid1: TDBGrid
         Left = 0
-        Top = 148
-        Width = 623
+        Top = 152
+        Width = 631
         Height = 252
         Align = alBottom
         DataSource = DTM_FINAN.dsConsCpg

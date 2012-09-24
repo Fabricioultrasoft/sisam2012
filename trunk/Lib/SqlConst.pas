@@ -27,13 +27,13 @@ const
           '       CPG_CSLS,   CPG_DTEMISSAO, CPG_DTPGTO,  CPG_DTVENC,      CPG_OBS,    ' + #13 +
           '       CPG_FGTS,   CPG_INSS,      CPG_ISS,     CPG_NATUREZA,    CPG_PIS,    ' + #13 +
           '       CPG_STATUS, CPG_VLRNOTA  , CPG_JUROS ,  CPG_MULTA , CPG_DESCONTO , CPG_ACRESCIMO ,CPG_COND  '  + #13 +
-          'FROM   CAD_CPG ';
+          'FROM   CAD_CPG WHERE (1=1)';
 
   SQL_RECEBER = 'SELECT  CRB_BAIXA,   CRB_BLOCO,   CRB_CDG,         CRB_CONDOMINO, ' + #13 +
             '        CRB_DTPGTO,  CRB_DTVENC,  CRB_DTVENCORIG,  CRB_FRACAO,    ' + #13 +
             '        CRB_JUROS,   CRB_MULTA,   CRB_RATEIO,      CRB_TOT,       ' + #13 +
             '        CRB_UNIDADE, CRB_VLRCOND ' + #13 +
-            'FROM    CAD_CRB ';
+            'FROM    CAD_CRB WHERE (1=1)';
 
 implementation
 

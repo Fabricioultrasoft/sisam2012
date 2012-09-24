@@ -318,7 +318,7 @@ object FRMMenu: TFRMMenu
   object StatusBar: TStatusBar
     Left = 0
     Top = 0
-    Width = 867
+    Width = 875
     Height = 5
     Align = alTop
     Panels = <>
@@ -326,7 +326,7 @@ object FRMMenu: TFRMMenu
   object ToolBar1: TToolBar
     Left = 0
     Top = 5
-    Width = 867
+    Width = 875
     Height = 84
     ButtonHeight = 81
     ButtonWidth = 113
@@ -10751,6 +10751,11 @@ object FRMMenu: TFRMMenu
       end
       object Condominios1: TMenuItem
         Caption = 'Condominios'
+        OnClick = Condominios1Click
+      end
+      object ContasaPagar: TMenuItem
+        Caption = 'Contas a Pagar'
+        OnClick = Contasapagar1Click
       end
     end
     object Sobre1: TMenuItem
