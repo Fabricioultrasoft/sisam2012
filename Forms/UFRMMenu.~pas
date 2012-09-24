@@ -41,6 +41,7 @@ type
     Relatrios1: TMenuItem;
     Empresas1: TMenuItem;
     Condominios1: TMenuItem;
+    ContasaPagar: TMenuItem;
     procedure ToolButton1Click(Sender: TObject);
     procedure tbCadastroClick(Sender: TObject);
     procedure Calculadora1Click(Sender: TObject);
@@ -61,6 +62,8 @@ type
     procedure Contasapagar1Click(Sender: TObject);
     procedure Contasareceber1Click(Sender: TObject);
     procedure Empresas1Click(Sender: TObject);
+    procedure Condominios1Click(Sender: TObject);
+    procedure ContasaPagar1Click(Sender: TObject);
   private
     { Private declarations }
     procedure deslogar(relogar: boolean);
@@ -73,6 +76,8 @@ type
     procedure abrirFRMCPG();
     procedure abrirFRMUsuario();
     procedure abrirFRMRELEmpresa;
+    procedure abrirFRMRELCondominio;
+    procedure abrirFRMRelCpg;
   public
     { Public declarations }
     procedure abrirFRMtrocasenha(Modo:integer);
@@ -84,7 +89,8 @@ var
 implementation
 
 uses UFRMCad, UFRMEmpre, UFRMCond, UFRMUser, UFRMCpg, UFRMCrb,
-  UTrocarSenha, UFRMLogin, UDTMGeral, UFRMREL_Empresa;
+  UTrocarSenha, UFRMLogin, UDTMGeral, UFRMREL_Empresa, UFRMREL_Condominio,
+  UFRMREL_Contas;
 
 {$R *.dfm}
 
@@ -268,8 +274,23 @@ end;
 procedure TFRMMenu.abrirFRMRELEmpresa;
 begin
   if FRMREL_empresa = nil then
-    FRMREL_empresa:= FRMREL_empresa.create(self);
+    FRMREL_empresa:= TFRMREL_empresa.create(self);
   FRMREL_empresa.ShowModal;
+end;
+
+
+procedure TFRMMenu.abrirFRMRELCondominio;
+begin
+  if FRMREL_Condominio = nil then
+    FRMREL_Condominio:= TFRMREL_Condominio.create(self);
+  FRMREL_Condominio.ShowModal;
+end;
+
+procedure TFRMMenu.abrirFRMRelCpg;
+begin
+  if FRMRelCpg = nil then
+    FRMRelCpg := TFRMRelCpg.create(self);
+  FRMRelCpg.ShowModal;
 end;
 
 
@@ -287,6 +308,16 @@ end;
 procedure TFRMMenu.Empresas1Click(Sender: TObject);
 begin
 abrirFRMRELEmpresa;
+end;
+
+procedure TFRMMenu.Condominios1Click(Sender: TObject);
+begin
+abrirFRMRELCondominio;
+end;
+
+procedure TFRMMenu.ContasaPagar1Click(Sender: TObject);
+begin
+abrirFRMRelCpg;
 end;
 
 end.

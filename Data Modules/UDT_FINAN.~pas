@@ -3,7 +3,8 @@ unit UDT_FINAN;
 interface
 
 uses
-  SysUtils, Classes, UDTMGeral, UDT_FINAN_IBX, DB, Provider, DBClient, ufuncoes;
+  SysUtils, Classes, UDTMGeral, UDT_FINAN_IBX, DB, Provider, DBClient, ufuncoes, sqlConst,
+  IBCustomDataSet, IBQuery;
 
 type
   TDTM_FINAN = class(TDataModule)
@@ -91,13 +92,20 @@ type
     StringField6: TStringField;
     SmallintField1: TSmallintField;
     dsConsCrb: TDataSource;
+    qryREL: TIBQuery;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
   private
+    procedure prepararrelatorio(SQL : String);
     { Private declarations }
   public
+    //Consultas
     procedure consultarContas(SQL : String);
+    procedure consultarReceitas(SQL : String);    
+    //Relatórios
+    procedure prepararRelatorioContas;
+    procedure prepararRelatorioReceitas;
   end;
 
 var
@@ -137,4 +145,28 @@ begin
   cdsConsCpg.Open;
 end;
 
+procedure TDTM_FINAN.consultarReceitas(SQL: string);
+begin
+  cdsConsCrb.Close;
+  setSqlCommand(SQL,DTM_FINAN.cdsConsCrb);
+  cdsConsCrb.Open;
+end;
+
+procedure TDTM_FINAN.prepararrelatorio;
+begin
+  qryREL.Close;
+  qryREL.SQL.Clear;
+  qryREL.SQL.Add(SQL);
+  qryREL.Open;
+end;
+
+procedure TDTM_FINAN.prepararRelatorioContas;
+begin
+  prepararrelatorio('SELECT * FROM CAD_CPG');
+end;
+
+procedure TDTM_FINAN.prepararRelatorioReceitas;
+begin
+  prepararrelatorio('SELECT * FROM CAD_CRB');
+end;
 end.
