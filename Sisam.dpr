@@ -20,7 +20,8 @@ uses
   UTrocarSenha in 'Forms\Acessos\UTrocarSenha.pas' {FRM_TrocarSenha},
   Registro in 'Forms\Acessos\registro.pas',
   UFRMREL_Empresa in 'Relatorios\UFRMREL_Empresa.pas' {FRMREL_Empresa},
-  UFRMREL_Condominio in 'Relatorios\UFRMREL_Condominio.pas' {FRMREL_Condominio};
+  UFRMREL_Condominio in 'Relatorios\UFRMREL_Condominio.pas' {FRMREL_Condominio},
+  UFRMREL_Contas in 'Relatorios\UFRMREL_Contas.pas' {FRMRelCpg};
 
 {$R *.res}
 
@@ -34,6 +35,7 @@ begin
   Application.CreateForm(TDTM_FINAN_IBX, DTM_FINAN_IBX);
   Application.CreateForm(TDTM_FINAN, DTM_FINAN);
   Application.CreateForm(TFRMLogin, FRMLogin);
+  Application.CreateForm(TFRMRelCpg, FRMRelCpg);
   Application.ShowMainForm:=false;
   Application.Run;
   //FRMLogin.Show;
