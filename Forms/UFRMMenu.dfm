@@ -10750,6 +10750,10 @@ object FRMMenu: TFRMMenu
         Caption = 'Contas a Pagar'
         OnClick = RelContasapagar1Click
       end
+      object ContasaReceber2: TMenuItem
+        Caption = 'Contas a Receber'
+        OnClick = RelContasareceber1Click
+      end
     end
     object Sobre1: TMenuItem
       Caption = 'Sobre'

@@ -21,7 +21,8 @@ uses
   Registro in 'Forms\Acessos\registro.pas',
   UFRMREL_Empresa in 'Relatorios\UFRMREL_Empresa.pas' {FRMREL_Empresa},
   UFRMREL_Condominio in 'Relatorios\UFRMREL_Condominio.pas' {FRMREL_Condominio},
-  UFRMREL_Contas in 'Relatorios\UFRMREL_Contas.pas' {FRMRelCpg};
+  UFRMREL_Contas in 'Relatorios\UFRMREL_Contas.pas' {FRMRelCpg},
+  UFRMREL_Receitas in 'Relatorios\UFRMREL_Receitas.pas' {FRMRelCrb};
 
 {$R *.res}
 
@@ -36,6 +37,7 @@ begin
   Application.CreateForm(TDTM_FINAN, DTM_FINAN);
   Application.CreateForm(TFRMLogin, FRMLogin);
   Application.CreateForm(TFRMRelCpg, FRMRelCpg);
+  Application.CreateForm(TFRMRelCrb, FRMRelCrb);
   Application.ShowMainForm:=false;
   Application.Run;
   //FRMLogin.Show;

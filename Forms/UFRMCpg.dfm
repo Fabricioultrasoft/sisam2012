@@ -10,7 +10,11 @@ object FRM_CPG: TFRM_CPG
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
+  FormStyle = fsMDIChild
   OldCreateOrder = False
+  Position = poScreenCenter
+  Visible = True
+  WindowState = wsMaximized
   OnClose = FormClose
   OnCreate = FormCreate
   PixelsPerInch = 96
@@ -61,7 +65,7 @@ object FRM_CPG: TFRM_CPG
     Top = 0
     Width = 639
     Height = 432
-    ActivePage = PC_Cons
+    ActivePage = PC_Contas
     Align = alClient
     TabOrder = 0
     object PC_Contas: TTabSheet

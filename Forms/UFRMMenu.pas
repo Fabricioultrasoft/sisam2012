@@ -41,6 +41,7 @@ type
     Empresas1: TMenuItem;
     Condominios1: TMenuItem;
     RelContasaPagar: TMenuItem;
+    ContasaReceber2: TMenuItem;
     procedure ToolButton1Click(Sender: TObject);
     procedure tbCadastroClick(Sender: TObject);
     procedure Calculadora1Click(Sender: TObject);
@@ -61,6 +62,7 @@ type
     procedure Empresas1Click(Sender: TObject);
     procedure Condominios1Click(Sender: TObject);
     procedure RelContasapagar1Click(Sender: TObject);
+    procedure RelContasareceber1Click(Sender: TObject);
   private
     { Private declarations }
     procedure deslogar(relogar: boolean);
@@ -75,6 +77,7 @@ type
     procedure abrirFRMRELEmpresa;
     procedure abrirFRMRELCondominio;
     procedure abrirFRMRelCpg;
+    procedure abrirFRMRelCrb;
   public
     { Public declarations }
     procedure abrirFRMtrocasenha(Modo:integer);
@@ -87,7 +90,7 @@ implementation
 
 uses UFRMCad, UFRMEmpre, UFRMCond, UFRMUser, UFRMCpg, UFRMCrb,
   UTrocarSenha, UFRMLogin, UDTMGeral, UFRMREL_Empresa, UFRMREL_Condominio,
-  UFRMREL_Contas;
+  UFRMREL_Contas, UFRMREL_Receitas;
 
 {$R *.dfm}
 
@@ -274,6 +277,13 @@ begin
   FRMRelCpg.ShowModal;
 end;
 
+procedure TFRMMenu.abrirFRMRelCrb;
+begin
+  if FRMRelCrb = nil then
+    FRMRelCrb := TFRMRelCrb.create(self);
+  FRMRelCrb.ShowModal;
+end;
+
 
 procedure TFRMMenu.abrirFRMtrocasenha(Modo:integer);
 begin
@@ -299,6 +309,11 @@ end;
 procedure TFRMMenu.RelContasaPagar1Click(Sender: TObject);
 begin
 abrirFRMRelCpg;
+end;
+
+procedure TFRMMenu.RelContasareceber1Click(Sender: TObject);
+begin
+abrirFRMRelCrb;
 end;
 
 end.
