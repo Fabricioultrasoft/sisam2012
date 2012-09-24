@@ -41,7 +41,7 @@ type
     Relatrios1: TMenuItem;
     Empresas1: TMenuItem;
     Condominios1: TMenuItem;
-    ContasaPagar: TMenuItem;
+    RelContasaPagar: TMenuItem;
     procedure ToolButton1Click(Sender: TObject);
     procedure tbCadastroClick(Sender: TObject);
     procedure Calculadora1Click(Sender: TObject);
@@ -63,7 +63,7 @@ type
     procedure Contasareceber1Click(Sender: TObject);
     procedure Empresas1Click(Sender: TObject);
     procedure Condominios1Click(Sender: TObject);
-    procedure ContasaPagar1Click(Sender: TObject);
+    procedure RelContasapagar1Click(Sender: TObject);
   private
     { Private declarations }
     procedure deslogar(relogar: boolean);
@@ -315,7 +315,7 @@ begin
 abrirFRMRELCondominio;
 end;
 
-procedure TFRMMenu.ContasaPagar1Click(Sender: TObject);
+procedure TFRMMenu.RelContasaPagar1Click(Sender: TObject);
 begin
 abrirFRMRelCpg;
 end;

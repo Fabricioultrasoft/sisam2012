@@ -407,8 +407,7 @@ object FRM_COND: TFRM_COND
         Top = 538
         Width = 846
         Height = 27
-        Align = alNone
-        Anchors = [akLeft, akRight, akBottom]
+        Align = alCustom
         ButtonHeight = 23
         ButtonWidth = 25
         Caption = 'tlb1'
@@ -867,13 +866,11 @@ object FRM_COND: TFRM_COND
           item
             Expanded = False
             FieldName = 'COND_INCORPORADORA'
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'COND_CID'
-            Width = 64
             Visible = True
           end
           item

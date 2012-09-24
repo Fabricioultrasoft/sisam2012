@@ -203,6 +203,10 @@ type
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
+    procedure cdsEmpreAfterInsert(DataSet: TDataSet);
+    procedure cdsCaddvsAfterInsert(DataSet: TDataSet);
+    procedure cdsCondAfterInsert(DataSet: TDataSet);
+    procedure cdsUserAfterInsert(DataSet: TDataSet);
   private
     procedure prepararRelatorio(SQL:string);
     { Private declarations }
@@ -296,5 +300,29 @@ begin
 end;
 
 
+
+procedure TDTM_CAD.cdsEmpreAfterInsert(DataSet: TDataSet);
+begin
+ DTMGERAL.executarSQL(' SELECT (GEN_ID(G_CAD_EMPRESA,0) +1)   FROM RDB$DATABASE ');
+ cdsEmpre.FieldByName('EMPRE_CDG').AsInteger:=  DTMgeral.qryGeral.FieldS.Fields[0].ASINTEGER;
+end;
+
+procedure TDTM_CAD.cdsCaddvsAfterInsert(DataSet: TDataSet);
+begin
+  DTMGERAL.executarSQL(' SELECT (GEN_ID(G_CAD_FORN,0) +1)   FROM RDB$DATABASE ');
+  cdsCaddvs.FieldByName('FORN_CNPJ').AsInteger:=  DTMgeral.qryGeral.FieldS.Fields[0].ASINTEGER;
+end;
+
+procedure TDTM_CAD.cdsCondAfterInsert(DataSet: TDataSet);
+begin
+DTMGERAL.executarSQL(' SELECT (GEN_ID(G_CAD_COND,0) +1)   FROM RDB$DATABASE ');
+cdsCond.FieldByName('COND_CDG').AsInteger:=  DTMgeral.qryGeral.FieldS.Fields[0].ASINTEGER;
+end;
+
+procedure TDTM_CAD.cdsUserAfterInsert(DataSet: TDataSet);
+begin
+DTMGERAL.executarSQL(' SELECT ( GEN_ID(G_CAD_USUARIO,0) +1)   FROM RDB$DATABASE ');
+cdsUser.FieldByName('USUARIO_CDG').AsInteger:=  DTMgeral.qryGeral.FieldS.Fields[0].ASINTEGER;
+end;
 
 end.

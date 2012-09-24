@@ -5,7 +5,6 @@ object DTM_FINAN: TDTM_FINAN
   Height = 476
   Width = 564
   object cdsCpg: TClientDataSet
-    Active = True
     Aggregates = <>
     FieldDefs = <
       item
@@ -113,6 +112,7 @@ object DTM_FINAN: TDTM_FINAN
     Params = <>
     ProviderName = 'dspCpg'
     StoreDefs = True
+    AfterInsert = cdsCpgAfterInsert
     AfterPost = gerAfterPost
     AfterDelete = gerAfterDelete
     AfterApplyUpdates = gerAfterApplyUpdates
@@ -239,10 +239,10 @@ object DTM_FINAN: TDTM_FINAN
     Top = 16
   end
   object cdsCrb: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'dspCrb'
+    AfterInsert = cdsCrbAfterInsert
     AfterPost = gerAfterPost
     AfterDelete = gerAfterDelete
     AfterApplyUpdates = gerAfterApplyUpdates
@@ -625,11 +625,9 @@ object DTM_FINAN: TDTM_FINAN
   object qryREL: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_CPG')
-    Left = 256
+    Left = 232
     Top = 24
   end
 end

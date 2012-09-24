@@ -13,7 +13,6 @@ type
     ToolBar1: TToolBar;
     tbEmpresa: TToolButton;
     tbCadastro: TToolButton;
-    tbFuncionario: TToolButton;
     tbPagar: TToolButton;
     tbReceber: TToolButton;
     imglMenu: TImageList;
@@ -55,9 +54,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure AlterarSenhaF21Click(Sender: TObject);
     procedure Logoff1Click(Sender: TObject);
-    procedure tbFuncionarioClick(Sender: TObject);
     procedure FornecedoresClientes1Click(Sender: TObject);
-    procedure Funcionrios1Click(Sender: TObject);
     procedure Condomnios1Click(Sender: TObject);
     procedure Contasapagar1Click(Sender: TObject);
     procedure Contasareceber1Click(Sender: TObject);
@@ -70,7 +67,7 @@ type
     procedure logoff;
     procedure abrirFRMEmpre();
     procedure abrirFRMForn();
-    procedure abrirFRMFunc();
+
     procedure abrirFRMCond();
     procedure abrirFRMCRB();
     procedure abrirFRMCPG();
@@ -191,11 +188,6 @@ begin
   dtmgeral.usuarionome:='';
 end;
 
-procedure TFRMMenu.tbFuncionarioClick(Sender: TObject);
-begin
-  abrirFRMFunc;
-end;
-
 procedure TFRMMenu.abrirFRMCond;
 begin
   if FRM_Cond = nil then
@@ -231,21 +223,10 @@ begin
   FRM_CADdvs.show;
 end;
 
-procedure TFRMMenu.abrirFRMFunc;
-begin
-//  if FRM_Func = nil then
-  //  FRM_Func:= TFRM_Func.create(self);
-  //FRMFunc.show;
-end;
 
 procedure TFRMMenu.FornecedoresClientes1Click(Sender: TObject);
 begin
 abrirFRMForn;
-end;
-
-procedure TFRMMenu.Funcionrios1Click(Sender: TObject);
-begin
-abrirFRMFunc;
 end;
 
 procedure TFRMMenu.Condomnios1Click(Sender: TObject);
