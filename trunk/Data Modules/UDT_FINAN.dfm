@@ -548,6 +548,7 @@ object DTM_FINAN: TDTM_FINAN
     Top = 224
   end
   object cdsConsCrb: TClientDataSet
+    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'dspConsCrb'

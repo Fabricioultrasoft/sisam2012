@@ -4,13 +4,14 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, ComCtrls, ExtCtrls, DBCtrls, StdCtrls, Mask;
+  Dialogs, ExtCtrls, DBCtrls, StdCtrls, Mask, ComCtrls, Grids, DBGrids,
+  Buttons, sqlConst, uFuncoes, ToolWin,db;
 
 type
   TFRM_CRB = class(TForm)
-    PageControl1: TPageControl;
-    TabSheet1: TTabSheet;
-    TabSheet2: TTabSheet;
+    pcControl: TPageControl;
+    PC_Receitas: TTabSheet;
+    PC_Consulta: TTabSheet;
     Label1: TLabel;
     DBEdit1: TDBEdit;
     Label2: TLabel;
@@ -37,9 +38,27 @@ type
     DBEdit12: TDBEdit;
     Label13: TLabel;
     DBEdit13: TDBEdit;
+    GroupBox1: TGroupBox;
+    DBCheckBox1: TDBCheckBox;
     Label14: TLabel;
+    Label15: TLabel;
+    tlb1: TToolBar;
+    btnPrior: TToolButton;
+    btntbnext: TToolButton;
+    btnAdd: TToolButton;
+    btnDelete: TToolButton;
+    btnOk: TToolButton;
+    btnCancel: TToolButton;
     DBEdit14: TDBEdit;
-    DBNavigator1: TDBNavigator;
+    DBGrid1: TDBGrid;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnPriorClick(Sender: TObject);
+    procedure btntbnextClick(Sender: TObject);
+    procedure btnAddClick(Sender: TObject);
+    procedure btnDeleteClick(Sender: TObject);
+    procedure btnOkClick(Sender: TObject);
+    procedure btnCancelClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -54,5 +73,46 @@ implementation
 uses UDT_FINAN;
 
 {$R *.dfm}
+
+procedure TFRM_CRB.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+action:= cafree;
+FRM_CRB:=nil;
+end;
+
+procedure TFRM_CRB.btnPriorClick(Sender: TObject);
+begin
+  DTM_FINAN.cdsCrb.Prior;
+end;
+
+procedure TFRM_CRB.btntbnextClick(Sender: TObject);
+begin
+  DTM_FINAN.cdsCrb.next;
+end;
+
+procedure TFRM_CRB.btnAddClick(Sender: TObject);
+begin
+  DTM_FINAN.cdsCrb.Insert;
+end;
+
+procedure TFRM_CRB.btnDeleteClick(Sender: TObject);
+begin
+  DTM_FINAN.cdsCrb.Delete;
+end;
+
+procedure TFRM_CRB.btnOkClick(Sender: TObject);
+begin
+  DTM_FINAN.cdsCrb.Post;
+end;
+
+procedure TFRM_CRB.btnCancelClick(Sender: TObject);
+begin
+  DTM_FINAN.cdsCrb.Cancel;
+end;
+
+procedure TFRM_CRB.FormCreate(Sender: TObject);
+begin
+  pgControl.ActivePageindex := 0;
+end;
 
 end.
