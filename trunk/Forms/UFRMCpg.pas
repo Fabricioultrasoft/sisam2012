@@ -75,10 +75,6 @@ type
     btnDelete: TToolButton;
     btnOk: TToolButton;
     btnCancel: TToolButton;
-    RadioGroup1: TRadioGroup;
-    rbAVenc: TRadioButton;
-    rbVenc: TRadioButton;
-    rbQuit: TRadioButton;
     RadioGroup2: TRadioGroup;
     rbStatus3: TRadioButton;
     rbStatus2: TRadioButton;
@@ -86,6 +82,7 @@ type
     btnPesq: TBitBtn;
     btn2: TBitBtn;
     btn1: TBitBtn;
+    dbrgrpCPG_STATUS: TDBRadioGroup;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnPriorClick(Sender: TObject);
@@ -125,11 +122,11 @@ procedure TFRM_CPG.RadioGroup1Enter(Sender: TObject);
 Var StatusConta : String;
 begin
   If (rbAVenc.Checked = true) then
-   StatusConta := '1'
+   StatusConta := '0'
   Else If (rbQuit.Checked = true) then
-   StatusConta := '2'
+   StatusConta := '1'
   Else if (rbVenc.Checked = true) then
-   StatusConta := '3';
+   StatusConta := '2';
 end;
 
 procedure TFRM_CPG.btnPriorClick(Sender: TObject);
@@ -207,13 +204,13 @@ begin
     Where := Where + #13 + ' AND (CPG_NDESC LIKE ' + QuotedStr('%' + edDesc.text + '%') + ')';
 
   if ((rbStatus1.Checked) = true) then
-    Where := Where + #13 + ' AND (CPG_STATUS = ''1'')';
+    Where := Where + #13 + ' AND (CPG_STATUS = ''0'')';
 
   if ((rbStatus2.Checked) = true) then
-    Where := Where + #13 + ' AND (CPG_STATUS = ''2'')';
+    Where := Where + #13 + ' AND (CPG_STATUS = ''1'')';
 
   if ((rbStatus3.Checked) = true) then
-    Where := Where + #13 + ' AND (CPG_STATUS = ''3'')';
+    Where := Where + #13 + ' AND (CPG_STATUS = ''2'')';
 
   SQL := (SQL_PAGAR);
 
