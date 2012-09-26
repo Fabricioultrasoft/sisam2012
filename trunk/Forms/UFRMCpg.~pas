@@ -248,11 +248,11 @@ end;
 procedure TFRM_CPG.btn1Click(Sender: TObject);
 begin
   IF NOT dtm_finan.cdscpg.fieldbyname('CPG_CDG').ISNULL THEN
-//frmmenu.abrirFRMCpgQuitacao(
-//                        dtm_finan.cdscpg.fieldbyname('CPG_CDG').ASinteger,
-//                        dtm_finan.cdscpg.fieldbyname('CPG_TOTLIQ').ASinteger
-//                          );
-FRMMENU.abrirFRMCrbQuitacao;
+  frmmenu.abrirFRMCpgQuitacao(
+                        dtm_finan.cdscpg.fieldbyname('CPG_CDG').AsInteger,
+                        dtm_finan.cdscpg.fieldbyname('CPG_TOTLIQ').AsInteger
+                          );
+//FRMMENU.abrirFRMCrbQuitacao;
 end;
 
 end.

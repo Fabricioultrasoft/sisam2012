@@ -63,16 +63,16 @@ object FRM_CPG: TFRM_CPG
   object pgControl: TPageControl
     Left = 0
     Top = 0
-    Width = 615
-    Height = 436
-    ActivePage = PC_Contas
+    Width = 623
+    Height = 440
+    ActivePage = PC_Cons
     Align = alClient
     TabOrder = 0
     object PC_Contas: TTabSheet
       Caption = 'Contas'
       DesignSize = (
-        607
-        408)
+        615
+        412)
       object Label1: TLabel
         Left = 16
         Top = 120
@@ -1159,9 +1159,9 @@ object FRM_CPG: TFRM_CPG
       end
       object DBGrid1: TDBGrid
         Left = 0
-        Top = 156
-        Width = 607
-        Height = 252
+        Top = 96
+        Width = 615
+        Height = 316
         Align = alBottom
         DataSource = DTM_FINAN.dsConsCpg
         TabOrder = 0
@@ -1523,8 +1523,7 @@ object FRM_CPG: TFRM_CPG
         Top = 16
         Width = 265
         Height = 21
-        DataField = 'CPG_COND'
-        DataSource = DTM_FINAN.dsCpg
+        DataSource = DTM_FINAN.dsCrb
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -11
