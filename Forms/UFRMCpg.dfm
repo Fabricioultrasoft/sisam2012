@@ -1,7 +1,7 @@
 object FRM_CPG: TFRM_CPG
   Left = 311
   Top = 199
-  Width = 631
+  Width = 666
   Height = 474
   Caption = 'Contas a Pagar'
   Color = clBtnFace
@@ -63,16 +63,16 @@ object FRM_CPG: TFRM_CPG
   object pgControl: TPageControl
     Left = 0
     Top = 0
-    Width = 623
-    Height = 440
-    ActivePage = PC_Cons
+    Width = 650
+    Height = 436
+    ActivePage = PC_Contas
     Align = alClient
     TabOrder = 0
     object PC_Contas: TTabSheet
       Caption = 'Contas'
       DesignSize = (
-        615
-        412)
+        642
+        408)
       object Label1: TLabel
         Left = 16
         Top = 120
@@ -772,47 +772,14 @@ object FRM_CPG: TFRM_CPG
           OnClick = btnCancelClick
         end
       end
-      object RadioGroup1: TRadioGroup
-        Left = 486
-        Top = 40
-        Width = 81
-        Height = 81
-        Caption = 'Status'
-        TabOrder = 16
-        OnEnter = RadioGroup1Enter
-      end
-      object rbAVenc: TRadioButton
-        Left = 496
-        Top = 56
-        Width = 66
-        Height = 17
-        Caption = 'A Vencer'
-        TabOrder = 17
-      end
-      object rbVenc: TRadioButton
-        Left = 496
-        Top = 75
-        Width = 66
-        Height = 17
-        Caption = 'Vencida'
-        TabOrder = 18
-      end
-      object rbQuit: TRadioButton
-        Left = 496
-        Top = 96
-        Width = 66
-        Height = 17
-        Caption = 'Quitada'
-        TabOrder = 19
-      end
       object btn2: TBitBtn
-        Left = 15
+        Left = 20
         Top = 348
         Width = 137
         Height = 57
         Anchors = [akBottom]
         Caption = 'Cancelar Pgto'
-        TabOrder = 20
+        TabOrder = 16
         OnClick = btnOkClick
         Glyph.Data = {
           F6060000424DF606000000000000360000002800000018000000180000000100
@@ -873,13 +840,13 @@ object FRM_CPG: TFRM_CPG
           17AF1F1FAF000000000000000000000000000000000000000000}
       end
       object btn1: TBitBtn
-        Left = 438
+        Left = 468
         Top = 349
         Width = 155
         Height = 54
         Anchors = [akBottom]
         Caption = 'Quitar'
-        TabOrder = 21
+        TabOrder = 17
         OnClick = btn1Click
         Glyph.Data = {
           361B0000424D361B000000000000360000002800000030000000300000000100
@@ -1101,6 +1068,30 @@ object FRM_CPG: TFRM_CPG
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE7F7F24EC7A095DDC6FFFFFFFF
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       end
+      object dbrgrpCPG_STATUS: TDBRadioGroup
+        Left = 480
+        Top = 40
+        Width = 121
+        Height = 73
+        Caption = 'Status'
+        DataField = 'CPG_STATUS'
+        DataSource = DTM_FINAN.dsCpg
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        Items.Strings = (
+          'A Vencer'
+          'Quitado'
+          'Vencido')
+        ParentFont = False
+        TabOrder = 18
+        Values.Strings = (
+          '0'
+          '1'
+          '2')
+      end
     end
     object PC_Cons: TTabSheet
       Caption = 'Consulta'
@@ -1159,8 +1150,8 @@ object FRM_CPG: TFRM_CPG
       end
       object DBGrid1: TDBGrid
         Left = 0
-        Top = 96
-        Width = 615
+        Top = 92
+        Width = 642
         Height = 316
         Align = alBottom
         DataSource = DTM_FINAN.dsConsCpg

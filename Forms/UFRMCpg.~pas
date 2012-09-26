@@ -75,10 +75,6 @@ type
     btnDelete: TToolButton;
     btnOk: TToolButton;
     btnCancel: TToolButton;
-    RadioGroup1: TRadioGroup;
-    rbAVenc: TRadioButton;
-    rbVenc: TRadioButton;
-    rbQuit: TRadioButton;
     RadioGroup2: TRadioGroup;
     rbStatus3: TRadioButton;
     rbStatus2: TRadioButton;
@@ -86,6 +82,7 @@ type
     btnPesq: TBitBtn;
     btn2: TBitBtn;
     btn1: TBitBtn;
+    dbrgrpCPG_STATUS: TDBRadioGroup;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnPriorClick(Sender: TObject);
