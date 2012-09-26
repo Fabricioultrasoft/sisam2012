@@ -5,7 +5,6 @@ object DTM_FINAN: TDTM_FINAN
   Height = 476
   Width = 564
   object cdsCpg: TClientDataSet
-    Active = True
     Aggregates = <>
     FieldDefs = <
       item
@@ -64,8 +63,7 @@ object DTM_FINAN: TDTM_FINAN
       end
       item
         Name = 'CPG_STATUS'
-        DataType = ftString
-        Size = 1
+        DataType = ftSmallint
       end
       item
         Name = 'CPG_OBS'
@@ -266,6 +264,7 @@ object DTM_FINAN: TDTM_FINAN
     Top = 16
   end
   object cdsCrb: TClientDataSet
+    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'dspCrb'
@@ -342,7 +341,6 @@ object DTM_FINAN: TDTM_FINAN
     Top = 152
   end
   object cdsConsCpg: TClientDataSet
-    Active = True
     Aggregates = <>
     FieldDefs = <
       item
@@ -401,8 +399,7 @@ object DTM_FINAN: TDTM_FINAN
       end
       item
         Name = 'CPG_STATUS'
-        DataType = ftString
-        Size = 1
+        DataType = ftSmallint
       end
       item
         Name = 'CPG_OBS'
