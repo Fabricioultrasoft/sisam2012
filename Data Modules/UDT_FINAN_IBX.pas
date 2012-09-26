@@ -21,7 +21,6 @@ type
     qryCpgCPG_INSS: TFloatField;
     qryCpgCPG_CSLS: TFloatField;
     qryCpgCPG_DTPGTO: TDateField;
-    qryCpgCPG_STATUS: TIBStringField;
     qryCpgCPG_OBS: TIBStringField;
     qryCpgCPG_CDG: TIntegerField;
     qryCrb: TIBQuery;
@@ -89,6 +88,7 @@ type
     qryConsCpgCPG_USUARIOLANC: TIntegerField;
     qryConsCpgCPG_USUARIOBAIXA: TIntegerField;
     qryConsCpgCPG_TOTPGTO: TFloatField;
+    qryCpgCPG_STATUS: TSmallintField;
   private
     { Private declarations }
   public

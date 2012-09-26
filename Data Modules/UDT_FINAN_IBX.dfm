@@ -68,12 +68,6 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       FieldName = 'CPG_DTPGTO'
       Origin = '"CAD_CPG"."CPG_DTPGTO"'
     end
-    object qryCpgCPG_STATUS: TIBStringField
-      DisplayWidth = 1
-      FieldName = 'CPG_STATUS'
-      Origin = '"CAD_CPG"."CPG_STATUS"'
-      Size = 1
-    end
     object qryCpgCPG_OBS: TIBStringField
       FieldName = 'CPG_OBS'
       Origin = '"CAD_CPG"."CPG_OBS"'
@@ -129,6 +123,10 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     object qryCpgCPG_TOTPGTO: TFloatField
       FieldName = 'CPG_TOTPGTO'
       Origin = '"CAD_CPG"."CPG_TOTPGTO"'
+    end
+    object qryCpgCPG_STATUS: TSmallintField
+      FieldName = 'CPG_STATUS'
+      Origin = '"CAD_CPG"."CPG_STATUS"'
     end
   end
   object qryCrb: TIBQuery
