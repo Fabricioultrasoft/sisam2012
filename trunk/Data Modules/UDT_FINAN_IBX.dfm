@@ -7,8 +7,6 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
   object qryCpg: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_CPG')
     Left = 24
@@ -107,10 +105,6 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       FieldName = 'CPG_COND'
       Origin = '"CAD_CPG"."CPG_COND"'
     end
-    object qryCpgCPG_TOTBRUTO: TFloatField
-      FieldName = 'CPG_TOTBRUTO'
-      Origin = '"CAD_CPG"."CPG_TOTBRUTO"'
-    end
     object qryCpgCPG_USUARIOLANC: TIntegerField
       FieldName = 'CPG_USUARIOLANC'
       Origin = '"CAD_CPG"."CPG_USUARIOLANC"'
@@ -120,6 +114,10 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       FieldName = 'CPG_USUARIOBAIXA'
       Origin = '"CAD_CPG"."CPG_USUARIOBAIXA"'
     end
+    object qryCpgCPG_TOTBRUTO: TFloatField
+      FieldName = 'CPG_TOTBRUTO'
+      Origin = '"CAD_CPG"."CPG_TOTBRUTO"'
+    end
     object qryCpgCPG_TOTPGTO: TFloatField
       FieldName = 'CPG_TOTPGTO'
       Origin = '"CAD_CPG"."CPG_TOTPGTO"'
@@ -128,12 +126,14 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       FieldName = 'CPG_STATUS'
       Origin = '"CAD_CPG"."CPG_STATUS"'
     end
+    object qryCpgCPG_TOTLIQ: TFloatField
+      FieldName = 'CPG_TOTLIQ'
+      Origin = '"CAD_CPG"."CPG_TOTLIQ"'
+    end
   end
   object qryCrb: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_CRB')
     Left = 104
@@ -202,8 +202,6 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
   object qryConsCpg: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_CPG')
     Left = 24
@@ -263,12 +261,6 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       FieldName = 'CPG_DTPGTO'
       Origin = '"CAD_CPG"."CPG_DTPGTO"'
     end
-    object IBStringField3: TIBStringField
-      DisplayWidth = 1
-      FieldName = 'CPG_STATUS'
-      Origin = '"CAD_CPG"."CPG_STATUS"'
-      Size = 1
-    end
     object IBStringField4: TIBStringField
       FieldName = 'CPG_OBS'
       Origin = '"CAD_CPG"."CPG_OBS"'
@@ -308,10 +300,6 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       FieldName = 'CPG_COND'
       Origin = '"CAD_CPG"."CPG_COND"'
     end
-    object qryConsCpgCPG_TOTBRUTO: TFloatField
-      FieldName = 'CPG_TOTBRUTO'
-      Origin = '"CAD_CPG"."CPG_TOTBRUTO"'
-    end
     object qryConsCpgCPG_USUARIOLANC: TIntegerField
       FieldName = 'CPG_USUARIOLANC'
       Origin = '"CAD_CPG"."CPG_USUARIOLANC"'
@@ -321,16 +309,26 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       FieldName = 'CPG_USUARIOBAIXA'
       Origin = '"CAD_CPG"."CPG_USUARIOBAIXA"'
     end
+    object qryConsCpgCPG_TOTBRUTO: TFloatField
+      FieldName = 'CPG_TOTBRUTO'
+      Origin = '"CAD_CPG"."CPG_TOTBRUTO"'
+    end
     object qryConsCpgCPG_TOTPGTO: TFloatField
       FieldName = 'CPG_TOTPGTO'
       Origin = '"CAD_CPG"."CPG_TOTPGTO"'
+    end
+    object qryConsCpgCPG_STATUS: TSmallintField
+      FieldName = 'CPG_STATUS'
+      Origin = '"CAD_CPG"."CPG_STATUS"'
+    end
+    object qryConsCpgCPG_TOTLIQ: TFloatField
+      FieldName = 'CPG_TOTLIQ'
+      Origin = '"CAD_CPG"."CPG_TOTLIQ"'
     end
   end
   object qryConsCrb: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_CRB')
     Left = 104

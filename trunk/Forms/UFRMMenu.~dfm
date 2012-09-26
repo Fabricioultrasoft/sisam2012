@@ -318,7 +318,7 @@ object FRMMenu: TFRMMenu
   object StatusBar: TStatusBar
     Left = 0
     Top = 0
-    Width = 875
+    Width = 867
     Height = 5
     Align = alTop
     Panels = <>
@@ -326,7 +326,7 @@ object FRMMenu: TFRMMenu
   object ToolBar1: TToolBar
     Left = 0
     Top = 5
-    Width = 875
+    Width = 867
     Height = 84
     ButtonHeight = 81
     ButtonWidth = 113
@@ -347,29 +347,22 @@ object FRMMenu: TFRMMenu
       ImageIndex = 1
       OnClick = tbCadastroClick
     end
-    object tbFuncionario: TToolButton
-      Left = 226
-      Top = 2
-      Caption = 'tbFuncionario'
-      ImageIndex = 2
-      OnClick = tbFuncionarioClick
-    end
     object ToolButton1: TToolButton
-      Left = 339
+      Left = 226
       Top = 2
       Caption = 'ToolButton1'
       ImageIndex = 5
       OnClick = ToolButton1Click
     end
     object tbPagar: TToolButton
-      Left = 452
+      Left = 339
       Top = 2
       Caption = 'tbPagar'
       ImageIndex = 3
       OnClick = tbPagarClick
     end
     object tbReceber: TToolButton
-      Left = 565
+      Left = 452
       Top = 2
       Caption = 'tbReceber'
       ImageIndex = 4

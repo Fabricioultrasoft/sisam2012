@@ -84,6 +84,8 @@ type
     rbStatus2: TRadioButton;
     rbStatus1: TRadioButton;
     btnPesq: TBitBtn;
+    btn2: TBitBtn;
+    btn1: TBitBtn;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnPriorClick(Sender: TObject);
@@ -96,6 +98,7 @@ type
     procedure btnPesqClick(Sender: TObject);
     procedure edDescKeyPress(Sender: TObject; var Key: Char);
     procedure RadioGroup1Enter(Sender: TObject);
+    procedure btn1Click(Sender: TObject);
   private
     procedure FiltrarContas;
   public
@@ -107,7 +110,7 @@ var
 
 implementation
 
-uses UDT_FINAN;
+uses UDT_FINAN, UFRMMenu;
 
 {$R *.dfm}
 
@@ -240,6 +243,16 @@ procedure TFRM_CPG.edDescKeyPress(Sender: TObject; var Key: Char);
 begin
 If Key = #13 then
  btnPesqClick(Self);
+end;
+
+procedure TFRM_CPG.btn1Click(Sender: TObject);
+begin
+  IF NOT dtm_finan.cdscpg.fieldbyname('CPG_CDG').ISNULL THEN
+//frmmenu.abrirFRMCpgQuitacao(
+//                        dtm_finan.cdscpg.fieldbyname('CPG_CDG').ASinteger,
+//                        dtm_finan.cdscpg.fieldbyname('CPG_TOTLIQ').ASinteger
+//                          );
+FRMMENU.abrirFRMCrbQuitacao;
 end;
 
 end.
