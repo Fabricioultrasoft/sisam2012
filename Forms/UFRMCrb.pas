@@ -51,13 +51,11 @@ type
     btnCancel: TToolButton;
     DBEdit14: TDBEdit;
     DBGrid1: TDBGrid;
-    btn1: TBitBtn;
-    btn2: TBitBtn;
     Label24: TLabel;
     edDtIni: TEdit;
     Label25: TLabel;
     edDtFim: TEdit;
-    edDesc: TEdit;
+    edCondomino: TEdit;
     Label29: TLabel;
     lbCond: TDBComboBox;
     Label28: TLabel;
@@ -70,8 +68,9 @@ type
     procedure btnOkClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure edDescKeyPress(Sender: TObject; var Key: Char);
+    procedure edCondominoKeyPress(Sender: TObject; var Key: Char);
     procedure btnPesqClick(Sender: TObject);
+    procedure DBGrid1DblClick(Sender: TObject);
   private
     procedure FiltrarReceitas;
   public
@@ -125,18 +124,53 @@ end;
 
 procedure TFRM_CRB.FormCreate(Sender: TObject);
 begin
+  DTM_FINAN.cdsCrb.Close;
+  DTM_FINAN.cdsCrb.Open;
   pcControl.ActivePageindex := 0;
 end;
 
 procedure TFRM_CRB.FiltrarReceitas;
- var Sql, Where, Desc, Status : String;
+ var Sql, Where, Condomino, Status : String;
      DtIni, DtFim : String;
      Cond : Integer;
-
 begin
+  Where := '';
+  Condomino := '';
+  Status := '';
+  DtIni := '';
+  DtFim := '';
+  //Cond := '';
+
+  If (edDtIni.text <> '') then
+   DtIni := edDtIni.text;
+
+  If (edDtfim.text <> '') then
+   DtFim := edDtFim.text;
+
+  If (edCondomino.Text <> '') then
+   Condomino := edCondomino.Text;
+
+  IF (lbCond.itemindex <> 0) then
+   Cond := lbCond.itemindex;
+
+  if (Trim(edDtIni.Text) <> '') then
+    Where := Where + #13 + ' AND  (CRB_DTVENC >= ' + QuotedStr(DtIni) + ')';
+
+  if (Trim(edDtFim.Text) <> '') then
+    Where := Where + #13 + ' AND  (CRB_DTVENC <= ' + QuotedStr(DtFim) + ')';
+
+  if (Trim(edCondomino.Text) <> '') then
+    Where := Where + #13 + ' AND (CRB_CONDOMINO LIKE ' + QuotedStr('%' + edCondomino.text + '%') + ')';
+
+  SQL := (SQL_RECEBER);
+
+  If (Trim(Where) <> '') then
+  SQL := SQL + #13 + WHERE;
+
+  DTM_FINAN.consultarReceitas(SQL);
 end;
 
-procedure TFRM_CRB.edDescKeyPress(Sender: TObject; var Key: Char);
+procedure TFRM_CRB.edCondominoKeyPress(Sender: TObject; var Key: Char);
 begin
 If Key = #13 then
  btnPesqClick(Self);
@@ -145,6 +179,13 @@ end;
 procedure TFRM_CRB.btnPesqClick(Sender: TObject);
 begin
   FiltrarReceitas;
+end;
+
+procedure TFRM_CRB.DBGrid1DblClick(Sender: TObject);
+begin
+ //abrir cadastro do registro selecionado
+  IF DTM_FINAN.cdsCrb.Locate('CRB_CDG',DTM_FINAN.cdsConsCrb.fieldbyname('Crb_CDG').AsInteger,[loPartialKey]) THEN
+    pcControl.ActivePageIndex:=0;
 end;
 
 end.
