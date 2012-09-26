@@ -13,7 +13,6 @@ type
     ToolBar1: TToolBar;
     tbEmpresa: TToolButton;
     tbCadastro: TToolButton;
-    tbFuncionario: TToolButton;
     tbPagar: TToolButton;
     tbReceber: TToolButton;
     imglMenu: TImageList;
@@ -42,6 +41,7 @@ type
     Empresas1: TMenuItem;
     Condominios1: TMenuItem;
     RelContasaPagar: TMenuItem;
+    ContasaReceber2: TMenuItem;
     procedure ToolButton1Click(Sender: TObject);
     procedure tbCadastroClick(Sender: TObject);
     procedure Calculadora1Click(Sender: TObject);
@@ -55,22 +55,21 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure AlterarSenhaF21Click(Sender: TObject);
     procedure Logoff1Click(Sender: TObject);
-    procedure tbFuncionarioClick(Sender: TObject);
     procedure FornecedoresClientes1Click(Sender: TObject);
-    procedure Funcionrios1Click(Sender: TObject);
     procedure Condomnios1Click(Sender: TObject);
     procedure Contasapagar1Click(Sender: TObject);
     procedure Contasareceber1Click(Sender: TObject);
     procedure Empresas1Click(Sender: TObject);
     procedure Condominios1Click(Sender: TObject);
     procedure RelContasapagar1Click(Sender: TObject);
+    procedure RelContasareceber1Click(Sender: TObject);
   private
     { Private declarations }
     procedure deslogar(relogar: boolean);
     procedure logoff;
     procedure abrirFRMEmpre();
     procedure abrirFRMForn();
-    procedure abrirFRMFunc();
+
     procedure abrirFRMCond();
     procedure abrirFRMCRB();
     procedure abrirFRMCPG();
@@ -78,9 +77,13 @@ type
     procedure abrirFRMRELEmpresa;
     procedure abrirFRMRELCondominio;
     procedure abrirFRMRelCpg;
+    procedure abrirFRMRelCrb;
+
   public
     { Public declarations }
+    procedure abrirFRMCpgQuitacao(pgto: integer;vlrapagar:double);    
     procedure abrirFRMtrocasenha(Modo:integer);
+    procedure abrirFRMCrbQuitacao();
   end;
 
 var
@@ -90,7 +93,7 @@ implementation
 
 uses UFRMCad, UFRMEmpre, UFRMCond, UFRMUser, UFRMCpg, UFRMCrb,
   UTrocarSenha, UFRMLogin, UDTMGeral, UFRMREL_Empresa, UFRMREL_Condominio,
-  UFRMREL_Contas;
+  UFRMREL_Contas, UFRMREL_Receitas, UFRMCrbQuitacao, UFRMCpgQuitacao;
 
 {$R *.dfm}
 
@@ -191,11 +194,6 @@ begin
   dtmgeral.usuarionome:='';
 end;
 
-procedure TFRMMenu.tbFuncionarioClick(Sender: TObject);
-begin
-  abrirFRMFunc;
-end;
-
 procedure TFRMMenu.abrirFRMCond;
 begin
   if FRM_Cond = nil then
@@ -231,21 +229,10 @@ begin
   FRM_CADdvs.show;
 end;
 
-procedure TFRMMenu.abrirFRMFunc;
-begin
-//  if FRM_Func = nil then
-  //  FRM_Func:= TFRM_Func.create(self);
-  //FRMFunc.show;
-end;
 
 procedure TFRMMenu.FornecedoresClientes1Click(Sender: TObject);
 begin
 abrirFRMForn;
-end;
-
-procedure TFRMMenu.Funcionrios1Click(Sender: TObject);
-begin
-abrirFRMFunc;
 end;
 
 procedure TFRMMenu.Condomnios1Click(Sender: TObject);
@@ -293,6 +280,13 @@ begin
   FRMRelCpg.ShowModal;
 end;
 
+procedure TFRMMenu.abrirFRMRelCrb;
+begin
+  if FRMRelCrb = nil then
+    FRMRelCrb := TFRMRelCrb.create(self);
+  FRMRelCrb.ShowModal;
+end;
+
 
 procedure TFRMMenu.abrirFRMtrocasenha(Modo:integer);
 begin
@@ -318,6 +312,28 @@ end;
 procedure TFRMMenu.RelContasaPagar1Click(Sender: TObject);
 begin
 abrirFRMRelCpg;
+end;
+
+procedure TFRMMenu.RelContasareceber1Click(Sender: TObject);
+begin
+abrirFRMRelCrb;
+end;
+
+procedure TFRMMenu.abrirFRMCrbQuitacao();
+begin
+if FRMCrbQuitacao = nil  then
+  FRMCrbQuitacao := tFRMCrbQuitacao.Create(self);
+FRMCRBquitacao.Show;
+end;
+
+
+procedure TFRMMenu.abrirFRMCpgQuitacao(pgto:integer;vlrapagar:double);
+begin
+if FRMCpgQuitacao = nil then
+  FRMCpgQuitacao := tFRMcpgQuitacao.Create(NIL);
+FRMCpgquitacao.setPgto(pgto);
+FRMCpgquitacao.setVlrapagar(vlrapagar);
+FRMCpgquitacao.Show;
 end;
 
 end.

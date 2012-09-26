@@ -57,7 +57,6 @@ type
     FloatField8: TFloatField;
     FloatField9: TFloatField;
     DateField3: TDateField;
-    IBStringField3: TIBStringField;
     IBStringField4: TIBStringField;
     IntegerField1: TIntegerField;
     IBBCDField1: TIBBCDField;
@@ -80,15 +79,18 @@ type
     FloatField15: TFloatField;
     IBStringField6: TIBStringField;
     SmallintField1: TSmallintField;
-    qryCpgCPG_TOTBRUTO: TFloatField;
-    qryCpgCPG_USUARIOLANC: TIntegerField;
-    qryCpgCPG_USUARIOBAIXA: TIntegerField;
-    qryCpgCPG_TOTPGTO: TFloatField;
-    qryConsCpgCPG_TOTBRUTO: TFloatField;
     qryConsCpgCPG_USUARIOLANC: TIntegerField;
     qryConsCpgCPG_USUARIOBAIXA: TIntegerField;
+    qryCpgCPG_USUARIOLANC: TIntegerField;
+    qryCpgCPG_USUARIOBAIXA: TIntegerField;
+    qryCpgCPG_TOTBRUTO: TFloatField;
+    qryCpgCPG_TOTPGTO: TFloatField;
+    qryConsCpgCPG_TOTBRUTO: TFloatField;
     qryConsCpgCPG_TOTPGTO: TFloatField;
     qryCpgCPG_STATUS: TSmallintField;
+    qryConsCpgCPG_STATUS: TSmallintField;
+    qryCpgCPG_TOTLIQ: TFloatField;
+    qryConsCpgCPG_TOTLIQ: TFloatField;
   private
     { Private declarations }
   public

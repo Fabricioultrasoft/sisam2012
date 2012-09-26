@@ -22,7 +22,9 @@ uses
   UFRMREL_Empresa in 'Relatorios\UFRMREL_Empresa.pas' {FRMREL_Empresa},
   UFRMREL_Condominio in 'Relatorios\UFRMREL_Condominio.pas' {FRMREL_Condominio},
   UFRMREL_Contas in 'Relatorios\UFRMREL_Contas.pas' {FRMRelCpg},
-  UFRMREL_Receitas in 'Relatorios\UFRMREL_Receitas.pas' {FRMRelCrb};
+  UFRMREL_Receitas in 'Relatorios\UFRMREL_Receitas.pas' {FRMRelCrb},
+  UFRMCrbQuitacao in 'Forms\UFRMCrbQuitacao.pas' {FRMCRBquitacao},
+  UFRMCpgQuitacao in 'Forms\UFRMCpgQuitacao.pas' {FRMcpgQuitacao};
 
 {$R *.res}
 
@@ -36,8 +38,6 @@ begin
   Application.CreateForm(TDTM_FINAN_IBX, DTM_FINAN_IBX);
   Application.CreateForm(TDTM_FINAN, DTM_FINAN);
   Application.CreateForm(TFRMLogin, FRMLogin);
-  Application.CreateForm(TFRMRelCpg, FRMRelCpg);
-  Application.CreateForm(TFRMRelCrb, FRMRelCrb);
   Application.ShowMainForm:=false;
   Application.Run;
   //FRMLogin.Show;

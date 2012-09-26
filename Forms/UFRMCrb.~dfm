@@ -35,8 +35,8 @@ object FRM_CRB: TFRM_CRB
   object pcControl: TPageControl
     Left = 0
     Top = 0
-    Width = 495
-    Height = 396
+    Width = 487
+    Height = 392
     ActivePage = PC_Receitas
     Align = alClient
     TabOrder = 0
@@ -350,7 +350,7 @@ object FRM_CRB: TFRM_CRB
       object DBEdit8: TDBEdit
         Left = 128
         Top = 192
-        Width = 73
+        Width = 97
         Height = 21
         DataField = 'CRB_DTVENCORIG'
         DataSource = DTM_FINAN.dsCrb

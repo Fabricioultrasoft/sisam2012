@@ -78,9 +78,12 @@ type
     procedure abrirFRMRELCondominio;
     procedure abrirFRMRelCpg;
     procedure abrirFRMRelCrb;
+
   public
     { Public declarations }
+    procedure abrirFRMCpgQuitacao(pgto: integer;vlrapagar:double);    
     procedure abrirFRMtrocasenha(Modo:integer);
+    procedure abrirFRMCrbQuitacao();
   end;
 
 var
@@ -90,7 +93,7 @@ implementation
 
 uses UFRMCad, UFRMEmpre, UFRMCond, UFRMUser, UFRMCpg, UFRMCrb,
   UTrocarSenha, UFRMLogin, UDTMGeral, UFRMREL_Empresa, UFRMREL_Condominio,
-  UFRMREL_Contas, UFRMREL_Receitas;
+  UFRMREL_Contas, UFRMREL_Receitas, UFRMCrbQuitacao, UFRMCpgQuitacao;
 
 {$R *.dfm}
 
@@ -314,6 +317,23 @@ end;
 procedure TFRMMenu.RelContasareceber1Click(Sender: TObject);
 begin
 abrirFRMRelCrb;
+end;
+
+procedure TFRMMenu.abrirFRMCrbQuitacao();
+begin
+if FRMCrbQuitacao = nil  then
+  FRMCrbQuitacao := tFRMCrbQuitacao.Create(self);
+FRMCRBquitacao.Show;
+end;
+
+
+procedure TFRMMenu.abrirFRMCpgQuitacao(pgto:integer;vlrapagar:double);
+begin
+if FRMCpgQuitacao = nil then
+  FRMCpgQuitacao := tFRMcpgQuitacao.Create(SELF);
+FRMCpgquitacao.setPgto(pgto);
+FRMCpgquitacao.setVlrapagar(vlrapagar);
+FRMCpgquitacao.Show;
 end;
 
 end.

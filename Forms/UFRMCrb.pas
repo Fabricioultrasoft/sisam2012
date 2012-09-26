@@ -51,6 +51,8 @@ type
     btnCancel: TToolButton;
     DBEdit14: TDBEdit;
     DBGrid1: TDBGrid;
+    btn1: TBitBtn;
+    btn2: TBitBtn;
     Label24: TLabel;
     edDtIni: TEdit;
     Label25: TLabel;
