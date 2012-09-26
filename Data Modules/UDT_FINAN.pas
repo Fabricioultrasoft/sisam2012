@@ -13,7 +13,6 @@ type
     dsCpg: TDataSource;
     cdsCpgCPG_DTVENC: TDateField;
     cdsCpgCPG_DTEMISSAO: TDateField;
-    cdsCpgCPG_VLRNOTA: TFloatField;
     cdsCpgCPG_NDESC: TStringField;
     cdsCpgCPG_NATUREZA: TStringField;
     cdsCpgCPG_FGTS: TFloatField;
@@ -53,7 +52,6 @@ type
     cdsConsCpg: TClientDataSet;
     DateField1: TDateField;
     DateField2: TDateField;
-    FloatField1: TFloatField;
     StringField1: TStringField;
     StringField2: TStringField;
     FloatField2: TFloatField;
@@ -93,6 +91,14 @@ type
     SmallintField1: TSmallintField;
     dsConsCrb: TDataSource;
     qryREL: TIBQuery;
+    cdsCpgCPG_TOTBRUTO: TFloatField;
+    cdsCpgCPG_USUARIOLANC: TIntegerField;
+    cdsCpgCPG_USUARIOBAIXA: TIntegerField;
+    cdsCpgCPG_TOTPGTO: TFloatField;
+    cdsConsCpgCPG_TOTBRUTO: TFloatField;
+    cdsConsCpgCPG_USUARIOLANC: TIntegerField;
+    cdsConsCpgCPG_USUARIOBAIXA: TIntegerField;
+    cdsConsCpgCPG_TOTPGTO: TFloatField;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
@@ -104,7 +110,7 @@ type
   public
     //Consultas
     procedure consultarContas(SQL : String);
-    procedure consultarReceitas(SQL : String);    
+    procedure consultarReceitas(SQL : String);
     //Relatórios
     procedure prepararRelatorioContas;
     procedure prepararRelatorioReceitas;

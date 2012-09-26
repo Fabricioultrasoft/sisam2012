@@ -65,7 +65,7 @@ object FRM_CPG: TFRM_CPG
     Top = 0
     Width = 639
     Height = 432
-    ActivePage = PC_Cons
+    ActivePage = PC_Contas
     Align = alClient
     TabOrder = 0
     object PC_Contas: TTabSheet
@@ -304,7 +304,7 @@ object FRM_CPG: TFRM_CPG
         Width = 89
         Height = 21
         Color = clInfoBk
-        DataField = 'CPG_VLRNOTA'
+        DataField = 'CPG_TOTBRUTO'
         DataSource = DTM_FINAN.dsCpg
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy

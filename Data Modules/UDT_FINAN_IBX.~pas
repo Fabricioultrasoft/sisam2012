@@ -10,7 +10,6 @@ type
     qryCpg: TIBQuery;
     qryCpgCPG_DTVENC: TDateField;
     qryCpgCPG_DTEMISSAO: TDateField;
-    qryCpgCPG_VLRNOTA: TFloatField;
     qryCpgCPG_NDESC: TIBStringField;
     qryCpgCPG_NATUREZA: TIBStringField;
     qryCpgCPG_FGTS: TFloatField;
@@ -48,7 +47,6 @@ type
     qryConsCpg: TIBQuery;
     DateField1: TDateField;
     DateField2: TDateField;
-    FloatField1: TFloatField;
     IBStringField1: TIBStringField;
     IBStringField2: TIBStringField;
     FloatField2: TFloatField;
@@ -83,6 +81,14 @@ type
     FloatField15: TFloatField;
     IBStringField6: TIBStringField;
     SmallintField1: TSmallintField;
+    qryCpgCPG_TOTBRUTO: TFloatField;
+    qryCpgCPG_USUARIOLANC: TIntegerField;
+    qryCpgCPG_USUARIOBAIXA: TIntegerField;
+    qryCpgCPG_TOTPGTO: TFloatField;
+    qryConsCpgCPG_TOTBRUTO: TFloatField;
+    qryConsCpgCPG_USUARIOLANC: TIntegerField;
+    qryConsCpgCPG_USUARIOBAIXA: TIntegerField;
+    qryConsCpgCPG_TOTPGTO: TFloatField;
   private
     { Private declarations }
   public

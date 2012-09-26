@@ -22,10 +22,6 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       FieldName = 'CPG_DTEMISSAO'
       Origin = '"CAD_CPG"."CPG_DTEMISSAO"'
     end
-    object qryCpgCPG_VLRNOTA: TFloatField
-      FieldName = 'CPG_VLRNOTA'
-      Origin = '"CAD_CPG"."CPG_VLRNOTA"'
-    end
     object qryCpgCPG_NDESC: TIBStringField
       FieldName = 'CPG_NDESC'
       Origin = '"CAD_CPG"."CPG_NDESC"'
@@ -117,6 +113,23 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       FieldName = 'CPG_COND'
       Origin = '"CAD_CPG"."CPG_COND"'
     end
+    object qryCpgCPG_TOTBRUTO: TFloatField
+      FieldName = 'CPG_TOTBRUTO'
+      Origin = '"CAD_CPG"."CPG_TOTBRUTO"'
+    end
+    object qryCpgCPG_USUARIOLANC: TIntegerField
+      FieldName = 'CPG_USUARIOLANC'
+      Origin = '"CAD_CPG"."CPG_USUARIOLANC"'
+      Required = True
+    end
+    object qryCpgCPG_USUARIOBAIXA: TIntegerField
+      FieldName = 'CPG_USUARIOBAIXA'
+      Origin = '"CAD_CPG"."CPG_USUARIOBAIXA"'
+    end
+    object qryCpgCPG_TOTPGTO: TFloatField
+      FieldName = 'CPG_TOTPGTO'
+      Origin = '"CAD_CPG"."CPG_TOTPGTO"'
+    end
   end
   object qryCrb: TIBQuery
     Database = DTMGeral.Database
@@ -205,10 +218,6 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     object DateField2: TDateField
       FieldName = 'CPG_DTEMISSAO'
       Origin = '"CAD_CPG"."CPG_DTEMISSAO"'
-    end
-    object FloatField1: TFloatField
-      FieldName = 'CPG_VLRNOTA'
-      Origin = '"CAD_CPG"."CPG_VLRNOTA"'
     end
     object IBStringField1: TIBStringField
       FieldName = 'CPG_NDESC'
@@ -300,6 +309,23 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     object IntegerField2: TIntegerField
       FieldName = 'CPG_COND'
       Origin = '"CAD_CPG"."CPG_COND"'
+    end
+    object qryConsCpgCPG_TOTBRUTO: TFloatField
+      FieldName = 'CPG_TOTBRUTO'
+      Origin = '"CAD_CPG"."CPG_TOTBRUTO"'
+    end
+    object qryConsCpgCPG_USUARIOLANC: TIntegerField
+      FieldName = 'CPG_USUARIOLANC'
+      Origin = '"CAD_CPG"."CPG_USUARIOLANC"'
+      Required = True
+    end
+    object qryConsCpgCPG_USUARIOBAIXA: TIntegerField
+      FieldName = 'CPG_USUARIOBAIXA'
+      Origin = '"CAD_CPG"."CPG_USUARIOBAIXA"'
+    end
+    object qryConsCpgCPG_TOTPGTO: TFloatField
+      FieldName = 'CPG_TOTPGTO'
+      Origin = '"CAD_CPG"."CPG_TOTPGTO"'
     end
   end
   object qryConsCrb: TIBQuery
