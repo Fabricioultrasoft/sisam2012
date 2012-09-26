@@ -51,6 +51,15 @@ type
     btnCancel: TToolButton;
     DBEdit14: TDBEdit;
     DBGrid1: TDBGrid;
+    Label24: TLabel;
+    edDtIni: TEdit;
+    Label25: TLabel;
+    edDtFim: TEdit;
+    edDesc: TEdit;
+    Label29: TLabel;
+    lbCond: TDBComboBox;
+    Label28: TLabel;
+    btnPesq: TBitBtn;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnPriorClick(Sender: TObject);
     procedure btntbnextClick(Sender: TObject);
@@ -59,8 +68,10 @@ type
     procedure btnOkClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure edDescKeyPress(Sender: TObject; var Key: Char);
+    procedure btnPesqClick(Sender: TObject);
   private
-    { Private declarations }
+    procedure FiltrarReceitas;
   public
     { Public declarations }
   end;
@@ -113,6 +124,25 @@ end;
 procedure TFRM_CRB.FormCreate(Sender: TObject);
 begin
   pcControl.ActivePageindex := 0;
+end;
+
+procedure TFRM_CRB.FiltrarReceitas;
+ var Sql, Where, Desc, Status : String;
+     DtIni, DtFim : String;
+     Cond : Integer;
+
+begin
+end;
+
+procedure TFRM_CRB.edDescKeyPress(Sender: TObject; var Key: Char);
+begin
+If Key = #13 then
+ btnPesqClick(Self);
+end;
+
+procedure TFRM_CRB.btnPesqClick(Sender: TObject);
+begin
+  FiltrarReceitas;
 end;
 
 end.

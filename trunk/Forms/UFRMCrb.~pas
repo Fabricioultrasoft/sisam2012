@@ -112,7 +112,7 @@ end;
 
 procedure TFRM_CRB.FormCreate(Sender: TObject);
 begin
-  pgControl.ActivePageindex := 0;
+  pcControl.ActivePageindex := 0;
 end;
 
 end.

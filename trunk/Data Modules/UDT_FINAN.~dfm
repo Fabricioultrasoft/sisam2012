@@ -17,10 +17,6 @@ object DTM_FINAN: TDTM_FINAN
         DataType = ftDate
       end
       item
-        Name = 'CPG_VLRNOTA'
-        DataType = ftFloat
-      end
-      item
         Name = 'CPG_NDESC'
         DataType = ftString
         Size = 80
@@ -108,6 +104,23 @@ object DTM_FINAN: TDTM_FINAN
       item
         Name = 'CPG_COND'
         DataType = ftInteger
+      end
+      item
+        Name = 'CPG_TOTBRUTO'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CPG_USUARIOLANC'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'CPG_USUARIOBAIXA'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CPG_TOTPGTO'
+        DataType = ftFloat
       end>
     IndexDefs = <>
     Params = <>
@@ -127,10 +140,6 @@ object DTM_FINAN: TDTM_FINAN
     object cdsCpgCPG_DTEMISSAO: TDateField
       FieldName = 'CPG_DTEMISSAO'
       Origin = '"CAD_CPG"."CPG_DTEMISSAO"'
-    end
-    object cdsCpgCPG_VLRNOTA: TFloatField
-      FieldName = 'CPG_VLRNOTA'
-      Origin = '"CAD_CPG"."CPG_VLRNOTA"'
     end
     object cdsCpgCPG_NDESC: TStringField
       FieldName = 'CPG_NDESC'
@@ -219,6 +228,23 @@ object DTM_FINAN: TDTM_FINAN
       FieldName = 'CPG_COND'
       Origin = '"CAD_CPG"."CPG_COND"'
     end
+    object cdsCpgCPG_TOTBRUTO: TFloatField
+      FieldName = 'CPG_TOTBRUTO'
+      Origin = '"CAD_CPG"."CPG_TOTBRUTO"'
+    end
+    object cdsCpgCPG_USUARIOLANC: TIntegerField
+      FieldName = 'CPG_USUARIOLANC'
+      Origin = '"CAD_CPG"."CPG_USUARIOLANC"'
+      Required = True
+    end
+    object cdsCpgCPG_USUARIOBAIXA: TIntegerField
+      FieldName = 'CPG_USUARIOBAIXA'
+      Origin = '"CAD_CPG"."CPG_USUARIOBAIXA"'
+    end
+    object cdsCpgCPG_TOTPGTO: TFloatField
+      FieldName = 'CPG_TOTPGTO'
+      Origin = '"CAD_CPG"."CPG_TOTPGTO"'
+    end
   end
   object dspCpg: TDataSetProvider
     DataSet = DTM_FINAN_IBX.qryCpg
@@ -240,7 +266,6 @@ object DTM_FINAN: TDTM_FINAN
     Top = 16
   end
   object cdsCrb: TClientDataSet
-    Active = True
     Aggregates = <>
     Params = <>
     ProviderName = 'dspCrb'
@@ -317,6 +342,7 @@ object DTM_FINAN: TDTM_FINAN
     Top = 152
   end
   object cdsConsCpg: TClientDataSet
+    Active = True
     Aggregates = <>
     FieldDefs = <
       item
@@ -326,10 +352,6 @@ object DTM_FINAN: TDTM_FINAN
       item
         Name = 'CPG_DTEMISSAO'
         DataType = ftDate
-      end
-      item
-        Name = 'CPG_VLRNOTA'
-        DataType = ftFloat
       end
       item
         Name = 'CPG_NDESC'
@@ -419,6 +441,23 @@ object DTM_FINAN: TDTM_FINAN
       item
         Name = 'CPG_COND'
         DataType = ftInteger
+      end
+      item
+        Name = 'CPG_TOTBRUTO'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CPG_USUARIOLANC'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'CPG_USUARIOBAIXA'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CPG_TOTPGTO'
+        DataType = ftFloat
       end>
     IndexDefs = <>
     Params = <>
@@ -437,10 +476,6 @@ object DTM_FINAN: TDTM_FINAN
     object DateField2: TDateField
       FieldName = 'CPG_DTEMISSAO'
       Origin = '"CAD_CPG"."CPG_DTEMISSAO"'
-    end
-    object FloatField1: TFloatField
-      FieldName = 'CPG_VLRNOTA'
-      Origin = '"CAD_CPG"."CPG_VLRNOTA"'
     end
     object StringField1: TStringField
       FieldName = 'CPG_NDESC'
@@ -528,6 +563,23 @@ object DTM_FINAN: TDTM_FINAN
     object IntegerField2: TIntegerField
       FieldName = 'CPG_COND'
       Origin = '"CAD_CPG"."CPG_COND"'
+    end
+    object cdsConsCpgCPG_TOTBRUTO: TFloatField
+      FieldName = 'CPG_TOTBRUTO'
+      Origin = '"CAD_CPG"."CPG_TOTBRUTO"'
+    end
+    object cdsConsCpgCPG_USUARIOLANC: TIntegerField
+      FieldName = 'CPG_USUARIOLANC'
+      Origin = '"CAD_CPG"."CPG_USUARIOLANC"'
+      Required = True
+    end
+    object cdsConsCpgCPG_USUARIOBAIXA: TIntegerField
+      FieldName = 'CPG_USUARIOBAIXA'
+      Origin = '"CAD_CPG"."CPG_USUARIOBAIXA"'
+    end
+    object cdsConsCpgCPG_TOTPGTO: TFloatField
+      FieldName = 'CPG_TOTPGTO'
+      Origin = '"CAD_CPG"."CPG_TOTPGTO"'
     end
   end
   object dspConsCpg: TDataSetProvider
@@ -627,9 +679,11 @@ object DTM_FINAN: TDTM_FINAN
   object qryREL: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_CPG')
-    Left = 256
+    Left = 232
     Top = 24
   end
 end
