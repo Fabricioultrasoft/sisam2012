@@ -24,8 +24,8 @@ type
     btnquitar: TBitBtn;
    procedure FormShow(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
-    procedure edtvalorExit(Sender: TObject);
     procedure btnquitarClick(Sender: TObject);
+    procedure edtvalorExit(Sender: TObject);
   //  procedure edtvalorExit(Sender: TObject);
     //procedure FormCreate(Sender: TObject);
   private
@@ -68,7 +68,6 @@ end;
 
 procedure TFRMcpgQuitacao.quitar;
 begin
-  showmessage('');
 verificarcampos;
 calcularDesc;
 if dtm_finan.quitarParcelaCPG(pgto,dtprecto.DateTime,StrToFloat(edtvalor.text),
@@ -112,6 +111,9 @@ procedure TFRMcpgQuitacao.FormShow(Sender: TObject);
 begin
 edtvalor.Text:=FormatFloat('#,##0.00',vlrapagar);
 lblapagar.Caption:=FormatFloat('#,##0.00',vlrapagar);
+edtvalor.SetFocus;
+edtmulta.text:='0,00';
+edtjuros.text:='0,00';
 end;
 
 
@@ -123,17 +125,17 @@ begin
 CLOSE;
 end;
 
-procedure TFRMcpgQuitacao.edtvalorExit(Sender: TObject);
-begin
-//if  StrToFloatdef((Sender as TEdit).Text,-1) <> -1  then
-//  edtvalor.Text:= FormatFloat('#,##0.00',strtofloat(edtvalor.TexT));
-
-//calcularDesc;
-end;
-
 procedure TFRMcpgQuitacao.btnquitarClick(Sender: TObject);
 begin
 quitar;
+end;
+
+procedure TFRMcpgQuitacao.edtvalorExit(Sender: TObject);
+begin
+if  StrToFloatdef(edtvalor.Text,-1) <> -1  then
+  edtvalor.Text:= FormatFloat('#,##0.00',strtofloat(edtvalor.TexT));
+
+calcularDesc;
 end;
 
 end.

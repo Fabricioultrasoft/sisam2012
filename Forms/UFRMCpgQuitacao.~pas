@@ -16,15 +16,16 @@ type
     lbl4: TLabel;
     lbl5: TLabel;
     lblapagar: TLabel;
-    btnOK: TBitBtn;
     btnCancelar: TBitBtn;
     edtvalor: TEdit;
     dtprecto: TDateTimePicker;
     edtjuros: TEdit;
     edtmulta: TEdit;
+    btnquitar: TBitBtn;
    procedure FormShow(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure edtvalorExit(Sender: TObject);
+    procedure btnquitarClick(Sender: TObject);
   //  procedure edtvalorExit(Sender: TObject);
     //procedure FormCreate(Sender: TObject);
   private
@@ -128,6 +129,11 @@ begin
 //  edtvalor.Text:= FormatFloat('#,##0.00',strtofloat(edtvalor.TexT));
 
 //calcularDesc;
+end;
+
+procedure TFRMcpgQuitacao.btnquitarClick(Sender: TObject);
+begin
+quitar;
 end;
 
 end.

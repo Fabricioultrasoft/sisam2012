@@ -156,34 +156,42 @@ object DTM_FINAN: TDTM_FINAN
     object cdsCpgCPG_FGTS: TFloatField
       FieldName = 'CPG_FGTS'
       Origin = '"CAD_CPG"."CPG_FGTS"'
+      DisplayFormat = '#,##0.00'
     end
     object cdsCpgCPG_CONTSINDIC: TFloatField
       FieldName = 'CPG_CONTSINDIC'
       Origin = '"CAD_CPG"."CPG_CONTSINDIC"'
+      DisplayFormat = '#,##0.00'
     end
     object cdsCpgCPG_PIS: TFloatField
       FieldName = 'CPG_PIS'
       Origin = '"CAD_CPG"."CPG_PIS"'
+      DisplayFormat = '#,##0.00'
     end
     object cdsCpgCPG_COFINS: TFloatField
       FieldName = 'CPG_COFINS'
       Origin = '"CAD_CPG"."CPG_COFINS"'
+      DisplayFormat = '#,##0.00'
     end
     object cdsCpgCPG_ISS: TFloatField
       FieldName = 'CPG_ISS'
       Origin = '"CAD_CPG"."CPG_ISS"'
+      DisplayFormat = '#,##0.00'
     end
     object cdsCpgCPG_IRRF: TFloatField
       FieldName = 'CPG_IRRF'
       Origin = '"CAD_CPG"."CPG_ IRRF"'
+      DisplayFormat = '#,##0.00'
     end
     object cdsCpgCPG_INSS: TFloatField
       FieldName = 'CPG_INSS'
       Origin = '"CAD_CPG"."CPG_INSS"'
+      DisplayFormat = '#,##0.00'
     end
     object cdsCpgCPG_CSLS: TFloatField
       FieldName = 'CPG_CSLS'
       Origin = '"CAD_CPG"."CPG_CSLS"'
+      DisplayFormat = '#,##0.00'
     end
     object cdsCpgCPG_DTPGTO: TDateField
       FieldName = 'CPG_DTPGTO'
@@ -203,21 +211,25 @@ object DTM_FINAN: TDTM_FINAN
     object cdsCpgCPG_JUROS: TBCDField
       FieldName = 'CPG_JUROS'
       Origin = '"CAD_CPG"."CPG_JUROS"'
+      DisplayFormat = '#,##0.00'
       Precision = 18
     end
     object cdsCpgCPG_MULTA: TBCDField
       FieldName = 'CPG_MULTA'
       Origin = '"CAD_CPG"."CPG_MULTA"'
+      DisplayFormat = '#,##0.00'
       Precision = 18
     end
     object cdsCpgCPG_DESCONTO: TBCDField
       FieldName = 'CPG_DESCONTO'
       Origin = '"CAD_CPG"."CPG_DESCONTO"'
+      DisplayFormat = '#,##0.00'
       Precision = 18
     end
     object cdsCpgCPG_ACRESCIMO: TBCDField
       FieldName = 'CPG_ACRESCIMO'
       Origin = '"CAD_CPG"."CPG_ACRESCIMO"'
+      DisplayFormat = '#,##0.00'
       Precision = 18
     end
     object cdsCpgCPG_COND: TIntegerField
@@ -234,16 +246,19 @@ object DTM_FINAN: TDTM_FINAN
     object cdsCpgCPG_TOTBRUTO: TFloatField
       FieldName = 'CPG_TOTBRUTO'
       Origin = '"CAD_CPG"."CPG_TOTBRUTO"'
+      DisplayFormat = '#,##0.00'
     end
     object cdsCpgCPG_TOTPGTO: TFloatField
       FieldName = 'CPG_TOTPGTO'
       Origin = '"CAD_CPG"."CPG_TOTPGTO"'
+      DisplayFormat = '#,##0.00'
     end
     object cdsCpgCPG_STATUS: TSmallintField
       FieldName = 'CPG_STATUS'
     end
     object cdsCpgCPG_TOTLIQ: TFloatField
       FieldName = 'CPG_TOTLIQ'
+      DisplayFormat = '#,##0.00'
     end
   end
   object dspCpg: TDataSetProvider
@@ -492,40 +507,49 @@ object DTM_FINAN: TDTM_FINAN
     object FloatField2: TFloatField
       FieldName = 'CPG_FGTS'
       Origin = '"CAD_CPG"."CPG_FGTS"'
+      DisplayFormat = '#,##0.00'
     end
     object FloatField3: TFloatField
       FieldName = 'CPG_CONTSINDIC'
       Origin = '"CAD_CPG"."CPG_CONTSINDIC"'
+      DisplayFormat = '#,##0.00'
     end
     object FloatField4: TFloatField
       FieldName = 'CPG_PIS'
       Origin = '"CAD_CPG"."CPG_PIS"'
+      DisplayFormat = '#,##0.00'
     end
     object FloatField5: TFloatField
       FieldName = 'CPG_COFINS'
       Origin = '"CAD_CPG"."CPG_COFINS"'
+      DisplayFormat = '#,##0.00'
     end
     object FloatField6: TFloatField
       FieldName = 'CPG_ISS'
       Origin = '"CAD_CPG"."CPG_ISS"'
+      DisplayFormat = '#,##0.00'
     end
     object FloatField7: TFloatField
       FieldName = 'CPG_IRRF'
       Origin = '"CAD_CPG"."CPG_ IRRF"'
+      DisplayFormat = '#,##0.00'
     end
     object FloatField8: TFloatField
       FieldName = 'CPG_INSS'
       Origin = '"CAD_CPG"."CPG_INSS"'
+      DisplayFormat = '#,##0.00'
     end
     object FloatField9: TFloatField
       FieldName = 'CPG_CSLS'
       Origin = '"CAD_CPG"."CPG_CSLS"'
+      DisplayFormat = '#,##0.00'
     end
     object DateField3: TDateField
       FieldName = 'CPG_DTPGTO'
       Origin = '"CAD_CPG"."CPG_DTPGTO"'
     end
     object IntegerField1: TIntegerField
+      DisplayLabel = 'Cod.'
       FieldName = 'CPG_CDG'
       Origin = '"CAD_CPG"."CPG_CDG"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -534,21 +558,26 @@ object DTM_FINAN: TDTM_FINAN
     object BCDField1: TBCDField
       FieldName = 'CPG_JUROS'
       Origin = '"CAD_CPG"."CPG_JUROS"'
+      DisplayFormat = '#,##0.00'
       Precision = 18
     end
     object BCDField2: TBCDField
       FieldName = 'CPG_MULTA'
       Origin = '"CAD_CPG"."CPG_MULTA"'
+      DisplayFormat = '#,##0.00'
       Precision = 18
     end
     object BCDField3: TBCDField
+      DisplayLabel = 'Descontos'
       FieldName = 'CPG_DESCONTO'
       Origin = '"CAD_CPG"."CPG_DESCONTO"'
+      DisplayFormat = '#,##0.00'
       Precision = 18
     end
     object BCDField4: TBCDField
       FieldName = 'CPG_ACRESCIMO'
       Origin = '"CAD_CPG"."CPG_ACRESCIMO"'
+      DisplayFormat = '#,##0.00'
       Precision = 18
     end
     object IntegerField2: TIntegerField
@@ -556,10 +585,13 @@ object DTM_FINAN: TDTM_FINAN
       Origin = '"CAD_CPG"."CPG_COND"'
     end
     object cdsConsCpgCPG_TOTBRUTO: TFloatField
+      DisplayLabel = 'Tot. Bruto'
       FieldName = 'CPG_TOTBRUTO'
       Origin = '"CAD_CPG"."CPG_TOTBRUTO"'
+      DisplayFormat = '#,##0.00'
     end
     object cdsConsCpgCPG_USUARIOLANC: TIntegerField
+      DisplayLabel = 'Usu'#225'rio Lan'#231
       FieldName = 'CPG_USUARIOLANC'
       Origin = '"CAD_CPG"."CPG_USUARIOLANC"'
       Required = True
@@ -569,18 +601,23 @@ object DTM_FINAN: TDTM_FINAN
       Origin = '"CAD_CPG"."CPG_USUARIOBAIXA"'
     end
     object cdsConsCpgCPG_TOTPGTO: TFloatField
+      DisplayLabel = 'Tot Pago'
       FieldName = 'CPG_TOTPGTO'
       Origin = '"CAD_CPG"."CPG_TOTPGTO"'
+      DisplayFormat = '#,##0.00'
     end
     object cdsConsCpgCPG_OBS: TStringField
       FieldName = 'CPG_OBS'
       Size = 1000
     end
     object cdsConsCpgCPG_STATUS: TSmallintField
+      DisplayLabel = 'Status'
       FieldName = 'CPG_STATUS'
     end
     object cdsConsCpgCPG_TOTLIQ: TFloatField
+      DisplayLabel = 'Tot. Liq'
       FieldName = 'CPG_TOTLIQ'
+      DisplayFormat = '#,##0.00'
     end
   end
   object dspConsCpg: TDataSetProvider

@@ -116,6 +116,8 @@ type
     //Relatórios
     procedure prepararRelatorioContas;
     procedure prepararRelatorioReceitas;
+    procedure cancelarParcelaCRB(recto:integer);
+    procedure cancelarParcelaCPG(pgto:integer);    
     procedure quitarParcelaCRB(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc,vlrjuros,vlrmulta:double);
     function quitarParcelaCPG(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc,vlrjuros,vlrmulta:double):boolean;
   end;
@@ -147,6 +149,7 @@ end;
 
 procedure TDTM_FINAN.gerAfterPost(DataSet: TDataSet);
 begin
+  dataset.FieldByName('CPG_TOTLIQ').AsFloat:=  dataset.FieldByName('CPG_TOTbruto').AsFloat;
   TClientDataSet(DataSet).ApplyUpdates(-1);
 end;
 
@@ -208,7 +211,7 @@ end;
 function TDTM_FINAN.quitarParcelaCPG(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc,vlrjuros,vlrmulta:double):boolean;
 begin
   result:=False;
-  DTMGeral.executarSQL(' UPDATE CAD_CPG SET CPG_TOTPAGO = '
+  DTMGeral.executarSQL(' UPDATE CAD_CPG SET CPG_TOTPGTO = '
                           +StringReplace(FloatToStr(vlrbaixa),',','.',[rfReplaceAll])+', '
                           +' CPG_DESCONTO = '  +StringReplace(FloatToStr(vLRdesc),',','.',[rfReplaceAll])+', '
                           +' CPG_JUROS = '  +StringReplace(FloatToStr(vLRJUROS),',','.',[rfReplaceAll])+', '
@@ -218,6 +221,16 @@ begin
                           +'   WHERE CPG_CDG = '+ IntToStr(pgto) );
 
   result:=true;
+end;
+
+procedure TDTM_FINAN.cancelarParcelaCPG(pgto: integer);
+begin
+  DTMGeral.executarSQL(' UPDATE CAD_CPG SET CPG_STATUS = 2 WHERE CPG_CDG = '+INTTOSTR(PGTO));
+end;
+
+procedure TDTM_FINAN.cancelarParcelaCRB(recto: integer);
+begin
+
 end;
 
 end.

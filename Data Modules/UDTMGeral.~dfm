@@ -18,7 +18,6 @@ object DTMGeral: TDTMGeral
     Top = 40
   end
   object Transaction: TIBTransaction
-    Active = True
     DefaultDatabase = Database
     Params.Strings = (
       'read_committed'
