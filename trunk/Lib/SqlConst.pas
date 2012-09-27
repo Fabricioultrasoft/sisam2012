@@ -27,6 +27,7 @@ const
           '       CPG_CSLS,   CPG_DTEMISSAO, CPG_DTPGTO,  CPG_DTVENC,      CPG_OBS,    ' + #13 +
           '       CPG_FGTS,   CPG_INSS,      CPG_ISS,     CPG_NATUREZA,    CPG_PIS,    ' + #13 +
           '       CPG_STATUS, CPG_TOTBRUTO,  CPG_JUROS ,  CPG_MULTA , CPG_DESCONTO,  '  + #13 +
+          '       CPG_TOTLIQ,  ' +
           '       CPG_ACRESCIMO ,CPG_COND, CPG_USUARIOLANC, CPG_TOTPGTO, CPG_USUARIOBAIXA   '  + #13 +
           'FROM   CAD_CPG WHERE (1=1)';
 

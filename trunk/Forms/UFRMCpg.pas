@@ -58,16 +58,8 @@ type
     DBEdit8: TDBEdit;
     DBEdit9: TDBEdit;
     AggTotal: TDBEdit;
-    edDtIni: TEdit;
-    edDtFim: TEdit;
-    edDesc: TEdit;
-    Label24: TLabel;
-    Label25: TLabel;
     Label26: TLabel;
     Label27: TLabel;
-    Label28: TLabel;
-    Label29: TLabel;
-    lbCond: TDBComboBox;
     tlb1: TToolBar;
     btnPrior: TToolButton;
     btntbnext: TToolButton;
@@ -75,27 +67,33 @@ type
     btnDelete: TToolButton;
     btnOk: TToolButton;
     btnCancel: TToolButton;
-    RadioGroup2: TRadioGroup;
-    rbStatus3: TRadioButton;
-    rbStatus2: TRadioButton;
-    rbStatus1: TRadioButton;
-    btnPesq: TBitBtn;
-    btn2: TBitBtn;
+    btncancelar: TBitBtn;
     btn1: TBitBtn;
     dbrgrpCPG_STATUS: TDBRadioGroup;
+    grp1: TGroupBox;
+    rgstatus: TRadioGroup;
+    btnPesq: TBitBtn;
+    dbcbbCPG_COND: TDBComboBox;
+    lbl1: TLabel;
+    lbl2: TLabel;
+    edDesc: TEdit;
+    edDtIni: TEdit;
+    lbl3: TLabel;
+    edDtFim: TEdit;
+    lbl4: TLabel;
+
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnPriorClick(Sender: TObject);
     procedure btntbnextClick(Sender: TObject);
     procedure btnAddClick(Sender: TObject);
     procedure btnDeleteClick(Sender: TObject);
-    procedure btnOkClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
     procedure btnPesqClick(Sender: TObject);
     procedure edDescKeyPress(Sender: TObject; var Key: Char);
-    procedure RadioGroup1Enter(Sender: TObject);
     procedure btn1Click(Sender: TObject);
+    procedure btncancelarClick(Sender: TObject);
   private
     procedure FiltrarContas;
   public
@@ -118,17 +116,6 @@ begin
   pgControl.ActivePageIndex := 0;
 end;
 
-procedure TFRM_CPG.RadioGroup1Enter(Sender: TObject);
-Var StatusConta : String;
-begin
-  If (rbAVenc.Checked = true) then
-   StatusConta := '0'
-  Else If (rbQuit.Checked = true) then
-   StatusConta := '1'
-  Else if (rbVenc.Checked = true) then
-   StatusConta := '2';
-end;
-
 procedure TFRM_CPG.btnPriorClick(Sender: TObject);
 begin
   DTM_FINAN.cdsCpg.Prior;
@@ -147,12 +134,6 @@ end;
 procedure TFRM_CPG.btnDeleteClick(Sender: TObject);
 begin
 DTM_FINAN.cdsCpg.Delete;
-end;
-
-procedure TFRM_CPG.btnOkClick(Sender: TObject);
-begin
-//  DTM_FINAN.cdsCpg.FieldByName('CPG_STATUS') := 'StatusConta';
-  DTM_FINAN.cdsCpg.Post;
 end;
 
 procedure TFRM_CPG.btnCancelClick(Sender: TObject);
@@ -187,8 +168,8 @@ begin
   If (edDesc.Text <> '') then
    Desc := edDesc.Text;
 
-  IF (lbCond.itemindex <> 0) then
-   Cond := lbCond.itemindex;
+  //IF (lbCond.itemindex <> 0) then
+  // Cond := lbCond.itemindex;
 
 
   if (Trim(edDtIni.Text) <> '') then
@@ -203,14 +184,8 @@ begin
   if (Trim(edDesc.Text) <> '') then
     Where := Where + #13 + ' AND (CPG_NDESC LIKE ' + QuotedStr('%' + edDesc.text + '%') + ')';
 
-  if ((rbStatus1.Checked) = true) then
-    Where := Where + #13 + ' AND (CPG_STATUS = ''0'')';
-
-  if ((rbStatus2.Checked) = true) then
-    Where := Where + #13 + ' AND (CPG_STATUS = ''1'')';
-
-  if ((rbStatus3.Checked) = true) then
-    Where := Where + #13 + ' AND (CPG_STATUS = ''2'')';
+  if (rgstatus.ItemIndex > 0) then
+    Where := Where + #13 + ' AND (CPG_STATUS = '+inttostr(rgstatus.ItemIndex-1)+')';
 
   SQL := (SQL_PAGAR);
 
@@ -250,6 +225,14 @@ begin
                         dtm_finan.cdscpg.fieldbyname('CPG_TOTLIQ').AsInteger
                           );
 //FRMMENU.abrirFRMCrbQuitacao;
+end;
+
+procedure TFRM_CPG.btncancelarClick(Sender: TObject);
+begin
+IF DTM_FINAN.cdsCpg.fieldbyname('CPG_STATUS').AsInteger = 0  THEN
+  DTM_FINAN.cancelarParcelaCPG(DTM_FINAN.cdsCpg.fieldbyname('CPG_CDG').AsInteger)
+else
+  raise exceptION.Create('Para cancelar a parcela deve estar com status ''Em aberto''');
 end;
 
 end.
