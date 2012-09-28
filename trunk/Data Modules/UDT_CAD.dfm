@@ -1,7 +1,7 @@
 object DTM_CAD: TDTM_CAD
   OldCreateOrder = False
-  Left = 575
-  Top = 266
+  Left = 431
+  Top = 274
   Height = 580
   Width = 780
   object dspCaddvs: TDataSetProvider
@@ -574,6 +574,17 @@ object DTM_CAD: TDTM_CAD
       Origin = '"CAD_USUARIO"."USUARIO_SENHA"'
       Size = 50
     end
+    object cdsUserUSUARIO_NOME: TStringField
+      FieldName = 'USUARIO_NOME'
+      Size = 100
+    end
+    object cdsUserUSUARIO_LOGIN: TStringField
+      FieldName = 'USUARIO_LOGIN'
+      Size = 100
+    end
+    object cdsUserUSUARIO_ATIVO: TIntegerField
+      FieldName = 'USUARIO_ATIVO'
+    end
   end
   object dsUser: TDataSource
     DataSet = cdsUser
@@ -1135,7 +1146,7 @@ object DTM_CAD: TDTM_CAD
     DataSet = DTM_CAD_IBX.qryLkpcaddvs
     Options = [poAllowCommandText]
     UpdateMode = upWhereKeyOnly
-    Left = 216
+    Left = 24
     Top = 376
   end
   object cdsLkpCaddvs: TClientDataSet
@@ -1145,7 +1156,7 @@ object DTM_CAD: TDTM_CAD
     AfterPost = gerAfterPost
     AfterDelete = gerAfterDelete
     AfterApplyUpdates = gerAfterApplyUpdates
-    Left = 216
+    Left = 24
     Top = 420
     object cdsLkpCaddvsFORN_CNPJ: TStringField
       FieldName = 'FORN_CNPJ'
@@ -1270,7 +1281,7 @@ object DTM_CAD: TDTM_CAD
   end
   object dsLkpcaddvs: TDataSource
     DataSet = cdsLkpCaddvs
-    Left = 216
+    Left = 24
     Top = 472
   end
   object qryREL: TIBQuery
@@ -1282,5 +1293,109 @@ object DTM_CAD: TDTM_CAD
       '')
     Left = 520
     Top = 24
+  end
+  object dspLkpcond: TDataSetProvider
+    DataSet = DTM_CAD_IBX.qryConsCond
+    Options = [poAllowCommandText]
+    UpdateMode = upWhereKeyOnly
+    Left = 220
+    Top = 376
+  end
+  object cdsLkpcond: TClientDataSet
+    Aggregates = <>
+    IndexFieldNames = 'COND_CDG'
+    Params = <>
+    ProviderName = 'dspLkpcond'
+    AfterPost = gerAfterPost
+    AfterDelete = gerAfterDelete
+    AfterApplyUpdates = gerAfterApplyUpdates
+    Left = 224
+    Top = 423
+    object StringField42: TStringField
+      DisplayLabel = 'Descri'#231#227'o'
+      FieldName = 'COND_DESC'
+      Origin = '"CAD_COND"."COND_DESC"'
+      Required = True
+      Size = 100
+    end
+    object IntegerField16: TIntegerField
+      FieldName = 'COND_ABREV'
+      Origin = '"CAD_COND"."COND_ABREV"'
+    end
+    object IntegerField17: TIntegerField
+      FieldName = 'COND_PADRAO'
+      Origin = '"CAD_COND"."COND_PADRAO"'
+    end
+    object IntegerField18: TIntegerField
+      DisplayLabel = 'Endere'#231'o'
+      FieldName = 'COND_END'
+      Origin = '"CAD_COND"."COND_END"'
+    end
+    object IntegerField19: TIntegerField
+      DisplayLabel = 'CEP'
+      DisplayWidth = 10
+      FieldName = 'COND_CEP'
+      Origin = '"CAD_COND"."COND_CEP"'
+    end
+    object IntegerField20: TIntegerField
+      DisplayLabel = 'Bairro'
+      FieldName = 'COND_BAIRRO'
+      Origin = '"CAD_COND"."COND_BAIRRO"'
+    end
+    object StringField43: TStringField
+      DisplayLabel = 'Cidade'
+      FieldName = 'COND_CID'
+      Origin = '"CAD_COND"."COND_CID"'
+    end
+    object StringField44: TStringField
+      DisplayLabel = 'UF'
+      FieldName = 'COND_UF'
+      Origin = '"CAD_COND"."COND_UF"'
+      Size = 2
+    end
+    object StringField45: TStringField
+      FieldName = 'COND_TELEFONE'
+      Origin = '"CAD_COND"."COND_TELEFONE"'
+      Size = 18
+    end
+    object IntegerField21: TIntegerField
+      DisplayLabel = 'Sindico'
+      FieldName = 'COND_SINDICO'
+      Origin = '"CAD_COND"."COND_SINDICO"'
+    end
+    object IntegerField22: TIntegerField
+      DisplayLabel = 'Codigo'
+      FieldName = 'COND_CDG'
+      Origin = '"CAD_COND"."COND_CDG"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object StringField46: TStringField
+      FieldName = 'COND_EMAIL'
+      Origin = '"CAD_COND"."COND_EMAIL"'
+      Size = 60
+    end
+    object StringField47: TStringField
+      FieldName = 'COND_FORNECEDOR'
+      Origin = '"CAD_COND"."COND_FORNECEDOR"'
+      Required = True
+      Size = 14
+    end
+    object StringField48: TStringField
+      DisplayLabel = 'Incorporadora'
+      FieldName = 'COND_INCORPORADORA'
+      Origin = '"CAD_COND"."COND_INCORPORADORA"'
+      Size = 100
+    end
+    object StringField49: TStringField
+      FieldName = 'COND_INCORPCNPJ'
+      Origin = '"CAD_COND"."COND_INCORPCNPJ"'
+      Size = 14
+    end
+  end
+  object dsLkpcond: TDataSource
+    DataSet = cdsLkpcond
+    Left = 224
+    Top = 468
   end
 end

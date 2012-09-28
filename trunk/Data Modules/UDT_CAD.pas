@@ -200,6 +200,27 @@ type
     cdsLkpCaddvsFORN_TPSINDICO: TIntegerField;
     cdsLkpCaddvsFORN_TPINCORPORADORA: TIntegerField;
     qryREL: TIBQuery;
+    cdsUserUSUARIO_NOME: TStringField;
+    cdsUserUSUARIO_LOGIN: TStringField;
+    cdsUserUSUARIO_ATIVO: TIntegerField;
+    dspLkpcond: TDataSetProvider;
+    cdsLkpcond: TClientDataSet;
+    StringField42: TStringField;
+    IntegerField16: TIntegerField;
+    IntegerField17: TIntegerField;
+    IntegerField18: TIntegerField;
+    IntegerField19: TIntegerField;
+    IntegerField20: TIntegerField;
+    StringField43: TStringField;
+    StringField44: TStringField;
+    StringField45: TStringField;
+    IntegerField21: TIntegerField;
+    IntegerField22: TIntegerField;
+    StringField46: TStringField;
+    StringField47: TStringField;
+    StringField48: TStringField;
+    StringField49: TStringField;
+    dsLkpcond: TDataSource;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
@@ -214,6 +235,7 @@ type
     { Public declarations }
     //lookups
     procedure atualizarLkpCaddvs();
+    procedure atualizarLkpCond();    
     // consultas
     procedure consultarEmpresas(SQL:string);
     procedure consultarForns(SQL:string);
@@ -323,6 +345,13 @@ procedure TDTM_CAD.cdsUserAfterInsert(DataSet: TDataSet);
 begin
 DTMGERAL.executarSQL(' SELECT ( GEN_ID(G_CAD_USUARIO,0) +1)   FROM RDB$DATABASE ');
 cdsUser.FieldByName('USUARIO_CDG').AsInteger:=  DTMgeral.qryGeral.FieldS.Fields[0].ASINTEGER;
+end;
+
+procedure TDTM_CAD.atualizarLkpCond;
+begin
+  cdsLkpcond.Close;
+  SetSqlCommand(SQL_COND,cdsLkpcond) ;
+  cdsLkpcond.Open;
 end;
 
 end.

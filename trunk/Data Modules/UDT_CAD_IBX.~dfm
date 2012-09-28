@@ -276,7 +276,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     Transaction = DTMGeral.Transaction
     SQL.Strings = (
       'select * from CAD_COND')
-    Left = 160
+    Left = 168
     Top = 24
     object qryCondCOND_DESC: TIBStringField
       FieldName = 'COND_DESC'
@@ -559,7 +559,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
         '                    EMPRE_RAZAO,    EMPRE_SITE,     EMPRE_TELEFO' +
         'NE, EMPRE_UF    '
       '             FROM   CAD_EMPRESA')
-    Left = 86
+    Left = 94
     Top = 88
     object IBStringField19: TIBStringField
       FieldName = 'EMPRE_CNPJ'
@@ -646,7 +646,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     Transaction = DTMGeral.Transaction
     SQL.Strings = (
       'select * from CAD_COND')
-    Left = 160
+    Left = 168
     Top = 88
     object IBStringField34: TIBStringField
       FieldName = 'COND_DESC'
@@ -725,7 +725,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     Transaction = DTMGeral.Transaction
     SQL.Strings = (
       'select * from CAD_COND')
-    Left = 160
+    Left = 168
     Top = 144
     object IBStringField42: TIBStringField
       FieldName = 'COND_DESC'
@@ -797,6 +797,171 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       FieldName = 'COND_INCORPCNPJ'
       Origin = '"CAD_COND"."COND_INCORPCNPJ"'
       Size = 14
+    end
+  end
+  object qryLkpcaddvs: TIBQuery
+    Database = DTMGeral.Database
+    Transaction = DTMGeral.Transaction
+    SQL.Strings = (
+      'select * '
+      'from CAD_FORN')
+    Left = 24
+    Top = 144
+    object IBStringField50: TIBStringField
+      FieldName = 'FORN_CNPJ'
+      Origin = 'CAD_FORN.FORN_CNPJ'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+      Size = 14
+    end
+    object IBStringField51: TIBStringField
+      FieldName = 'FORN_CPFCNPJ'
+      Origin = 'CAD_FORN.FORN_CPFCNPJ'
+      Size = 14
+    end
+    object IBStringField52: TIBStringField
+      FieldName = 'FORN_RAZAO'
+      Origin = 'CAD_FORN.FORN_RAZAO'
+      Size = 100
+    end
+    object IBStringField53: TIBStringField
+      FieldName = 'FORN_CEP'
+      Origin = 'CAD_FORN.FORN_CEP'
+      Size = 8
+    end
+    object IBStringField54: TIBStringField
+      FieldName = 'FORN_ENDERECO'
+      Origin = 'CAD_FORN.FORN_ENDERECO'
+      Size = 100
+    end
+    object IBStringField55: TIBStringField
+      FieldName = 'FORN_BAIRRO'
+      Origin = 'CAD_FORN.FORN_BAIRRO'
+      Size = 30
+    end
+    object IBStringField56: TIBStringField
+      FieldName = 'FORN_CIDADE'
+      Origin = 'CAD_FORN.FORN_CIDADE'
+    end
+    object IBStringField57: TIBStringField
+      FieldName = 'FORN_UF'
+      Origin = 'CAD_FORN.FORN_UF'
+      Size = 2
+    end
+    object IBStringField58: TIBStringField
+      FieldName = 'FORN_TELEFONE'
+      Origin = 'CAD_FORN.FORN_TELEFONE'
+      Size = 18
+    end
+    object IBStringField59: TIBStringField
+      FieldName = 'FORN_RAMAL'
+      Origin = 'CAD_FORN.FORN_RAMAL'
+      Size = 6
+    end
+    object IBStringField60: TIBStringField
+      FieldName = 'FORN_TELEFONE1'
+      Origin = 'CAD_FORN.FORN_TELEFONE1'
+      Size = 18
+    end
+    object IBStringField61: TIBStringField
+      FieldName = 'FORN_EMAIL'
+      Origin = 'CAD_FORN.FORN_EMAIL'
+      Size = 60
+    end
+    object IBStringField62: TIBStringField
+      FieldName = 'FORN_EMAIL1'
+      Origin = 'CAD_FORN.FORN_EMAIL1'
+      Size = 60
+    end
+    object IBStringField63: TIBStringField
+      FieldName = 'FORN_SITE'
+      Origin = 'CAD_FORN.FORN_SITE'
+      Size = 80
+    end
+    object IBStringField64: TIBStringField
+      FieldName = 'FORN_CELULAR'
+      Origin = 'CAD_FORN.FORN_CELULAR'
+      Size = 18
+    end
+    object IBStringField65: TIBStringField
+      FieldName = 'FORN_CELULAR1'
+      Origin = 'CAD_FORN.FORN_CELULAR1'
+      EditMask = '(99)00000\-9999;1;_'
+      Size = 18
+    end
+    object IBStringField66: TIBStringField
+      FieldName = 'FORN_RG'
+      Origin = 'CAD_FORN.FORN_RG'
+      Size = 15
+    end
+    object IntegerField23: TIntegerField
+      FieldName = 'FORN_TIPO'
+      Origin = 'CAD_FORN.FORN_TIPO'
+    end
+    object IntegerField24: TIntegerField
+      FieldName = 'FORN_ESTADOCIVIL'
+      Origin = 'CAD_FORN.FORN_ESTADOCIVIL'
+    end
+    object DateField3: TDateField
+      FieldName = 'FORN_DTNASCIMENTO'
+      Origin = 'CAD_FORN.FORN_DTNASCIMENTO'
+    end
+    object SmallintField4: TSmallintField
+      FieldName = 'FORN_SEXO'
+      Origin = 'CAD_FORN.FORN_SEXO'
+    end
+    object IntegerField25: TIntegerField
+      FieldName = 'FORN_OCUPACAO'
+      Origin = 'CAD_FORN.FORN_OCUPACAO'
+    end
+    object IBStringField67: TIBStringField
+      FieldName = 'FORN_CONJUGE'
+      Origin = 'CAD_FORN.FORN_CONJUGE'
+      Size = 14
+    end
+    object TimeField5: TTimeField
+      FieldName = 'FORN_HRENTRADA1'
+      Origin = 'CAD_FORN.FORN_HRENTRADA1'
+    end
+    object TimeField6: TTimeField
+      FieldName = 'FORN_HRENTRADA2'
+      Origin = 'CAD_FORN.FORN_HRENTRADA2'
+    end
+    object TimeField7: TTimeField
+      FieldName = 'FORN_HRSAIDA1'
+      Origin = 'CAD_FORN.FORN_HRSAIDA1'
+    end
+    object TimeField8: TTimeField
+      FieldName = 'FORN_HRSAIDA2'
+      Origin = 'CAD_FORN.FORN_HRSAIDA2'
+    end
+    object DateField4: TDateField
+      FieldName = 'FORN_DTCADASTRO'
+      Origin = 'CAD_FORN.FORN_DTCADASTRO'
+    end
+    object IntegerField26: TIntegerField
+      FieldName = 'FORN_COND'
+      Origin = 'CAD_FORN.FORN_COND'
+    end
+    object SmallintField5: TSmallintField
+      FieldName = 'FORN_TPCONDOMINO'
+      Origin = 'CAD_FORN.FORN_TPCONDOMINO'
+    end
+    object SmallintField6: TSmallintField
+      FieldName = 'FORN_TPFUNCIONARIO'
+      Origin = 'CAD_FORN.FORN_TPFUNCIONARIO'
+    end
+    object IntegerField27: TIntegerField
+      FieldName = 'FORN_TPFORNECEDOR'
+      Origin = 'CAD_FORN.FORN_TPFORNECEDOR'
+    end
+    object IntegerField28: TIntegerField
+      FieldName = 'FORN_TPSINDICO'
+      Origin = 'CAD_FORN.FORN_TPSINDICO'
+    end
+    object IntegerField29: TIntegerField
+      FieldName = 'FORN_TPINCORPORADORA'
+      Origin = 'CAD_FORN.FORN_TPINCORPORADORA'
     end
   end
 end

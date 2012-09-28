@@ -163,6 +163,41 @@ type
     IBStringField47: TIBStringField;
     IBStringField48: TIBStringField;
     IBStringField49: TIBStringField;
+    qryLkpcaddvs: TIBQuery;
+    IBStringField50: TIBStringField;
+    IBStringField51: TIBStringField;
+    IBStringField52: TIBStringField;
+    IBStringField53: TIBStringField;
+    IBStringField54: TIBStringField;
+    IBStringField55: TIBStringField;
+    IBStringField56: TIBStringField;
+    IBStringField57: TIBStringField;
+    IBStringField58: TIBStringField;
+    IBStringField59: TIBStringField;
+    IBStringField60: TIBStringField;
+    IBStringField61: TIBStringField;
+    IBStringField62: TIBStringField;
+    IBStringField63: TIBStringField;
+    IBStringField64: TIBStringField;
+    IBStringField65: TIBStringField;
+    IBStringField66: TIBStringField;
+    IntegerField23: TIntegerField;
+    IntegerField24: TIntegerField;
+    DateField3: TDateField;
+    SmallintField4: TSmallintField;
+    IntegerField25: TIntegerField;
+    IBStringField67: TIBStringField;
+    TimeField5: TTimeField;
+    TimeField6: TTimeField;
+    TimeField7: TTimeField;
+    TimeField8: TTimeField;
+    DateField4: TDateField;
+    IntegerField26: TIntegerField;
+    SmallintField5: TSmallintField;
+    SmallintField6: TSmallintField;
+    IntegerField27: TIntegerField;
+    IntegerField28: TIntegerField;
+    IntegerField29: TIntegerField;
   private
     { Private declarations }
   public

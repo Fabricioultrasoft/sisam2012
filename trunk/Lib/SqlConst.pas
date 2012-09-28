@@ -27,9 +27,18 @@ const
           '       CPG_CSLS,   CPG_DTEMISSAO, CPG_DTPGTO,  CPG_DTVENC,      CPG_OBS,    ' + #13 +
           '       CPG_FGTS,   CPG_INSS,      CPG_ISS,     CPG_NATUREZA,    CPG_PIS,    ' + #13 +
           '       CPG_STATUS, CPG_TOTBRUTO,  CPG_JUROS ,  CPG_MULTA , CPG_DESCONTO,  '  + #13 +
-          '       CPG_TOTLIQ,  ' +
-          '       CPG_ACRESCIMO ,CPG_COND, CPG_USUARIOLANC, CPG_TOTPGTO, CPG_USUARIOBAIXA   '  + #13 +
-          'FROM   CAD_CPG WHERE (1=1)';
+          '       CPG_TOTLIQ,                  ' +
+          '       CASE CPG_STATUS              ' +
+          '         WHEN 0 THEN ''Em aberto''  ' +
+          '         WHEN 1 THEN ''Pago''       ' +
+          '         WHEN 2 THEN ''Cancelado''  '+
+          '         END AS STATUSDESC,         '+
+          '       CPG_ACRESCIMO ,CPG_COND, CPG_USUARIOLANC, CPG_TOTPGTO, CPG_USUARIOBAIXA ,  '  + #13 +
+          '       UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA   ' +
+          '    FROM   CAD_CPG ' +
+          '      LEFT JOIN CAD_USUARIO UL ON UL.USUARIO_CDG = CPG_USUARIOLANC ' +
+          '      LEFT JOIN CAD_USUARIO UB ON UB.USUARIO_CDG = CPG_USUARIOBAIXA ' +
+          '    WHERE (1=1)   ';
 
   SQL_RECEBER = 'SELECT  CRB_BAIXA,   CRB_BLOCO,   CRB_CDG,         CRB_CONDOMINO, ' + #13 +
             '        CRB_DTPGTO,  CRB_DTVENC,  CRB_DTVENCORIG,  CRB_FRACAO,    ' + #13 +

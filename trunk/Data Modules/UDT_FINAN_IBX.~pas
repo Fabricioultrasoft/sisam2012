@@ -89,6 +89,12 @@ type
     qryConsCpgCPG_TOTPGTO: TFloatField;
     qryCpgCPG_STATUS: TSmallintField;
     qryConsCpgCPG_STATUS: TSmallintField;
+    qryCpgCPG_TOTLIQ: TFloatField;
+    qryConsCpgCPG_TOTLIQ: TFloatField;
+    qryCpgUSUARIOLANC: TIBStringField;
+    qryCpgUSUARIOBAIXA: TIBStringField;
+    qryConsCpgUSUARIOLANC: TIBStringField;
+    qryConsCpgUSUARIOBAIXA: TIBStringField;
   private
     { Private declarations }
   public

@@ -1,7 +1,7 @@
 object DTM_CAD: TDTM_CAD
   OldCreateOrder = False
-  Left = 314
-  Top = 256
+  Left = 575
+  Top = 266
   Height = 580
   Width = 780
   object dspCaddvs: TDataSetProvider
@@ -181,6 +181,7 @@ object DTM_CAD: TDTM_CAD
     Params = <>
     ProviderName = 'dspCaddvs'
     StoreDefs = True
+    AfterInsert = cdsCaddvsAfterInsert
     AfterPost = gerAfterPost
     AfterDelete = gerAfterDelete
     AfterApplyUpdates = gerAfterApplyUpdates
@@ -457,6 +458,7 @@ object DTM_CAD: TDTM_CAD
     IndexFieldNames = 'COND_CDG'
     Params = <>
     ProviderName = 'dspCond'
+    AfterInsert = cdsCondAfterInsert
     AfterPost = gerAfterPost
     AfterDelete = gerAfterDelete
     AfterApplyUpdates = gerAfterApplyUpdates
@@ -550,6 +552,7 @@ object DTM_CAD: TDTM_CAD
     Aggregates = <>
     Params = <>
     ProviderName = 'dspUser'
+    AfterInsert = cdsUserAfterInsert
     AfterPost = gerAfterPost
     AfterDelete = gerAfterDelete
     AfterApplyUpdates = gerAfterApplyUpdates
@@ -570,6 +573,17 @@ object DTM_CAD: TDTM_CAD
       FieldName = 'USUARIO_SENHA'
       Origin = '"CAD_USUARIO"."USUARIO_SENHA"'
       Size = 50
+    end
+    object cdsUserUSUARIO_NOME: TStringField
+      FieldName = 'USUARIO_NOME'
+      Size = 100
+    end
+    object cdsUserUSUARIO_LOGIN: TStringField
+      FieldName = 'USUARIO_LOGIN'
+      Size = 100
+    end
+    object cdsUserUSUARIO_ATIVO: TIntegerField
+      FieldName = 'USUARIO_ATIVO'
     end
   end
   object dsUser: TDataSource

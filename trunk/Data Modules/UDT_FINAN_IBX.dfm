@@ -8,7 +8,21 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
     SQL.Strings = (
-      'select * from CAD_CPG')
+      'select C.* ,'
+      '                   CASE CPG_STATUS'
+      '                   WHEN 0 THEN '#39'Em aberto'#39
+      '                   WHEN 1 THEN '#39'Pago'#39
+      '                   WHEN 2 THEN '#39'Cancelado'#39
+      '                   END AS STATUSDESC,'
+      ''
+      ' UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA   '
+      '            FROM   CAD_CPG C'
+      
+        '                LEFT JOIN CAD_USUARIO UL ON UL.USUARIO_CDG = CPG' +
+        '_USUARIOLANC '
+      
+        '            LEFT JOIN CAD_USUARIO UB ON UB.USUARIO_CDG = CPG_USU' +
+        'ARIOBAIXA ')
     Left = 24
     Top = 16
     object qryCpgCPG_DTVENC: TDateField
@@ -52,7 +66,7 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     end
     object qryCpgCPG_IRRF: TFloatField
       FieldName = 'CPG_IRRF'
-      Origin = '"CAD_CPG"."CPG_ IRRF"'
+      Origin = '"CAD_CPG"."CPG_IRRF"'
     end
     object qryCpgCPG_INSS: TFloatField
       FieldName = 'CPG_INSS'
@@ -130,6 +144,24 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       FieldName = 'CPG_TOTLIQ'
       Origin = '"CAD_CPG"."CPG_TOTLIQ"'
     end
+    object qryCpgUSUARIOLANC: TIBStringField
+      FieldName = 'USUARIOLANC'
+      Origin = '"CAD_USUARIO"."USUARIO_NOME"'
+      ProviderFlags = []
+      Size = 100
+    end
+    object qryCpgUSUARIOBAIXA: TIBStringField
+      FieldName = 'USUARIOBAIXA'
+      Origin = '"CAD_USUARIO"."USUARIO_NOME"'
+      ProviderFlags = []
+      Size = 100
+    end
+    object qryCpgSTATUSDESC: TIBStringField
+      FieldName = 'STATUSDESC'
+      ProviderFlags = []
+      FixedChar = True
+      Size = 9
+    end
   end
   object qryCrb: TIBQuery
     Database = DTMGeral.Database
@@ -203,7 +235,21 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
     SQL.Strings = (
-      'select * from CAD_CPG')
+      'select C.* ,'
+      '                   CASE CPG_STATUS'
+      '                   WHEN 0 THEN '#39'Em aberto'#39
+      '                   WHEN 1 THEN '#39'Pago'#39
+      '                   WHEN 2 THEN '#39'Cancelado'#39
+      '                   END AS STATUSDESC,'
+      ''
+      ' UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA   '
+      '            FROM   CAD_CPG C'
+      
+        '                LEFT JOIN CAD_USUARIO UL ON UL.USUARIO_CDG = CPG' +
+        '_USUARIOLANC '
+      
+        '            LEFT JOIN CAD_USUARIO UB ON UB.USUARIO_CDG = CPG_USU' +
+        'ARIOBAIXA ')
     Left = 24
     Top = 72
     object DateField1: TDateField
@@ -324,6 +370,24 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     object qryConsCpgCPG_TOTLIQ: TFloatField
       FieldName = 'CPG_TOTLIQ'
       Origin = '"CAD_CPG"."CPG_TOTLIQ"'
+    end
+    object qryConsCpgUSUARIOLANC: TIBStringField
+      FieldName = 'USUARIOLANC'
+      Origin = '"CAD_USUARIO"."USUARIO_NOME"'
+      ProviderFlags = []
+      Size = 100
+    end
+    object qryConsCpgUSUARIOBAIXA: TIBStringField
+      FieldName = 'USUARIOBAIXA'
+      Origin = '"CAD_USUARIO"."USUARIO_NOME"'
+      ProviderFlags = []
+      Size = 100
+    end
+    object qryConsCpgSTATUSDESC: TIBStringField
+      FieldName = 'STATUSDESC'
+      ProviderFlags = []
+      FixedChar = True
+      Size = 9
     end
   end
   object qryConsCrb: TIBQuery
