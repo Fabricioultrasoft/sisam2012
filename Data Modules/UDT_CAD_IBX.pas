@@ -198,6 +198,9 @@ type
     IntegerField27: TIntegerField;
     IntegerField28: TIntegerField;
     IntegerField29: TIntegerField;
+    qryUserUSUARIO_NOME: TIBStringField;
+    qryUserUSUARIO_LOGIN: TIBStringField;
+    qryUserUSUARIO_ATIVO: TIntegerField;
   private
     { Private declarations }
   public

@@ -76,7 +76,7 @@ begin
   begin
     DTMGeral.cdsGeral.Close;
     setsqlcommand(' SELECT * FROM CAD_USUARIO                       ' + #13 +
-                  ' WHERE UPPER(USUARIO_DESC) = UPPER(:user)  AND   ' + #13 +
+                  ' WHERE UPPER(USUARIO_LOGIN) = UPPER(:user)  AND   ' + #13 +
                   '       USUARIO_SENHA = :senha   ',
                   DTMGeral.cdsgeral);
 
@@ -93,6 +93,8 @@ begin
     end
     else
     begin
+      IF DTMGeral.cdsGeral.FieldByName('USUARIO_ATIVO').AsInteger <> 1  THEN
+        raise Exception.Create('Este Usuário esta desativado!');
       usuariocdg:= DTMGeral.cdsGeral.FieldByName('USUARIO_CDG').AsInteger  ;
       DTMGeral.cdsGeral.Close;
 

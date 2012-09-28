@@ -99,17 +99,23 @@ type
     cdsConsCpgCPG_STATUS: TSmallintField;
     cdsCpgCPG_TOTLIQ: TFloatField;
     cdsConsCpgCPG_TOTLIQ: TFloatField;
+    cdsConsCpgUSUARIOLANC: TStringField;
+    cdsConsCpgUSUARIOBAIXA: TStringField;
+    cdsConsCpgSTATUSDESC: TStringField;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
     procedure cdsCpgAfterInsert(DataSet: TDataSet);
     procedure cdsCrbAfterInsert(DataSet: TDataSet);
+    procedure cdsCpgBeforePost(DataSet: TDataSet);
   private
     procedure prepararrelatorio(SQL : String);
 
 
     { Private declarations }
   public
+    //calculos
+    procedure calcularTotLiqCPG(var cds:tclientdataset);
     //Consultas
     procedure consultarContas(SQL : String);
     procedure consultarReceitas(SQL : String);
@@ -117,7 +123,7 @@ type
     procedure prepararRelatorioContas;
     procedure prepararRelatorioReceitas;
     procedure cancelarParcelaCRB(recto:integer);
-    procedure cancelarParcelaCPG(pgto:integer);    
+    procedure cancelarParcelaCPG(pgto:integer);
     procedure quitarParcelaCRB(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc,vlrjuros,vlrmulta:double);
     function quitarParcelaCPG(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc,vlrjuros,vlrmulta:double):boolean;
   end;
@@ -149,7 +155,6 @@ end;
 
 procedure TDTM_FINAN.gerAfterPost(DataSet: TDataSet);
 begin
-  dataset.FieldByName('CPG_TOTLIQ').AsFloat:=  dataset.FieldByName('CPG_TOTbruto').AsFloat;
   TClientDataSet(DataSet).ApplyUpdates(-1);
 end;
 
@@ -189,6 +194,24 @@ begin
   DTMGERAL.executarSQL(' SELECT (GEN_ID(G_CAD_CPG,0) +1)   FROM RDB$DATABASE ');
   cdsCpg.FieldByName('CPG_CDG').AsInteger:=  DTMgeral.qryGeral.FieldS.Fields[0].ASINTEGER;
   cdsCpg.FieldByName('CPG_USUARIOLANC').AsInteger:=  DTMgeral.usuariocdg;
+
+  cdsCpg.FieldByName('CPG_FGTS').asfloat:=  0;
+  cdsCpg.FieldByName('CPG_IRRF').asfloat:=  0;
+  cdsCpg.FieldByName('CPG_PIS').asfloat:=  0;
+  cdsCpg.FieldByName('CPG_CSLS').asfloat:=  0;
+  cdsCpg.FieldByName('CPG_COFINS').asfloat:=  0;
+  cdsCpg.FieldByName('CPG_INSS').asfloat:=  0;
+  cdsCpg.FieldByName('CPG_ISS').asfloat:=  0;
+
+  cdsCpg.FieldByName('CPG_TOTLIQ').asfloat:=  0;
+  cdsCpg.FieldByName('CPG_JUROS').asfloat:=  0;
+  cdsCpg.FieldByName('CPG_MULTA').asfloat:=  0;
+  cdsCpg.FieldByName('CPG_DESCONTO').asfloat:=  0;
+  cdsCpg.FieldByName('CPG_ACRESCIMO').asfloat:=  0;
+
+  cdsCpg.FieldByName('CPG_DTEMISSAO').AsDateTime:=  Now;
+
+
 end;
 
 procedure TDTM_FINAN.cdsCrbAfterInsert(DataSet: TDataSet);
@@ -231,6 +254,31 @@ end;
 procedure TDTM_FINAN.cancelarParcelaCRB(recto: integer);
 begin
 
+end;
+
+procedure TDTM_FINAN.calcularTotLiqCPG(var cds:tclientdataset);
+begin
+  with cds do
+  begin
+    FieldByName('CPG_TOTLIQ').AsFloat:= FieldByName('CPG_TOTLIQ').AsFloat
+      + FieldByName('CPG_JUROS').AsFloat
+      + FieldByName('CPG_MULTA').AsFloat
+      + FieldByName('CPG_ACRESCIMO').AsFloat
+      + FieldByName('CPG_FGTS').AsFloat
+      + FieldByName('CPG_IRRF').AsFloat
+      + FieldByName('CPG_PIS').AsFloat
+      + FieldByName('CPG_CSLS').AsFloat
+      + FieldByName('CPG_COFINS').AsFloat
+      + FieldByName('CPG_INSS').AsFloat
+      + FieldByName('CPG_ISS').AsFloat
+      - FieldByName('CPG_DESCONTO').AsFloat;
+  end;
+
+end;
+
+procedure TDTM_FINAN.cdsCpgBeforePost(DataSet: TDataSet);
+begin
+ calcularTotLiqCPG(cdsCpg);
 end;
 
 end.

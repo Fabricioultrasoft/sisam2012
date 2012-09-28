@@ -373,6 +373,20 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       Origin = '"CAD_USUARIO"."USUARIO_SENHA"'
       Size = 50
     end
+    object qryUserUSUARIO_NOME: TIBStringField
+      FieldName = 'USUARIO_NOME'
+      Origin = '"CAD_USUARIO"."USUARIO_NOME"'
+      Size = 100
+    end
+    object qryUserUSUARIO_LOGIN: TIBStringField
+      FieldName = 'USUARIO_LOGIN'
+      Origin = '"CAD_USUARIO"."USUARIO_LOGIN"'
+      Size = 100
+    end
+    object qryUserUSUARIO_ATIVO: TIntegerField
+      FieldName = 'USUARIO_ATIVO'
+      Origin = '"CAD_USUARIO"."USUARIO_ATIVO"'
+    end
   end
   object qryConsCaddvs: TIBQuery
     Database = DTMGeral.Database

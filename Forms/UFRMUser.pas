@@ -24,6 +24,11 @@ type
     lbl3: TLabel;
     DBEdit1: TDBEdit;
     dsuser: TDataSource;
+    DBEdit3: TDBEdit;
+    lbl4: TLabel;
+    dbchkUSUARIO_ATIVO: TDBCheckBox;
+    DBEdit4: TDBEdit;
+    lbl5: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btntrocarsenhaClick(Sender: TObject);
     procedure btnPriorClick(Sender: TObject);
@@ -102,9 +107,8 @@ end;
 
 procedure TFRM_USER.dsuserStateChange(Sender: TObject);
 begin
- // adivar botoes do navigator qndo estiver em edição
-   btnOk.enabled:= (dsuser.State in [dsinsert,dsedit]) ;
-   btncancel.enabled:=(dsuser.State in [dsinsert,dsedit]) ;
+ // ativar botoes do navigator qndo estiver em edição
+DTMGeral.DSstateChange(dsuser,tlb1);
 end;
 
 end.

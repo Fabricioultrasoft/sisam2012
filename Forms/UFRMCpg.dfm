@@ -1,10 +1,12 @@
 object FRM_CPG: TFRM_CPG
-  Left = 434
-  Top = 231
-  Width = 704
-  Height = 474
+  Left = 321
+  Top = 287
+  Width = 911
+  Height = 479
   Caption = 'Contas a Pagar'
   Color = clBtnFace
+  Constraints.MinHeight = 472
+  Constraints.MinWidth = 629
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -17,6 +19,7 @@ object FRM_CPG: TFRM_CPG
   WindowState = wsMaximized
   OnClose = FormClose
   OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Label15: TLabel
@@ -63,19 +66,20 @@ object FRM_CPG: TFRM_CPG
   object pgControl: TPageControl
     Left = 0
     Top = 0
-    Width = 688
-    Height = 436
-    ActivePage = PC_Contas
+    Width = 895
+    Height = 441
+    ActivePage = PC_Cons
     Align = alClient
     TabOrder = 0
+    OnChange = pgControlChange
     object PC_Contas: TTabSheet
       Caption = 'Contas'
       DesignSize = (
-        680
-        408)
+        887
+        413)
       object Label1: TLabel
         Left = 16
-        Top = 120
+        Top = 122
         Width = 60
         Height = 13
         Caption = 'Data Vencto'
@@ -89,7 +93,7 @@ object FRM_CPG: TFRM_CPG
       end
       object Label2: TLabel
         Left = 112
-        Top = 120
+        Top = 122
         Width = 65
         Height = 13
         Caption = 'Data Emiss'#227'o'
@@ -103,7 +107,7 @@ object FRM_CPG: TFRM_CPG
       end
       object Label3: TLabel
         Left = 296
-        Top = 168
+        Top = 170
         Width = 53
         Height = 13
         Caption = 'Valor Titulo'
@@ -117,11 +121,11 @@ object FRM_CPG: TFRM_CPG
       end
       object Label4: TLabel
         Left = 80
-        Top = 24
+        Top = 27
         Width = 48
         Height = 13
         Caption = 'Descri'#231#227'o'
-        FocusControl = DBEdit4
+        FocusControl = DBeddesc
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -11
@@ -131,7 +135,7 @@ object FRM_CPG: TFRM_CPG
       end
       object Label5: TLabel
         Left = 16
-        Top = 72
+        Top = 75
         Width = 43
         Height = 13
         Caption = 'Natureza'
@@ -144,8 +148,8 @@ object FRM_CPG: TFRM_CPG
         ParentFont = False
       end
       object Label7: TLabel
-        Left = 296
-        Top = 114
+        Left = 294
+        Top = 120
         Width = 37
         Height = 13
         Caption = 'Contato'
@@ -159,7 +163,7 @@ object FRM_CPG: TFRM_CPG
       end
       object Label14: TLabel
         Left = 200
-        Top = 120
+        Top = 121
         Width = 54
         Height = 13
         Caption = 'Data Pagto'
@@ -173,7 +177,7 @@ object FRM_CPG: TFRM_CPG
       end
       object Label16: TLabel
         Left = 13
-        Top = 176
+        Top = 170
         Width = 58
         Height = 13
         Caption = 'Observa'#231#227'o'
@@ -187,7 +191,7 @@ object FRM_CPG: TFRM_CPG
       end
       object Label17: TLabel
         Left = 16
-        Top = 24
+        Top = 27
         Width = 33
         Height = 13
         Caption = 'C'#243'digo'
@@ -228,8 +232,8 @@ object FRM_CPG: TFRM_CPG
         ParentFont = False
       end
       object Label20: TLabel
-        Left = 368
-        Top = 213
+        Left = 366
+        Top = 214
         Width = 26
         Height = 13
         Caption = 'Multa'
@@ -243,7 +247,7 @@ object FRM_CPG: TFRM_CPG
       end
       object Label22: TLabel
         Left = 295
-        Top = 255
+        Top = 256
         Width = 46
         Height = 13
         Caption = 'Desconto'
@@ -256,7 +260,7 @@ object FRM_CPG: TFRM_CPG
         ParentFont = False
       end
       object Label23: TLabel
-        Left = 368
+        Left = 367
         Top = 256
         Width = 49
         Height = 13
@@ -269,9 +273,22 @@ object FRM_CPG: TFRM_CPG
         Font.Style = []
         ParentFont = False
       end
+      object lbl5: TLabel
+        Left = 206
+        Top = 75
+        Width = 57
+        Height = 13
+        Caption = 'Condom'#237'nio'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
       object DBEdit1: TDBEdit
         Left = 16
-        Top = 136
+        Top = 135
         Width = 65
         Height = 21
         Color = clInfoBk
@@ -283,10 +300,10 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 0
+        TabOrder = 3
       end
       object DBEdit2: TDBEdit
-        Left = 112
+        Left = 111
         Top = 135
         Width = 65
         Height = 21
@@ -298,12 +315,12 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 1
+        TabOrder = 4
       end
       object dbeValor: TDBEdit
         Left = 295
         Top = 184
-        Width = 89
+        Width = 127
         Height = 21
         Color = clInfoBk
         DataField = 'CPG_TOTBRUTO'
@@ -314,9 +331,9 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 2
+        TabOrder = 9
       end
-      object DBEdit4: TDBEdit
+      object DBeddesc: TDBEdit
         Left = 80
         Top = 40
         Width = 377
@@ -330,12 +347,12 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 3
+        TabOrder = 1
       end
       object DBEdit5: TDBEdit
         Left = 16
         Top = 88
-        Width = 441
+        Width = 185
         Height = 21
         DataField = 'CPG_NATUREZA'
         DataSource = DTM_FINAN.dsCpg
@@ -345,12 +362,12 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 4
+        TabOrder = 2
       end
       object DBEdit7: TDBEdit
-        Left = 296
-        Top = 130
-        Width = 161
+        Left = 292
+        Top = 134
+        Width = 130
         Height = 21
         DataField = 'CPG_CONTSINDIC'
         DataSource = DTM_FINAN.dsCpg
@@ -360,7 +377,7 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 5
+        TabOrder = 6
       end
       object DBEdit14: TDBEdit
         Left = 200
@@ -375,13 +392,13 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 5
       end
       object DBEdit16: TDBEdit
         Left = 13
-        Top = 192
+        Top = 184
         Width = 268
-        Height = 153
+        Height = 164
         AutoSize = False
         DataField = 'CPG_OBS'
         DataSource = DTM_FINAN.dsCpg
@@ -396,7 +413,7 @@ object FRM_CPG: TFRM_CPG
       object DBEdit17: TDBEdit
         Left = 16
         Top = 40
-        Width = 49
+        Width = 57
         Height = 21
         Color = clInfoBk
         DataField = 'CPG_CDG'
@@ -407,11 +424,11 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 0
       end
       object GroupBox2: TGroupBox
         Left = 436
-        Top = 156
+        Top = 150
         Width = 160
         Height = 189
         Caption = 'Impostos'
@@ -421,7 +438,7 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 9
+        TabOrder = 8
         object Label6: TLabel
           Left = 8
           Top = 24
@@ -629,7 +646,7 @@ object FRM_CPG: TFRM_CPG
       object DBEdit3: TDBEdit
         Left = 295
         Top = 228
-        Width = 58
+        Width = 62
         Height = 21
         DataField = 'CPG_JUROS'
         DataSource = DTM_FINAN.dsCpg
@@ -642,9 +659,9 @@ object FRM_CPG: TFRM_CPG
         TabOrder = 10
       end
       object DBEdit6: TDBEdit
-        Left = 367
+        Left = 365
         Top = 228
-        Width = 58
+        Width = 59
         Height = 21
         DataField = 'CPG_MULTA'
         DataSource = DTM_FINAN.dsCpg
@@ -659,7 +676,7 @@ object FRM_CPG: TFRM_CPG
       object DBEdit8: TDBEdit
         Left = 294
         Top = 269
-        Width = 56
+        Width = 62
         Height = 21
         DataField = 'CPG_DESCONTO'
         DataSource = DTM_FINAN.dsCpg
@@ -672,9 +689,9 @@ object FRM_CPG: TFRM_CPG
         TabOrder = 12
       end
       object DBEdit9: TDBEdit
-        Left = 367
+        Left = 365
         Top = 269
-        Width = 58
+        Width = 59
         Height = 21
         DataField = 'CPG_ACRESCIMO'
         DataSource = DTM_FINAN.dsCpg
@@ -692,6 +709,7 @@ object FRM_CPG: TFRM_CPG
         Width = 133
         Height = 21
         Color = clInfoBk
+        DataField = 'CPG_TOTLIQ'
         DataSource = DTM_FINAN.dsCpg
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
@@ -702,8 +720,8 @@ object FRM_CPG: TFRM_CPG
         TabOrder = 14
       end
       object tlb1: TToolBar
-        Left = 16
-        Top = 352
+        Left = 13
+        Top = 355
         Width = 167
         Height = 27
         Align = alNone
@@ -759,6 +777,7 @@ object FRM_CPG: TFRM_CPG
           ImageIndex = 1
           ParentShowHint = False
           ShowHint = True
+          OnClick = btnOkClick
         end
         object btnCancel: TToolButton
           Left = 125
@@ -772,10 +791,10 @@ object FRM_CPG: TFRM_CPG
         end
       end
       object btncancelar: TBitBtn
-        Left = 339
-        Top = 348
+        Left = 463
+        Top = 354
         Width = 137
-        Height = 57
+        Height = 54
         Anchors = [akBottom]
         Caption = 'Cancelar Pgto'
         TabOrder = 16
@@ -839,8 +858,8 @@ object FRM_CPG: TFRM_CPG
           17AF1F1FAF000000000000000000000000000000000000000000}
       end
       object btn1: TBitBtn
-        Left = 500
-        Top = 349
+        Left = 675
+        Top = 354
         Width = 155
         Height = 54
         Anchors = [akBottom]
@@ -1068,8 +1087,8 @@ object FRM_CPG: TFRM_CPG
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
       end
       object dbrgrpCPG_STATUS: TDBRadioGroup
-        Left = 464
-        Top = 40
+        Left = 467
+        Top = 35
         Width = 129
         Height = 109
         Caption = 'Status'
@@ -1085,6 +1104,19 @@ object FRM_CPG: TFRM_CPG
           '1'
           '2')
       end
+      object CBCPG_COFINS: TDBLookupComboBox
+        Left = 208
+        Top = 88
+        Width = 245
+        Height = 21
+        DataField = 'CPG_COND'
+        DataSource = DTM_FINAN.dsCpg
+        KeyField = 'COND_CDG'
+        ListField = 'COND_DESC'
+        ListSource = DTM_CAD.dsLkpcond
+        NullValueKey = 46
+        TabOrder = 19
+      end
     end
     object PC_Cons: TTabSheet
       Caption = 'Consulta'
@@ -1092,8 +1124,8 @@ object FRM_CPG: TFRM_CPG
       object DBGrid1: TDBGrid
         Left = 0
         Top = 105
-        Width = 680
-        Height = 303
+        Width = 887
+        Height = 308
         Align = alClient
         DataSource = DTM_FINAN.dsConsCpg
         TabOrder = 0
@@ -1102,6 +1134,8 @@ object FRM_CPG: TFRM_CPG
         TitleFont.Height = -11
         TitleFont.Name = 'MS Sans Serif'
         TitleFont.Style = []
+        OnDrawDataCell = DBGrid1DrawDataCell
+        OnDrawColumnCell = DBGrid1DrawColumnCell
         OnDblClick = DBGrid1DblClick
         Columns = <
           item
@@ -1152,7 +1186,7 @@ object FRM_CPG: TFRM_CPG
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
-            Width = 69
+            Width = 88
             Visible = True
           end
           item
@@ -1169,7 +1203,7 @@ object FRM_CPG: TFRM_CPG
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
-            Width = 69
+            Width = 99
             Visible = True
           end
           item
@@ -1212,7 +1246,6 @@ object FRM_CPG: TFRM_CPG
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
-            Width = 49
             Visible = True
           end
           item
@@ -1229,7 +1262,7 @@ object FRM_CPG: TFRM_CPG
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
-            Width = 69
+            Width = 74
             Visible = True
           end
           item
@@ -1246,51 +1279,17 @@ object FRM_CPG: TFRM_CPG
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 69
             Visible = True
           end
           item
             Expanded = False
-            FieldName = 'CPG_JUROS'
+            FieldName = 'STATUSDESC'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clNavy
             Font.Height = -11
             Font.Name = 'MS Sans Serif'
             Font.Style = []
-            Title.Caption = 'Juros'
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clNavy
-            Title.Font.Height = -11
-            Title.Font.Name = 'MS Sans Serif'
-            Title.Font.Style = [fsBold]
-            Width = 49
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'CPG_MULTA'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
-            Font.Height = -11
-            Font.Name = 'MS Sans Serif'
-            Font.Style = []
-            Title.Caption = 'Multa'
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clNavy
-            Title.Font.Height = -11
-            Title.Font.Name = 'MS Sans Serif'
-            Title.Font.Style = [fsBold]
-            Width = 49
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'CPG_STATUS'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clNavy
-            Font.Height = -11
-            Font.Name = 'MS Sans Serif'
-            Font.Style = []
-            Title.Caption = 'Observa'#231#227'o'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clNavy
             Title.Font.Height = -11
@@ -1301,27 +1300,27 @@ object FRM_CPG: TFRM_CPG
           end
           item
             Expanded = False
-            FieldName = 'CPG_USUARIOLANC'
+            FieldName = 'USUARIOLANC'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clNavy
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
-            Width = 109
+            Width = 117
             Visible = True
           end>
       end
       object grp1: TGroupBox
         Left = 0
         Top = 0
-        Width = 680
+        Width = 887
         Height = 105
         Align = alTop
         Caption = 'grp1'
         TabOrder = 1
         object lbl1: TLabel
-          Left = 94
-          Top = 17
+          Left = 105
+          Top = 19
           Width = 57
           Height = 13
           Caption = 'Condom'#237'nio'
@@ -1333,8 +1332,8 @@ object FRM_CPG: TFRM_CPG
           ParentFont = False
         end
         object lbl2: TLabel
-          Left = 95
-          Top = 61
+          Left = 103
+          Top = 57
           Width = 48
           Height = 13
           Caption = 'Descri'#231#227'o'
@@ -1346,8 +1345,8 @@ object FRM_CPG: TFRM_CPG
           ParentFont = False
         end
         object lbl3: TLabel
-          Left = 16
-          Top = 16
+          Left = 12
+          Top = 18
           Width = 53
           Height = 13
           Caption = 'Data Inicial'
@@ -1359,11 +1358,24 @@ object FRM_CPG: TFRM_CPG
           ParentFont = False
         end
         object lbl4: TLabel
-          Left = 16
-          Top = 56
+          Left = 11
+          Top = 57
           Width = 48
           Height = 13
           Caption = 'Data Final'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lbl6: TLabel
+          Left = 385
+          Top = 19
+          Width = 61
+          Height = 13
+          Caption = 'Valor Liquido'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clNavy
           Font.Height = -11
@@ -1386,7 +1398,7 @@ object FRM_CPG: TFRM_CPG
           TabOrder = 0
         end
         object btnPesq: TBitBtn
-          Left = 605
+          Left = 710
           Top = 31
           Width = 64
           Height = 64
@@ -1646,25 +1658,9 @@ object FRM_CPG: TFRM_CPG
             FFFFFFFFFFFFFFFFFFFF}
           Spacing = 0
         end
-        object dbcbbCPG_COND: TDBComboBox
-          Left = 94
-          Top = 31
-          Width = 275
-          Height = 21
-          DataField = 'CPG_COND'
-          DataSource = DTM_FINAN.dsCpg
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
-          Font.Height = -11
-          Font.Name = 'MS Sans Serif'
-          Font.Style = []
-          ItemHeight = 13
-          ParentFont = False
-          TabOrder = 2
-        end
         object edDesc: TEdit
-          Left = 95
-          Top = 74
+          Left = 103
+          Top = 70
           Width = 274
           Height = 21
           Font.Charset = DEFAULT_CHARSET
@@ -1673,36 +1669,71 @@ object FRM_CPG: TFRM_CPG
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
-          TabOrder = 3
-          OnKeyPress = edDescKeyPress
+          TabOrder = 2
+          OnKeyPress = dtpDTiniKeyPress
         end
-        object edDtIni: TEdit
-          Left = 16
+        object CBcond: TDBLookupComboBox
+          Left = 104
           Top = 32
-          Width = 65
+          Width = 273
           Height = 21
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
-          Font.Height = -11
-          Font.Name = 'MS Sans Serif'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 4
+          KeyField = 'COND_CDG'
+          ListField = 'COND_DESC'
+          ListSource = DTM_CAD.dsLkpcond
+          TabOrder = 3
+          OnKeyDown = CBcondKeyDown
+          OnKeyPress = dtpDTiniKeyPress
         end
-        object edDtFim: TEdit
-          Left = 16
-          Top = 72
-          Width = 65
+        object dtpDTini: TDateTimePicker
+          Left = 10
+          Top = 32
+          Width = 88
           Height = 21
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
-          Font.Height = -11
-          Font.Name = 'MS Sans Serif'
-          Font.Style = []
-          ParentFont = False
+          Date = 41179.945242280090000000
+          Time = 41179.945242280090000000
+          TabOrder = 4
+          OnKeyPress = dtpDTiniKeyPress
+        end
+        object dtpDtfim: TDateTimePicker
+          Left = 9
+          Top = 70
+          Width = 88
+          Height = 21
+          Date = 41179.945242280090000000
+          Time = 41179.945242280090000000
           TabOrder = 5
+          OnKeyPress = dtpDTiniKeyPress
+        end
+        object edtvalor: TEdit
+          Left = 384
+          Top = 32
+          Width = 100
+          Height = 21
+          TabOrder = 6
+          OnKeyPress = dtpDTiniKeyPress
+        end
+        object grp2: TGroupBox
+          Left = 600
+          Top = 28
+          Width = 106
+          Height = 67
+          Caption = 'Consultar pelo Cod'
+          TabOrder = 7
+          object edtcdg: TEdit
+            Left = 6
+            Top = 25
+            Width = 93
+            Height = 21
+            TabOrder = 0
+          end
         end
       end
     end
+  end
+  object dscpg: TDataSource
+    DataSet = DTM_FINAN.cdsCpg
+    OnStateChange = dscpgStateChange
+    Left = 244
+    Top = 24
   end
 end

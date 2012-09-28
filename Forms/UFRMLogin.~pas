@@ -76,7 +76,7 @@ begin
   begin
     DTMGeral.cdsGeral.Close;
     setsqlcommand(' SELECT * FROM CAD_USUARIO                       ' + #13 +
-                  ' WHERE UPPER(USUARIO_DESC) = UPPER(:user)  AND   ' + #13 +
+                  ' WHERE UPPER(USUARIO_LOGIN) = UPPER(:user)  AND   ' + #13 +
                   '       USUARIO_SENHA = :senha   ',
                   DTMGeral.cdsgeral);
 
@@ -88,6 +88,7 @@ begin
     begin
       MessageDlg('Usuário ou senha inválidos.', mtWarning, [mbOK], 0);
      // UsuarioAtivo := -1;
+      edtSenha.SetFocus;
       DTMGeral.cdsGeral.Close;
     end
     else

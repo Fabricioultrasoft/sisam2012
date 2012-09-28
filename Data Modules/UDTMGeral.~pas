@@ -41,7 +41,7 @@ procedure TDTMgeral.executarSQL(Sql: string);
 begin
    QryGeral.Close;
  try
-   if pos('SELECT',UpperCase(SQL)) >= 0 THEN
+   if pos('SELECT',UpperCase(SQL)) > 0 THEN
    begin
       QryGeral.SQL.Clear;
       QryGeral.SQL.Add(sql);

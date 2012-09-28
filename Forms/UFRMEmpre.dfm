@@ -168,7 +168,7 @@ object FRM_EMPRE: TFRM_EMPRE
     Top = 0
     Width = 915
     Height = 490
-    ActivePage = TabSheet1
+    ActivePage = TabSheet2
     Align = alClient
     TabOrder = 0
     object TabSheet1: TTabSheet

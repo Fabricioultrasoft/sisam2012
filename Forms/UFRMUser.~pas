@@ -60,8 +60,8 @@ begin
 if dsuser.State in [dsinsert,dsedit] then
   DTM_CAD.cdsUser.Post;
 FRMMenu.abrirFRMtrocasenha(0);
-FRMTrocarSenha.setVerificaSenhaantiga(FALSE);
-FRMTrocarSenha.setUsuario(DTM_CAD.CDSUser.fieldbyname('USUARIO_CDG').AsInteger);
+FRM_TrocarSenha.setVerificaSenhaantiga(FALSE);
+FRM_TrocarSenha.setUsuario(DTM_CAD.CDSUser.fieldbyname('USUARIO_CDG').AsInteger);
 end;
 
 procedure TFRM_USER.btnPriorClick(Sender: TObject);

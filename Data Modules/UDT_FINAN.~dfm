@@ -1,11 +1,17 @@
 object DTM_FINAN: TDTM_FINAN
   OldCreateOrder = False
-  Left = 373
-  Top = 253
+  Left = 595
+  Top = 254
   Height = 476
   Width = 564
   object cdsCpg: TClientDataSet
     Aggregates = <>
+    CommandText = 
+      ' UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA   '#39' +' +
+      #13#10'          '#39'    FROM   CAD_CPG '#39' +'#13#10'          '#39'      LEFT JOIN ' +
+      'CAD_USUARIO UL ON USUARIO_CDG = CPG_USUARIOLANC '#39' +'#13#10'          '#39 +
+      '      LEFT JOIN CAD_USUARIO UB ON USUARIO_CDG = CPG_USUARIOBAIXA' +
+      ' '
     FieldDefs = <
       item
         Name = 'CPG_DTVENC'
@@ -129,6 +135,7 @@ object DTM_FINAN: TDTM_FINAN
     ProviderName = 'dspCpg'
     StoreDefs = True
     AfterInsert = cdsCpgAfterInsert
+    BeforePost = cdsCpgBeforePost
     AfterPost = gerAfterPost
     AfterDelete = gerAfterDelete
     AfterApplyUpdates = gerAfterApplyUpdates
@@ -142,6 +149,7 @@ object DTM_FINAN: TDTM_FINAN
     object cdsCpgCPG_DTEMISSAO: TDateField
       FieldName = 'CPG_DTEMISSAO'
       Origin = '"CAD_CPG"."CPG_DTEMISSAO"'
+      EditMask = '!99/99/00;1;_'
     end
     object cdsCpgCPG_NDESC: TStringField
       FieldName = 'CPG_NDESC'
@@ -180,7 +188,7 @@ object DTM_FINAN: TDTM_FINAN
     end
     object cdsCpgCPG_IRRF: TFloatField
       FieldName = 'CPG_IRRF'
-      Origin = '"CAD_CPG"."CPG_ IRRF"'
+      Origin = '"CAD_CPG"."CPG_IRRF"'
       DisplayFormat = '#,##0.00'
     end
     object cdsCpgCPG_INSS: TFloatField
@@ -196,6 +204,7 @@ object DTM_FINAN: TDTM_FINAN
     object cdsCpgCPG_DTPGTO: TDateField
       FieldName = 'CPG_DTPGTO'
       Origin = '"CAD_CPG"."CPG_DTPGTO"'
+      EditMask = '!99/99/00;1;_'
     end
     object cdsCpgCPG_OBS: TStringField
       FieldName = 'CPG_OBS'
@@ -475,6 +484,16 @@ object DTM_FINAN: TDTM_FINAN
       item
         Name = 'CPG_TOTLIQ'
         DataType = ftFloat
+      end
+      item
+        Name = 'USUARIOLANC'
+        DataType = ftString
+        Size = 100
+      end
+      item
+        Name = 'USUARIOBAIXA'
+        DataType = ftString
+        Size = 100
       end>
     IndexDefs = <>
     Params = <>
@@ -618,6 +637,16 @@ object DTM_FINAN: TDTM_FINAN
       DisplayLabel = 'Tot. Liq'
       FieldName = 'CPG_TOTLIQ'
       DisplayFormat = '#,##0.00'
+    end
+    object cdsConsCpgUSUARIOLANC: TStringField
+      DisplayLabel = 'Usu'#225'rio Lan'#231
+      FieldName = 'USUARIOLANC'
+      Size = 100
+    end
+    object cdsConsCpgUSUARIOBAIXA: TStringField
+      DisplayLabel = 'Usu'#225'rio Baixa'
+      FieldName = 'USUARIOBAIXA'
+      Size = 100
     end
   end
   object dspConsCpg: TDataSetProvider

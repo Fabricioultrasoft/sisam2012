@@ -24,7 +24,7 @@ type
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
     dbeValor: TDBEdit;
-    DBEdit4: TDBEdit;
+    DBeddesc: TDBEdit;
     DBEdit5: TDBEdit;
     DBEdit7: TDBEdit;
     DBEdit14: TDBEdit;
@@ -73,14 +73,21 @@ type
     grp1: TGroupBox;
     rgstatus: TRadioGroup;
     btnPesq: TBitBtn;
-    dbcbbCPG_COND: TDBComboBox;
     lbl1: TLabel;
     lbl2: TLabel;
     edDesc: TEdit;
-    edDtIni: TEdit;
     lbl3: TLabel;
-    edDtFim: TEdit;
     lbl4: TLabel;
+    dscpg: TDataSource;
+    CBcond: TDBLookupComboBox;
+    CBCPG_COFINS: TDBLookupComboBox;
+    lbl5: TLabel;
+    dtpDTini: TDateTimePicker;
+    dtpDtfim: TDateTimePicker;
+    edtvalor: TEdit;
+    lbl6: TLabel;
+    grp2: TGroupBox;
+    edtcdg: TEdit;
 
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -94,6 +101,17 @@ type
     procedure edDescKeyPress(Sender: TObject; var Key: Char);
     procedure btn1Click(Sender: TObject);
     procedure btncancelarClick(Sender: TObject);
+    procedure dscpgStateChange(Sender: TObject);
+    procedure btnOkClick(Sender: TObject);
+    procedure pgControlChange(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure CBcondKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure dtpDTiniKeyPress(Sender: TObject; var Key: Char);
+    procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure DBGrid1DrawDataCell(Sender: TObject; const Rect: TRect;
+      Field: TField; State: TGridDrawState);
   private
     procedure FiltrarContas;
   public
@@ -105,14 +123,15 @@ var
 
 implementation
 
-uses UDT_FINAN, UFRMMenu;
+uses UDT_FINAN, UFRMMenu, UDTMGeral, UDT_CAD;
 
 {$R *.dfm}
 
 procedure TFRM_CPG.FormCreate(Sender: TObject);
 begin
   DTM_FINAN.cdsCpg.Close;
-    DTM_FINAN.cdsCpg.Open;
+  SetSqlCommand(SQL_PAGAR, DTM_FINAN.cdscpg);
+  DTM_FINAN.cdsCpg.Open;
   pgControl.ActivePageIndex := 0;
 end;
 
@@ -129,6 +148,7 @@ end;
 procedure TFRM_CPG.btnAddClick(Sender: TObject);
 begin
   DTM_FINAN.cdsCpg.Insert;
+  DBeddesc.SetFocus;
 end;
 
 procedure TFRM_CPG.btnDeleteClick(Sender: TObject);
@@ -148,50 +168,49 @@ begin
 end;
 
 procedure TFRM_CPG.FiltrarContas;
-Var Where, Sql, Desc, Status : String;
-    DtIni, DtFim : String;
-    Cond : Integer;
+ Var Where, Sql, Desc, Status,valor : String;
 begin
-   Where := '';
-   Cond  := 0;
-   Desc  := '';
-   DtIni := '';
-   DtFim := '';
-   Status := '';
-
-  If (edDtIni.text <> '') then
-   DtIni := edDtIni.Text;
-
-  If (edDtfim.text <> '') then
-   DtFim := edDtFim.text;
-
-  If (edDesc.Text <> '') then
-   Desc := edDesc.Text;
-
-  //IF (lbCond.itemindex <> 0) then
-  // Cond := lbCond.itemindex;
-
-
-  if (Trim(edDtIni.Text) <> '') then
-    Where := Where + #13 + ' AND  (CPG_DTVENC >= ' + QuotedStr(edDtIni.Text) + ')';
-
-  if (Trim(edDtFim.Text) <> '') then
-    Where := Where + #13 + ' AND  (CPG_DTVENC <= ' + QuotedStr(edDtFim.Text) + ')';
-
-{  if ((lbCond.itemindex) <> '') then
-    Where := Where + #13 + ' AND  (CPG_COND = (lbCond.itemindex))';   }
-
-  if (Trim(edDesc.Text) <> '') then
-    Where := Where + #13 + ' AND (CPG_NDESC LIKE ' + QuotedStr('%' + edDesc.text + '%') + ')';
-
-  if (rgstatus.ItemIndex > 0) then
-    Where := Where + #13 + ' AND (CPG_STATUS = '+inttostr(rgstatus.ItemIndex-1)+')';
-
+  Where := '';
   SQL := (SQL_PAGAR);
+  if Trim(edtcdg.text) = '' then
+  begin
+    Desc  := '';
+    Status := '';
+
+    If (edDesc.Text <> '') then
+     Desc := edDesc.Text;
+
+    Where := Where + #13 + ' AND CPG_DTVENC BETWEEN ''' + FormatDateTime('yyyy-MM-dd',dtpDTini.datetime) + ''' '
+                           + '  AND  ''' + FormatDateTime('yyyy-MM-dd',dtpDTfim.datetime) + '''  ';
+
+    if not(varisnull(cbCond.KeyValue) ) then
+      Where := Where + #13 + ' AND  (CPG_COND = ' + inttostr(cbCond.KeyValue)+' )';
+
+    if (Trim(edDesc.Text) <> '') then
+      Where := Where + #13 + ' AND (CPG_DESC LIKE ' + QuotedStr('%' + edDesc.text + '%') + ')';
+
+    if (rgstatus.ItemIndex > 0) then
+      Where := Where + #13 + ' AND (CPG_STATUS = '+inttostr(rgstatus.ItemIndex-1)+')';
+
+    if (edtvalor.Text <> '') then
+    begin
+      if StrToFloatdef(edtvalor.Text,-1) <> -1 then
+         Where := Where + #13 + ' AND (CPG_TOTLIQ = '''+edtvalor.Text+''')'
+      else
+        raise Exception.Create('Digite um valor valido para a pesquisa!');
+
+    end;
+
+  end
+  else
+  begin
+    //pesquisar apenas pelo codigo  informado
+    where  := ' AND CPG_CDG = '+edtcdg.Text ;
+  end;
+
 
   If (Trim(Where) <> '') then
-   SQL := SQL + #13 + Where;
-
+     SQL := SQL + #13 + Where;
 
   DTM_FINAN.consultarContas(SQL);
 end;
@@ -208,6 +227,7 @@ end;
 
 procedure TFRM_CPG.btnPesqClick(Sender: TObject);
 begin
+  DTM_CAD.atualizarLkpCaddvs;
   FiltrarContas;
 end;
 
@@ -219,20 +239,111 @@ end;
 
 procedure TFRM_CPG.btn1Click(Sender: TObject);
 begin
+  //salvar alterações se existir
+  if dscpg.State in [dsinsert,dsedit] then
+     DTM_FINAN.cdsCpg.Post;
+
   IF NOT dtm_finan.cdscpg.fieldbyname('CPG_CDG').ISNULL THEN
   frmmenu.abrirFRMCpgQuitacao(
                         dtm_finan.cdscpg.fieldbyname('CPG_CDG').AsInteger,
                         dtm_finan.cdscpg.fieldbyname('CPG_TOTLIQ').AsInteger
                           );
-//FRMMENU.abrirFRMCrbQuitacao;
+
 end;
 
 procedure TFRM_CPG.btncancelarClick(Sender: TObject);
 begin
-IF DTM_FINAN.cdsCpg.fieldbyname('CPG_STATUS').AsInteger = 0  THEN
-  DTM_FINAN.cancelarParcelaCPG(DTM_FINAN.cdsCpg.fieldbyname('CPG_CDG').AsInteger)
+//salvar alterações se existir
+if dscpg.State in [dsinsert,dsedit] then
+     DTM_FINAN.cdsCpg.Post;
+
+if MessageDlg('Confirma cancelamento da nota?',mtCustom,
+                              [mbYes,mbno,mbCancel], 0) = mryes then
+  IF DTM_FINAN.cdsCpg.fieldbyname('CPG_STATUS').AsInteger = 0  THEN
+    DTM_FINAN.cancelarParcelaCPG(DTM_FINAN.cdsCpg.fieldbyname('CPG_CDG').AsInteger)
+  else
+    raise exceptION.Create('Para cancelar a parcela deve estar com status ''Em aberto''');
+end;
+
+
+
+procedure TFRM_CPG.dscpgStateChange(Sender: TObject);
+begin
+ // ativar botoes do navigator qndo estiver em edição
+  dtmgeral.DSstateChange(dscpg,tlb1);
+end;
+
+procedure TFRM_CPG.btnOkClick(Sender: TObject);
+begin
+  DTM_FINAN.cdsCpg.post;
+end;
+
+procedure TFRM_CPG.pgControlChange(Sender: TObject);
+begin
+IF pgControl.ActivePage =  PC_Cons THEN
+begin
+  dtpDTini.SetFocus;
+end;
+end;
+
+procedure TFRM_CPG.FormShow(Sender: TObject);
+begin
+  DTM_CAD.atualizarLkpCond;
+  dtpDTini.Date:= Now - 60;
+  dtpDTFIM.Date:= Now + 60;
+end;
+
+procedure TFRM_CPG.CBcondKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+ //necessario pq propriedade nullkeyvalue do dblookupcombobox nao funciona , bug do delph 
+if Key = vk_escape then
+    CBcond.KeyValue := null;
+end;
+
+procedure TFRM_CPG.dtpDTiniKeyPress(Sender: TObject; var Key: Char);
+begin
+IF KEY = #13  then
+   btnPesqClick(self);
+
+end;
+
+procedure TFRM_CPG.DBGrid1DrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumn;
+  State: TGridDrawState);
+begin
+
+if (sender as Tdbgrid).DataSource.DataSet.FieldByName('CPG_STATUS').AsINTEGER = 0 THEN
+begin //em aberto
+  DBGrid1.Canvas.Font.Color := clGREEN  ;
+//  DBGrid1.Canvas.Font.Style := [FSBOLD] ;
+
+end
 else
-  raise exceptION.Create('Para cancelar a parcela deve estar com status ''Em aberto''');
+if (sender as Tdbgrid).DataSource.DataSet.FieldByName('CPG_STATUS').AsINTEGER = 1 THEN
+begin //pago
+  DBGrid1.Canvas.Font.Color := clBlue  ;
+end;
+if (sender as Tdbgrid).DataSource.DataSet.FieldByName('CPG_STATUS').AsINTEGER = 2 THEN
+begin //cancelado
+  DBGrid1.Canvas.Font.Color := clGray;
+end;
+
+  DBGrid1.Canvas.FillRect(Rect);
+  DBGrid1.DefaultDrawColumnCell(Rect, DataCol, Column, State);
+end;
+
+procedure TFRM_CPG.DBGrid1DrawDataCell(Sender: TObject; const Rect: TRect;
+  Field: TField; State: TGridDrawState);
+begin
+  if Field.FieldName = 'CPG_STATUS' THEN
+    IF Field.Value = 0 then
+    begin
+//      DBGrid1.Canvas.Brush.Color :=  clgreen;
+      DBGrid1.Canvas.Font.Color :=  clgreen;
+      DBGrid1.DefaultDrawDataCell(Rect, dbGrid1.columns[6].field, State);
+      self.Canvas.FillRect(Rect);
+    end
 end;
 
 end.
