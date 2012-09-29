@@ -23,7 +23,6 @@ type
     lbl5: TLabel;
     lblapagar: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure btnOKClick(Sender: TObject);
   private
     { Private declarations }
     pgto:integer;
@@ -93,11 +92,6 @@ begin
   close;
 end;
 
-end;
-
-procedure TFRMCRBquitacao.btnOKClick(Sender: TObject);
-begin
-ShowMessage('');
 end;
 
 end.

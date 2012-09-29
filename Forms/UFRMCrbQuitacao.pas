@@ -86,7 +86,7 @@ begin
 verificarcampos;
 calcularDesc;
 if dtm_finan.quitarParcelaCPG(pgto,dtprecto.DateTime,StrToFloat(edtvalor.text),
-                        vlrdesc,StrToFloat(edtjuros.text),StrToFloat(edtmulta.text)) then
+                        vlrdesc) then
 begin
   ShowMessage('Pagamento Efetuado.');
   close;

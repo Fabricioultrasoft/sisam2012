@@ -22,7 +22,8 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
         '_USUARIOLANC '
       
         '            LEFT JOIN CAD_USUARIO UB ON UB.USUARIO_CDG = CPG_USU' +
-        'ARIOBAIXA ')
+        'ARIOBAIXA '
+      '')
     Left = 24
     Top = 16
     object qryCpgCPG_DTVENC: TDateField
@@ -148,17 +149,20 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       FieldName = 'USUARIOLANC'
       Origin = '"CAD_USUARIO"."USUARIO_NOME"'
       ProviderFlags = []
+      ReadOnly = True
       Size = 100
     end
     object qryCpgUSUARIOBAIXA: TIBStringField
       FieldName = 'USUARIOBAIXA'
       Origin = '"CAD_USUARIO"."USUARIO_NOME"'
       ProviderFlags = []
+      ReadOnly = True
       Size = 100
     end
     object qryCpgSTATUSDESC: TIBStringField
       FieldName = 'STATUSDESC'
       ProviderFlags = []
+      ReadOnly = True
       FixedChar = True
       Size = 9
     end
