@@ -188,7 +188,7 @@ begin
    SQL  := SQL + ' AND UPPER(FORN_CIDADE) LIKE UPPER(''%'+ Trim(edtcidade.Text) +'%'') ';
 
  if (Trim(edtcnpj.Text) <> '') then
-   SQL  := SQL + ' AND UPPER(FORN_CNPJ) LIKE UPPER(''%'+ trim(edtcnpj.TEXT) +'%'') ';
+   SQL  := SQL + ' AND UPPER(FORN_CDG) LIKE UPPER(''%'+ trim(edtcnpj.TEXT) +'%'') ';
 
  DTM_CAD.consultarForns(SQL);
 end;
@@ -208,7 +208,7 @@ end;
 procedure TFRM_CADDVS.dbgrd1DblClick(Sender: TObject);
 begin
  //abrir cadastro do registro selecionado
-  IF DTM_CAD.cdsCaddvs.Locate('FORN_CNPJ',DTM_CAD.cdsConsCADdvs.fieldbyname('FORN_CNPJ').AsInteger,[loPartialKey]) THEN
+  IF DTM_CAD.cdsCaddvs.Locate('FORN_CDG',DTM_CAD.cdsConsCADdvs.fieldbyname('FORN_CDG').AsInteger,[loPartialKey]) THEN
     PC_Cadastrosdvs.ActivePageIndex:= 0;
 end;
 

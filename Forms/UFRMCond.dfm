@@ -1,6 +1,6 @@
 object FRM_COND: TFRM_COND
-  Left = 332
-  Top = 198
+  Left = 129
+  Top = 51
   Width = 885
   Height = 638
   Caption = 'Condom'#237'nios'
@@ -50,16 +50,16 @@ object FRM_COND: TFRM_COND
   object PC_Condominio: TPageControl
     Left = 0
     Top = 0
-    Width = 869
-    Height = 600
+    Width = 877
+    Height = 604
     ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Cadastro'
       DesignSize = (
-        861
-        572)
+        869
+        576)
       object grp1: TGroupBox
         Left = 6
         Top = 3
@@ -395,7 +395,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_FORNECEDOR'
           DataSource = DTM_CAD.dsCond
-          KeyField = 'FORN_CNPJ'
+          KeyField = 'FORN_CDG'
           ListField = 'FORN_RAZAO'
           ListFieldIndex = 1
           ListSource = DTM_CAD.dsLkpcaddvs
@@ -403,9 +403,9 @@ object FRM_COND: TFRM_COND
         end
       end
       object tlb1: TToolBar
-        Left = 5
-        Top = 538
-        Width = 846
+        Left = 413
+        Top = 66
+        Width = 156
         Height = 27
         Align = alCustom
         ButtonHeight = 23
@@ -480,7 +480,7 @@ object FRM_COND: TFRM_COND
       object grp2: TGroupBox
         Left = 0
         Top = 0
-        Width = 861
+        Width = 869
         Height = 105
         Align = alTop
         Caption = 'Pesquisar'
@@ -834,8 +834,8 @@ object FRM_COND: TFRM_COND
       object dbgrd1: TDBGrid
         Left = 0
         Top = 105
-        Width = 861
-        Height = 467
+        Width = 869
+        Height = 471
         Align = alClient
         DataSource = DTM_CAD.dsConsCond
         Font.Charset = DEFAULT_CHARSET

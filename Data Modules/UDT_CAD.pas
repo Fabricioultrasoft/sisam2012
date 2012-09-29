@@ -14,7 +14,6 @@ type
     cdsEmpre: TClientDataSet;
     dsCaddvs: TDataSource;
     dsEmpre: TDataSource;
-    cdsCaddvsFORN_CNPJ: TStringField;
     cdsCaddvsFORN_CPFCNPJ: TStringField;
     cdsCaddvsFORN_RAZAO: TStringField;
     cdsCaddvsFORN_CEP: TStringField;
@@ -79,7 +78,6 @@ type
     cdsCondCOND_SINDICO: TIntegerField;
     cdsCondCOND_CDG: TIntegerField;
     cdsCondCOND_EMAIL: TStringField;
-    cdsCondCOND_FORNECEDOR: TStringField;
     cdsCondCOND_INCORPORADORA: TStringField;
     cdsCondCOND_INCORPCNPJ: TStringField;
     dspUser: TDataSetProvider;
@@ -109,7 +107,6 @@ type
     dsConsEmpre: TDataSource;
     dspConsCaddvs: TDataSetProvider;
     cdsConsCaddvs: TClientDataSet;
-    StringField16: TStringField;
     StringField17: TStringField;
     StringField18: TStringField;
     StringField19: TStringField;
@@ -158,14 +155,12 @@ type
     IntegerField14: TIntegerField;
     IntegerField15: TIntegerField;
     StringField38: TStringField;
-    StringField39: TStringField;
     StringField40: TStringField;
     StringField41: TStringField;
     dsConsCond: TDataSource;
     dspLkpcaddvs: TDataSetProvider;
     cdsLkpCaddvs: TClientDataSet;
     dsLkpcaddvs: TDataSource;
-    cdsLkpCaddvsFORN_CNPJ: TStringField;
     cdsLkpCaddvsFORN_CPFCNPJ: TStringField;
     cdsLkpCaddvsFORN_RAZAO: TStringField;
     cdsLkpCaddvsFORN_CEP: TStringField;
@@ -217,10 +212,18 @@ type
     IntegerField21: TIntegerField;
     IntegerField22: TIntegerField;
     StringField46: TStringField;
-    StringField47: TStringField;
     StringField48: TStringField;
     StringField49: TStringField;
     dsLkpcond: TDataSource;
+    intgrfldCaddvsFORN_CDG: TIntegerField;
+    intgrfldConsCaddvsFORN_CDG: TIntegerField;
+    intgrfldLkpCaddvsFORN_CDG: TIntegerField;
+    cdsCondCOND_BLOCO: TStringField;
+    cdsCondCOND_FORNECEDOR: TIntegerField;
+    cdsConsCondCOND_BLOCO: TStringField;
+    cdsConsCondCOND_FORNECEDOR: TIntegerField;
+    cdsLkpcondCOND_BLOCO: TStringField;
+    cdsLkpcondCOND_FORNECEDOR: TIntegerField;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
@@ -332,7 +335,7 @@ end;
 procedure TDTM_CAD.cdsCaddvsAfterInsert(DataSet: TDataSet);
 begin
   DTMGERAL.executarSQL(' SELECT (GEN_ID(G_CAD_FORN,0) +1)   FROM RDB$DATABASE ');
-  cdsCaddvs.FieldByName('FORN_CNPJ').AsInteger:=  DTMgeral.qryGeral.FieldS.Fields[0].ASINTEGER;
+  cdsCaddvs.FieldByName('FORN_CDG').AsInteger:=  DTMgeral.qryGeral.FieldS.Fields[0].ASINTEGER;
 end;
 
 procedure TDTM_CAD.cdsCondAfterInsert(DataSet: TDataSet);

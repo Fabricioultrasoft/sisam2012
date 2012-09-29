@@ -1,6 +1,6 @@
 object FRM_CADDVS: TFRM_CADDVS
-  Left = 346
-  Top = 217
+  Left = 272
+  Top = 128
   Width = 801
   Height = 688
   Caption = 'Cadastro Diverso'
@@ -14,6 +14,7 @@ object FRM_CADDVS: TFRM_CADDVS
   OldCreateOrder = False
   Position = poScreenCenter
   Visible = True
+  WindowState = wsMaximized
   OnClose = FormClose
   OnCreate = FormCreate
   PixelsPerInch = 96
@@ -34,16 +35,16 @@ object FRM_CADDVS: TFRM_CADDVS
   object PC_CadastrosDvs: TPageControl
     Left = 0
     Top = 0
-    Width = 785
-    Height = 650
-    ActivePage = tabCadastro
+    Width = 793
+    Height = 654
+    ActivePage = tbConsulta
     Align = alClient
     TabOrder = 0
     object tabCadastro: TTabSheet
       Caption = 'Cadastro'
       DesignSize = (
-        777
-        622)
+        785
+        626)
       object grp1: TGroupBox
         Left = 8
         Top = 3
@@ -238,7 +239,7 @@ object FRM_CADDVS: TFRM_CADDVS
           Top = 27
           Width = 186
           Height = 21
-          DataField = 'FORN_CNPJ'
+          DataField = 'FORN_CDG'
           DataSource = dtsCad
           TabOrder = 0
         end
@@ -759,7 +760,7 @@ object FRM_CADDVS: TFRM_CADDVS
       object grp3: TGroupBox
         Left = 0
         Top = 0
-        Width = 777
+        Width = 785
         Height = 143
         Align = alTop
         Caption = 'Pesquisar'
@@ -1134,8 +1135,8 @@ object FRM_CADDVS: TFRM_CADDVS
       object dbgrd1: TDBGrid
         Left = 0
         Top = 143
-        Width = 777
-        Height = 479
+        Width = 785
+        Height = 483
         Align = alClient
         DataSource = DTM_CAD.dsConsCaddvs
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
@@ -1149,7 +1150,7 @@ object FRM_CADDVS: TFRM_CADDVS
         Columns = <
           item
             Expanded = False
-            FieldName = 'FORN_CNPJ'
+            FieldName = 'FORN_CDG'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clNavy
             Title.Font.Height = -11

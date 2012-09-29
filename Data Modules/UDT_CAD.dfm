@@ -1,7 +1,7 @@
 object DTM_CAD: TDTM_CAD
   OldCreateOrder = False
-  Left = 431
-  Top = 274
+  Left = 288
+  Top = 72
   Height = 580
   Width = 780
   object dspCaddvs: TDataSetProvider
@@ -21,12 +21,6 @@ object DTM_CAD: TDTM_CAD
   object cdsCaddvs: TClientDataSet
     Aggregates = <>
     FieldDefs = <
-      item
-        Name = 'FORN_CNPJ'
-        Attributes = [faRequired]
-        DataType = ftString
-        Size = 14
-      end
       item
         Name = 'FORN_CPFCNPJ'
         DataType = ftString
@@ -175,9 +169,14 @@ object DTM_CAD: TDTM_CAD
       item
         Name = 'FORN_TPINCORPORADORA'
         DataType = ftInteger
+      end
+      item
+        Name = 'FORN_CDG'
+        Attributes = [faRequired]
+        DataType = ftInteger
       end>
     IndexDefs = <>
-    IndexFieldNames = 'FORN_CNPJ'
+    IndexFieldNames = 'FORN_CDG'
     Params = <>
     ProviderName = 'dspCaddvs'
     StoreDefs = True
@@ -187,13 +186,6 @@ object DTM_CAD: TDTM_CAD
     AfterApplyUpdates = gerAfterApplyUpdates
     Left = 16
     Top = 70
-    object cdsCaddvsFORN_CNPJ: TStringField
-      FieldName = 'FORN_CNPJ'
-      Origin = 'CAD_FORN.FORN_CNPJ'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-      Size = 14
-    end
     object cdsCaddvsFORN_CPFCNPJ: TStringField
       FieldName = 'FORN_CPFCNPJ'
       Origin = 'CAD_FORN.FORN_CPFCNPJ'
@@ -343,6 +335,12 @@ object DTM_CAD: TDTM_CAD
     object cdsCaddvsFORN_TPINCORPORADORA: TIntegerField
       FieldName = 'FORN_TPINCORPORADORA'
       Origin = 'CAD_FORN.FORN_TPINCORPORADORA'
+    end
+    object intgrfldCaddvsFORN_CDG: TIntegerField
+      FieldName = 'FORN_CDG'
+      Origin = '"CAD_FORN"."FORN_CDG"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
     end
   end
   object cdsEmpre: TClientDataSet
@@ -519,12 +517,6 @@ object DTM_CAD: TDTM_CAD
       Origin = '"CAD_COND"."COND_EMAIL"'
       Size = 60
     end
-    object cdsCondCOND_FORNECEDOR: TStringField
-      FieldName = 'COND_FORNECEDOR'
-      Origin = '"CAD_COND"."COND_FORNECEDOR"'
-      Required = True
-      Size = 14
-    end
     object cdsCondCOND_INCORPORADORA: TStringField
       FieldName = 'COND_INCORPORADORA'
       Origin = '"CAD_COND"."COND_INCORPORADORA"'
@@ -534,6 +526,15 @@ object DTM_CAD: TDTM_CAD
       FieldName = 'COND_INCORPCNPJ'
       Origin = '"CAD_COND"."COND_INCORPCNPJ"'
       Size = 14
+    end
+    object cdsCondCOND_BLOCO: TStringField
+      FieldName = 'COND_BLOCO'
+      Origin = '"CAD_COND"."COND_BLOCO"'
+      Size = 8
+    end
+    object cdsCondCOND_FORNECEDOR: TIntegerField
+      FieldName = 'COND_FORNECEDOR'
+      Origin = '"CAD_COND"."COND_FORNECEDOR"'
     end
   end
   object dsCond: TDataSource
@@ -704,12 +705,6 @@ object DTM_CAD: TDTM_CAD
     Aggregates = <>
     FieldDefs = <
       item
-        Name = 'FORN_CNPJ'
-        Attributes = [faRequired]
-        DataType = ftString
-        Size = 14
-      end
-      item
         Name = 'FORN_CPFCNPJ'
         DataType = ftString
         Size = 14
@@ -857,9 +852,14 @@ object DTM_CAD: TDTM_CAD
       item
         Name = 'FORN_TPINCORPORADORA'
         DataType = ftInteger
+      end
+      item
+        Name = 'FORN_CDG'
+        Attributes = [faRequired]
+        DataType = ftInteger
       end>
     IndexDefs = <>
-    IndexFieldNames = 'FORN_CNPJ'
+    IndexFieldNames = 'FORN_CDG'
     Params = <>
     ProviderName = 'dspConsCaddvs'
     StoreDefs = True
@@ -868,14 +868,6 @@ object DTM_CAD: TDTM_CAD
     AfterApplyUpdates = gerAfterApplyUpdates
     Left = 16
     Top = 252
-    object StringField16: TStringField
-      DisplayLabel = 'CNPJ'
-      FieldName = 'FORN_CNPJ'
-      Origin = 'CAD_FORN.FORN_CNPJ'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-      Size = 14
-    end
     object StringField17: TStringField
       FieldName = 'FORN_CPFCNPJ'
       Origin = 'CAD_FORN.FORN_CPFCNPJ'
@@ -1032,6 +1024,12 @@ object DTM_CAD: TDTM_CAD
       FieldName = 'FORN_TPINCORPORADORA'
       Origin = 'CAD_FORN.FORN_TPINCORPORADORA'
     end
+    object intgrfldConsCaddvsFORN_CDG: TIntegerField
+      FieldName = 'FORN_CDG'
+      Origin = '"CAD_FORN"."FORN_CDG"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
   end
   object dsConsCaddvs: TDataSource
     DataSet = cdsConsCaddvs
@@ -1119,12 +1117,6 @@ object DTM_CAD: TDTM_CAD
       Origin = '"CAD_COND"."COND_EMAIL"'
       Size = 60
     end
-    object StringField39: TStringField
-      FieldName = 'COND_FORNECEDOR'
-      Origin = '"CAD_COND"."COND_FORNECEDOR"'
-      Required = True
-      Size = 14
-    end
     object StringField40: TStringField
       DisplayLabel = 'Incorporadora'
       FieldName = 'COND_INCORPORADORA'
@@ -1135,6 +1127,15 @@ object DTM_CAD: TDTM_CAD
       FieldName = 'COND_INCORPCNPJ'
       Origin = '"CAD_COND"."COND_INCORPCNPJ"'
       Size = 14
+    end
+    object cdsConsCondCOND_BLOCO: TStringField
+      FieldName = 'COND_BLOCO'
+      Origin = '"CAD_COND"."COND_BLOCO"'
+      Size = 8
+    end
+    object cdsConsCondCOND_FORNECEDOR: TIntegerField
+      FieldName = 'COND_FORNECEDOR'
+      Origin = '"CAD_COND"."COND_FORNECEDOR"'
     end
   end
   object dsConsCond: TDataSource
@@ -1158,125 +1159,159 @@ object DTM_CAD: TDTM_CAD
     AfterApplyUpdates = gerAfterApplyUpdates
     Left = 24
     Top = 420
-    object cdsLkpCaddvsFORN_CNPJ: TStringField
-      FieldName = 'FORN_CNPJ'
-      Required = True
-      Size = 14
-    end
     object cdsLkpCaddvsFORN_CPFCNPJ: TStringField
       FieldName = 'FORN_CPFCNPJ'
+      Origin = 'CAD_FORN.FORN_CPFCNPJ'
       Size = 14
     end
     object cdsLkpCaddvsFORN_RAZAO: TStringField
       FieldName = 'FORN_RAZAO'
+      Origin = 'CAD_FORN.FORN_RAZAO'
       Size = 100
     end
     object cdsLkpCaddvsFORN_CEP: TStringField
       FieldName = 'FORN_CEP'
+      Origin = 'CAD_FORN.FORN_CEP'
       Size = 8
     end
     object cdsLkpCaddvsFORN_ENDERECO: TStringField
       FieldName = 'FORN_ENDERECO'
+      Origin = 'CAD_FORN.FORN_ENDERECO'
       Size = 100
     end
     object cdsLkpCaddvsFORN_BAIRRO: TStringField
       FieldName = 'FORN_BAIRRO'
+      Origin = 'CAD_FORN.FORN_BAIRRO'
       Size = 30
     end
     object cdsLkpCaddvsFORN_CIDADE: TStringField
       FieldName = 'FORN_CIDADE'
+      Origin = 'CAD_FORN.FORN_CIDADE'
     end
     object cdsLkpCaddvsFORN_UF: TStringField
       FieldName = 'FORN_UF'
+      Origin = 'CAD_FORN.FORN_UF'
       Size = 2
     end
     object cdsLkpCaddvsFORN_TELEFONE: TStringField
       FieldName = 'FORN_TELEFONE'
+      Origin = 'CAD_FORN.FORN_TELEFONE'
       Size = 18
     end
     object cdsLkpCaddvsFORN_RAMAL: TStringField
       FieldName = 'FORN_RAMAL'
+      Origin = 'CAD_FORN.FORN_RAMAL'
       Size = 6
     end
     object cdsLkpCaddvsFORN_TELEFONE1: TStringField
       FieldName = 'FORN_TELEFONE1'
+      Origin = 'CAD_FORN.FORN_TELEFONE1'
       Size = 18
     end
     object cdsLkpCaddvsFORN_EMAIL: TStringField
       FieldName = 'FORN_EMAIL'
+      Origin = 'CAD_FORN.FORN_EMAIL'
       Size = 60
     end
     object cdsLkpCaddvsFORN_EMAIL1: TStringField
       FieldName = 'FORN_EMAIL1'
+      Origin = 'CAD_FORN.FORN_EMAIL1'
       Size = 60
     end
     object cdsLkpCaddvsFORN_SITE: TStringField
       FieldName = 'FORN_SITE'
+      Origin = 'CAD_FORN.FORN_SITE'
       Size = 80
     end
     object cdsLkpCaddvsFORN_CELULAR: TStringField
       FieldName = 'FORN_CELULAR'
+      Origin = 'CAD_FORN.FORN_CELULAR'
       Size = 18
     end
     object cdsLkpCaddvsFORN_CELULAR1: TStringField
       FieldName = 'FORN_CELULAR1'
+      Origin = 'CAD_FORN.FORN_CELULAR1'
       Size = 18
     end
     object cdsLkpCaddvsFORN_RG: TStringField
       FieldName = 'FORN_RG'
+      Origin = 'CAD_FORN.FORN_RG'
       Size = 15
     end
     object cdsLkpCaddvsFORN_TIPO: TIntegerField
       FieldName = 'FORN_TIPO'
+      Origin = 'CAD_FORN.FORN_TIPO'
     end
     object cdsLkpCaddvsFORN_ESTADOCIVIL: TIntegerField
       FieldName = 'FORN_ESTADOCIVIL'
+      Origin = 'CAD_FORN.FORN_ESTADOCIVIL'
     end
     object cdsLkpCaddvsFORN_DTNASCIMENTO: TDateField
       FieldName = 'FORN_DTNASCIMENTO'
+      Origin = 'CAD_FORN.FORN_DTNASCIMENTO'
     end
     object cdsLkpCaddvsFORN_SEXO: TSmallintField
       FieldName = 'FORN_SEXO'
+      Origin = 'CAD_FORN.FORN_SEXO'
     end
     object cdsLkpCaddvsFORN_OCUPACAO: TIntegerField
       FieldName = 'FORN_OCUPACAO'
+      Origin = 'CAD_FORN.FORN_OCUPACAO'
     end
     object cdsLkpCaddvsFORN_CONJUGE: TStringField
       FieldName = 'FORN_CONJUGE'
+      Origin = 'CAD_FORN.FORN_CONJUGE'
       Size = 14
     end
     object cdsLkpCaddvsFORN_HRENTRADA1: TTimeField
       FieldName = 'FORN_HRENTRADA1'
+      Origin = 'CAD_FORN.FORN_HRENTRADA1'
     end
     object cdsLkpCaddvsFORN_HRENTRADA2: TTimeField
       FieldName = 'FORN_HRENTRADA2'
+      Origin = 'CAD_FORN.FORN_HRENTRADA2'
     end
     object cdsLkpCaddvsFORN_HRSAIDA1: TTimeField
       FieldName = 'FORN_HRSAIDA1'
+      Origin = 'CAD_FORN.FORN_HRSAIDA1'
     end
     object cdsLkpCaddvsFORN_HRSAIDA2: TTimeField
       FieldName = 'FORN_HRSAIDA2'
+      Origin = 'CAD_FORN.FORN_HRSAIDA2'
     end
     object cdsLkpCaddvsFORN_DTCADASTRO: TDateField
       FieldName = 'FORN_DTCADASTRO'
+      Origin = 'CAD_FORN.FORN_DTCADASTRO'
     end
     object cdsLkpCaddvsFORN_COND: TIntegerField
       FieldName = 'FORN_COND'
+      Origin = 'CAD_FORN.FORN_COND'
     end
     object cdsLkpCaddvsFORN_TPCONDOMINO: TSmallintField
       FieldName = 'FORN_TPCONDOMINO'
+      Origin = 'CAD_FORN.FORN_TPCONDOMINO'
     end
     object cdsLkpCaddvsFORN_TPFUNCIONARIO: TSmallintField
       FieldName = 'FORN_TPFUNCIONARIO'
+      Origin = 'CAD_FORN.FORN_TPFUNCIONARIO'
     end
     object cdsLkpCaddvsFORN_TPFORNECEDOR: TIntegerField
       FieldName = 'FORN_TPFORNECEDOR'
+      Origin = 'CAD_FORN.FORN_TPFORNECEDOR'
     end
     object cdsLkpCaddvsFORN_TPSINDICO: TIntegerField
       FieldName = 'FORN_TPSINDICO'
+      Origin = 'CAD_FORN.FORN_TPSINDICO'
     end
     object cdsLkpCaddvsFORN_TPINCORPORADORA: TIntegerField
       FieldName = 'FORN_TPINCORPORADORA'
+      Origin = 'CAD_FORN.FORN_TPINCORPORADORA'
+    end
+    object intgrfldLkpCaddvsFORN_CDG: TIntegerField
+      FieldName = 'FORN_CDG'
+      Origin = '"CAD_FORN"."FORN_CDG"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
     end
   end
   object dsLkpcaddvs: TDataSource
@@ -1288,6 +1323,8 @@ object DTM_CAD: TDTM_CAD
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
     Active = True
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select * from cad_empresa'
       '')
@@ -1375,12 +1412,6 @@ object DTM_CAD: TDTM_CAD
       Origin = '"CAD_COND"."COND_EMAIL"'
       Size = 60
     end
-    object StringField47: TStringField
-      FieldName = 'COND_FORNECEDOR'
-      Origin = '"CAD_COND"."COND_FORNECEDOR"'
-      Required = True
-      Size = 14
-    end
     object StringField48: TStringField
       DisplayLabel = 'Incorporadora'
       FieldName = 'COND_INCORPORADORA'
@@ -1391,6 +1422,15 @@ object DTM_CAD: TDTM_CAD
       FieldName = 'COND_INCORPCNPJ'
       Origin = '"CAD_COND"."COND_INCORPCNPJ"'
       Size = 14
+    end
+    object cdsLkpcondCOND_BLOCO: TStringField
+      FieldName = 'COND_BLOCO'
+      Origin = '"CAD_COND"."COND_BLOCO"'
+      Size = 8
+    end
+    object cdsLkpcondCOND_FORNECEDOR: TIntegerField
+      FieldName = 'COND_FORNECEDOR'
+      Origin = '"CAD_COND"."COND_FORNECEDOR"'
     end
   end
   object dsLkpcond: TDataSource

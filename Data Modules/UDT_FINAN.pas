@@ -28,7 +28,6 @@ type
     cdsCpgCPG_CDG: TIntegerField;
     dspCrb: TDataSetProvider;
     cdsCrb: TClientDataSet;
-    cdsCrbCRB_CONDOMINO: TStringField;
     cdsCrbCRB_TOT: TFloatField;
     cdsCrbCRB_VLRCOND: TFloatField;
     cdsCrbCRB_FRACAO: TFloatField;
@@ -41,7 +40,6 @@ type
     cdsCrbCRB_MULTA: TFloatField;
     cdsCrbCRB_RATEIO: TFloatField;
     cdsCrbCRB_BLOCO: TStringField;
-    cdsCrbCRB_BAIXA: TSmallintField;
     dsCrb: TDataSource;
     cdsCpgCPG_JUROS: TBCDField;
     cdsCpgCPG_MULTA: TBCDField;
@@ -72,7 +70,6 @@ type
     dsConsCpg: TDataSource;
     dspConsCrb: TDataSetProvider;
     cdsConsCrb: TClientDataSet;
-    StringField5: TStringField;
     FloatField10: TFloatField;
     FloatField11: TFloatField;
     FloatField12: TFloatField;
@@ -85,7 +82,6 @@ type
     FloatField14: TFloatField;
     FloatField15: TFloatField;
     StringField6: TStringField;
-    SmallintField1: TSmallintField;
     dsConsCrb: TDataSource;
     qryREL: TIBQuery;
     cdsCpgCPG_USUARIOLANC: TIntegerField;
@@ -105,6 +101,14 @@ type
     cdsCpgUSUARIOLANC: TStringField;
     cdsCpgUSUARIOBAIXA: TStringField;
     cdsCpgSTATUSDESC: TStringField;
+    intgrfldCrbCRB_CONDOMINO: TIntegerField;
+    smlntfldCrbCRB_STATUS: TSmallintField;
+    intgrfldCrbCRB_USUARIOLANC: TIntegerField;
+    intgrfldCrbCRB_USUARIOBAIXA: TIntegerField;
+    intgrfldConsCrbCRB_CONDOMINO: TIntegerField;
+    smlntfldConsCrbCRB_STATUS: TSmallintField;
+    intgrfldConsCrbCRB_USUARIOLANC: TIntegerField;
+    intgrfldConsCrbCRB_USUARIOBAIXA: TIntegerField;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);

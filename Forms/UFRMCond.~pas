@@ -137,9 +137,7 @@ end;
 
 procedure TFRM_COND.dscondStateChange(Sender: TObject);
 begin
- // adivar botoes do navigator qndo estiver em edição
-   btnOk.enabled:= (dscond.State in [dsinsert,dsedit]) ;
-   btncancel.enabled:=(dscond.State in [dsinsert,dsedit]) ;
+dtmgeral.DSstateChange(dscond,tlb1);
 end;
 
 

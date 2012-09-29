@@ -28,7 +28,6 @@ type
     cdsCpgCPG_CDG: TIntegerField;
     dspCrb: TDataSetProvider;
     cdsCrb: TClientDataSet;
-    cdsCrbCRB_CONDOMINO: TStringField;
     cdsCrbCRB_TOT: TFloatField;
     cdsCrbCRB_VLRCOND: TFloatField;
     cdsCrbCRB_FRACAO: TFloatField;
@@ -41,7 +40,6 @@ type
     cdsCrbCRB_MULTA: TFloatField;
     cdsCrbCRB_RATEIO: TFloatField;
     cdsCrbCRB_BLOCO: TStringField;
-    cdsCrbCRB_BAIXA: TSmallintField;
     dsCrb: TDataSource;
     cdsCpgCPG_JUROS: TBCDField;
     cdsCpgCPG_MULTA: TBCDField;
@@ -72,7 +70,6 @@ type
     dsConsCpg: TDataSource;
     dspConsCrb: TDataSetProvider;
     cdsConsCrb: TClientDataSet;
-    StringField5: TStringField;
     FloatField10: TFloatField;
     FloatField11: TFloatField;
     FloatField12: TFloatField;
@@ -85,7 +82,6 @@ type
     FloatField14: TFloatField;
     FloatField15: TFloatField;
     StringField6: TStringField;
-    SmallintField1: TSmallintField;
     dsConsCrb: TDataSource;
     qryREL: TIBQuery;
     cdsCpgCPG_USUARIOLANC: TIntegerField;
@@ -105,6 +101,14 @@ type
     cdsCpgUSUARIOLANC: TStringField;
     cdsCpgUSUARIOBAIXA: TStringField;
     cdsCpgSTATUSDESC: TStringField;
+    intgrfldCrbCRB_CONDOMINO: TIntegerField;
+    smlntfldCrbCRB_STATUS: TSmallintField;
+    intgrfldCrbCRB_USUARIOLANC: TIntegerField;
+    intgrfldCrbCRB_USUARIOBAIXA: TIntegerField;
+    intgrfldConsCrbCRB_CONDOMINO: TIntegerField;
+    smlntfldConsCrbCRB_STATUS: TSmallintField;
+    intgrfldConsCrbCRB_USUARIOLANC: TIntegerField;
+    intgrfldConsCrbCRB_USUARIOBAIXA: TIntegerField;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
@@ -128,7 +132,7 @@ type
     procedure cancelarParcelaCRB(recto:integer);
     procedure cancelarParcelaCPG(pgto:integer);
     procedure quitarParcelaCRB(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc,vlrjuros,vlrmulta:double);
-    function quitarParcelaCPG(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc,vlrjuros,vlrmulta:double):boolean;
+    function quitarParcelaCPG(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc:double):boolean;
   end;
 
 var
@@ -234,14 +238,12 @@ begin
 
 end;
 
-function TDTM_FINAN.quitarParcelaCPG(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc,vlrjuros,vlrmulta:double):boolean;
+function TDTM_FINAN.quitarParcelaCPG(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc:double):boolean;
 begin
   result:=False;
   DTMGeral.executarSQL(' UPDATE CAD_CPG SET CPG_TOTPGTO = '
                           +StringReplace(FloatToStr(vlrbaixa),',','.',[rfReplaceAll])+', '
                           +' CPG_DESCONTO = '  +StringReplace(FloatToStr(vLRdesc),',','.',[rfReplaceAll])+', '
-                          +' CPG_JUROS = '  +StringReplace(FloatToStr(vLRJUROS),',','.',[rfReplaceAll])+', '
-                          +' CPG_MULTA = '  +StringReplace(FloatToStr(vLRmulta),',','.',[rfReplaceAll])+', '
                           +' CPG_USUARIOBAIXA =  '+ IntToStr(DTMgeral.usuariocdg) + ', '
                           +' CPG_STATUS = 1 ,                                 '
                           +' CPG_DTPGTO = '''+ FormatDateTime('yyyy-MM-dd',dataBaixa)+''' '
@@ -283,6 +285,8 @@ end;
 procedure TDTM_FINAN.cdsCpgBeforePost(DataSet: TDataSet);
 begin
  calcularTotLiqCPG(cdsCpg);
+ if cdsCpgCPG_STATUS.Value = 1  then
+    raise exception.Create('Pagamento ja efetuado, não pode ser alterado.');
 end;
 
 end.
