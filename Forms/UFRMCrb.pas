@@ -38,8 +38,6 @@ type
     DBEdit12: TDBEdit;
     Label13: TLabel;
     DBEdit13: TDBEdit;
-    GroupBox1: TGroupBox;
-    DBCheckBox1: TDBCheckBox;
     Label14: TLabel;
     Label15: TLabel;
     tlb1: TToolBar;
@@ -51,15 +49,20 @@ type
     btnCancel: TToolButton;
     DBEdit14: TDBEdit;
     DBGrid1: TDBGrid;
-    Label24: TLabel;
-    edDtIni: TEdit;
-    Label25: TLabel;
-    edDtFim: TEdit;
+    GroupBox2: TGroupBox;
+    btnPesq: TBitBtn;
     edCondomino: TEdit;
+    Label25: TLabel;
     Label29: TLabel;
     lbCond: TDBComboBox;
     Label28: TLabel;
-    btnPesq: TBitBtn;
+    Label24: TLabel;
+    rgStatus: TRadioGroup;
+    GroupBox3: TGroupBox;
+    edCodigo: TEdit;
+    dtDtIni: TDateTimePicker;
+    dtDtFim: TDateTimePicker;
+    DBRadioGroup1: TDBRadioGroup;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnPriorClick(Sender: TObject);
     procedure btntbnextClick(Sender: TObject);
@@ -131,21 +134,12 @@ end;
 
 procedure TFRM_CRB.FiltrarReceitas;
  var Sql, Where, Condomino, Status : String;
-     DtIni, DtFim : String;
      Cond : Integer;
 begin
   Where := '';
   Condomino := '';
   Status := '';
-  DtIni := '';
-  DtFim := '';
   //Cond := '';
-
-  If (edDtIni.text <> '') then
-   DtIni := edDtIni.text;
-
-  If (edDtfim.text <> '') then
-   DtFim := edDtFim.text;
 
   If (edCondomino.Text <> '') then
    Condomino := edCondomino.Text;
@@ -153,14 +147,17 @@ begin
   IF (lbCond.itemindex <> 0) then
    Cond := lbCond.itemindex;
 
-  if (Trim(edDtIni.Text) <> '') then
-    Where := Where + #13 + ' AND  (CRB_DTVENC >= ' + QuotedStr(DtIni) + ')';
+    Where := Where + #13 + ' AND  CRB_DTVENC BETWEEN  ''' + FormatDateTime('yyyy-MM-dd',dtDtIni.datetime) + ''' '
+                           + '  AND  ''' + FormatDateTime('yyyy-MM-dd',dtDtFim.datetime) + '''  ';
 
-  if (Trim(edDtFim.Text) <> '') then
-    Where := Where + #13 + ' AND  (CRB_DTVENC <= ' + QuotedStr(DtFim) + ')';
+  if (rgStatus.ItemIndex > 0) then
+    Where := Where + #13 + ' AND (CRB_BAIXA = '+inttostr(rgStatus.ItemIndex-1)+')';
 
   if (Trim(edCondomino.Text) <> '') then
     Where := Where + #13 + ' AND (CRB_CONDOMINO LIKE ' + QuotedStr('%' + edCondomino.text + '%') + ')';
+
+  If (Trim(edCodigo.Text) <> '') then
+    Where := Where + #13 + ' AND CRB_CDG =' +edCodigo.text;
 
   SQL := (SQL_RECEBER);
 

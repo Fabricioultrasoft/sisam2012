@@ -89,10 +89,10 @@ type
     grp2: TGroupBox;
     edtcdg: TEdit;
     lbl7: TLabel;
-    DBEdit4: TDBEdit;
     lbl8: TLabel;
-    DBEdit10: TDBEdit;
     lbl9: TLabel;
+    DBEdit4: TDBEdit;
+    DBEdit10: TDBEdit;
 
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
