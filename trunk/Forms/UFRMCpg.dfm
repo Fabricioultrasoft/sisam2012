@@ -1,6 +1,6 @@
 object FRM_CPG: TFRM_CPG
-  Left = 321
-  Top = 287
+  Left = 137
+  Top = 138
   Width = 911
   Height = 479
   Caption = 'Contas a Pagar'
@@ -63,30 +63,20 @@ object FRM_CPG: TFRM_CPG
     Height = 13
     Caption = 'Data Inicial'
   end
-  object lbl7: TLabel
-    Left = 14
-    Top = 328
-    Width = 37
-    Height = 13
-    Caption = 'Contato'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
-    Font.Height = -11
-    Font.Name = 'MS Sans Serif'
-    Font.Style = []
-    ParentFont = False
-  end
   object pgControl: TPageControl
     Left = 0
     Top = 0
-    Width = 895
-    Height = 441
+    Width = 903
+    Height = 445
     ActivePage = PC_Cons
     Align = alClient
     TabOrder = 0
     OnChange = pgControlChange
     object PC_Contas: TTabSheet
       Caption = 'Contas'
+      DesignSize = (
+        895
+        417)
       object Label1: TLabel
         Left = 16
         Top = 122
@@ -296,34 +286,6 @@ object FRM_CPG: TFRM_CPG
         Font.Style = []
         ParentFont = False
       end
-      object lbl8: TLabel
-        Left = 14
-        Top = 304
-        Width = 63
-        Height = 13
-        Caption = 'Usuario Lan'#231
-        FocusControl = DBEdit7
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-      end
-      object lbl9: TLabel
-        Left = 151
-        Top = 304
-        Width = 65
-        Height = 13
-        Caption = 'Usuario Baixa'
-        FocusControl = DBEdit7
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-      end
       object DBEdit1: TDBEdit
         Left = 16
         Top = 135
@@ -436,7 +398,7 @@ object FRM_CPG: TFRM_CPG
         Left = 13
         Top = 184
         Width = 268
-        Height = 108
+        Height = 164
         AutoSize = False
         DataField = 'CPG_OBS'
         DataSource = DTM_FINAN.dsCpg
@@ -743,7 +705,7 @@ object FRM_CPG: TFRM_CPG
       end
       object AggTotal: TDBEdit
         Left = 292
-        Top = 319
+        Top = 320
         Width = 133
         Height = 21
         Color = clInfoBk
@@ -829,10 +791,11 @@ object FRM_CPG: TFRM_CPG
         end
       end
       object btncancelar: TBitBtn
-        Left = 293
-        Top = 350
+        Left = 463
+        Top = 354
         Width = 137
         Height = 54
+        Anchors = [akBottom]
         Caption = 'Cancelar Pgto'
         TabOrder = 16
         OnClick = btncancelarClick
@@ -895,10 +858,11 @@ object FRM_CPG: TFRM_CPG
           17AF1F1FAF000000000000000000000000000000000000000000}
       end
       object btn1: TBitBtn
-        Left = 439
-        Top = 349
+        Left = 675
+        Top = 354
         Width = 155
         Height = 54
+        Anchors = [akBottom]
         Caption = 'Quitar'
         TabOrder = 17
         OnClick = btn1Click
@@ -1153,36 +1117,6 @@ object FRM_CPG: TFRM_CPG
         NullValueKey = 46
         TabOrder = 19
       end
-      object DBEdit10: TDBEdit
-        Left = 150
-        Top = 318
-        Width = 128
-        Height = 21
-        DataField = 'USUARIOBAIXA'
-        DataSource = DTM_FINAN.dsCpg
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 20
-      end
-      object DBEdit4: TDBEdit
-        Left = 13
-        Top = 318
-        Width = 130
-        Height = 21
-        DataField = 'USUARIOLANC'
-        DataSource = DTM_FINAN.dsCpg
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 21
-      end
     end
     object PC_Cons: TTabSheet
       Caption = 'Consulta'
@@ -1190,8 +1124,8 @@ object FRM_CPG: TFRM_CPG
       object DBGrid1: TDBGrid
         Left = 0
         Top = 105
-        Width = 887
-        Height = 308
+        Width = 895
+        Height = 312
         Align = alClient
         DataSource = DTM_FINAN.dsConsCpg
         TabOrder = 0
@@ -1379,7 +1313,7 @@ object FRM_CPG: TFRM_CPG
       object grp1: TGroupBox
         Left = 0
         Top = 0
-        Width = 887
+        Width = 895
         Height = 105
         Align = alTop
         Caption = 'grp1'
@@ -1791,7 +1725,6 @@ object FRM_CPG: TFRM_CPG
             Width = 93
             Height = 21
             TabOrder = 0
-            OnKeyPress = edDescKeyPress
           end
         end
       end
