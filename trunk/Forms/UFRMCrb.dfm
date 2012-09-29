@@ -252,7 +252,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 0
+        TabOrder = 2
       end
       object DBEdit2: TDBEdit
         Left = 128
@@ -268,7 +268,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 1
+        TabOrder = 14
       end
       object DBEdit3: TDBEdit
         Left = 128
@@ -284,7 +284,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 2
+        TabOrder = 13
       end
       object DBEdit4: TDBEdit
         Left = 352
@@ -299,7 +299,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 3
+        TabOrder = 9
       end
       object DBEdit5: TDBEdit
         Left = 24
@@ -315,7 +315,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 4
+        TabOrder = 0
       end
       object DBEdit6: TDBEdit
         Left = 360
@@ -330,7 +330,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 5
+        TabOrder = 4
       end
       object DBEdit7: TDBEdit
         Left = 24
@@ -390,7 +390,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 9
+        TabOrder = 10
       end
       object DBEdit11: TDBEdit
         Left = 24
@@ -405,7 +405,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 10
+        TabOrder = 11
       end
       object DBEdit12: TDBEdit
         Left = 24
@@ -420,7 +420,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 11
+        TabOrder = 12
       end
       object DBEdit13: TDBEdit
         Left = 232
@@ -435,7 +435,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 12
+        TabOrder = 3
       end
       object tlb1: TToolBar
         Left = 256
@@ -448,7 +448,7 @@ object FRM_CRB: TFRM_CRB
         Caption = 'tlb1'
         HotImages = DTMGeral.ImgListlButtons
         Images = DTMGeral.ImgListlButtons
-        TabOrder = 13
+        TabOrder = 15
         object btnPrior: TToolButton
           Left = 0
           Top = 2
@@ -522,7 +522,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 14
+        TabOrder = 5
       end
       object DBRadioGroup1: TDBRadioGroup
         Left = 139
@@ -530,7 +530,7 @@ object FRM_CRB: TFRM_CRB
         Width = 82
         Height = 80
         Caption = 'Status'
-        DataField = 'CRB_BAIXA'
+        DataField = 'CRB_STATUS'
         DataSource = DTM_FINAN.dsCrb
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
@@ -542,7 +542,7 @@ object FRM_CRB: TFRM_CRB
           'Quitados'
           'Vencidos')
         ParentFont = False
-        TabOrder = 15
+        TabOrder = 1
       end
     end
     object PC_Consulta: TTabSheet
@@ -658,6 +658,7 @@ object FRM_CRB: TFRM_CRB
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -674,6 +675,7 @@ object FRM_CRB: TFRM_CRB
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -690,6 +692,7 @@ object FRM_CRB: TFRM_CRB
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item

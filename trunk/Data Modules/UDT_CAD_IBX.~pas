@@ -9,7 +9,6 @@ type
   TDTM_CAD_IBX = class(TDataModule)
     qryCaddvs: TIBQuery;
     qryEmpre: TIBQuery;
-    qryCaddvsFORN_CNPJ: TIBStringField;
     qryCaddvsFORN_CPFCNPJ: TIBStringField;
     qryCaddvsFORN_RAZAO: TIBStringField;
     qryCaddvsFORN_CEP: TIBStringField;
@@ -72,7 +71,6 @@ type
     qryCondCOND_SINDICO: TIntegerField;
     qryCondCOND_CDG: TIntegerField;
     qryCondCOND_EMAIL: TIBStringField;
-    qryCondCOND_FORNECEDOR: TIBStringField;
     qryCondCOND_INCORPORADORA: TIBStringField;
     qryCondCOND_INCORPCNPJ: TIBStringField;
     qryUser: TIBQuery;
@@ -198,6 +196,12 @@ type
     IntegerField27: TIntegerField;
     IntegerField28: TIntegerField;
     IntegerField29: TIntegerField;
+    qryUserUSUARIO_NOME: TIBStringField;
+    qryUserUSUARIO_LOGIN: TIBStringField;
+    qryUserUSUARIO_ATIVO: TIntegerField;
+    intgrfldCaddvsFORN_CDG: TIntegerField;
+    qryCondCOND_BLOCO: TIBStringField;
+    qryCondCOND_FORNECEDOR: TIntegerField;
   private
     { Private declarations }
   public

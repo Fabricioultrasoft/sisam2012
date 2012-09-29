@@ -24,7 +24,6 @@ type
     qryCpgCPG_OBS: TIBStringField;
     qryCpgCPG_CDG: TIntegerField;
     qryCrb: TIBQuery;
-    qryCrbCRB_CONDOMINO: TIBStringField;
     qryCrbCRB_TOT: TFloatField;
     qryCrbCRB_VLRCOND: TFloatField;
     qryCrbCRB_FRACAO: TFloatField;
@@ -37,7 +36,6 @@ type
     qryCrbCRB_MULTA: TFloatField;
     qryCrbCRB_RATEIO: TFloatField;
     qryCrbCRB_BLOCO: TIBStringField;
-    qryCrbCRB_BAIXA: TSmallintField;
     qryCpgCPG_JUROS: TIBBCDField;
     qryCpgCPG_MULTA: TIBBCDField;
     qryCpgCPG_DESCONTO: TIBBCDField;
@@ -65,7 +63,6 @@ type
     IBBCDField4: TIBBCDField;
     IntegerField2: TIntegerField;
     qryConsCrb: TIBQuery;
-    IBStringField5: TIBStringField;
     FloatField10: TFloatField;
     FloatField11: TFloatField;
     FloatField12: TFloatField;
@@ -78,7 +75,6 @@ type
     FloatField14: TFloatField;
     FloatField15: TFloatField;
     IBStringField6: TIBStringField;
-    SmallintField1: TSmallintField;
     qryConsCpgCPG_USUARIOLANC: TIntegerField;
     qryConsCpgCPG_USUARIOBAIXA: TIntegerField;
     qryCpgCPG_USUARIOLANC: TIntegerField;
@@ -97,6 +93,14 @@ type
     qryConsCpgUSUARIOBAIXA: TIBStringField;
     qryCpgSTATUSDESC: TIBStringField;
     qryConsCpgSTATUSDESC: TIBStringField;
+    intgrfldCrbCRB_CONDOMINO: TIntegerField;
+    smlntfldCrbCRB_STATUS: TSmallintField;
+    intgrfldCrbCRB_USUARIOLANC: TIntegerField;
+    intgrfldCrbCRB_USUARIOBAIXA: TIntegerField;
+    intgrfldConsCrbCRB_CONDOMINO: TIntegerField;
+    smlntfldConsCrbCRB_STATUS: TSmallintField;
+    intgrfldConsCrbCRB_USUARIOLANC: TIntegerField;
+    intgrfldConsCrbCRB_USUARIOBAIXA: TIntegerField;
   private
     { Private declarations }
   public

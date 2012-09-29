@@ -40,7 +40,7 @@ const
           '      LEFT JOIN CAD_USUARIO UB ON UB.USUARIO_CDG = CPG_USUARIOBAIXA ' +
           '    WHERE (1=1)   ';
 
-  SQL_RECEBER = 'SELECT  CRB_BAIXA,   CRB_BLOCO,   CRB_CDG,         CRB_CONDOMINO, ' + #13 +
+  SQL_RECEBER = 'SELECT  CRB_STATUS,   CRB_BLOCO,   CRB_CDG,         CRB_CONDOMINO, ' + #13 +
             '        CRB_DTPGTO,  CRB_DTVENC,  CRB_DTVENCORIG,  CRB_FRACAO,    ' + #13 +
             '        CRB_JUROS,   CRB_MULTA,   CRB_RATEIO,      CRB_TOT,       ' + #13 +
             '        CRB_UNIDADE, CRB_VLRCOND ' + #13 +

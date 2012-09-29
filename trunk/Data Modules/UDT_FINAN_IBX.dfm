@@ -7,6 +7,8 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
   object qryCpg: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select C.* ,'
       '                   CASE CPG_STATUS'
@@ -170,15 +172,12 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
   object qryCrb: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_CRB')
     Left = 104
     Top = 16
-    object qryCrbCRB_CONDOMINO: TIBStringField
-      FieldName = 'CRB_CONDOMINO'
-      Origin = '"CAD_CRB"."CRB_CONDOMINO"'
-      Size = 80
-    end
     object qryCrbCRB_TOT: TFloatField
       FieldName = 'CRB_TOT'
       Origin = '"CAD_CRB"."CRB_TOT"'
@@ -230,14 +229,29 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       Origin = '"CAD_CRB"."CRB_BLOCO"'
       Size = 8
     end
-    object qryCrbCRB_BAIXA: TSmallintField
-      FieldName = 'CRB_BAIXA'
-      Origin = '"CAD_CRB"."CRB_BAIXA"'
+    object intgrfldCrbCRB_CONDOMINO: TIntegerField
+      FieldName = 'CRB_CONDOMINO'
+      Origin = '"CAD_CRB"."CRB_CONDOMINO"'
+    end
+    object smlntfldCrbCRB_STATUS: TSmallintField
+      FieldName = 'CRB_STATUS'
+      Origin = '"CAD_CRB"."CRB_STATUS"'
+    end
+    object intgrfldCrbCRB_USUARIOLANC: TIntegerField
+      FieldName = 'CRB_USUARIOLANC'
+      Origin = '"CAD_CRB"."CRB_USUARIOLANC"'
+      Required = True
+    end
+    object intgrfldCrbCRB_USUARIOBAIXA: TIntegerField
+      FieldName = 'CRB_USUARIOBAIXA'
+      Origin = '"CAD_CRB"."CRB_USUARIOBAIXA"'
     end
   end
   object qryConsCpg: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select C.* ,'
       '                   CASE CPG_STATUS'
@@ -397,15 +411,12 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
   object qryConsCrb: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_CRB')
     Left = 104
     Top = 72
-    object IBStringField5: TIBStringField
-      FieldName = 'CRB_CONDOMINO'
-      Origin = '"CAD_CRB"."CRB_CONDOMINO"'
-      Size = 80
-    end
     object FloatField10: TFloatField
       FieldName = 'CRB_TOT'
       Origin = '"CAD_CRB"."CRB_TOT"'
@@ -457,9 +468,22 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       Origin = '"CAD_CRB"."CRB_BLOCO"'
       Size = 8
     end
-    object SmallintField1: TSmallintField
-      FieldName = 'CRB_BAIXA'
-      Origin = '"CAD_CRB"."CRB_BAIXA"'
+    object intgrfldConsCrbCRB_CONDOMINO: TIntegerField
+      FieldName = 'CRB_CONDOMINO'
+      Origin = '"CAD_CRB"."CRB_CONDOMINO"'
+    end
+    object smlntfldConsCrbCRB_STATUS: TSmallintField
+      FieldName = 'CRB_STATUS'
+      Origin = '"CAD_CRB"."CRB_STATUS"'
+    end
+    object intgrfldConsCrbCRB_USUARIOLANC: TIntegerField
+      FieldName = 'CRB_USUARIOLANC'
+      Origin = '"CAD_CRB"."CRB_USUARIOLANC"'
+      Required = True
+    end
+    object intgrfldConsCrbCRB_USUARIOBAIXA: TIntegerField
+      FieldName = 'CRB_USUARIOBAIXA'
+      Origin = '"CAD_CRB"."CRB_USUARIOBAIXA"'
     end
   end
 end

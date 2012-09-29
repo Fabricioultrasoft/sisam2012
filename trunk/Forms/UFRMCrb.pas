@@ -151,7 +151,7 @@ begin
                            + '  AND  ''' + FormatDateTime('yyyy-MM-dd',dtDtFim.datetime) + '''  ';
 
   if (rgStatus.ItemIndex > 0) then
-    Where := Where + #13 + ' AND (CRB_BAIXA = '+inttostr(rgStatus.ItemIndex-1)+')';
+    Where := Where + #13 + ' AND (CRB_STATUS = '+inttostr(rgStatus.ItemIndex-1)+')';
 
   if (Trim(edCondomino.Text) <> '') then
     Where := Where + #13 + ' AND (CRB_CONDOMINO LIKE ' + QuotedStr('%' + edCondomino.text + '%') + ')';

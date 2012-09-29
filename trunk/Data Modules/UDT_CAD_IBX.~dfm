@@ -1,24 +1,19 @@
 object DTM_CAD_IBX: TDTM_CAD_IBX
   OldCreateOrder = False
-  Left = 493
-  Top = 443
+  Left = 369
+  Top = 252
   Height = 483
   Width = 537
   object qryCaddvs: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select * '
       'from CAD_FORN')
     Left = 16
     Top = 24
-    object qryCaddvsFORN_CNPJ: TIBStringField
-      FieldName = 'FORN_CNPJ'
-      Origin = 'CAD_FORN.FORN_CNPJ'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-      Size = 14
-    end
     object qryCaddvsFORN_CPFCNPJ: TIBStringField
       FieldName = 'FORN_CPFCNPJ'
       Origin = 'CAD_FORN.FORN_CPFCNPJ'
@@ -168,10 +163,18 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       FieldName = 'FORN_TPINCORPORADORA'
       Origin = 'CAD_FORN.FORN_TPINCORPORADORA'
     end
+    object intgrfldCaddvsFORN_CDG: TIntegerField
+      FieldName = 'FORN_CDG'
+      Origin = '"CAD_FORN"."FORN_CDG"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
   end
   object qryEmpre: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       
         ' SELECT EMPRE_BAIRRO,   EMPRE_CDG,      EMPRE_CEP,      EMPRE_CI' +
@@ -274,6 +277,8 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryCond: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_COND')
     Left = 168
@@ -333,12 +338,6 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       Origin = '"CAD_COND"."COND_EMAIL"'
       Size = 60
     end
-    object qryCondCOND_FORNECEDOR: TIBStringField
-      FieldName = 'COND_FORNECEDOR'
-      Origin = '"CAD_COND"."COND_FORNECEDOR"'
-      Required = True
-      Size = 14
-    end
     object qryCondCOND_INCORPORADORA: TIBStringField
       FieldName = 'COND_INCORPORADORA'
       Origin = '"CAD_COND"."COND_INCORPORADORA"'
@@ -349,10 +348,21 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       Origin = '"CAD_COND"."COND_INCORPCNPJ"'
       Size = 14
     end
+    object qryCondCOND_BLOCO: TIBStringField
+      FieldName = 'COND_BLOCO'
+      Origin = '"CAD_COND"."COND_BLOCO"'
+      Size = 8
+    end
+    object qryCondCOND_FORNECEDOR: TIntegerField
+      FieldName = 'COND_FORNECEDOR'
+      Origin = '"CAD_COND"."COND_FORNECEDOR"'
+    end
   end
   object qryUser: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_USUARIO')
     Left = 224
@@ -373,10 +383,26 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       Origin = '"CAD_USUARIO"."USUARIO_SENHA"'
       Size = 50
     end
+    object qryUserUSUARIO_NOME: TIBStringField
+      FieldName = 'USUARIO_NOME'
+      Origin = '"CAD_USUARIO"."USUARIO_NOME"'
+      Size = 100
+    end
+    object qryUserUSUARIO_LOGIN: TIBStringField
+      FieldName = 'USUARIO_LOGIN'
+      Origin = '"CAD_USUARIO"."USUARIO_LOGIN"'
+      Size = 100
+    end
+    object qryUserUSUARIO_ATIVO: TIntegerField
+      FieldName = 'USUARIO_ATIVO'
+      Origin = '"CAD_USUARIO"."USUARIO_ATIVO"'
+    end
   end
   object qryConsCaddvs: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select * '
       'from CAD_FORN')
@@ -542,6 +568,8 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryConsEmpre: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       
         ' SELECT EMPRE_BAIRRO,   EMPRE_CDG,      EMPRE_CEP,      EMPRE_CI' +
@@ -644,6 +672,8 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryConsCond: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_COND')
     Left = 168
@@ -723,6 +753,8 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryLkpCond: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_COND')
     Left = 168
@@ -802,6 +834,8 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryLkpcaddvs: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select * '
       'from CAD_FORN')

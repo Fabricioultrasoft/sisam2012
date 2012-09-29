@@ -1,7 +1,7 @@
 object DTM_FINAN: TDTM_FINAN
   OldCreateOrder = False
-  Left = 595
-  Top = 254
+  Left = 475
+  Top = 216
   Height = 476
   Width = 564
   object cdsCpg: TClientDataSet
@@ -281,10 +281,12 @@ object DTM_FINAN: TDTM_FINAN
     end
     object cdsCpgUSUARIOLANC: TStringField
       FieldName = 'USUARIOLANC'
+      ReadOnly = True
       Size = 100
     end
     object cdsCpgUSUARIOBAIXA: TStringField
       FieldName = 'USUARIOBAIXA'
+      ReadOnly = True
       Size = 100
     end
     object cdsCpgSTATUSDESC: TStringField
@@ -322,11 +324,6 @@ object DTM_FINAN: TDTM_FINAN
     AfterApplyUpdates = gerAfterApplyUpdates
     Left = 144
     Top = 80
-    object cdsCrbCRB_CONDOMINO: TStringField
-      FieldName = 'CRB_CONDOMINO'
-      Origin = '"CAD_CRB"."CRB_CONDOMINO"'
-      Size = 80
-    end
     object cdsCrbCRB_TOT: TFloatField
       FieldName = 'CRB_TOT'
       Origin = '"CAD_CRB"."CRB_TOT"'
@@ -378,9 +375,22 @@ object DTM_FINAN: TDTM_FINAN
       Origin = '"CAD_CRB"."CRB_BLOCO"'
       Size = 8
     end
-    object cdsCrbCRB_BAIXA: TSmallintField
-      FieldName = 'CRB_BAIXA'
-      Origin = '"CAD_CRB"."CRB_BAIXA"'
+    object intgrfldCrbCRB_CONDOMINO: TIntegerField
+      FieldName = 'CRB_CONDOMINO'
+      Origin = '"CAD_CRB"."CRB_CONDOMINO"'
+    end
+    object smlntfldCrbCRB_STATUS: TSmallintField
+      FieldName = 'CRB_STATUS'
+      Origin = '"CAD_CRB"."CRB_STATUS"'
+    end
+    object intgrfldCrbCRB_USUARIOLANC: TIntegerField
+      FieldName = 'CRB_USUARIOLANC'
+      Origin = '"CAD_CRB"."CRB_USUARIOLANC"'
+      Required = True
+    end
+    object intgrfldCrbCRB_USUARIOBAIXA: TIntegerField
+      FieldName = 'CRB_USUARIOBAIXA'
+      Origin = '"CAD_CRB"."CRB_USUARIOBAIXA"'
     end
   end
   object dsCrb: TDataSource
@@ -712,11 +722,6 @@ object DTM_FINAN: TDTM_FINAN
     AfterApplyUpdates = gerAfterApplyUpdates
     Left = 144
     Top = 288
-    object StringField5: TStringField
-      FieldName = 'CRB_CONDOMINO'
-      Origin = '"CAD_CRB"."CRB_CONDOMINO"'
-      Size = 80
-    end
     object FloatField10: TFloatField
       FieldName = 'CRB_TOT'
       Origin = '"CAD_CRB"."CRB_TOT"'
@@ -768,9 +773,22 @@ object DTM_FINAN: TDTM_FINAN
       Origin = '"CAD_CRB"."CRB_BLOCO"'
       Size = 8
     end
-    object SmallintField1: TSmallintField
-      FieldName = 'CRB_BAIXA'
-      Origin = '"CAD_CRB"."CRB_BAIXA"'
+    object intgrfldConsCrbCRB_CONDOMINO: TIntegerField
+      FieldName = 'CRB_CONDOMINO'
+      Origin = '"CAD_CRB"."CRB_CONDOMINO"'
+    end
+    object smlntfldConsCrbCRB_STATUS: TSmallintField
+      FieldName = 'CRB_STATUS'
+      Origin = '"CAD_CRB"."CRB_STATUS"'
+    end
+    object intgrfldConsCrbCRB_USUARIOLANC: TIntegerField
+      FieldName = 'CRB_USUARIOLANC'
+      Origin = '"CAD_CRB"."CRB_USUARIOLANC"'
+      Required = True
+    end
+    object intgrfldConsCrbCRB_USUARIOBAIXA: TIntegerField
+      FieldName = 'CRB_USUARIOBAIXA'
+      Origin = '"CAD_CRB"."CRB_USUARIOBAIXA"'
     end
   end
   object dsConsCrb: TDataSource
@@ -781,6 +799,8 @@ object DTM_FINAN: TDTM_FINAN
   object qryREL: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_CPG')
     Left = 232

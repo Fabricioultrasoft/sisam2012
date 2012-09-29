@@ -9,7 +9,6 @@ type
   TDTM_CAD_IBX = class(TDataModule)
     qryCaddvs: TIBQuery;
     qryEmpre: TIBQuery;
-    qryCaddvsFORN_CNPJ: TIBStringField;
     qryCaddvsFORN_CPFCNPJ: TIBStringField;
     qryCaddvsFORN_RAZAO: TIBStringField;
     qryCaddvsFORN_CEP: TIBStringField;
@@ -72,7 +71,6 @@ type
     qryCondCOND_SINDICO: TIntegerField;
     qryCondCOND_CDG: TIntegerField;
     qryCondCOND_EMAIL: TIBStringField;
-    qryCondCOND_FORNECEDOR: TIBStringField;
     qryCondCOND_INCORPORADORA: TIBStringField;
     qryCondCOND_INCORPCNPJ: TIBStringField;
     qryUser: TIBQuery;
@@ -80,7 +78,6 @@ type
     qryUserUSUARIO_DESC: TIBStringField;
     qryUserUSUARIO_SENHA: TIBStringField;
     qryConsCaddvs: TIBQuery;
-    IBStringField1: TIBStringField;
     IBStringField2: TIBStringField;
     IBStringField3: TIBStringField;
     IBStringField4: TIBStringField;
@@ -144,7 +141,6 @@ type
     IntegerField14: TIntegerField;
     IntegerField15: TIntegerField;
     IBStringField38: TIBStringField;
-    IBStringField39: TIBStringField;
     IBStringField40: TIBStringField;
     IBStringField41: TIBStringField;
     qryLkpCond: TIBQuery;
@@ -160,11 +156,9 @@ type
     IntegerField21: TIntegerField;
     IntegerField22: TIntegerField;
     IBStringField46: TIBStringField;
-    IBStringField47: TIBStringField;
     IBStringField48: TIBStringField;
     IBStringField49: TIBStringField;
     qryLkpcaddvs: TIBQuery;
-    IBStringField50: TIBStringField;
     IBStringField51: TIBStringField;
     IBStringField52: TIBStringField;
     IBStringField53: TIBStringField;
@@ -201,6 +195,15 @@ type
     qryUserUSUARIO_NOME: TIBStringField;
     qryUserUSUARIO_LOGIN: TIBStringField;
     qryUserUSUARIO_ATIVO: TIntegerField;
+    intgrfldCaddvsFORN_CDG: TIntegerField;
+    qryCondCOND_BLOCO: TIBStringField;
+    qryCondCOND_FORNECEDOR: TIntegerField;
+    intgrfldLkpcaddvsFORN_CDG: TIntegerField;
+    intgrfldConsCaddvsFORN_CDG: TIntegerField;
+    qryConsCondCOND_BLOCO: TIBStringField;
+    qryConsCondCOND_FORNECEDOR: TIntegerField;
+    qryLkpCondCOND_BLOCO: TIBStringField;
+    qryLkpCondCOND_FORNECEDOR: TIntegerField;
   private
     { Private declarations }
   public

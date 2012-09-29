@@ -38,8 +38,6 @@ type
     DBEdit12: TDBEdit;
     Label13: TLabel;
     DBEdit13: TDBEdit;
-    GroupBox1: TGroupBox;
-    DBCheckBox1: TDBCheckBox;
     Label14: TLabel;
     Label15: TLabel;
     tlb1: TToolBar;
@@ -64,6 +62,7 @@ type
     edCodigo: TEdit;
     dtDtIni: TDateTimePicker;
     dtDtFim: TDateTimePicker;
+    DBRadioGroup1: TDBRadioGroup;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnPriorClick(Sender: TObject);
     procedure btntbnextClick(Sender: TObject);
