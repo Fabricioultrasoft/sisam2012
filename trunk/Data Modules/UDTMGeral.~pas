@@ -3,7 +3,7 @@ unit UDTMGeral;
 interface
 
 uses
-  SysUtils, Classes, IBDatabase, DB, DBClient, DBLocal, ufuncoes,
+  SysUtils, Classes, IBDatabase, DB, DBClient, DBLocal, ufuncoes, ComCtrls,
   IBCustomDataSet, IBUpdateSQL, Provider, IBQuery, ImgList, Controls;
 
 type
@@ -25,6 +25,7 @@ type
     usuarioNome,senha:string;
     usuariocdg:Integer;
     procedure executarSQL(Sql: string);
+    procedure DSstateChange(var ds:TDataSource;var Tb:Ttoolbar);
   end;
 
 var
@@ -96,6 +97,15 @@ end;
 procedure TDTMGeral.cdsGeralAfterDelete(DataSet: TDataSet);
 begin
   cdsGeral.ApplyUpdates(-1);
+end;
+
+procedure TDTMGeral.DSstateChange(var ds: TDataSource;var Tb:Ttoolbar);
+begin
+ // ativar botoes do navigator qndo estiver em edição
+    tb.Buttons[3].Enabled:= (ds.State in [dsBrowse]) ; //salvar
+    tb.Buttons[4].enabled:= (ds.State in [dsinsert,dsedit]) ; //salvar
+    tb.Buttons[5].enabled:=(ds.State in [dsinsert,dsedit]) ; //cancelar
+
 end;
 
 end.

@@ -95,6 +95,8 @@ type
     qryCpgUSUARIOBAIXA: TIBStringField;
     qryConsCpgUSUARIOLANC: TIBStringField;
     qryConsCpgUSUARIOBAIXA: TIBStringField;
+    qryCpgSTATUSDESC: TIBStringField;
+    qryConsCpgSTATUSDESC: TIBStringField;
   private
     { Private declarations }
   public

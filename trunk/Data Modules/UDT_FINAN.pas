@@ -102,6 +102,9 @@ type
     cdsConsCpgUSUARIOLANC: TStringField;
     cdsConsCpgUSUARIOBAIXA: TStringField;
     cdsConsCpgSTATUSDESC: TStringField;
+    cdsCpgUSUARIOLANC: TStringField;
+    cdsCpgUSUARIOBAIXA: TStringField;
+    cdsCpgSTATUSDESC: TStringField;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
@@ -125,7 +128,7 @@ type
     procedure cancelarParcelaCRB(recto:integer);
     procedure cancelarParcelaCPG(pgto:integer);
     procedure quitarParcelaCRB(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc,vlrjuros,vlrmulta:double);
-    function quitarParcelaCPG(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc,vlrjuros,vlrmulta:double):boolean;
+    function quitarParcelaCPG(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc:double):boolean;
   end;
 
 var
@@ -231,16 +234,15 @@ begin
 
 end;
 
-function TDTM_FINAN.quitarParcelaCPG(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc,vlrjuros,vlrmulta:double):boolean;
+function TDTM_FINAN.quitarParcelaCPG(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc:double):boolean;
 begin
   result:=False;
   DTMGeral.executarSQL(' UPDATE CAD_CPG SET CPG_TOTPGTO = '
                           +StringReplace(FloatToStr(vlrbaixa),',','.',[rfReplaceAll])+', '
                           +' CPG_DESCONTO = '  +StringReplace(FloatToStr(vLRdesc),',','.',[rfReplaceAll])+', '
-                          +' CPG_JUROS = '  +StringReplace(FloatToStr(vLRJUROS),',','.',[rfReplaceAll])+', '
-                          +' CPG_MULTA = '  +StringReplace(FloatToStr(vLRmulta),',','.',[rfReplaceAll])+', '
                           +' CPG_USUARIOBAIXA =  '+ IntToStr(DTMgeral.usuariocdg) + ', '
-                          +' CPG_STATUS = 1                                  '
+                          +' CPG_STATUS = 1 ,                                 '
+                          +' CPG_DTPGTO = '''+ FormatDateTime('yyyy-MM-dd',dataBaixa)+''' '
                           +'   WHERE CPG_CDG = '+ IntToStr(pgto) );
 
   result:=true;
@@ -260,7 +262,7 @@ procedure TDTM_FINAN.calcularTotLiqCPG(var cds:tclientdataset);
 begin
   with cds do
   begin
-    FieldByName('CPG_TOTLIQ').AsFloat:= FieldByName('CPG_TOTLIQ').AsFloat
+    FieldByName('CPG_TOTLIQ').AsFloat:= FieldByName('CPG_TOTBRUTO').AsFloat
       + FieldByName('CPG_JUROS').AsFloat
       + FieldByName('CPG_MULTA').AsFloat
       + FieldByName('CPG_ACRESCIMO').AsFloat
@@ -279,6 +281,8 @@ end;
 procedure TDTM_FINAN.cdsCpgBeforePost(DataSet: TDataSet);
 begin
  calcularTotLiqCPG(cdsCpg);
+ if cdsCpgCPG_STATUS.Value = 1  then
+    raise exception.Create('Pagamento ja efetuado, não pode ser alterado.');
 end;
 
 end.

@@ -18,7 +18,7 @@ object FRMcpgQuitacao: TFRMcpgQuitacao
   PixelsPerInch = 96
   TextHeight = 13
   object lbl1: TLabel
-    Left = 232
+    Left = 230
     Top = 56
     Width = 89
     Height = 13
@@ -127,7 +127,7 @@ object FRMcpgQuitacao: TFRMcpgQuitacao
     Width = 135
     Height = 31
     Anchors = [akBottom]
-    Caption = 'Cancelar'
+    Caption = 'Voltar'
     TabOrder = 0
     OnClick = btnCancelarClick
     Glyph.Data = {
@@ -167,27 +167,27 @@ object FRMcpgQuitacao: TFRMcpgQuitacao
     OnExit = edtvalorExit
   end
   object dtprecto: TDateTimePicker
-    Left = 232
+    Left = 229
     Top = 71
-    Width = 90
+    Width = 93
     Height = 21
     Date = 41177.903434178240000000
     Time = 41177.903434178240000000
-    TabOrder = 2
+    TabOrder = 4
   end
   object edtjuros: TEdit
     Left = 123
     Top = 23
     Width = 97
     Height = 21
-    TabOrder = 3
+    TabOrder = 2
   end
   object edtmulta: TEdit
     Left = 227
     Top = 23
     Width = 97
     Height = 21
-    TabOrder = 4
+    TabOrder = 3
   end
   object btnquitar: TBitBtn
     Left = 221

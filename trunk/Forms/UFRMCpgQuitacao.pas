@@ -12,15 +12,11 @@ type
     lbl2: TLabel;
     lbldesc: TLabel;
     lbldescvalor: TLabel;
-    lbl3: TLabel;
-    lbl4: TLabel;
     lbl5: TLabel;
     lblapagar: TLabel;
     btnCancelar: TBitBtn;
     edtvalor: TEdit;
     dtprecto: TDateTimePicker;
-    edtjuros: TEdit;
-    edtmulta: TEdit;
     btnquitar: TBitBtn;
    procedure FormShow(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
@@ -71,9 +67,11 @@ begin
 verificarcampos;
 calcularDesc;
 if dtm_finan.quitarParcelaCPG(pgto,dtprecto.DateTime,StrToFloat(edtvalor.text),
-                        vlrdesc,StrToFloat(edtjuros.text),StrToFloat(edtmulta.text)) then
+                        vlrdesc) then
 begin
   ShowMessage('Pagamento Efetuado.');
+  if DTM_FINAN.cdsCpg.Active then
+    DTM_FINAN.cdsCpg.Refresh;
   close;
 end;
 
@@ -83,12 +81,6 @@ procedure TFRMcpgquitacao.verificarcampos;
 begin
     if StrToFloatdef(edtvalor.text,-1) = -1 then
        Raise Exception.Create('Coloque um valor válido para o pagamento');
-
-    if StrToFloatdef(edtjuros.text,-1) = -1 then
-       Raise Exception.Create('Coloque um valor válido para o Juros');
-
-    if StrToFloatdef(edtmulta.text,-1) = -1 then
-       Raise Exception.Create('Coloque um valor válido para a Multa');
 end;
 
 procedure TFRMcpgquitacao.setVlrapagar(vlr: double);
@@ -99,7 +91,9 @@ end;
 procedure TFRMcpgquitacao.calcularDesc;
 begin
 vlrdesc:= vlrapagar - (StrToFloatdef(edtvalor.Text,0));
-lbldescvalor.Caption := FormatFloat('#,##0.00', vlrdesc);
+lbldescvalor.Caption := FormatFloat('###0.00', vlrdesc);
+
+
 end;
 
 procedure TFRMcpgquitacao.setPgto(pgtocdg: integer);
@@ -109,11 +103,10 @@ end;
 
 procedure TFRMcpgQuitacao.FormShow(Sender: TObject);
 begin
-edtvalor.Text:=FormatFloat('#,##0.00',vlrapagar);
-lblapagar.Caption:=FormatFloat('#,##0.00',vlrapagar);
+edtvalor.Text:=FormatFloat('###0.00',vlrapagar);
+lblapagar.Caption:=FormatFloat('###0.00',vlrapagar);
 edtvalor.SetFocus;
-edtmulta.text:='0,00';
-edtjuros.text:='0,00';
+
 end;
 
 
@@ -128,12 +121,13 @@ end;
 procedure TFRMcpgQuitacao.btnquitarClick(Sender: TObject);
 begin
 quitar;
+
 end;
 
 procedure TFRMcpgQuitacao.edtvalorExit(Sender: TObject);
 begin
 if  StrToFloatdef(edtvalor.Text,-1) <> -1  then
-  edtvalor.Text:= FormatFloat('#,##0.00',strtofloat(edtvalor.TexT));
+  edtvalor.Text:= FormatFloat('###0.00',strtofloat(edtvalor.TexT));
 
 calcularDesc;
 end;

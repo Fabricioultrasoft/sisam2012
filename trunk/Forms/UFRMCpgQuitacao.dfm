@@ -18,8 +18,8 @@ object FRMcpgQuitacao: TFRMcpgQuitacao
   PixelsPerInch = 96
   TextHeight = 13
   object lbl1: TLabel
-    Left = 230
-    Top = 56
+    Left = 126
+    Top = 8
     Width = 89
     Height = 13
     Caption = 'Data Recebimento'
@@ -44,7 +44,7 @@ object FRMcpgQuitacao: TFRMcpgQuitacao
     ParentFont = False
   end
   object lbldesc: TLabel
-    Left = 111
+    Left = 127
     Top = 60
     Width = 51
     Height = 13
@@ -57,37 +57,11 @@ object FRMcpgQuitacao: TFRMcpgQuitacao
     ParentFont = False
   end
   object lbldescvalor: TLabel
-    Left = 113
+    Left = 129
     Top = 77
     Width = 21
     Height = 13
     Caption = '0,00'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
-    Font.Height = -11
-    Font.Name = 'MS Sans Serif'
-    Font.Style = []
-    ParentFont = False
-  end
-  object lbl3: TLabel
-    Left = 123
-    Top = 9
-    Width = 25
-    Height = 13
-    Caption = 'Juros'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
-    Font.Height = -11
-    Font.Name = 'MS Sans Serif'
-    Font.Style = []
-    ParentFont = False
-  end
-  object lbl4: TLabel
-    Left = 227
-    Top = 9
-    Width = 26
-    Height = 13
-    Caption = 'Multa'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clNavy
     Font.Height = -11
@@ -167,27 +141,13 @@ object FRMcpgQuitacao: TFRMcpgQuitacao
     OnExit = edtvalorExit
   end
   object dtprecto: TDateTimePicker
-    Left = 229
-    Top = 71
+    Left = 125
+    Top = 23
     Width = 93
     Height = 21
     Date = 41177.903434178240000000
     Time = 41177.903434178240000000
-    TabOrder = 4
-  end
-  object edtjuros: TEdit
-    Left = 123
-    Top = 23
-    Width = 97
-    Height = 21
     TabOrder = 2
-  end
-  object edtmulta: TEdit
-    Left = 227
-    Top = 23
-    Width = 97
-    Height = 21
-    TabOrder = 3
   end
   object btnquitar: TBitBtn
     Left = 221
@@ -196,7 +156,7 @@ object FRMcpgQuitacao: TFRMcpgQuitacao
     Height = 31
     Anchors = [akBottom]
     Caption = 'Efetuar Pagamento'
-    TabOrder = 5
+    TabOrder = 3
     OnClick = btnquitarClick
     Glyph.Data = {
       36030000424D3603000000000000360000002800000010000000100000000100

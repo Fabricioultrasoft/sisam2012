@@ -88,6 +88,11 @@ type
     lbl6: TLabel;
     grp2: TGroupBox;
     edtcdg: TEdit;
+    lbl7: TLabel;
+    DBEdit4: TDBEdit;
+    lbl8: TLabel;
+    DBEdit10: TDBEdit;
+    lbl9: TLabel;
 
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -108,6 +113,10 @@ type
     procedure CBcondKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure dtpDTiniKeyPress(Sender: TObject; var Key: Char);
+    procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure DBGrid1DrawDataCell(Sender: TObject; const Rect: TRect;
+      Field: TField; State: TGridDrawState);
   private
     procedure FiltrarContas;
   public
@@ -302,6 +311,44 @@ begin
 IF KEY = #13  then
    btnPesqClick(self);
 
+end;
+
+procedure TFRM_CPG.DBGrid1DrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumn;
+  State: TGridDrawState);
+begin
+
+if (sender as Tdbgrid).DataSource.DataSet.FieldByName('CPG_STATUS').AsINTEGER = 0 THEN
+begin //em aberto
+  DBGrid1.Canvas.Font.Color := clGREEN  ;
+//  DBGrid1.Canvas.Font.Style := [FSBOLD] ;
+
+end
+else
+if (sender as Tdbgrid).DataSource.DataSet.FieldByName('CPG_STATUS').AsINTEGER = 1 THEN
+begin //pago
+  DBGrid1.Canvas.Font.Color := clBlue  ;
+end;
+if (sender as Tdbgrid).DataSource.DataSet.FieldByName('CPG_STATUS').AsINTEGER = 2 THEN
+begin //cancelado
+  DBGrid1.Canvas.Font.Color := clGray;
+end;
+
+  DBGrid1.Canvas.FillRect(Rect);
+  DBGrid1.DefaultDrawColumnCell(Rect, DataCol, Column, State);
+end;
+
+procedure TFRM_CPG.DBGrid1DrawDataCell(Sender: TObject; const Rect: TRect;
+  Field: TField; State: TGridDrawState);
+begin
+  if Field.FieldName = 'CPG_STATUS' THEN
+    IF Field.Value = 0 then
+    begin
+//      DBGrid1.Canvas.Brush.Color :=  clgreen;
+      DBGrid1.Canvas.Font.Color :=  clgreen;
+      DBGrid1.DefaultDrawDataCell(Rect, dbGrid1.columns[6].field, State);
+      self.Canvas.FillRect(Rect);
+    end
 end;
 
 end.

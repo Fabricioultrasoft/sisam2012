@@ -137,9 +137,9 @@ end;
 
 procedure TFRM_CADDVS.dtsCadStateChange(Sender: TObject);
 begin
-  // adivar botoes do navigator qndo estiver em edição
-   btnOk.enabled:= (dtsCad.State in [dsinsert,dsedit]) ;
-   btnCancel.enabled:=(dtsCad.State in [dsinsert,dsedit]) ;
+  // ativar botoes do navigator qndo estiver em edição
+  dtmgeral.DSstateChange(dtscad,tlb1);
+
 end;
 
 procedure TFRM_CADDVS.btnPriorClick(Sender: TObject);

@@ -168,7 +168,7 @@ object FRM_EMPRE: TFRM_EMPRE
     Top = 0
     Width = 915
     Height = 490
-    ActivePage = TabSheet2
+    ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0
     object TabSheet1: TTabSheet
@@ -176,7 +176,7 @@ object FRM_EMPRE: TFRM_EMPRE
       DesignSize = (
         907
         462)
-      object ToolBar1: TToolBar
+      object tlb1: TToolBar
         Left = 16
         Top = 209
         Width = 155
@@ -184,7 +184,7 @@ object FRM_EMPRE: TFRM_EMPRE
         Align = alNone
         ButtonHeight = 23
         ButtonWidth = 25
-        Caption = 'ToolBar1'
+        Caption = 'tlb1'
         HotImages = DTMGeral.ImgListlButtons
         Images = DTMGeral.ImgListlButtons
         TabOrder = 0
