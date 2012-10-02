@@ -13,7 +13,6 @@ type
     PC_Receitas: TTabSheet;
     PC_Consulta: TTabSheet;
     Label1: TLabel;
-    DBEdit1: TDBEdit;
     Label2: TLabel;
     DBEdit2: TDBEdit;
     Label3: TLabel;
@@ -51,10 +50,8 @@ type
     DBGrid1: TDBGrid;
     GroupBox2: TGroupBox;
     btnPesq: TBitBtn;
-    edCondomino: TEdit;
     Label25: TLabel;
     Label29: TLabel;
-    lbCond: TDBComboBox;
     Label28: TLabel;
     Label24: TLabel;
     rgStatus: TRadioGroup;
@@ -63,6 +60,9 @@ type
     dtDtIni: TDateTimePicker;
     dtDtFim: TDateTimePicker;
     DBRadioGroup1: TDBRadioGroup;
+    lkpCond: TDBLookupComboBox;
+    lkpForn: TDBLookupComboBox;
+    dblkpCond: TDBLookupComboBox;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnPriorClick(Sender: TObject);
     procedure btntbnextClick(Sender: TObject);
@@ -74,6 +74,17 @@ type
     procedure edCondominoKeyPress(Sender: TObject; var Key: Char);
     procedure btnPesqClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure DBGrid1DrawDataCell(Sender: TObject; const Rect: TRect;
+      Field: TField; State: TGridDrawState);
+    procedure lkpCondKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure lkpCondKeyPress(Sender: TObject; var Key: Char);
+    procedure dblkpCondKeyPress(Sender: TObject; var Key: Char);
+    procedure dblkpCondKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure FormShow(Sender: TObject);
   private
     procedure FiltrarReceitas;
   public
@@ -85,7 +96,7 @@ var
 
 implementation
 
-uses UDT_FINAN;
+uses UDT_FINAN, UFRMMenu, UDTMGeral, UDT_CAD;
 
 {$R *.dfm}
 
@@ -141,11 +152,11 @@ begin
   Status := '';
   //Cond := '';
 
-  If (edCondomino.Text <> '') then
-   Condomino := edCondomino.Text;
+  {If (edCondomino.Text <> '') then
+   Condomino := edCondomino.Text;}
 
-  IF (lbCond.itemindex <> 0) then
-   Cond := lbCond.itemindex;
+  {IF (lbCond.itemindex <> 0) then
+   Cond := lbCond.itemindex;}
 
     Where := Where + #13 + ' AND  CRB_DTVENC BETWEEN  ''' + FormatDateTime('yyyy-MM-dd',dtDtIni.datetime) + ''' '
                            + '  AND  ''' + FormatDateTime('yyyy-MM-dd',dtDtFim.datetime) + '''  ';
@@ -153,8 +164,8 @@ begin
   if (rgStatus.ItemIndex > 0) then
     Where := Where + #13 + ' AND (CRB_STATUS = '+inttostr(rgStatus.ItemIndex-1)+')';
 
-  if (Trim(edCondomino.Text) <> '') then
-    Where := Where + #13 + ' AND (CRB_CONDOMINO LIKE ' + QuotedStr('%' + edCondomino.text + '%') + ')';
+  if not (Varisnull(lkpCond.KeyValue)) then
+    Where := Where + #13 + ' AND (CRB_CONDOMINIO =  + inttostr(' + lkpCond.keyvalue + ')';
 
   If (Trim(edCodigo.Text) <> '') then
     Where := Where + #13 + ' AND CRB_CDG =' +edCodigo.text;
@@ -181,8 +192,82 @@ end;
 procedure TFRM_CRB.DBGrid1DblClick(Sender: TObject);
 begin
  //abrir cadastro do registro selecionado
-  IF DTM_FINAN.cdsCrb.Locate('CRB_CDG',DTM_FINAN.cdsConsCrb.fieldbyname('Crb_CDG').AsInteger,[loPartialKey]) THEN
+  IF DTM_FINAN.cdsCrb.Locate('CRB_CDG',DTM_FINAN.cdsConsCrb.fieldbyname('CRB_CDG').AsInteger,[loPartialKey]) THEN
     pcControl.ActivePageIndex:=0;
+end;
+
+procedure TFRM_CRB.DBGrid1DrawColumnCell(Sender: TObject;
+  const Rect: TRect; DataCol: Integer; Column: TColumn;
+  State: TGridDrawState);
+begin
+
+if (sender as Tdbgrid).DataSource.DataSet.FieldByName('CRB_STATUS').AsINTEGER = 0 THEN
+begin //em aberto
+  DBGrid1.Canvas.Font.Color := clGREEN  ;
+//  DBGrid1.Canvas.Font.Style := [FSBOLD] ;
+
+end
+else
+if (sender as Tdbgrid).DataSource.DataSet.FieldByName('CRB_STATUS').AsINTEGER = 1 THEN
+begin //pago
+  DBGrid1.Canvas.Font.Color := clBlue  ;
+end;
+if (sender as Tdbgrid).DataSource.DataSet.FieldByName('CRB_STATUS').AsINTEGER = 2 THEN
+begin //cancelado
+  DBGrid1.Canvas.Font.Color := clGray;
+end;
+
+  DBGrid1.Canvas.FillRect(Rect);
+  DBGrid1.DefaultDrawColumnCell(Rect, DataCol, Column, State);
+end;
+
+procedure TFRM_CRB.DBGrid1DrawDataCell(Sender: TObject; const Rect: TRect;
+  Field: TField; State: TGridDrawState);
+begin
+  if Field.FieldName = 'CRB_STATUS' THEN
+    IF Field.Value = 0 then
+    begin
+//      DBGrid1.Canvas.Brush.Color :=  clgreen;
+      DBGrid1.Canvas.Font.Color :=  clgreen;
+      DBGrid1.DefaultDrawDataCell(Rect, dbGrid1.columns[6].field, State);
+      self.Canvas.FillRect(Rect);
+    end
+end;
+
+procedure TFRM_CRB.lkpCondKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+//necessario pq propriedade nullkeyvalue do dblookupcombobox nao funciona , bug do delph 
+if Key = vk_escape then
+    lkpCond.KeyValue := null;
+end;
+
+procedure TFRM_CRB.lkpCondKeyPress(Sender: TObject; var Key: Char);
+begin
+IF KEY = #13  then
+   btnPesqClick(self);
+end;
+
+procedure TFRM_CRB.dblkpCondKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+IF KEY = #13  then
+   btnPesqClick(self);
+end;
+
+procedure TFRM_CRB.dblkpCondKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+ //necessario pq propriedade nullkeyvalue do dblookupcombobox nao funciona , bug do delph 
+if Key = vk_escape then
+    dblkpCond.KeyValue := null;
+end;
+
+procedure TFRM_CRB.FormShow(Sender: TObject);
+begin
+  DTM_CAD.atualizarLkpCond;
+  dtDTini.Date:= Now - 60;
+  dtDTFIM.Date:= Now + 60;
 end;
 
 end.

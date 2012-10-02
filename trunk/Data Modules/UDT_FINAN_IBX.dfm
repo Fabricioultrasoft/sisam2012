@@ -36,6 +36,7 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     object qryCpgCPG_DTEMISSAO: TDateField
       FieldName = 'CPG_DTEMISSAO'
       Origin = '"CAD_CPG"."CPG_DTEMISSAO"'
+      EditMask = '!99/99/00;1;_'
     end
     object qryCpgCPG_NDESC: TIBStringField
       FieldName = 'CPG_NDESC'
@@ -82,6 +83,7 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     object qryCpgCPG_DTPGTO: TDateField
       FieldName = 'CPG_DTPGTO'
       Origin = '"CAD_CPG"."CPG_DTPGTO"'
+      EditMask = '!99/99/00;1;_'
     end
     object qryCpgCPG_OBS: TIBStringField
       FieldName = 'CPG_OBS'
@@ -175,7 +177,23 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (
-      'select * from CAD_CRB')
+      'select CRB.*,'
+      '           CASE CRB_STATUS'
+      '           WHEN 0 THEN '#39'Em Aberto'#39
+      '           WHEN 1 THEN '#39'Pago'#39
+      '           WHEN 2 THEN '#39'Cancelado'#39'        '
+      '          END AS CRB_STATUSDESC,'
+      
+        ' UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA, C.CO' +
+        'ND_DESC AS CRB_DESCCOND   '
+      ' from CAD_CRB CRB'
+      
+        '                LEFT JOIN CAD_USUARIO UL ON UL.USUARIO_CDG = CRB' +
+        '_USUARIOLANC '
+      
+        '            LEFT JOIN CAD_USUARIO UB ON UB.USUARIO_CDG = CRB_USU' +
+        'ARIOBAIXA '
+      '            LEFT JOIN CAD_COND C ON C.COND_CDG = CRB_CONDOMINIO')
     Left = 104
     Top = 16
     object qryCrbCRB_TOT: TFloatField
@@ -203,14 +221,17 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     object qryCrbCRB_DTVENC: TDateField
       FieldName = 'CRB_DTVENC'
       Origin = '"CAD_CRB"."CRB_DTVENC"'
+      EditMask = '!99/99/00;1;_'
     end
     object qryCrbCRB_DTVENCORIG: TDateField
       FieldName = 'CRB_DTVENCORIG'
       Origin = '"CAD_CRB"."CRB_DTVENCORIG"'
+      EditMask = '!99/99/00;1;_'
     end
     object qryCrbCRB_DTPGTO: TDateField
       FieldName = 'CRB_DTPGTO'
       Origin = '"CAD_CRB"."CRB_DTPGTO"'
+      EditMask = '!99/99/00;1;_'
     end
     object qryCrbCRB_JUROS: TFloatField
       FieldName = 'CRB_JUROS'
@@ -246,6 +267,25 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       FieldName = 'CRB_USUARIOBAIXA'
       Origin = '"CAD_CRB"."CRB_USUARIOBAIXA"'
     end
+    object qryCrbCRB_STATUSDESC: TIBStringField
+      FieldName = 'CRB_STATUSDESC'
+      FixedChar = True
+      Size = 9
+    end
+    object qryCrbUSUARIOLANC: TIBStringField
+      FieldName = 'USUARIOLANC'
+      Origin = '"CAD_USUARIO"."USUARIO_NOME"'
+      Size = 100
+    end
+    object qryCrbUSUARIOBAIXA: TIBStringField
+      FieldName = 'USUARIOBAIXA'
+      Origin = '"CAD_USUARIO"."USUARIO_NOME"'
+      Size = 100
+    end
+    object qryCrbCRB_CONDOMINIO: TIntegerField
+      FieldName = 'CRB_CONDOMINIO'
+      Origin = '"CAD_CRB"."CRB_CONDOMINIO"'
+    end
   end
   object qryConsCpg: TIBQuery
     Database = DTMGeral.Database
@@ -278,6 +318,7 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     object DateField2: TDateField
       FieldName = 'CPG_DTEMISSAO'
       Origin = '"CAD_CPG"."CPG_DTEMISSAO"'
+      EditMask = '!99/99/00;1;_'
     end
     object IBStringField1: TIBStringField
       FieldName = 'CPG_NDESC'
@@ -324,6 +365,7 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     object DateField3: TDateField
       FieldName = 'CPG_DTPGTO'
       Origin = '"CAD_CPG"."CPG_DTPGTO"'
+      EditMask = '!99/99/00;1;_'
     end
     object IBStringField4: TIBStringField
       FieldName = 'CPG_OBS'
@@ -414,76 +456,116 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (
-      'select * from CAD_CRB')
+      'select CRB.*,'
+      '           CASE CRB_STATUS'
+      '           WHEN 0 THEN '#39'Em Aberto'#39
+      '           WHEN 1 THEN '#39'Pago'#39
+      '           WHEN 2 THEN '#39'Cancelado'#39'        '
+      '          END AS CRB_STATUSDESC,'
+      
+        ' UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA, C.CO' +
+        'ND_DESC AS CRB_DESCCOND   '
+      ' from CAD_CRB CRB'
+      
+        '                LEFT JOIN CAD_USUARIO UL ON UL.USUARIO_CDG = CRB' +
+        '_USUARIOLANC '
+      
+        '            LEFT JOIN CAD_USUARIO UB ON UB.USUARIO_CDG = CRB_USU' +
+        'ARIOBAIXA '
+      '            LEFT JOIN CAD_COND C ON C.COND_CDG = CRB_CONDOMINIO'
+      ''
+      '')
     Left = 104
     Top = 72
-    object FloatField10: TFloatField
+    object qryConsCrbCRB_CONDOMINO: TIntegerField
+      FieldName = 'CRB_CONDOMINO'
+      Origin = '"CAD_CRB"."CRB_CONDOMINO"'
+    end
+    object qryConsCrbCRB_TOT: TFloatField
       FieldName = 'CRB_TOT'
       Origin = '"CAD_CRB"."CRB_TOT"'
     end
-    object FloatField11: TFloatField
+    object qryConsCrbCRB_VLRCOND: TFloatField
       FieldName = 'CRB_VLRCOND'
       Origin = '"CAD_CRB"."CRB_VLRCOND"'
     end
-    object FloatField12: TFloatField
+    object qryConsCrbCRB_FRACAO: TFloatField
       FieldName = 'CRB_FRACAO'
       Origin = '"CAD_CRB"."CRB_FRACAO"'
     end
-    object IntegerField3: TIntegerField
+    object qryConsCrbCRB_CDG: TIntegerField
       FieldName = 'CRB_CDG'
       Origin = '"CAD_CRB"."CRB_CDG"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
-    object IntegerField4: TIntegerField
+    object qryConsCrbCRB_UNIDADE: TIntegerField
       FieldName = 'CRB_UNIDADE'
       Origin = '"CAD_CRB"."CRB_UNIDADE"'
     end
-    object DateField4: TDateField
+    object qryConsCrbCRB_DTVENC: TDateField
       FieldName = 'CRB_DTVENC'
       Origin = '"CAD_CRB"."CRB_DTVENC"'
+      EditMask = '!99/99/00;1;_'
     end
-    object DateField5: TDateField
+    object qryConsCrbCRB_DTVENCORIG: TDateField
       FieldName = 'CRB_DTVENCORIG'
       Origin = '"CAD_CRB"."CRB_DTVENCORIG"'
+      EditMask = '!99/99/00;1;_'
     end
-    object DateField6: TDateField
+    object qryConsCrbCRB_DTPGTO: TDateField
       FieldName = 'CRB_DTPGTO'
       Origin = '"CAD_CRB"."CRB_DTPGTO"'
+      EditMask = '!99/99/00;1;_'
     end
-    object FloatField13: TFloatField
+    object qryConsCrbCRB_JUROS: TFloatField
       FieldName = 'CRB_JUROS'
       Origin = '"CAD_CRB"."CRB_JUROS"'
     end
-    object FloatField14: TFloatField
+    object qryConsCrbCRB_MULTA: TFloatField
       FieldName = 'CRB_MULTA'
       Origin = '"CAD_CRB"."CRB_MULTA"'
     end
-    object FloatField15: TFloatField
+    object qryConsCrbCRB_RATEIO: TFloatField
       FieldName = 'CRB_RATEIO'
       Origin = '"CAD_CRB"."CRB_RATEIO"'
     end
-    object IBStringField6: TIBStringField
+    object qryConsCrbCRB_BLOCO: TIBStringField
       FieldName = 'CRB_BLOCO'
       Origin = '"CAD_CRB"."CRB_BLOCO"'
       Size = 8
     end
-    object intgrfldConsCrbCRB_CONDOMINO: TIntegerField
-      FieldName = 'CRB_CONDOMINO'
-      Origin = '"CAD_CRB"."CRB_CONDOMINO"'
-    end
-    object smlntfldConsCrbCRB_STATUS: TSmallintField
+    object qryConsCrbCRB_STATUS: TSmallintField
       FieldName = 'CRB_STATUS'
       Origin = '"CAD_CRB"."CRB_STATUS"'
     end
-    object intgrfldConsCrbCRB_USUARIOLANC: TIntegerField
+    object qryConsCrbCRB_USUARIOLANC: TIntegerField
       FieldName = 'CRB_USUARIOLANC'
       Origin = '"CAD_CRB"."CRB_USUARIOLANC"'
       Required = True
     end
-    object intgrfldConsCrbCRB_USUARIOBAIXA: TIntegerField
+    object qryConsCrbCRB_USUARIOBAIXA: TIntegerField
       FieldName = 'CRB_USUARIOBAIXA'
       Origin = '"CAD_CRB"."CRB_USUARIOBAIXA"'
+    end
+    object qryConsCrbCRB_STATUSDESC: TIBStringField
+      FieldName = 'CRB_STATUSDESC'
+      FixedChar = True
+      Size = 9
+    end
+    object qryConsCrbUSUARIOLANC: TIBStringField
+      FieldName = 'USUARIOLANC'
+      Origin = '"CAD_USUARIO"."USUARIO_NOME"'
+      Size = 100
+    end
+    object qryConsCrbUSUARIOBAIXA: TIBStringField
+      FieldName = 'USUARIOBAIXA'
+      Origin = '"CAD_USUARIO"."USUARIO_NOME"'
+      Size = 100
+    end
+    object qryConsCrbCRB_CONDOMINIO: TIntegerField
+      FieldName = 'CRB_CONDOMINIO'
+      Origin = '"CAD_CRB"."CRB_CONDOMINIO"'
     end
   end
 end

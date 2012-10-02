@@ -106,15 +106,24 @@ type
     intgrfldCrbCRB_USUARIOLANC: TIntegerField;
     intgrfldCrbCRB_USUARIOBAIXA: TIntegerField;
     intgrfldConsCrbCRB_CONDOMINO: TIntegerField;
-    smlntfldConsCrbCRB_STATUS: TSmallintField;
-    intgrfldConsCrbCRB_USUARIOLANC: TIntegerField;
-    intgrfldConsCrbCRB_USUARIOBAIXA: TIntegerField;
+    cdsConsCrbCRB_STATUS: TSmallintField;
+    cdsConsCrbCRB_USUARIOLANC: TIntegerField;
+    cdsConsCrbCRB_USUARIOBAIXA: TIntegerField;
+    cdsCrbCRB_STATUSDESC: TStringField;
+    cdsCrbUSUARIOLANC: TStringField;
+    cdsCrbUSUARIOBAIXA: TStringField;
+    cdsConsCrbCRB_STATUSDESC: TStringField;
+    cdsConsCrbUSUARIOLANC: TStringField;
+    cdsConsCrbUSUARIOBAIXA: TStringField;
+    cdsCrbCRB_CONDOMINIO: TIntegerField;
+    cdsConsCrbCRB_CONDOMINIO: TIntegerField;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
     procedure cdsCpgAfterInsert(DataSet: TDataSet);
     procedure cdsCrbAfterInsert(DataSet: TDataSet);
     procedure cdsCpgBeforePost(DataSet: TDataSet);
+    procedure dsCrbStateChange(Sender: TObject);
   private
     procedure prepararrelatorio(SQL : String);
 
@@ -287,6 +296,12 @@ begin
  calcularTotLiqCPG(cdsCpg);
  if cdsCpgCPG_STATUS.Value = 1  then
     raise exception.Create('Pagamento ja efetuado, não pode ser alterado.');
+end;
+
+procedure TDTM_FINAN.dsCrbStateChange(Sender: TObject);
+begin
+ // ativar botoes do navigator qndo estiver em edição
+  dtmgeral.DSstateChange(dscpg,tlb1);
 end;
 
 end.

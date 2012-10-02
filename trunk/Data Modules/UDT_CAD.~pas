@@ -224,6 +224,11 @@ type
     cdsConsCondCOND_FORNECEDOR: TIntegerField;
     cdsLkpcondCOND_BLOCO: TStringField;
     cdsLkpcondCOND_FORNECEDOR: TIntegerField;
+    dspLkpCrbcond: TDataSetProvider;
+    cdsLkpCrbCond: TClientDataSet;
+    dsLkpCrbCond: TDataSource;
+    cdsLkpCrbCondCOND_DESC: TStringField;
+    cdsLkpCrbCondCRB_CONDOMINIO: TIntegerField;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
@@ -335,7 +340,7 @@ end;
 procedure TDTM_CAD.cdsCaddvsAfterInsert(DataSet: TDataSet);
 begin
   DTMGERAL.executarSQL(' SELECT (GEN_ID(G_CAD_FORN,0) +1)   FROM RDB$DATABASE ');
-  cdsCaddvs.FieldByName('FORN_CNPJ').AsInteger:=  DTMgeral.qryGeral.FieldS.Fields[0].ASINTEGER;
+  cdsCaddvs.FieldByName('FORN_CDG').AsInteger:=  DTMgeral.qryGeral.FieldS.Fields[0].ASINTEGER;
 end;
 
 procedure TDTM_CAD.cdsCondAfterInsert(DataSet: TDataSet);

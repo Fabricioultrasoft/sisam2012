@@ -62,19 +62,6 @@ type
     IBBCDField3: TIBBCDField;
     IBBCDField4: TIBBCDField;
     IntegerField2: TIntegerField;
-    qryConsCrb: TIBQuery;
-    FloatField10: TFloatField;
-    FloatField11: TFloatField;
-    FloatField12: TFloatField;
-    IntegerField3: TIntegerField;
-    IntegerField4: TIntegerField;
-    DateField4: TDateField;
-    DateField5: TDateField;
-    DateField6: TDateField;
-    FloatField13: TFloatField;
-    FloatField14: TFloatField;
-    FloatField15: TFloatField;
-    IBStringField6: TIBStringField;
     qryConsCpgCPG_USUARIOLANC: TIntegerField;
     qryConsCpgCPG_USUARIOBAIXA: TIntegerField;
     qryCpgCPG_USUARIOLANC: TIntegerField;
@@ -97,10 +84,34 @@ type
     smlntfldCrbCRB_STATUS: TSmallintField;
     intgrfldCrbCRB_USUARIOLANC: TIntegerField;
     intgrfldCrbCRB_USUARIOBAIXA: TIntegerField;
-    intgrfldConsCrbCRB_CONDOMINO: TIntegerField;
-    smlntfldConsCrbCRB_STATUS: TSmallintField;
-    intgrfldConsCrbCRB_USUARIOLANC: TIntegerField;
-    intgrfldConsCrbCRB_USUARIOBAIXA: TIntegerField;
+    qryConsCrb: TIBQuery;
+    qryConsCrbCRB_CONDOMINO: TIntegerField;
+    qryConsCrbCRB_TOT: TFloatField;
+    qryConsCrbCRB_VLRCOND: TFloatField;
+    qryConsCrbCRB_FRACAO: TFloatField;
+    qryConsCrbCRB_CDG: TIntegerField;
+    qryConsCrbCRB_UNIDADE: TIntegerField;
+    qryConsCrbCRB_DTVENC: TDateField;
+    qryConsCrbCRB_DTVENCORIG: TDateField;
+    qryConsCrbCRB_DTPGTO: TDateField;
+    qryConsCrbCRB_JUROS: TFloatField;
+    qryConsCrbCRB_MULTA: TFloatField;
+    qryConsCrbCRB_RATEIO: TFloatField;
+    qryConsCrbCRB_BLOCO: TIBStringField;
+    qryConsCrbCRB_STATUS: TSmallintField;
+    qryConsCrbCRB_USUARIOLANC: TIntegerField;
+    qryConsCrbCRB_USUARIOBAIXA: TIntegerField;
+    qryConsCrbCRB_STATUSDESC: TIBStringField;
+    qryConsCrbUSUARIOLANC: TIBStringField;
+    qryConsCrbUSUARIOBAIXA: TIBStringField;
+    qryCrbCRB_STATUSDESC: TIBStringField;
+    qryCrbUSUARIOLANC: TIBStringField;
+    qryCrbUSUARIOBAIXA: TIBStringField;
+    qryCrbCRB_CONDOMINIO: TIntegerField;
+    qryConsCrbCRB_CONDOMINIO: TIntegerField;
+{    qryConsCrbCRB_STATUS: TSmallintField;
+    qryConsCrbCRB_USUARIOLANC: TIntegerField;
+    qryConsCrbCRB_USUARIOBAIXA: TIntegerField;}
   private
     { Private declarations }
   public

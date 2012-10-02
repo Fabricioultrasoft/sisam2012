@@ -41,11 +41,22 @@ const
           '      LEFT JOIN CAD_USUARIO UB ON UB.USUARIO_CDG = CPG_USUARIOBAIXA ' +
           '    WHERE (1=1)   ';
 
-  SQL_RECEBER = 'SELECT  CRB_STATUS,   CRB_BLOCO,   CRB_CDG,         CRB_CONDOMINO, ' + #13 +
-            '        CRB_DTPGTO,  CRB_DTVENC,  CRB_DTVENCORIG,  CRB_FRACAO,    ' + #13 +
-            '        CRB_JUROS,   CRB_MULTA,   CRB_RATEIO,      CRB_TOT,       ' + #13 +
-            '        CRB_UNIDADE, CRB_VLRCOND ' + #13 +
-            'FROM    CAD_CRB WHERE (1=1)';
+  SQL_RECEBER = 'SELECT  CRB_BLOCO,   CRB_CDG,          CRB_CONDOMINO,   CRB_DTPGTO,  ' + #13 +
+                '        CRB_DTVENC,  CRB_DTVENCORIG,   CRB_FRACAO,      CRB_JUROS,   ' + #13 +
+                '        CRB_MULTA,   CRB_RATEIO,       CRB_STATUS,      CRB_TOT,     ' + #13 +
+                '        CRB_UNIDADE, CRB_USUARIOBAIXA, CRB_USUARIOLANC, CRB_VLRCOND, ' + #13 +
+                '        CASE CRB_STATUS              ' +
+                '          WHEN 0 THEN ''Em aberto''  ' +
+                '          WHEN 1 THEN ''Pago''       ' +
+                '          WHEN 2 THEN ''Cancelado''  ' +
+                '          END AS CRB_STATUSDESC,     ' +
+                '          UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA,   ' +
+                '        CRB_CONDOMINIO, C.COND_DESC AS CRB_DESCCOND ' +
+                'FROM    CAD_CRB   '+
+                '      LEFT JOIN CAD_USUARIO UL ON UL.USUARIO_CDG = CRB_USUARIOLANC ' +
+                '      LEFT JOIN CAD_USUARIO UB ON UB.USUARIO_CDG = CRB_USUARIOBAIXA ' +
+                '      LEFT JOIN CAD_COND C ON C.COND_CDG = CRB_CONDOMINIO '+
+                '      WHERE (1=1)                ';
 
 implementation
 

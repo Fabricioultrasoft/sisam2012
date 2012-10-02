@@ -1,6 +1,6 @@
 object DTM_FINAN: TDTM_FINAN
   OldCreateOrder = False
-  Left = 475
+  Left = 426
   Top = 216
   Height = 476
   Width = 564
@@ -392,9 +392,29 @@ object DTM_FINAN: TDTM_FINAN
       FieldName = 'CRB_USUARIOBAIXA'
       Origin = '"CAD_CRB"."CRB_USUARIOBAIXA"'
     end
+    object cdsCrbCRB_STATUSDESC: TStringField
+      FieldName = 'CRB_STATUSDESC'
+      FixedChar = True
+      Size = 9
+    end
+    object cdsCrbUSUARIOLANC: TStringField
+      FieldName = 'USUARIOLANC'
+      Origin = '"CAD_USUARIO"."USUARIO_NOME"'
+      Size = 100
+    end
+    object cdsCrbUSUARIOBAIXA: TStringField
+      FieldName = 'USUARIOBAIXA'
+      Origin = '"CAD_USUARIO"."USUARIO_NOME"'
+      Size = 100
+    end
+    object cdsCrbCRB_CONDOMINIO: TIntegerField
+      FieldName = 'CRB_CONDOMINIO'
+      Origin = '"CAD_CRB"."CRB_CONDOMINIO"'
+    end
   end
   object dsCrb: TDataSource
     DataSet = cdsCrb
+    OnStateChange = dsCrbStateChange
     Left = 144
     Top = 152
   end
@@ -777,18 +797,37 @@ object DTM_FINAN: TDTM_FINAN
       FieldName = 'CRB_CONDOMINO'
       Origin = '"CAD_CRB"."CRB_CONDOMINO"'
     end
-    object smlntfldConsCrbCRB_STATUS: TSmallintField
+    object cdsConsCrbCRB_STATUS: TSmallintField
       FieldName = 'CRB_STATUS'
       Origin = '"CAD_CRB"."CRB_STATUS"'
     end
-    object intgrfldConsCrbCRB_USUARIOLANC: TIntegerField
+    object cdsConsCrbCRB_USUARIOLANC: TIntegerField
       FieldName = 'CRB_USUARIOLANC'
       Origin = '"CAD_CRB"."CRB_USUARIOLANC"'
       Required = True
     end
-    object intgrfldConsCrbCRB_USUARIOBAIXA: TIntegerField
+    object cdsConsCrbCRB_USUARIOBAIXA: TIntegerField
       FieldName = 'CRB_USUARIOBAIXA'
       Origin = '"CAD_CRB"."CRB_USUARIOBAIXA"'
+    end
+    object cdsConsCrbCRB_STATUSDESC: TStringField
+      FieldName = 'CRB_STATUSDESC'
+      FixedChar = True
+      Size = 9
+    end
+    object cdsConsCrbUSUARIOLANC: TStringField
+      FieldName = 'USUARIOLANC'
+      Origin = '"CAD_USUARIO"."USUARIO_NOME"'
+      Size = 100
+    end
+    object cdsConsCrbUSUARIOBAIXA: TStringField
+      FieldName = 'USUARIOBAIXA'
+      Origin = '"CAD_USUARIO"."USUARIO_NOME"'
+      Size = 100
+    end
+    object cdsConsCrbCRB_CONDOMINIO: TIntegerField
+      FieldName = 'CRB_CONDOMINIO'
+      Origin = '"CAD_CRB"."CRB_CONDOMINIO"'
     end
   end
   object dsConsCrb: TDataSource

@@ -1469,4 +1469,36 @@ object DTM_CAD: TDTM_CAD
     Left = 224
     Top = 468
   end
+  object dspLkpCrbcond: TDataSetProvider
+    DataSet = DTM_CAD_IBX.qryLkpCrbCond
+    Options = [poAllowCommandText]
+    UpdateMode = upWhereKeyOnly
+    Left = 348
+    Top = 368
+  end
+  object cdsLkpCrbCond: TClientDataSet
+    Aggregates = <>
+    IndexFieldNames = 'CRB_CONDOMINIO'
+    Params = <>
+    ProviderName = 'dspLkpCrbcond'
+    AfterPost = gerAfterPost
+    AfterDelete = gerAfterDelete
+    AfterApplyUpdates = gerAfterApplyUpdates
+    Left = 352
+    Top = 415
+    object cdsLkpCrbCondCOND_DESC: TStringField
+      FieldName = 'COND_DESC'
+      Origin = '"CAD_COND"."COND_DESC"'
+      Size = 100
+    end
+    object cdsLkpCrbCondCRB_CONDOMINIO: TIntegerField
+      FieldName = 'CRB_CONDOMINIO'
+      Origin = '"CAD_CRB"."CRB_CONDOMINIO"'
+    end
+  end
+  object dsLkpCrbCond: TDataSource
+    DataSet = cdsLkpCrbCond
+    Left = 352
+    Top = 460
+  end
 end
