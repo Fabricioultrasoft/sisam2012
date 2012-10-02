@@ -18,6 +18,7 @@ type
     procedure btnCancelarClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
+    procedure FormKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -53,6 +54,12 @@ end;
 procedure TFRMREL_Empresa.FormCreate(Sender: TObject);
 begin
 DTM_CAD.prepararRelatorioEmpresa;
+end;
+
+procedure TFRMREL_Empresa.FormKeyPress(Sender: TObject; var Key: Char);
+begin
+IF key = #27 then
+  btnCancelarClick(self);
 end;
 
 end.

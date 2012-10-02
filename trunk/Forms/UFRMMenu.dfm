@@ -3,7 +3,7 @@ object FRMMenu: TFRMMenu
   Top = 186
   Width = 883
   Height = 706
-  Caption = 'Menu'
+  Caption = 'ho'
   Color = clBtnFace
   DefaultMonitor = dmMainForm
   Font.Charset = DEFAULT_CHARSET
@@ -318,7 +318,7 @@ object FRMMenu: TFRMMenu
   object StatusBar: TStatusBar
     Left = 0
     Top = 0
-    Width = 867
+    Width = 875
     Height = 5
     Align = alTop
     Panels = <>
@@ -326,7 +326,7 @@ object FRMMenu: TFRMMenu
   object ToolBar1: TToolBar
     Left = 0
     Top = 5
-    Width = 867
+    Width = 875
     Height = 84
     ButtonHeight = 81
     ButtonWidth = 113

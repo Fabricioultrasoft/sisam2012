@@ -63,6 +63,8 @@ type
     lkpCond: TDBLookupComboBox;
     lkpForn: TDBLookupComboBox;
     dblkpCond: TDBLookupComboBox;
+    btn1: TBitBtn;
+    btncancelar: TBitBtn;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnPriorClick(Sender: TObject);
     procedure btntbnextClick(Sender: TObject);
@@ -85,6 +87,9 @@ type
     procedure dblkpCondKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure FormShow(Sender: TObject);
+    procedure pcControlChange(Sender: TObject);
+    procedure btncancelarClick(Sender: TObject);
+    procedure btn1Click(Sender: TObject);
   private
     procedure FiltrarReceitas;
   public
@@ -186,6 +191,7 @@ end;
 
 procedure TFRM_CRB.btnPesqClick(Sender: TObject);
 begin
+  DTM_CAD.atualizarLkpCaddvs;
   FiltrarReceitas;
 end;
 
@@ -268,6 +274,41 @@ begin
   DTM_CAD.atualizarLkpCond;
   dtDTini.Date:= Now - 60;
   dtDTFIM.Date:= Now + 60;
+end;
+
+procedure TFRM_CRB.pcControlChange(Sender: TObject);
+begin
+IF pcControl.ActivePage =  PC_Consulta THEN
+begin
+  dtDTini.SetFocus;
+end;
+end;
+
+procedure TFRM_CRB.btncancelarClick(Sender: TObject);
+begin
+//salvar alterações se existir
+if DTM_FINAN.dsCrb.State in [dsinsert,dsedit] then
+     DTM_FINAN.cdsCrb.Post;
+
+if MessageDlg('Confirma cancelamento da nota?',mtCustom,
+                              [mbYes,mbno,mbCancel], 0) = mryes then
+  IF DTM_FINAN.cdsCpg.fieldbyname('CRB_STATUS').AsInteger = 0  THEN
+    DTM_FINAN.cancelarParcelaCPG(DTM_FINAN.cdsCpg.fieldbyname('CRB_CDG').AsInteger)
+  else
+    raise exceptION.Create('Para cancelar a parcela deve estar com status ''Em aberto''');
+end;
+
+procedure TFRM_CRB.btn1Click(Sender: TObject);
+begin
+  //salvar alterações se existir
+  if DTM_FINAN.dsCrb.State in [dsinsert,dsedit] then
+     DTM_FINAN.cdsCrb.Post;
+
+  IF NOT dtm_finan.cdsCrb.fieldbyname('CRB_CDG').ISNULL THEN
+  frmmenu.abrirFRMCrbQuitacao(
+                        dtm_finan.cdscrb.fieldbyname('CRB_CDG').AsInteger,
+                        dtm_finan.cdscrb.fieldbyname('CRB_TOT').AsInteger
+                          );
 end;
 
 end.

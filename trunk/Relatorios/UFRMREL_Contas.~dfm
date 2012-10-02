@@ -1,6 +1,6 @@
 object FRMRelCpg: TFRMRelCpg
-  Left = 465
-  Top = 377
+  Left = 400
+  Top = 365
   Width = 288
   Height = 224
   Caption = 'Relat'#243'rio Contas a Pagar'
