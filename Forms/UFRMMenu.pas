@@ -83,7 +83,7 @@ type
     { Public declarations }
     procedure abrirFRMCpgQuitacao(pgto: integer;vlrapagar:double);    
     procedure abrirFRMtrocasenha(Modo:integer);
-    procedure abrirFRMCrbQuitacao();
+    procedure abrirFRMCrbQuitacao(recto:Integer;vlrrecto:Double);
   end;
 
 var
@@ -319,10 +319,12 @@ begin
 abrirFRMRelCrb;
 end;
 
-procedure TFRMMenu.abrirFRMCrbQuitacao();
+procedure TFRMMenu.abrirFRMCrbQuitacao(recto:integer;vlrrecto:double);
 begin
 if FRMCrbQuitacao = nil  then
   FRMCrbQuitacao := tFRMCrbQuitacao.Create(self);
+  FRMCRBquitacao.setrecto(recto);
+  FRMCRBquitacao.setVlrreceber(vlrrecto);
 FRMCRBquitacao.Show;
 end;
 

@@ -23,17 +23,18 @@ type
     lbl5: TLabel;
     lblapagar: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnOKClick(Sender: TObject);
   private
     { Private declarations }
-    pgto:integer;
-    vlrapagar,vlrdesc:Double;
+    recto:integer;
+    vlrrecto,vlrdesc:Double;
     procedure verificarcampos();
     procedure calcularDesc();
     procedure quitar;
   public
     { Public declarations }
-    procedure setPgto(pgtocdg:integer);
-    procedure setVlrapagar(vlr:double);
+    procedure setrecto(pgtocdg:integer);
+    procedure setVlrreceber(vlr:double);
 
   end;
 
@@ -65,33 +66,38 @@ begin
        Raise Exception.Create('Coloque um valor válido para a Multa');
 end;
 
-procedure TFRMCRBquitacao.setVlrapagar(vlr: double);
+procedure TFRMCRBquitacao.setVlrreceber(vlr: double);
 begin
-vlrapagar:= vlr;
+vlrrecto:= vlr;
 end;
 
 procedure TFRMCRBquitacao.calcularDesc;
 begin
-vlrdesc:= vlrapagar - (StrToFloatdef(edtvalor.Text,0));
+vlrdesc:= vlrrecto - (StrToFloatdef(edtvalor.Text,0));
 lbldescvalor.Caption := FormatFloat('#,##0.00', vlrdesc);
 end;
 
-procedure TFRMCRBquitacao.setPgto(pgtocdg: integer);
+procedure TFRMCRBquitacao.setrecto(pgtocdg: integer);
 begin
-pgto:= pgtocdg;
+recto:= pgtocdg;
 end;
 
 procedure TFRMCRBquitacao.quitar;
 begin
 verificarcampos;
 calcularDesc;
-if dtm_finan.quitarParcelaCPG(pgto,dtprecto.DateTime,StrToFloat(edtvalor.text),
+if dtm_finan.quitarParcelaCPG(recto,dtprecto.DateTime,StrToFloat(edtvalor.text),
                         vlrdesc) then
 begin
   ShowMessage('Pagamento Efetuado.');
   close;
 end;
 
+end;
+
+procedure TFRMCRBquitacao.btnOKClick(Sender: TObject);
+begin
+quitar;
 end;
 
 end.
