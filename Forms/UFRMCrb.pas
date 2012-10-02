@@ -60,11 +60,11 @@ type
     dtDtIni: TDateTimePicker;
     dtDtFim: TDateTimePicker;
     DBRadioGroup1: TDBRadioGroup;
-    lkpCond: TDBLookupComboBox;
+    dblkcbbCond: TDBLookupComboBox;
     lkpForn: TDBLookupComboBox;
-    dblkpCond: TDBLookupComboBox;
     btn1: TBitBtn;
     btncancelar: TBitBtn;
+    dblkcbbCRB_COND: TDBLookupComboBox;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnPriorClick(Sender: TObject);
     procedure btntbnextClick(Sender: TObject);
@@ -80,9 +80,9 @@ type
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure DBGrid1DrawDataCell(Sender: TObject; const Rect: TRect;
       Field: TField; State: TGridDrawState);
-    procedure lkpCondKeyDown(Sender: TObject; var Key: Word;
+    procedure dblkcbbCondKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure lkpCondKeyPress(Sender: TObject; var Key: Char);
+    procedure dblkcbbCondKeyPress(Sender: TObject; var Key: Char);
     procedure dblkpCondKeyPress(Sender: TObject; var Key: Char);
     procedure dblkpCondKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
@@ -169,8 +169,8 @@ begin
   if (rgStatus.ItemIndex > 0) then
     Where := Where + #13 + ' AND (CRB_STATUS = '+inttostr(rgStatus.ItemIndex-1)+')';
 
-  if not (Varisnull(lkpCond.KeyValue)) then
-    Where := Where + #13 + ' AND (CRB_CONDOMINIO =  + inttostr(' + lkpCond.keyvalue + ')';
+  if not(varisnull(dblkcbbCond.KeyValue) ) then
+      Where := Where + #13 + ' AND  (CRB_CONDOMINIO = ' + inttostr(dblkcbbCond.KeyValue)+' )';
 
   If (Trim(edCodigo.Text) <> '') then
     Where := Where + #13 + ' AND CRB_CDG =' +edCodigo.text;
@@ -240,15 +240,15 @@ begin
     end
 end;
 
-procedure TFRM_CRB.lkpCondKeyDown(Sender: TObject; var Key: Word;
+procedure TFRM_CRB.dblkcbbCondKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
 //necessario pq propriedade nullkeyvalue do dblookupcombobox nao funciona , bug do delph 
 if Key = vk_escape then
-    lkpCond.KeyValue := null;
+    dblkcbbCond.KeyValue := null;
 end;
 
-procedure TFRM_CRB.lkpCondKeyPress(Sender: TObject; var Key: Char);
+procedure TFRM_CRB.dblkcbbCondKeyPress(Sender: TObject; var Key: Char);
 begin
 IF KEY = #13  then
    btnPesqClick(self);
@@ -266,7 +266,7 @@ procedure TFRM_CRB.dblkpCondKeyDown(Sender: TObject; var Key: Word;
 begin
  //necessario pq propriedade nullkeyvalue do dblookupcombobox nao funciona , bug do delph 
 if Key = vk_escape then
-    dblkpCond.KeyValue := null;
+    dblkcbbCRB_COND.KeyValue := null;
 end;
 
 procedure TFRM_CRB.FormShow(Sender: TObject);

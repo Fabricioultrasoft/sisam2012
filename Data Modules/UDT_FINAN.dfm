@@ -316,8 +316,98 @@ object DTM_FINAN: TDTM_FINAN
   end
   object cdsCrb: TClientDataSet
     Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'CRB_TOT'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CRB_VLRCOND'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CRB_FRACAO'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CRB_CDG'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'CRB_UNIDADE'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CRB_DTVENC'
+        DataType = ftDate
+      end
+      item
+        Name = 'CRB_DTVENCORIG'
+        DataType = ftDate
+      end
+      item
+        Name = 'CRB_DTPGTO'
+        DataType = ftDate
+      end
+      item
+        Name = 'CRB_JUROS'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CRB_MULTA'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CRB_RATEIO'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CRB_BLOCO'
+        DataType = ftString
+        Size = 8
+      end
+      item
+        Name = 'CRB_CONDOMINO'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CRB_STATUS'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'CRB_USUARIOLANC'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'CRB_USUARIOBAIXA'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CRB_STATUSDESC'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 9
+      end
+      item
+        Name = 'USUARIOLANC'
+        DataType = ftString
+        Size = 100
+      end
+      item
+        Name = 'USUARIOBAIXA'
+        DataType = ftString
+        Size = 100
+      end
+      item
+        Name = 'CRB_CONDOMINIO'
+        DataType = ftInteger
+      end>
+    IndexDefs = <>
     Params = <>
     ProviderName = 'dspCrb'
+    StoreDefs = True
     AfterInsert = cdsCrbAfterInsert
     AfterPost = gerAfterPost
     AfterDelete = gerAfterDelete
@@ -837,6 +927,8 @@ object DTM_FINAN: TDTM_FINAN
   object qryREL: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_CPG')
     Left = 232

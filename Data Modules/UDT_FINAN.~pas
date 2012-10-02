@@ -123,7 +123,6 @@ type
     procedure cdsCpgAfterInsert(DataSet: TDataSet);
     procedure cdsCrbAfterInsert(DataSet: TDataSet);
     procedure cdsCpgBeforePost(DataSet: TDataSet);
-    procedure dsCrbStateChange(Sender: TObject);
   private
     procedure prepararrelatorio(SQL : String);
 
@@ -227,6 +226,7 @@ begin
 
   cdsCpg.FieldByName('CPG_DTEMISSAO').AsDateTime:=  Now;
 
+  cdsCpg.FieldByName('CPG_STATUS').ASINTEGER:=  0;
 
 end;
 
@@ -234,6 +234,25 @@ procedure TDTM_FINAN.cdsCrbAfterInsert(DataSet: TDataSet);
 begin
   DTMGERAL.executarSQL(' SELECT (GEN_ID(G_CAD_CRB,0) +1)   FROM RDB$DATABASE ');
   cdsCrb.FieldByName('CRB_CDG').AsInteger:=  DTMgeral.qryGeral.FieldS.Fields[0].ASINTEGER;
+  cdsCrb.FieldByName('CRB_USUARIOLANC').AsInteger:=  DTMgeral.usuariocdg;
+
+ { cdsCpg.FieldByName('CRB_FGTS').asfloat:=  0;
+  cdsCpg.FieldByName('CRB_IRRF').asfloat:=  0;
+  cdsCpg.FieldByName('CRB_PIS').asfloat:=  0;
+  cdsCpg.FieldByName('CRB_CSLS').asfloat:=  0;
+  cdsCpg.FieldByName('CRB_COFINS').asfloat:=  0;
+  cdsCpg.FieldByName('CRB_INSS').asfloat:=  0;
+  cdsCpg.FieldByName('CRB_ISS').asfloat:=  0;
+
+  cdsCpg.FieldByName('CRB_TOTLIQ').asfloat:=  0;
+  cdsCpg.FieldByName('CRB_JUROS').asfloat:=  0;
+  cdsCpg.FieldByName('CRB_MULTA').asfloat:=  0;
+  cdsCpg.FieldByName('CRB_DESCONTO').asfloat:=  0;
+  cdsCpg.FieldByName('CRB_ACRESCIMO').asfloat:=  0;
+
+  cdsCpg.FieldByName('CRB_DTEMISSAO').AsDateTime:=  Now;
+
+  cdsCpg.FieldByName('CRB_STATUS').ASINTEGER:=  0;       }
 end;
 
 procedure TDTM_FINAN.quitarParcelaCRB(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc,vlrjuros,vlrmulta:double);
@@ -296,12 +315,6 @@ begin
  calcularTotLiqCPG(cdsCpg);
  if cdsCpgCPG_STATUS.Value = 1  then
     raise exception.Create('Pagamento ja efetuado, não pode ser alterado.');
-end;
-
-procedure TDTM_FINAN.dsCrbStateChange(Sender: TObject);
-begin
- // ativar botoes do navigator qndo estiver em edição
-  dtmgeral.DSstateChange(dscpg,tlb1);
 end;
 
 end.

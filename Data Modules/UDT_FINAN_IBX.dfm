@@ -183,17 +183,14 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       '           WHEN 1 THEN '#39'Pago'#39
       '           WHEN 2 THEN '#39'Cancelado'#39'        '
       '          END AS CRB_STATUSDESC,'
-      
-        ' UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA, C.CO' +
-        'ND_DESC AS CRB_DESCCOND   '
+      ' UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA   '
       ' from CAD_CRB CRB'
       
         '                LEFT JOIN CAD_USUARIO UL ON UL.USUARIO_CDG = CRB' +
         '_USUARIOLANC '
       
         '            LEFT JOIN CAD_USUARIO UB ON UB.USUARIO_CDG = CRB_USU' +
-        'ARIOBAIXA '
-      '            LEFT JOIN CAD_COND C ON C.COND_CDG = CRB_CONDOMINIO')
+        'ARIOBAIXA')
     Left = 104
     Top = 16
     object qryCrbCRB_TOT: TFloatField
@@ -462,9 +459,7 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       '           WHEN 1 THEN '#39'Pago'#39
       '           WHEN 2 THEN '#39'Cancelado'#39'        '
       '          END AS CRB_STATUSDESC,'
-      
-        ' UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA, C.CO' +
-        'ND_DESC AS CRB_DESCCOND   '
+      ' UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA'
       ' from CAD_CRB CRB'
       
         '                LEFT JOIN CAD_USUARIO UL ON UL.USUARIO_CDG = CRB' +
@@ -472,7 +467,6 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       
         '            LEFT JOIN CAD_USUARIO UB ON UB.USUARIO_CDG = CRB_USU' +
         'ARIOBAIXA '
-      '            LEFT JOIN CAD_COND C ON C.COND_CDG = CRB_CONDOMINIO'
       ''
       '')
     Left = 104

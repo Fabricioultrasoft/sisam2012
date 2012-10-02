@@ -535,20 +535,6 @@ object FRM_CRB: TFRM_CRB
           '1'
           '2')
       end
-      object dblkpCond: TDBLookupComboBox
-        Left = 24
-        Top = 88
-        Width = 193
-        Height = 21
-        DataField = 'CRB_CONDOMINIO'
-        DataSource = DTM_FINAN.dsCrb
-        KeyField = 'CRB_CONDOMINIO'
-        ListField = 'COND_DESC'
-        ListSource = DTM_CAD.dsLkpCrbCond
-        TabOrder = 15
-        OnKeyDown = dblkpCondKeyDown
-        OnKeyPress = dblkpCondKeyPress
-      end
       object btn1: TBitBtn
         Left = 453
         Top = 266
@@ -556,7 +542,7 @@ object FRM_CRB: TFRM_CRB
         Height = 54
         Anchors = [akBottom]
         Caption = 'Quitar'
-        TabOrder = 16
+        TabOrder = 15
         OnClick = btn1Click
         Glyph.Data = {
           361B0000424D361B000000000000360000002800000030000000300000000100
@@ -785,7 +771,7 @@ object FRM_CRB: TFRM_CRB
         Height = 54
         Anchors = [akBottom]
         Caption = 'Cancelar Pgto'
-        TabOrder = 17
+        TabOrder = 16
         OnClick = btncancelarClick
         Glyph.Data = {
           F6060000424DF606000000000000360000002800000018000000180000000100
@@ -844,6 +830,19 @@ object FRM_CRB: TFRM_CRB
           1F1FAF0000000000000000000000000000000000000000000000000000000000
           000000000000000F0FAF1717B11616B01818B01818B01818B01818B01818B017
           17AF1F1FAF000000000000000000000000000000000000000000}
+      end
+      object dblkcbbCRB_COND: TDBLookupComboBox
+        Left = 24
+        Top = 88
+        Width = 193
+        Height = 21
+        DataField = 'CRB_CONDOMINIO'
+        DataSource = DTM_FINAN.dsCrb
+        KeyField = 'COND_CDG'
+        ListField = 'COND_DESC'
+        ListSource = DTM_CAD.dsLkpcond
+        NullValueKey = 46
+        TabOrder = 17
       end
     end
     object PC_Consulta: TTabSheet
@@ -1390,7 +1389,7 @@ object FRM_CRB: TFRM_CRB
           Time = 41181.076961631940000000
           TabOrder = 4
         end
-        object lkpCond: TDBLookupComboBox
+        object dblkcbbCond: TDBLookupComboBox
           Left = 117
           Top = 28
           Width = 265
@@ -1399,8 +1398,8 @@ object FRM_CRB: TFRM_CRB
           ListField = 'COND_DESC'
           ListSource = DTM_CAD.dsLkpcond
           TabOrder = 5
-          OnKeyDown = lkpCondKeyDown
-          OnKeyPress = lkpCondKeyPress
+          OnKeyDown = dblkcbbCondKeyDown
+          OnKeyPress = dblkcbbCondKeyPress
         end
         object lkpForn: TDBLookupComboBox
           Left = 117
