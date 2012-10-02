@@ -234,6 +234,25 @@ procedure TDTM_FINAN.cdsCrbAfterInsert(DataSet: TDataSet);
 begin
   DTMGERAL.executarSQL(' SELECT (GEN_ID(G_CAD_CRB,0) +1)   FROM RDB$DATABASE ');
   cdsCrb.FieldByName('CRB_CDG').AsInteger:=  DTMgeral.qryGeral.FieldS.Fields[0].ASINTEGER;
+  cdsCrb.FieldByName('CRB_USUARIOLANC').AsInteger:=  DTMgeral.usuariocdg;
+
+ { cdsCrb.FieldByName('CRB_FGTS').asfloat:=  0;
+  cdsCrb.FieldByName('CRB_IRRF').asfloat:=  0;
+  cdsCrb.FieldByName('CRB_PIS').asfloat:=  0;
+  cdsCrb.FieldByName('CRB_CSLS').asfloat:=  0;
+  cdsCrb.FieldByName('CRB_COFINS').asfloat:=  0;
+  cdsCrb.FieldByName('CRB_INSS').asfloat:=  0;
+  cdsCrb.FieldByName('CRB_ISS').asfloat:=  0;
+
+  cdsCrb.FieldByName('CRB_TOTLIQ').asfloat:=  0;
+  cdsCrb.FieldByName('CRB_JUROS').asfloat:=  0;
+  cdsCrb.FieldByName('CRB_MULTA').asfloat:=  0;
+  cdsCrb.FieldByName('CRB_DESCONTO').asfloat:=  0;
+  cdsCrb.FieldByName('CRB_ACRESCIMO').asfloat:=  0;
+
+  cdsCrb.FieldByName('CRB_DTEMISSAO').AsDateTime:=  Now;
+
+  cdsCrb.FieldByName('CRB_STATUS').ASINTEGER:=  0;       }
 end;
 
 procedure TDTM_FINAN.quitarParcelaCRB(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc,vlrjuros,vlrmulta:double);

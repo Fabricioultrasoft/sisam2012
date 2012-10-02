@@ -51,12 +51,11 @@ const
                 '          WHEN 2 THEN ''Cancelado''  ' +
                 '          END AS CRB_STATUSDESC,     ' +
                 '          UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA,   ' +
-                '        CRB_CONDOMINIO, C.COND_DESC AS CRB_DESCCOND ' +
+                '        CRB_CONDOMINIO '+
                 'FROM    CAD_CRB   '+
                 '      LEFT JOIN CAD_USUARIO UL ON UL.USUARIO_CDG = CRB_USUARIOLANC ' +
                 '      LEFT JOIN CAD_USUARIO UB ON UB.USUARIO_CDG = CRB_USUARIOBAIXA ' +
-                '      LEFT JOIN CAD_COND C ON C.COND_CDG = CRB_CONDOMINIO '+
-                '      WHERE (1=1)                ';
+                '      WHERE (1=1) ';
 
 implementation
 
