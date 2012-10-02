@@ -10,8 +10,9 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (
-      'select * '
-      'from CAD_FORN')
+      'select F.*, FORN_FANTASIA'
+      ' '
+      'from CAD_FORN F')
     Left = 16
     Top = 24
     object qryCaddvsFORN_CPFCNPJ: TIBStringField
@@ -163,11 +164,16 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       FieldName = 'FORN_TPINCORPORADORA'
       Origin = 'CAD_FORN.FORN_TPINCORPORADORA'
     end
-    object intgrfldCaddvsFORN_CDG: TIntegerField
+    object qryCaddvsFORN_CDG: TIntegerField
       FieldName = 'FORN_CDG'
       Origin = '"CAD_FORN"."FORN_CDG"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+    end
+    object qryCaddvsFORN_FANTASIA: TIBStringField
+      FieldName = 'FORN_FANTASIA'
+      Origin = '"CAD_FORN"."FORN_FANTASIA"'
+      Size = 100
     end
   end
   object qryEmpre: TIBQuery
@@ -190,7 +196,8 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
         '    EMPRE_RAMAL,  '
       
         '                    EMPRE_RAZAO,    EMPRE_SITE,     EMPRE_TELEFO' +
-        'NE, EMPRE_UF    '
+        'NE, EMPRE_UF    ,'
+      'EMPRE_RAMAL,    EMPRE_CONTATO  '
       '             FROM   CAD_EMPRESA')
     Left = 88
     Top = 24
@@ -272,6 +279,26 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       Origin = 'CAD_EMPRESA.EMPRE_CDG'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+    end
+    object qryEmpreEMPRE_CONTATO: TIBStringField
+      FieldName = 'EMPRE_CONTATO'
+      Origin = '"CAD_EMPRESA"."EMPRE_CONTATO"'
+      Size = 100
+    end
+    object qryEmpreEMPRE_DDD: TIBStringField
+      FieldName = 'EMPRE_DDD'
+      Origin = '"CAD_EMPRESA"."EMPRE_DDD"'
+      Size = 3
+    end
+    object qryEmpreEMPRE_PAIS: TIBStringField
+      FieldName = 'EMPRE_PAIS'
+      Origin = '"CAD_EMPRESA"."EMPRE_PAIS"'
+      Size = 60
+    end
+    object qryEmpreEMPRE_RAMAL: TIBStringField
+      FieldName = 'EMPRE_RAMAL'
+      Origin = '"CAD_EMPRESA"."EMPRE_RAMAL"'
+      Size = 6
     end
   end
   object qryCond: TIBQuery
@@ -557,11 +584,16 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       FieldName = 'FORN_TPINCORPORADORA'
       Origin = 'CAD_FORN.FORN_TPINCORPORADORA'
     end
-    object intgrfldConsCaddvsFORN_CDG: TIntegerField
+    object qryConsCaddvsFORN_CDG: TIntegerField
       FieldName = 'FORN_CDG'
       Origin = '"CAD_FORN"."FORN_CDG"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+    end
+    object qryConsCaddvsFORN_FANTASIA: TIBStringField
+      FieldName = 'FORN_FANTASIA'
+      Origin = '"CAD_FORN"."FORN_FANTASIA"'
+      Size = 100
     end
   end
   object qryConsEmpre: TIBQuery
@@ -666,6 +698,26 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       Origin = 'CAD_EMPRESA.EMPRE_CDG'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+    end
+    object qryConsEmpreEMPRE_CONTATO: TIBStringField
+      FieldName = 'EMPRE_CONTATO'
+      Origin = '"CAD_EMPRESA"."EMPRE_CONTATO"'
+      Size = 100
+    end
+    object qryConsEmpreEMPRE_DDD: TIBStringField
+      FieldName = 'EMPRE_DDD'
+      Origin = '"CAD_EMPRESA"."EMPRE_DDD"'
+      Size = 3
+    end
+    object qryConsEmpreEMPRE_PAIS: TIBStringField
+      FieldName = 'EMPRE_PAIS'
+      Origin = '"CAD_EMPRESA"."EMPRE_PAIS"'
+      Size = 60
+    end
+    object qryConsEmpreEMPRE_RAMAL: TIBStringField
+      FieldName = 'EMPRE_RAMAL'
+      Origin = '"CAD_EMPRESA"."EMPRE_RAMAL"'
+      Size = 6
     end
   end
   object qryConsCond: TIBQuery
@@ -995,7 +1047,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       FieldName = 'FORN_TPINCORPORADORA'
       Origin = 'CAD_FORN.FORN_TPINCORPORADORA'
     end
-    object intgrfldLkpcaddvsFORN_CDG: TIntegerField
+    object qryLkpcaddvsFORN_CDG: TIntegerField
       FieldName = 'FORN_CDG'
       Origin = '"CAD_FORN"."FORN_CDG"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]

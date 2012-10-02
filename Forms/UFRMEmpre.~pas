@@ -14,7 +14,7 @@ type
     TabSheet2: TTabSheet;
     DBGrid1: TDBGrid;
     dtsEmpre: TDataSource;
-    ToolBar1: TToolBar;
+    tlb1: TToolBar;
     tbAdd: TToolButton;
     tbOk: TToolButton;
     tbDelete: TToolButton;
@@ -182,9 +182,8 @@ end;
 
 procedure TFRM_EMPRE.dtsEmpreStateChange(Sender: TObject);
 begin
-  // adivar botoes do navigator qndo estiver em edição
-   tbOk.enabled:= (dtsEmpre.State in [dsinsert,dsedit]) ;
-   tbcancel.enabled:=(dtsEmpre.State in [dsinsert,dsedit]) ;
+  // ativar botoes do navigator qndo estiver em edição
+  dtmgeral.DSstateChange(dtsempre,tlb1);
 end;
 
 procedure TFRM_EMPRE.filtrarEmpresa;

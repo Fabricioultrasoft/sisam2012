@@ -93,6 +93,15 @@ type
     lbl31: TLabel;
     lbl32: TLabel;
     edtrg: TEdit;
+    DBEdit11: TDBEdit;
+    lbl33: TLabel;
+    chkincorp: TCheckBox;
+    chksindico: TCheckBox;
+    chkforn: TCheckBox;
+    chkcond: TCheckBox;
+    lbl34: TLabel;
+    chkfuncionario: TCheckBox;
+    dbchkFORN_TPINCORPORADORA1: TDBCheckBox;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure dtsCadStateChange(Sender: TObject);
@@ -188,7 +197,31 @@ begin
    SQL  := SQL + ' AND UPPER(FORN_CIDADE) LIKE UPPER(''%'+ Trim(edtcidade.Text) +'%'') ';
 
  if (Trim(edtcnpj.Text) <> '') then
-   SQL  := SQL + ' AND UPPER(FORN_CDG) LIKE UPPER(''%'+ trim(edtcnpj.TEXT) +'%'') ';
+   SQL  := SQL + ' AND UPPER(FORN_CPFCNPJ) LIKE UPPER(''%'+ trim(edtcnpj.TEXT) +'%'') ';
+
+
+ if (chkcond.checked or chkincorp.checked  or
+       chkforn.checked  or chkcond.checked or chkfuncionario.checked ) then
+ begin
+   SQL  := SQL + ' AND ( 1=0 ';
+
+   if (chkcond.checked) then
+     SQL  := SQL + ' OR (FORN_TPCONDOMINO = 1) ';
+
+   if (chksindico.checked) then
+     SQL  := SQL + ' OR (FORN_TPSINDICO = 1) ';
+
+   if (chkcond.checked) then
+     SQL  := SQL + ' OR (FORN_TPFORNECEDOR = 1) ';
+
+   if (chkcond.checked) then
+     SQL  := SQL + ' OR (FORN_TPINCORPORADORA = 1) ';
+
+   if (chkcond.checked) then
+     SQL  := SQL + ' OR (FORN_TPFUNCIONARIO = 1) ';
+
+   SQL  := SQL + ')  ';
+ end;
 
  DTM_CAD.consultarForns(SQL);
 end;
