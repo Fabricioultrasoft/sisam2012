@@ -1,6 +1,6 @@
 object FRM_CADDVS: TFRM_CADDVS
-  Left = 272
-  Top = 128
+  Left = 391
+  Top = 230
   Width = 801
   Height = 688
   Caption = 'Cadastro Diverso'
@@ -35,8 +35,8 @@ object FRM_CADDVS: TFRM_CADDVS
   object PC_CadastrosDvs: TPageControl
     Left = 0
     Top = 0
-    Width = 793
-    Height = 654
+    Width = 785
+    Height = 650
     ActivePage = tbConsulta
     Align = alClient
     TabOrder = 0
@@ -66,7 +66,7 @@ object FRM_CADDVS: TFRM_CADDVS
           ParentFont = False
         end
         object lbl6: TLabel
-          Left = 19
+          Left = 77
           Top = 13
           Width = 27
           Height = 13
@@ -79,7 +79,7 @@ object FRM_CADDVS: TFRM_CADDVS
           ParentFont = False
         end
         object lbl1: TLabel
-          Left = 216
+          Left = 272
           Top = 12
           Width = 22
           Height = 13
@@ -118,9 +118,9 @@ object FRM_CADDVS: TFRM_CADDVS
           ParentFont = False
         end
         object lbl5: TLabel
-          Left = 155
+          Left = 136
           Top = 133
-          Width = 46
+          Width = 66
           Height = 13
           Caption = 'Endere'#231'o'
           Font.Charset = DEFAULT_CHARSET
@@ -234,10 +234,23 @@ object FRM_CADDVS: TFRM_CADDVS
           Font.Style = []
           ParentFont = False
         end
+        object lbl33: TLabel
+          Left = 19
+          Top = 13
+          Width = 33
+          Height = 13
+          Caption = 'Codigo'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
         object DBEdit1: TDBEdit
-          Left = 16
+          Left = 79
           Top = 27
-          Width = 186
+          Width = 184
           Height = 21
           DataField = 'FORN_CDG'
           DataSource = dtsCad
@@ -246,14 +259,14 @@ object FRM_CADDVS: TFRM_CADDVS
         object DBEdit2: TDBEdit
           Left = 16
           Top = 67
-          Width = 394
+          Width = 454
           Height = 21
-          DataField = 'FORN_CPFCNPJ'
+          DataField = 'FORN_FANTASIA'
           DataSource = dtsCad
           TabOrder = 2
         end
         object DBEdit17: TDBEdit
-          Left = 213
+          Left = 272
           Top = 26
           Width = 199
           Height = 21
@@ -271,9 +284,9 @@ object FRM_CADDVS: TFRM_CADDVS
           TabOrder = 3
         end
         object DBEdit5: TDBEdit
-          Left = 152
+          Left = 133
           Top = 147
-          Width = 425
+          Width = 445
           Height = 21
           DataField = 'FORN_ENDERECO'
           DataSource = dtsCad
@@ -362,7 +375,7 @@ object FRM_CADDVS: TFRM_CADDVS
           TabOrder = 8
         end
         object dbchkFORN_TPINCORPORADORA: TDBCheckBox
-          Left = 424
+          Left = 480
           Top = 79
           Width = 97
           Height = 17
@@ -374,7 +387,7 @@ object FRM_CADDVS: TFRM_CADDVS
           ValueUnchecked = '0'
         end
         object dbchkFORN_TPSINDICO: TDBCheckBox
-          Left = 424
+          Left = 480
           Top = 60
           Width = 97
           Height = 17
@@ -386,7 +399,7 @@ object FRM_CADDVS: TFRM_CADDVS
           ValueUnchecked = '0'
         end
         object dbchkFORN_TPFORNECEDOR: TDBCheckBox
-          Left = 424
+          Left = 480
           Top = 41
           Width = 97
           Height = 17
@@ -398,7 +411,7 @@ object FRM_CADDVS: TFRM_CADDVS
           ValueUnchecked = '0'
         end
         object dbchkFORN_TPCONDOMINO: TDBCheckBox
-          Left = 424
+          Left = 480
           Top = 22
           Width = 97
           Height = 17
@@ -406,6 +419,27 @@ object FRM_CADDVS: TFRM_CADDVS
           DataField = 'FORN_TPCONDOMINO'
           DataSource = dtsCad
           TabOrder = 17
+          ValueChecked = '1'
+          ValueUnchecked = '0'
+        end
+        object DBEdit11: TDBEdit
+          Left = 16
+          Top = 27
+          Width = 53
+          Height = 21
+          DataField = 'FORN_CDG'
+          DataSource = dtsCad
+          TabOrder = 18
+        end
+        object dbchkFORN_TPINCORPORADORA1: TDBCheckBox
+          Left = 576
+          Top = 23
+          Width = 97
+          Height = 17
+          Caption = 'Funcion'#225'rio'
+          DataField = 'FORN_TPFUNCIONARIO'
+          DataSource = dtsCad
+          TabOrder = 19
           ValueChecked = '1'
           ValueUnchecked = '0'
         end
@@ -470,7 +504,7 @@ object FRM_CADDVS: TFRM_CADDVS
           ParentFont = False
         end
         object lbl19: TLabel
-          Left = 444
+          Left = 452
           Top = 54
           Width = 24
           Height = 13
@@ -509,7 +543,7 @@ object FRM_CADDVS: TFRM_CADDVS
           ParentFont = False
         end
         object lbl22: TLabel
-          Left = 164
+          Left = 162
           Top = 138
           Width = 60
           Height = 13
@@ -561,7 +595,7 @@ object FRM_CADDVS: TFRM_CADDVS
           ParentFont = False
         end
         object lbl26: TLabel
-          Left = 163
+          Left = 161
           Top = 179
           Width = 55
           Height = 13
@@ -576,7 +610,7 @@ object FRM_CADDVS: TFRM_CADDVS
         object DBEdit14: TDBEdit
           Left = 12
           Top = 28
-          Width = 547
+          Width = 570
           Height = 21
           DataField = 'FORN_SITE'
           DataSource = dtsCad
@@ -603,16 +637,16 @@ object FRM_CADDVS: TFRM_CADDVS
         object DBEdit20: TDBEdit
           Left = 301
           Top = 68
-          Width = 134
+          Width = 140
           Height = 21
           DataField = 'FORN_DTNASCIMENTO'
           DataSource = dtsCad
           TabOrder = 3
         end
         object DBEdit21: TDBEdit
-          Left = 443
+          Left = 451
           Top = 68
-          Width = 115
+          Width = 130
           Height = 21
           DataField = 'FORN_SEXO'
           DataSource = dtsCad
@@ -621,7 +655,7 @@ object FRM_CADDVS: TFRM_CADDVS
         object DBEdit23: TDBEdit
           Left = 15
           Top = 110
-          Width = 186
+          Width = 276
           Height = 21
           DataField = 'FORN_CONJUGE'
           DataSource = dtsCad
@@ -637,18 +671,18 @@ object FRM_CADDVS: TFRM_CADDVS
           TabOrder = 6
         end
         object DBEdit25: TDBEdit
-          Left = 160
+          Left = 158
           Top = 151
-          Width = 134
+          Width = 131
           Height = 21
           DataField = 'FORN_HRENTRADA2'
           DataSource = dtsCad
           TabOrder = 7
         end
         object DBEdit26: TDBEdit
-          Left = 304
+          Left = 300
           Top = 151
-          Width = 134
+          Width = 138
           Height = 21
           DataField = 'FORN_HRSAIDA1'
           DataSource = dtsCad
@@ -664,9 +698,9 @@ object FRM_CADDVS: TFRM_CADDVS
           TabOrder = 9
         end
         object DBEdit29: TDBEdit
-          Left = 162
+          Left = 159
           Top = 192
-          Width = 134
+          Width = 129
           Height = 21
           DataField = 'FORN_COND'
           DataSource = dtsCad
@@ -830,12 +864,25 @@ object FRM_CADDVS: TFRM_CADDVS
           Font.Style = []
           ParentFont = False
         end
+        object lbl34: TLabel
+          Left = 578
+          Top = 18
+          Width = 70
+          Height = 13
+          Caption = 'Pesquisar  por:'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
         object btnPesq: TBitBtn
-          Left = 579
-          Top = 72
+          Left = 683
+          Top = 32
           Width = 64
           Height = 64
-          TabOrder = 4
+          TabOrder = 9
           WordWrap = True
           OnClick = btnPesqClick
           Glyph.Data = {
@@ -1096,7 +1143,7 @@ object FRM_CADDVS: TFRM_CADDVS
           Top = 110
           Width = 274
           Height = 21
-          TabOrder = 1
+          TabOrder = 4
           OnKeyPress = edtrazaoKeyPress
         end
         object edtfantasia: TEdit
@@ -1128,8 +1175,58 @@ object FRM_CADDVS: TFRM_CADDVS
           Top = 33
           Width = 273
           Height = 21
-          TabOrder = 5
+          TabOrder = 1
           OnKeyPress = edtrazaoKeyPress
+        end
+        object chkincorp: TCheckBox
+          Left = 576
+          Top = 85
+          Width = 97
+          Height = 17
+          Caption = 'Incorporadora'
+          Checked = True
+          State = cbChecked
+          TabOrder = 8
+        end
+        object chksindico: TCheckBox
+          Left = 576
+          Top = 69
+          Width = 97
+          Height = 17
+          Caption = 'S'#237'ndico'
+          Checked = True
+          State = cbChecked
+          TabOrder = 7
+        end
+        object chkforn: TCheckBox
+          Left = 576
+          Top = 51
+          Width = 97
+          Height = 17
+          Caption = 'Fornecedor'
+          Checked = True
+          State = cbChecked
+          TabOrder = 6
+        end
+        object chkcond: TCheckBox
+          Left = 576
+          Top = 33
+          Width = 97
+          Height = 17
+          Caption = 'Cond'#244'mino'
+          Checked = True
+          State = cbChecked
+          TabOrder = 5
+        end
+        object chkfuncionario: TCheckBox
+          Left = 575
+          Top = 102
+          Width = 97
+          Height = 17
+          Caption = 'Funcion'#225'rio'
+          Checked = True
+          State = cbChecked
+          TabOrder = 10
         end
       end
       object dbgrd1: TDBGrid
@@ -1220,7 +1317,7 @@ object FRM_CADDVS: TFRM_CADDVS
   object dtsCad: TDataSource
     DataSet = DTM_CAD.cdsCaddvs
     OnStateChange = dtsCadStateChange
-    Left = 632
-    Top = 48
+    Left = 488
+    Top = 136
   end
 end

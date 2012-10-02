@@ -174,6 +174,11 @@ object DTM_CAD: TDTM_CAD
         Name = 'FORN_CDG'
         Attributes = [faRequired]
         DataType = ftInteger
+      end
+      item
+        Name = 'FORN_FANTASIA'
+        DataType = ftString
+        Size = 100
       end>
     IndexDefs = <>
     IndexFieldNames = 'FORN_CDG'
@@ -336,11 +341,13 @@ object DTM_CAD: TDTM_CAD
       FieldName = 'FORN_TPINCORPORADORA'
       Origin = 'CAD_FORN.FORN_TPINCORPORADORA'
     end
-    object intgrfldCaddvsFORN_CDG: TIntegerField
+    object cdsCaddvsFORN_CDG: TIntegerField
       FieldName = 'FORN_CDG'
-      Origin = '"CAD_FORN"."FORN_CDG"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+    end
+    object cdsCaddvsFORN_FANTASIA: TStringField
+      FieldName = 'FORN_FANTASIA'
+      Size = 100
     end
   end
   object cdsEmpre: TClientDataSet
@@ -432,6 +439,22 @@ object DTM_CAD: TDTM_CAD
       Origin = 'CAD_EMPRESA.EMPRE_CDG'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+    end
+    object cdsEmpreEMPRE_CONTATO: TStringField
+      FieldName = 'EMPRE_CONTATO'
+      Size = 100
+    end
+    object cdsEmpreEMPRE_DDD: TStringField
+      FieldName = 'EMPRE_DDD'
+      Size = 3
+    end
+    object cdsEmpreEMPRE_PAIS: TStringField
+      FieldName = 'EMPRE_PAIS'
+      Size = 60
+    end
+    object cdsEmpreEMPRE_RAMAL: TStringField
+      FieldName = 'EMPRE_RAMAL'
+      Size = 6
     end
   end
   object dsCaddvs: TDataSource
@@ -857,6 +880,11 @@ object DTM_CAD: TDTM_CAD
         Name = 'FORN_CDG'
         Attributes = [faRequired]
         DataType = ftInteger
+      end
+      item
+        Name = 'FORN_FANTASIA'
+        DataType = ftString
+        Size = 100
       end>
     IndexDefs = <>
     IndexFieldNames = 'FORN_CDG'
@@ -1024,11 +1052,13 @@ object DTM_CAD: TDTM_CAD
       FieldName = 'FORN_TPINCORPORADORA'
       Origin = 'CAD_FORN.FORN_TPINCORPORADORA'
     end
-    object intgrfldConsCaddvsFORN_CDG: TIntegerField
+    object cdsConsCaddvsFORN_CDG: TIntegerField
       FieldName = 'FORN_CDG'
-      Origin = '"CAD_FORN"."FORN_CDG"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+    end
+    object cdsConsCaddvsFORN_FANTASIA: TStringField
+      FieldName = 'FORN_FANTASIA'
+      Size = 100
     end
   end
   object dsConsCaddvs: TDataSource
@@ -1307,11 +1337,13 @@ object DTM_CAD: TDTM_CAD
       FieldName = 'FORN_TPINCORPORADORA'
       Origin = 'CAD_FORN.FORN_TPINCORPORADORA'
     end
-    object intgrfldLkpCaddvsFORN_CDG: TIntegerField
+    object cdsLkpCaddvsFORN_CDG: TIntegerField
       FieldName = 'FORN_CDG'
-      Origin = '"CAD_FORN"."FORN_CDG"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+    end
+    object cdsLkpCaddvsFORN_FANTASIA: TStringField
+      FieldName = 'FORN_FANTASIA'
+      Size = 100
     end
   end
   object dsLkpcaddvs: TDataSource
@@ -1322,7 +1354,6 @@ object DTM_CAD: TDTM_CAD
   object qryREL: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    Active = True
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (

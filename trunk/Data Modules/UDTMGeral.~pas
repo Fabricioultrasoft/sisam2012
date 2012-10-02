@@ -52,10 +52,13 @@ begin
       QryGeral.SQL.Clear;
       QryGeral.SQL.Add(sql);
       QryGeral.ExecSQL;
+      qryGeral.CLOSE;
+      qryGeral.Transaction.Commit;
    end;
  except on E:exception  do
     raise Exception.Create(e.Message);
  end;
+
 end;
 
 
@@ -107,5 +110,7 @@ begin
     tb.Buttons[5].enabled:=(ds.State in [dsinsert,dsedit]) ; //cancelar
 
 end;
+
+
 
 end.
