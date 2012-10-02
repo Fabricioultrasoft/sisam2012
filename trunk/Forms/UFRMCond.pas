@@ -13,14 +13,12 @@ type
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
     grp1: TGroupBox;
-    lbl1: TLabel;
     lbl2: TLabel;
     lbl4: TLabel;
     lbl5: TLabel;
     lbl6: TLabel;
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
-    DBEdit3: TDBEdit;
     DBEdit14: TDBEdit;
     DBEdit16: TDBEdit;
     DBEdit4: TDBEdit;

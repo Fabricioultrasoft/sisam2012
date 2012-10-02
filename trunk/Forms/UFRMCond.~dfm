@@ -1,6 +1,6 @@
 object FRM_COND: TFRM_COND
-  Left = 332
-  Top = 198
+  Left = 324
+  Top = 171
   Width = 885
   Height = 638
   Caption = 'Condom'#237'nios'
@@ -269,7 +269,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_DESC'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 0
+          TabOrder = 1
         end
         object DBEdit2: TDBEdit
           Left = 8
@@ -278,7 +278,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_ABREV'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 1
+          TabOrder = 2
         end
         object DBEdit3: TDBEdit
           Left = 10
@@ -287,7 +287,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_PADRAO'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 2
+          TabOrder = 4
         end
         object DBEdit14: TDBEdit
           Left = 158
@@ -296,7 +296,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_INCORPORADORA'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 3
+          TabOrder = 5
         end
         object DBEdit16: TDBEdit
           Left = 8
@@ -305,7 +305,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_CDG'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 4
+          TabOrder = 0
         end
         object DBEdit4: TDBEdit
           Left = 10
@@ -314,7 +314,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_END'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 5
+          TabOrder = 6
         end
         object DBEdit15: TDBEdit
           Left = 160
@@ -323,7 +323,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_INCORPCNPJ'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 6
+          TabOrder = 7
         end
         object DBEdit9: TDBEdit
           Left = 159
@@ -332,7 +332,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_TELEFONE'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 7
+          TabOrder = 9
         end
         object DBEdit5: TDBEdit
           Left = 10
@@ -350,7 +350,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_BAIRRO'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 9
+          TabOrder = 10
         end
         object DBEdit10: TDBEdit
           Left = 327
@@ -359,7 +359,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_SINDICO'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 10
+          TabOrder = 13
         end
         object DBEdit8: TDBEdit
           Left = 287
@@ -368,7 +368,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_UF'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 11
+          TabOrder = 12
         end
         object DBEdit7: TDBEdit
           Left = 14
@@ -377,7 +377,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_CID'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 12
+          TabOrder = 11
         end
         object DBEdit17: TDBEdit
           Left = 14
@@ -386,7 +386,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_EMAIL'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 13
+          TabOrder = 14
         end
         object dblkcbbCOND_FORNECEDOR: TDBLookupComboBox
           Left = 158
@@ -395,17 +395,17 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_FORNECEDOR'
           DataSource = DTM_CAD.dsCond
-          KeyField = 'FORN_CNPJ'
+          KeyField = 'FORN_CDG'
           ListField = 'FORN_RAZAO'
           ListFieldIndex = 1
           ListSource = DTM_CAD.dsLkpcaddvs
-          TabOrder = 14
+          TabOrder = 3
         end
       end
       object tlb1: TToolBar
-        Left = 5
-        Top = 538
-        Width = 846
+        Left = 413
+        Top = 66
+        Width = 156
         Height = 27
         Align = alCustom
         ButtonHeight = 23

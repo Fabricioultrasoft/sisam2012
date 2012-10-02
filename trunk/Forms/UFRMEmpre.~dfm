@@ -675,7 +675,7 @@ object FRM_EMPRE: TFRM_EMPRE
           Width = 63
           Height = 13
           Caption = 'Raz'#227'o Social'
-          FocusControl = DBEdit4
+          FocusControl = DBEdrazao
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clNavy
           Font.Height = -11
@@ -757,7 +757,7 @@ object FRM_EMPRE: TFRM_EMPRE
           ParentFont = False
           TabOrder = 3
         end
-        object DBEdit4: TDBEdit
+        object DBEdrazao: TDBEdit
           Left = 108
           Top = 29
           Width = 526

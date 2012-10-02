@@ -226,6 +226,7 @@ begin
 
   cdsCpg.FieldByName('CPG_DTEMISSAO').AsDateTime:=  Now;
 
+  cdsCpg.FieldByName('CPG_STATUS').ASINTEGER:=  0;
 
 end;
 

@@ -67,11 +67,7 @@ type
     cdsCond: TClientDataSet;
     dsCond: TDataSource;
     cdsCondCOND_DESC: TStringField;
-    cdsCondCOND_ABREV: TIntegerField;
-    cdsCondCOND_PADRAO: TIntegerField;
-    cdsCondCOND_END: TIntegerField;
     cdsCondCOND_CEP: TIntegerField;
-    cdsCondCOND_BAIRRO: TIntegerField;
     cdsCondCOND_CID: TStringField;
     cdsCondCOND_UF: TStringField;
     cdsCondCOND_TELEFONE: TStringField;
@@ -144,11 +140,7 @@ type
     dspConsCond: TDataSetProvider;
     cdsConsCond: TClientDataSet;
     StringField34: TStringField;
-    IntegerField9: TIntegerField;
-    IntegerField10: TIntegerField;
-    IntegerField11: TIntegerField;
     IntegerField12: TIntegerField;
-    IntegerField13: TIntegerField;
     StringField35: TStringField;
     StringField36: TStringField;
     StringField37: TStringField;
@@ -201,11 +193,7 @@ type
     dspLkpcond: TDataSetProvider;
     cdsLkpcond: TClientDataSet;
     StringField42: TStringField;
-    IntegerField16: TIntegerField;
-    IntegerField17: TIntegerField;
-    IntegerField18: TIntegerField;
     IntegerField19: TIntegerField;
-    IntegerField20: TIntegerField;
     StringField43: TStringField;
     StringField44: TStringField;
     StringField45: TStringField;
@@ -231,6 +219,15 @@ type
     cdsConsCondCOND_FORNECEDOR: TIntegerField;
     cdsLkpcondCOND_BLOCO: TStringField;
     cdsLkpcondCOND_FORNECEDOR: TIntegerField;
+    cdsCondCOND_ABREV: TStringField;
+    cdsCondCOND_END: TStringField;
+    cdsCondCOND_BAIRRO: TStringField;
+    cdsConsCondCOND_ABREV: TStringField;
+    cdsConsCondCOND_END: TStringField;
+    cdsConsCondCOND_BAIRRO: TStringField;
+    cdsLkpcondCOND_ABREV: TStringField;
+    cdsLkpcondCOND_END: TStringField;
+    cdsLkpcondCOND_BAIRRO: TStringField;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
@@ -343,6 +340,11 @@ procedure TDTM_CAD.cdsCaddvsAfterInsert(DataSet: TDataSet);
 begin
   DTMGERAL.executarSQL(' SELECT (GEN_ID(G_CAD_FORN,0) +1)   FROM RDB$DATABASE ');
   cdsCaddvs.FieldByName('FORN_CDG').AsInteger:=  DTMgeral.qryGeral.FieldS.Fields[0].ASINTEGER;
+  cdsCaddvs.FieldByName('FORN_TPFORNECEDOR').AsInteger:= 1;
+  cdsCaddvs.FieldByName('FORN_TPFUNCIONARIO').AsInteger:= 0;
+  cdsCaddvs.FieldByName('FORN_TPINCORPORADORA').AsInteger:= 0;
+  cdsCaddvs.FieldByName('FORN_TPSINDICO').AsInteger:= 0;
+  cdsCaddvs.FieldByName('FORN_TPCONDOMINO').AsInteger:= 0;
 end;
 
 procedure TDTM_CAD.cdsCondAfterInsert(DataSet: TDataSet);

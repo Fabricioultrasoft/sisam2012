@@ -48,7 +48,7 @@ type
     Label2: TLabel;
     DBEdit5: TDBEdit;
     Label5: TLabel;
-    DBEdit4: TDBEdit;
+    DBEdrazao: TDBEdit;
     Label4: TLabel;
     DBEdit16: TDBEdit;
     Label16: TLabel;
@@ -121,6 +121,7 @@ end;
 procedure TFRM_EMPRE.tbAddClick(Sender: TObject);
 begin
   DTM_CAD.cdsEmpre.Insert;
+  DBEdrazao.SetFocus;
 end;
 
 procedure TFRM_EMPRE.tbOkClick(Sender: TObject);
