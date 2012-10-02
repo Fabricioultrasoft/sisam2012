@@ -16,6 +16,7 @@ object FRM_EMPRE: TFRM_EMPRE
   OldCreateOrder = False
   Position = poDesktopCenter
   Visible = True
+  WindowState = wsMaximized
   OnClose = FormClose
   OnCreate = FormCreate
   PixelsPerInch = 96
@@ -166,16 +167,16 @@ object FRM_EMPRE: TFRM_EMPRE
   object PC_Empresa: TPageControl
     Left = 0
     Top = 0
-    Width = 915
-    Height = 490
+    Width = 923
+    Height = 494
     ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Cadastro'
       DesignSize = (
-        907
-        462)
+        915
+        466)
       object tlb1: TToolBar
         Left = 16
         Top = 209
@@ -812,8 +813,8 @@ object FRM_EMPRE: TFRM_EMPRE
       object DBGrid1: TDBGrid
         Left = 0
         Top = 105
-        Width = 907
-        Height = 357
+        Width = 915
+        Height = 361
         Align = alClient
         DataSource = DTM_CAD.dsConsEmpre
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
@@ -946,7 +947,7 @@ object FRM_EMPRE: TFRM_EMPRE
       object GroupBox3: TGroupBox
         Left = 0
         Top = 0
-        Width = 907
+        Width = 915
         Height = 105
         Align = alTop
         Caption = 'Pesquisar'
