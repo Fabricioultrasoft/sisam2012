@@ -1,8 +1,8 @@
 object FRM_CPG: TFRM_CPG
-  Left = 137
-  Top = 138
-  Width = 911
-  Height = 479
+  Left = 294
+  Top = 260
+  Width = 629
+  Height = 472
   Caption = 'Contas a Pagar'
   Color = clBtnFace
   Constraints.MinHeight = 472
@@ -66,17 +66,14 @@ object FRM_CPG: TFRM_CPG
   object pgControl: TPageControl
     Left = 0
     Top = 0
-    Width = 903
-    Height = 445
+    Width = 613
+    Height = 434
     ActivePage = PC_Cons
     Align = alClient
     TabOrder = 0
     OnChange = pgControlChange
     object PC_Contas: TTabSheet
       Caption = 'Contas'
-      DesignSize = (
-        895
-        417)
       object Label1: TLabel
         Left = 16
         Top = 122
@@ -286,6 +283,34 @@ object FRM_CPG: TFRM_CPG
         Font.Style = []
         ParentFont = False
       end
+      object lbl7: TLabel
+        Left = 15
+        Top = 304
+        Width = 63
+        Height = 13
+        Caption = 'Usu'#225'rio Lanc'
+        FocusControl = dbeValor
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object lbl8: TLabel
+        Left = 151
+        Top = 304
+        Width = 71
+        Height = 13
+        Caption = 'Usuario Baixou'
+        FocusControl = dbeValor
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
       object DBEdit1: TDBEdit
         Left = 16
         Top = 135
@@ -300,7 +325,7 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 3
+        TabOrder = 5
       end
       object DBEdit2: TDBEdit
         Left = 111
@@ -315,7 +340,7 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 4
+        TabOrder = 6
       end
       object dbeValor: TDBEdit
         Left = 295
@@ -331,7 +356,7 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 9
+        TabOrder = 10
       end
       object DBeddesc: TDBEdit
         Left = 80
@@ -362,7 +387,7 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 2
+        TabOrder = 3
       end
       object DBEdit7: TDBEdit
         Left = 292
@@ -377,7 +402,7 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 8
       end
       object DBEdit14: TDBEdit
         Left = 200
@@ -392,13 +417,13 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 5
+        TabOrder = 7
       end
       object DBEdit16: TDBEdit
         Left = 13
         Top = 184
-        Width = 268
-        Height = 164
+        Width = 267
+        Height = 114
         AutoSize = False
         DataField = 'CPG_OBS'
         DataSource = DTM_FINAN.dsCpg
@@ -408,7 +433,7 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 9
       end
       object DBEdit17: TDBEdit
         Left = 16
@@ -438,7 +463,7 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 16
         object Label6: TLabel
           Left = 8
           Top = 24
@@ -565,7 +590,7 @@ object FRM_CPG: TFRM_CPG
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
-          TabOrder = 1
+          TabOrder = 2
         end
         object dbeCofins: TDBEdit
           Left = 8
@@ -580,7 +605,7 @@ object FRM_CPG: TFRM_CPG
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
-          TabOrder = 2
+          TabOrder = 4
         end
         object dbeIss: TDBEdit
           Left = 8
@@ -595,7 +620,7 @@ object FRM_CPG: TFRM_CPG
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
-          TabOrder = 3
+          TabOrder = 6
         end
         object dbeCsls: TDBEdit
           Left = 89
@@ -610,7 +635,7 @@ object FRM_CPG: TFRM_CPG
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
-          TabOrder = 4
+          TabOrder = 3
         end
         object dbeInss: TDBEdit
           Left = 89
@@ -640,7 +665,7 @@ object FRM_CPG: TFRM_CPG
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
-          TabOrder = 6
+          TabOrder = 1
         end
       end
       object DBEdit3: TDBEdit
@@ -656,7 +681,7 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 10
+        TabOrder = 11
       end
       object DBEdit6: TDBEdit
         Left = 365
@@ -671,7 +696,7 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 11
+        TabOrder = 12
       end
       object DBEdit8: TDBEdit
         Left = 294
@@ -686,7 +711,7 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 12
+        TabOrder = 13
       end
       object DBEdit9: TDBEdit
         Left = 365
@@ -701,7 +726,7 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 13
+        TabOrder = 14
       end
       object AggTotal: TDBEdit
         Left = 292
@@ -717,7 +742,7 @@ object FRM_CPG: TFRM_CPG
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 14
+        TabOrder = 15
       end
       object tlb1: TToolBar
         Left = 13
@@ -730,7 +755,7 @@ object FRM_CPG: TFRM_CPG
         Caption = 'tlb1'
         HotImages = DTMGeral.ImgListlButtons
         Images = DTMGeral.ImgListlButtons
-        TabOrder = 15
+        TabOrder = 17
         object btnPrior: TToolButton
           Left = 0
           Top = 2
@@ -791,13 +816,12 @@ object FRM_CPG: TFRM_CPG
         end
       end
       object btncancelar: TBitBtn
-        Left = 463
-        Top = 354
+        Left = 258
+        Top = 350
         Width = 137
         Height = 54
-        Anchors = [akBottom]
         Caption = 'Cancelar Pgto'
-        TabOrder = 16
+        TabOrder = 18
         OnClick = btncancelarClick
         Glyph.Data = {
           F6060000424DF606000000000000360000002800000018000000180000000100
@@ -858,13 +882,12 @@ object FRM_CPG: TFRM_CPG
           17AF1F1FAF000000000000000000000000000000000000000000}
       end
       object btn1: TBitBtn
-        Left = 675
-        Top = 354
+        Left = 442
+        Top = 350
         Width = 155
         Height = 54
-        Anchors = [akBottom]
         Caption = 'Quitar'
-        TabOrder = 17
+        TabOrder = 19
         OnClick = btn1Click
         Glyph.Data = {
           361B0000424D361B000000000000360000002800000030000000300000000100
@@ -1098,7 +1121,7 @@ object FRM_CPG: TFRM_CPG
           'Em aberto'
           'Pago'
           'Cancelado')
-        TabOrder = 18
+        TabOrder = 2
         Values.Strings = (
           '0'
           '1'
@@ -1115,7 +1138,37 @@ object FRM_CPG: TFRM_CPG
         ListField = 'COND_DESC'
         ListSource = DTM_CAD.dsLkpcond
         NullValueKey = 46
-        TabOrder = 19
+        TabOrder = 4
+      end
+      object DBEdit4: TDBEdit
+        Left = 14
+        Top = 317
+        Width = 123
+        Height = 21
+        DataField = 'USUARIOLANC'
+        DataSource = DTM_FINAN.dsCpg
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 20
+      end
+      object DBEdit10: TDBEdit
+        Left = 149
+        Top = 317
+        Width = 132
+        Height = 21
+        DataField = 'USUARIOBAIXA'
+        DataSource = DTM_FINAN.dsCpg
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 21
       end
     end
     object PC_Cons: TTabSheet
@@ -1124,8 +1177,8 @@ object FRM_CPG: TFRM_CPG
       object DBGrid1: TDBGrid
         Left = 0
         Top = 105
-        Width = 895
-        Height = 312
+        Width = 605
+        Height = 301
         Align = alClient
         DataSource = DTM_FINAN.dsConsCpg
         TabOrder = 0
@@ -1313,7 +1366,7 @@ object FRM_CPG: TFRM_CPG
       object grp1: TGroupBox
         Left = 0
         Top = 0
-        Width = 895
+        Width = 605
         Height = 105
         Align = alTop
         Caption = 'grp1'
@@ -1383,6 +1436,19 @@ object FRM_CPG: TFRM_CPG
           Font.Style = []
           ParentFont = False
         end
+        object lblvalorbruto: TLabel
+          Left = 385
+          Top = 59
+          Width = 52
+          Height = 13
+          Caption = 'Valor Bruto'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
         object rgstatus: TRadioGroup
           Left = 507
           Top = 11
@@ -1395,14 +1461,14 @@ object FRM_CPG: TFRM_CPG
             'Em aberto'
             'Pago'
             'Cancelado')
-          TabOrder = 0
+          TabOrder = 6
         end
         object btnPesq: TBitBtn
           Left = 710
           Top = 31
           Width = 64
           Height = 64
-          TabOrder = 1
+          TabOrder = 8
           WordWrap = True
           OnClick = btnPesqClick
           Glyph.Data = {
@@ -1669,7 +1735,7 @@ object FRM_CPG: TFRM_CPG
           Font.Name = 'MS Sans Serif'
           Font.Style = []
           ParentFont = False
-          TabOrder = 2
+          TabOrder = 3
           OnKeyPress = dtpDTiniKeyPress
         end
         object CBcond: TDBLookupComboBox
@@ -1680,7 +1746,7 @@ object FRM_CPG: TFRM_CPG
           KeyField = 'COND_CDG'
           ListField = 'COND_DESC'
           ListSource = DTM_CAD.dsLkpcond
-          TabOrder = 3
+          TabOrder = 2
           OnKeyDown = CBcondKeyDown
           OnKeyPress = dtpDTiniKeyPress
         end
@@ -1691,7 +1757,7 @@ object FRM_CPG: TFRM_CPG
           Height = 21
           Date = 41179.945242280090000000
           Time = 41179.945242280090000000
-          TabOrder = 4
+          TabOrder = 0
           OnKeyPress = dtpDTiniKeyPress
         end
         object dtpDtfim: TDateTimePicker
@@ -1701,7 +1767,7 @@ object FRM_CPG: TFRM_CPG
           Height = 21
           Date = 41179.945242280090000000
           Time = 41179.945242280090000000
-          TabOrder = 5
+          TabOrder = 1
           OnKeyPress = dtpDTiniKeyPress
         end
         object edtvalor: TEdit
@@ -1709,7 +1775,7 @@ object FRM_CPG: TFRM_CPG
           Top = 32
           Width = 100
           Height = 21
-          TabOrder = 6
+          TabOrder = 4
           OnKeyPress = dtpDTiniKeyPress
         end
         object grp2: TGroupBox
@@ -1726,6 +1792,14 @@ object FRM_CPG: TFRM_CPG
             Height = 21
             TabOrder = 0
           end
+        end
+        object edtvalorbruto: TEdit
+          Left = 384
+          Top = 72
+          Width = 100
+          Height = 21
+          TabOrder = 5
+          OnKeyPress = dtpDTiniKeyPress
         end
       end
     end

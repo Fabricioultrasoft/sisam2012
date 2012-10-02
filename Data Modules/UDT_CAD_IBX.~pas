@@ -195,18 +195,25 @@ type
     qryUserUSUARIO_NOME: TIBStringField;
     qryUserUSUARIO_LOGIN: TIBStringField;
     qryUserUSUARIO_ATIVO: TIntegerField;
-    intgrfldCaddvsFORN_CDG: TIntegerField;
+    qryEmpreEMPRE_CONTATO: TIBStringField;
+    qryEmpreEMPRE_DDD: TIBStringField;
+    qryEmpreEMPRE_PAIS: TIBStringField;
+    qryEmpreEMPRE_RAMAL: TIBStringField;
+    qryCaddvsFORN_CDG: TIntegerField;
+    qryConsCaddvsFORN_CDG: TIntegerField;
+    qryConsEmpreEMPRE_CONTATO: TIBStringField;
+    qryConsEmpreEMPRE_DDD: TIBStringField;
+    qryConsEmpreEMPRE_PAIS: TIBStringField;
+    qryConsEmpreEMPRE_RAMAL: TIBStringField;
+    qryLkpcaddvsFORN_CDG: TIntegerField;
+    qryCaddvsFORN_FANTASIA: TIBStringField;
+    qryConsCaddvsFORN_FANTASIA: TIBStringField;
     qryCondCOND_BLOCO: TIBStringField;
     qryCondCOND_FORNECEDOR: TIntegerField;
-    intgrfldLkpcaddvsFORN_CDG: TIntegerField;
-    intgrfldConsCaddvsFORN_CDG: TIntegerField;
     qryConsCondCOND_BLOCO: TIBStringField;
     qryConsCondCOND_FORNECEDOR: TIntegerField;
     qryLkpCondCOND_BLOCO: TIBStringField;
     qryLkpCondCOND_FORNECEDOR: TIntegerField;
-    qryLkpCrbCond: TIBQuery;
-    qryLkpCrbCondCOND_DESC: TIBStringField;
-    qryLkpCrbCondCRB_CONDOMINIO: TIntegerField;
   private
     { Private declarations }
   public

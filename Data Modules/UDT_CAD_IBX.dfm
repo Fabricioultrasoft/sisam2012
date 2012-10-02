@@ -7,8 +7,6 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryCaddvs: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select F.*, FORN_FANTASIA'
       ' '
@@ -179,8 +177,6 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryEmpre: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       
         ' SELECT EMPRE_BAIRRO,   EMPRE_CDG,      EMPRE_CEP,      EMPRE_CI' +
@@ -304,8 +300,6 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryCond: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_COND')
     Left = 168
@@ -316,25 +310,9 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       Required = True
       Size = 100
     end
-    object qryCondCOND_ABREV: TIntegerField
-      FieldName = 'COND_ABREV'
-      Origin = '"CAD_COND"."COND_ABREV"'
-    end
-    object qryCondCOND_PADRAO: TIntegerField
-      FieldName = 'COND_PADRAO'
-      Origin = '"CAD_COND"."COND_PADRAO"'
-    end
-    object qryCondCOND_END: TIntegerField
-      FieldName = 'COND_END'
-      Origin = '"CAD_COND"."COND_END"'
-    end
     object qryCondCOND_CEP: TIntegerField
       FieldName = 'COND_CEP'
       Origin = '"CAD_COND"."COND_CEP"'
-    end
-    object qryCondCOND_BAIRRO: TIntegerField
-      FieldName = 'COND_BAIRRO'
-      Origin = '"CAD_COND"."COND_BAIRRO"'
     end
     object qryCondCOND_CID: TIBStringField
       FieldName = 'COND_CID'
@@ -384,12 +362,24 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       FieldName = 'COND_FORNECEDOR'
       Origin = '"CAD_COND"."COND_FORNECEDOR"'
     end
+    object qryCondCOND_ABREV: TIBStringField
+      FieldName = 'COND_ABREV'
+      Origin = '"CAD_COND"."COND_ABREV"'
+    end
+    object qryCondCOND_END: TIBStringField
+      FieldName = 'COND_END'
+      Origin = '"CAD_COND"."COND_END"'
+      Size = 100
+    end
+    object qryCondCOND_BAIRRO: TIBStringField
+      FieldName = 'COND_BAIRRO'
+      Origin = '"CAD_COND"."COND_BAIRRO"'
+      Size = 50
+    end
   end
   object qryUser: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_USUARIO')
     Left = 224
@@ -428,8 +418,6 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryConsCaddvs: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select * '
       'from CAD_FORN')
@@ -599,8 +587,6 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryConsEmpre: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       
         ' SELECT EMPRE_BAIRRO,   EMPRE_CDG,      EMPRE_CEP,      EMPRE_CI' +
@@ -723,8 +709,6 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryConsCond: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_COND')
     Left = 168
@@ -735,25 +719,9 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       Required = True
       Size = 100
     end
-    object IntegerField9: TIntegerField
-      FieldName = 'COND_ABREV'
-      Origin = '"CAD_COND"."COND_ABREV"'
-    end
-    object IntegerField10: TIntegerField
-      FieldName = 'COND_PADRAO'
-      Origin = '"CAD_COND"."COND_PADRAO"'
-    end
-    object IntegerField11: TIntegerField
-      FieldName = 'COND_END'
-      Origin = '"CAD_COND"."COND_END"'
-    end
     object IntegerField12: TIntegerField
       FieldName = 'COND_CEP'
       Origin = '"CAD_COND"."COND_CEP"'
-    end
-    object IntegerField13: TIntegerField
-      FieldName = 'COND_BAIRRO'
-      Origin = '"CAD_COND"."COND_BAIRRO"'
     end
     object IBStringField35: TIBStringField
       FieldName = 'COND_CID'
@@ -803,12 +771,24 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       FieldName = 'COND_FORNECEDOR'
       Origin = '"CAD_COND"."COND_FORNECEDOR"'
     end
+    object qryConsCondCOND_ABREV: TIBStringField
+      FieldName = 'COND_ABREV'
+      Origin = '"CAD_COND"."COND_ABREV"'
+    end
+    object qryConsCondCOND_END: TIBStringField
+      FieldName = 'COND_END'
+      Origin = '"CAD_COND"."COND_END"'
+      Size = 100
+    end
+    object qryConsCondCOND_BAIRRO: TIBStringField
+      FieldName = 'COND_BAIRRO'
+      Origin = '"CAD_COND"."COND_BAIRRO"'
+      Size = 50
+    end
   end
   object qryLkpCond: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_COND')
     Left = 168
@@ -891,8 +871,6 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryLkpcaddvs: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select * '
       'from CAD_FORN')

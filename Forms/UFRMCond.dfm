@@ -1,6 +1,6 @@
 object FRM_COND: TFRM_COND
-  Left = 129
-  Top = 51
+  Left = 324
+  Top = 171
   Width = 885
   Height = 638
   Caption = 'Condom'#237'nios'
@@ -50,16 +50,16 @@ object FRM_COND: TFRM_COND
   object PC_Condominio: TPageControl
     Left = 0
     Top = 0
-    Width = 877
-    Height = 604
+    Width = 869
+    Height = 600
     ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Cadastro'
       DesignSize = (
-        869
-        576)
+        861
+        572)
       object grp1: TGroupBox
         Left = 6
         Top = 3
@@ -67,21 +67,8 @@ object FRM_COND: TFRM_COND
         Height = 527
         Anchors = [akLeft, akTop, akRight, akBottom]
         TabOrder = 0
-        object lbl1: TLabel
-          Left = 9
-          Top = 101
-          Width = 34
-          Height = 13
-          Caption = 'Padr'#227'o'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
-          Font.Height = -11
-          Font.Name = 'MS Sans Serif'
-          Font.Style = []
-          ParentFont = False
-        end
         object lbl2: TLabel
-          Left = 159
+          Left = 11
           Top = 100
           Width = 63
           Height = 13
@@ -269,7 +256,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_DESC'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 0
+          TabOrder = 1
         end
         object DBEdit2: TDBEdit
           Left = 8
@@ -278,25 +265,16 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_ABREV'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 1
-        end
-        object DBEdit3: TDBEdit
-          Left = 10
-          Top = 115
-          Width = 134
-          Height = 21
-          DataField = 'COND_PADRAO'
-          DataSource = DTM_CAD.dsCond
           TabOrder = 2
         end
         object DBEdit14: TDBEdit
-          Left = 158
+          Left = 10
           Top = 114
-          Width = 208
+          Width = 355
           Height = 21
           DataField = 'COND_INCORPORADORA'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 3
+          TabOrder = 4
         end
         object DBEdit16: TDBEdit
           Left = 8
@@ -305,7 +283,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_CDG'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 4
+          TabOrder = 0
         end
         object DBEdit4: TDBEdit
           Left = 10
@@ -319,7 +297,7 @@ object FRM_COND: TFRM_COND
         object DBEdit15: TDBEdit
           Left = 160
           Top = 154
-          Width = 204
+          Width = 235
           Height = 21
           DataField = 'COND_INCORPCNPJ'
           DataSource = DTM_CAD.dsCond
@@ -332,7 +310,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_TELEFONE'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 7
+          TabOrder = 8
         end
         object DBEdit5: TDBEdit
           Left = 10
@@ -341,7 +319,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_CEP'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 8
+          TabOrder = 7
         end
         object DBEdit6: TDBEdit
           Left = 13
@@ -359,7 +337,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_SINDICO'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 10
+          TabOrder = 12
         end
         object DBEdit8: TDBEdit
           Left = 287
@@ -377,7 +355,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_CID'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 12
+          TabOrder = 10
         end
         object DBEdit17: TDBEdit
           Left = 14
@@ -399,7 +377,7 @@ object FRM_COND: TFRM_COND
           ListField = 'FORN_RAZAO'
           ListFieldIndex = 1
           ListSource = DTM_CAD.dsLkpcaddvs
-          TabOrder = 14
+          TabOrder = 3
         end
       end
       object tlb1: TToolBar
@@ -480,7 +458,7 @@ object FRM_COND: TFRM_COND
       object grp2: TGroupBox
         Left = 0
         Top = 0
-        Width = 869
+        Width = 861
         Height = 105
         Align = alTop
         Caption = 'Pesquisar'
@@ -834,8 +812,8 @@ object FRM_COND: TFRM_COND
       object dbgrd1: TDBGrid
         Left = 0
         Top = 105
-        Width = 869
-        Height = 471
+        Width = 861
+        Height = 467
         Align = alClient
         DataSource = DTM_CAD.dsConsCond
         Font.Charset = DEFAULT_CHARSET

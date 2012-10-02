@@ -37,14 +37,14 @@ object FRM_CADDVS: TFRM_CADDVS
     Top = 0
     Width = 785
     Height = 650
-    ActivePage = tbConsulta
+    ActivePage = tabCadastro
     Align = alClient
     TabOrder = 0
     object tabCadastro: TTabSheet
       Caption = 'Cadastro'
       DesignSize = (
-        785
-        626)
+        777
+        622)
       object grp1: TGroupBox
         Left = 8
         Top = 3
@@ -120,7 +120,7 @@ object FRM_CADDVS: TFRM_CADDVS
         object lbl5: TLabel
           Left = 136
           Top = 133
-          Width = 66
+          Width = 46
           Height = 13
           Caption = 'Endere'#231'o'
           Font.Charset = DEFAULT_CHARSET
@@ -252,9 +252,9 @@ object FRM_CADDVS: TFRM_CADDVS
           Top = 27
           Width = 184
           Height = 21
-          DataField = 'FORN_CDG'
+          DataField = 'FORN_CPFCNPJ'
           DataSource = dtsCad
-          TabOrder = 0
+          TabOrder = 1
         end
         object DBEdit2: TDBEdit
           Left = 16
@@ -263,7 +263,7 @@ object FRM_CADDVS: TFRM_CADDVS
           Height = 21
           DataField = 'FORN_FANTASIA'
           DataSource = dtsCad
-          TabOrder = 2
+          TabOrder = 3
         end
         object DBEdit17: TDBEdit
           Left = 272
@@ -272,7 +272,7 @@ object FRM_CADDVS: TFRM_CADDVS
           Height = 21
           DataField = 'FORN_RG'
           DataSource = dtsCad
-          TabOrder = 1
+          TabOrder = 2
         end
         object DBEdit3: TDBEdit
           Left = 16
@@ -281,7 +281,7 @@ object FRM_CADDVS: TFRM_CADDVS
           Height = 21
           DataField = 'FORN_RAZAO'
           DataSource = dtsCad
-          TabOrder = 3
+          TabOrder = 4
         end
         object DBEdit5: TDBEdit
           Left = 133
@@ -290,7 +290,7 @@ object FRM_CADDVS: TFRM_CADDVS
           Height = 21
           DataField = 'FORN_ENDERECO'
           DataSource = dtsCad
-          TabOrder = 5
+          TabOrder = 6
         end
         object DBEdit4: TDBEdit
           Left = 16
@@ -299,7 +299,7 @@ object FRM_CADDVS: TFRM_CADDVS
           Height = 21
           DataField = 'FORN_CEP'
           DataSource = dtsCad
-          TabOrder = 4
+          TabOrder = 5
         end
         object DBEdit6: TDBEdit
           Left = 16
@@ -308,7 +308,7 @@ object FRM_CADDVS: TFRM_CADDVS
           Height = 21
           DataField = 'FORN_BAIRRO'
           DataSource = dtsCad
-          TabOrder = 6
+          TabOrder = 7
         end
         object DBEdit7: TDBEdit
           Left = 263
@@ -317,7 +317,7 @@ object FRM_CADDVS: TFRM_CADDVS
           Height = 21
           DataField = 'FORN_CIDADE'
           DataSource = dtsCad
-          TabOrder = 7
+          TabOrder = 8
         end
         object DBEdit10: TDBEdit
           Left = 262
@@ -326,7 +326,7 @@ object FRM_CADDVS: TFRM_CADDVS
           Height = 21
           DataField = 'FORN_RAMAL'
           DataSource = dtsCad
-          TabOrder = 10
+          TabOrder = 11
         end
         object DBEdit9: TDBEdit
           Left = 16
@@ -335,7 +335,7 @@ object FRM_CADDVS: TFRM_CADDVS
           Height = 21
           DataField = 'FORN_TELEFONE'
           DataSource = dtsCad
-          TabOrder = 9
+          TabOrder = 10
         end
         object DBEdit12: TDBEdit
           Left = 16
@@ -344,7 +344,7 @@ object FRM_CADDVS: TFRM_CADDVS
           Height = 21
           DataField = 'FORN_EMAIL'
           DataSource = dtsCad
-          TabOrder = 12
+          TabOrder = 13
         end
         object DBEdit15: TDBEdit
           Left = 443
@@ -354,7 +354,7 @@ object FRM_CADDVS: TFRM_CADDVS
           DataField = 'FORN_CELULAR'
           DataSource = dtsCad
           MaxLength = 14
-          TabOrder = 13
+          TabOrder = 14
         end
         object DBEdit22: TDBEdit
           Left = 353
@@ -363,7 +363,7 @@ object FRM_CADDVS: TFRM_CADDVS
           Height = 21
           DataField = 'FORN_OCUPACAO'
           DataSource = dtsCad
-          TabOrder = 11
+          TabOrder = 12
         end
         object DBEdit8: TDBEdit
           Left = 545
@@ -372,7 +372,7 @@ object FRM_CADDVS: TFRM_CADDVS
           Height = 21
           DataField = 'FORN_UF'
           DataSource = dtsCad
-          TabOrder = 8
+          TabOrder = 9
         end
         object dbchkFORN_TPINCORPORADORA: TDBCheckBox
           Left = 480
@@ -382,7 +382,7 @@ object FRM_CADDVS: TFRM_CADDVS
           Caption = 'Incorporadora'
           DataField = 'FORN_TPINCORPORADORA'
           DataSource = dtsCad
-          TabOrder = 14
+          TabOrder = 18
           ValueChecked = '1'
           ValueUnchecked = '0'
         end
@@ -394,7 +394,7 @@ object FRM_CADDVS: TFRM_CADDVS
           Caption = 'S'#237'ndico'
           DataField = 'FORN_TPSINDICO'
           DataSource = dtsCad
-          TabOrder = 15
+          TabOrder = 17
           ValueChecked = '1'
           ValueUnchecked = '0'
         end
@@ -418,7 +418,7 @@ object FRM_CADDVS: TFRM_CADDVS
           Caption = 'Cond'#244'mino'
           DataField = 'FORN_TPCONDOMINO'
           DataSource = dtsCad
-          TabOrder = 17
+          TabOrder = 15
           ValueChecked = '1'
           ValueUnchecked = '0'
         end
@@ -429,7 +429,7 @@ object FRM_CADDVS: TFRM_CADDVS
           Height = 21
           DataField = 'FORN_CDG'
           DataSource = dtsCad
-          TabOrder = 18
+          TabOrder = 0
         end
         object dbchkFORN_TPINCORPORADORA1: TDBCheckBox
           Left = 576
@@ -794,7 +794,7 @@ object FRM_CADDVS: TFRM_CADDVS
       object grp3: TGroupBox
         Left = 0
         Top = 0
-        Width = 785
+        Width = 777
         Height = 143
         Align = alTop
         Caption = 'Pesquisar'
@@ -1232,8 +1232,8 @@ object FRM_CADDVS: TFRM_CADDVS
       object dbgrd1: TDBGrid
         Left = 0
         Top = 143
-        Width = 785
-        Height = 483
+        Width = 777
+        Height = 479
         Align = alClient
         DataSource = DTM_CAD.dsConsCaddvs
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]

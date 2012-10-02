@@ -310,7 +310,7 @@ object FRM_EMPRE: TFRM_EMPRE
         object Label22: TLabel
           Left = 600
           Top = 56
-          Width = 22
+          Width = 14
           Height = 13
           Caption = 'UF'
           Font.Charset = DEFAULT_CHARSET
@@ -375,7 +375,7 @@ object FRM_EMPRE: TFRM_EMPRE
         object Label27: TLabel
           Left = 490
           Top = 98
-          Width = 42
+          Width = 41
           Height = 13
           Caption = 'Logotipo'
           Font.Charset = DEFAULT_CHARSET
@@ -474,7 +474,7 @@ object FRM_EMPRE: TFRM_EMPRE
           Top = 111
           Width = 37
           Height = 21
-          DataField = 'EMPRE_FAX'
+          DataField = 'EMPRE_DDD'
           DataSource = dtsEmpre
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clNavy

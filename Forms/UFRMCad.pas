@@ -211,13 +211,13 @@ begin
    if (chksindico.checked) then
      SQL  := SQL + ' OR (FORN_TPSINDICO = 1) ';
 
-   if (chkcond.checked) then
+   if (chkforn.checked) then
      SQL  := SQL + ' OR (FORN_TPFORNECEDOR = 1) ';
 
-   if (chkcond.checked) then
+   if (chkincorp.checked) then
      SQL  := SQL + ' OR (FORN_TPINCORPORADORA = 1) ';
 
-   if (chkcond.checked) then
+   if (chkfuncionario.checked) then
      SQL  := SQL + ' OR (FORN_TPFUNCIONARIO = 1) ';
 
    SQL  := SQL + ')  ';

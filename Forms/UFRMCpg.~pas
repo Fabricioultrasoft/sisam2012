@@ -88,6 +88,12 @@ type
     lbl6: TLabel;
     grp2: TGroupBox;
     edtcdg: TEdit;
+    edtvalorbruto: TEdit;
+    lblvalorbruto: TLabel;
+    DBEdit4: TDBEdit;
+    lbl7: TLabel;
+    lbl8: TLabel;
+    DBEdit10: TDBEdit;
 
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -197,10 +203,17 @@ begin
       if StrToFloatdef(edtvalor.Text,-1) <> -1 then
          Where := Where + #13 + ' AND (CPG_TOTLIQ = '''+edtvalor.Text+''')'
       else
-        raise Exception.Create('Digite um valor valido para a pesquisa!');
+        raise Exception.Create('Digite um valor Liquido valido para a pesquisa!');
 
     end;
 
+    if (edtvalorbruto.Text <> '') then
+    begin
+     if StrToFloatdef(edtvalorbruto.Text,-1) <> -1 then
+         Where := Where + #13 + ' AND (CPG_TOTBRUTO = '''+edtvalorbruto.Text+''')'
+      else
+        raise Exception.Create('Digite um valor bruto valido para a pesquisa!');
+    end;
   end
   else
   begin
