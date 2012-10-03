@@ -5,6 +5,7 @@ object DTM_FINAN: TDTM_FINAN
   Height = 476
   Width = 564
   object cdsCpg: TClientDataSet
+    Active = True
     Aggregates = <>
     FieldDefs = <
       item
@@ -126,17 +127,19 @@ object DTM_FINAN: TDTM_FINAN
       end
       item
         Name = 'USUARIOLANC'
+        Attributes = [faReadonly]
         DataType = ftString
         Size = 100
       end
       item
         Name = 'USUARIOBAIXA'
+        Attributes = [faReadonly]
         DataType = ftString
         Size = 100
       end
       item
         Name = 'STATUSDESC'
-        Attributes = [faFixed]
+        Attributes = [faReadonly, faFixed]
         DataType = ftString
         Size = 9
       end>
@@ -257,9 +260,11 @@ object DTM_FINAN: TDTM_FINAN
     end
     object cdsCpgCPG_USUARIOBAIXA: TIntegerField
       FieldName = 'CPG_USUARIOBAIXA'
+      Origin = '"CAD_CPG"."CPG_USUARIOBAIXA"'
     end
     object cdsCpgCPG_USUARIOLANC: TIntegerField
       FieldName = 'CPG_USUARIOLANC'
+      Origin = '"CAD_CPG"."CPG_USUARIOLANC"'
       Required = True
     end
     object cdsCpgCPG_TOTBRUTO: TFloatField
@@ -274,23 +279,30 @@ object DTM_FINAN: TDTM_FINAN
     end
     object cdsCpgCPG_STATUS: TSmallintField
       FieldName = 'CPG_STATUS'
+      Origin = '"CAD_CPG"."CPG_STATUS"'
     end
     object cdsCpgCPG_TOTLIQ: TFloatField
       FieldName = 'CPG_TOTLIQ'
+      Origin = '"CAD_CPG"."CPG_TOTLIQ"'
       DisplayFormat = '##0.00'
     end
     object cdsCpgUSUARIOLANC: TStringField
       FieldName = 'USUARIOLANC'
+      Origin = '"CAD_USUARIO"."USUARIO_NOME"'
+      ProviderFlags = []
       ReadOnly = True
       Size = 100
     end
     object cdsCpgUSUARIOBAIXA: TStringField
       FieldName = 'USUARIOBAIXA'
+      Origin = '"CAD_USUARIO"."USUARIO_NOME"'
+      ProviderFlags = []
       ReadOnly = True
       Size = 100
     end
     object cdsCpgSTATUSDESC: TStringField
       FieldName = 'STATUSDESC'
+      ProviderFlags = []
       FixedChar = True
       Size = 9
     end
@@ -311,196 +323,9 @@ object DTM_FINAN: TDTM_FINAN
     DataSet = DTM_FINAN_IBX.qryCrb
     Options = [poAllowCommandText]
     UpdateMode = upWhereKeyOnly
+    OnGetTableName = dspCrbGetTableName
     Left = 144
     Top = 16
-  end
-  object cdsCrb: TClientDataSet
-    Aggregates = <>
-    FieldDefs = <
-      item
-        Name = 'CRB_TOT'
-        DataType = ftFloat
-      end
-      item
-        Name = 'CRB_VLRCOND'
-        DataType = ftFloat
-      end
-      item
-        Name = 'CRB_FRACAO'
-        DataType = ftFloat
-      end
-      item
-        Name = 'CRB_CDG'
-        Attributes = [faRequired]
-        DataType = ftInteger
-      end
-      item
-        Name = 'CRB_UNIDADE'
-        DataType = ftInteger
-      end
-      item
-        Name = 'CRB_DTVENC'
-        DataType = ftDate
-      end
-      item
-        Name = 'CRB_DTVENCORIG'
-        DataType = ftDate
-      end
-      item
-        Name = 'CRB_DTPGTO'
-        DataType = ftDate
-      end
-      item
-        Name = 'CRB_JUROS'
-        DataType = ftFloat
-      end
-      item
-        Name = 'CRB_MULTA'
-        DataType = ftFloat
-      end
-      item
-        Name = 'CRB_RATEIO'
-        DataType = ftFloat
-      end
-      item
-        Name = 'CRB_BLOCO'
-        DataType = ftString
-        Size = 8
-      end
-      item
-        Name = 'CRB_CONDOMINO'
-        DataType = ftInteger
-      end
-      item
-        Name = 'CRB_STATUS'
-        DataType = ftSmallint
-      end
-      item
-        Name = 'CRB_USUARIOLANC'
-        Attributes = [faRequired]
-        DataType = ftInteger
-      end
-      item
-        Name = 'CRB_USUARIOBAIXA'
-        DataType = ftInteger
-      end
-      item
-        Name = 'CRB_STATUSDESC'
-        Attributes = [faFixed]
-        DataType = ftString
-        Size = 9
-      end
-      item
-        Name = 'USUARIOLANC'
-        DataType = ftString
-        Size = 100
-      end
-      item
-        Name = 'USUARIOBAIXA'
-        DataType = ftString
-        Size = 100
-      end
-      item
-        Name = 'CRB_CONDOMINIO'
-        DataType = ftInteger
-      end>
-    IndexDefs = <>
-    Params = <>
-    ProviderName = 'dspCrb'
-    StoreDefs = True
-    AfterInsert = cdsCrbAfterInsert
-    AfterPost = gerAfterPost
-    AfterDelete = gerAfterDelete
-    AfterApplyUpdates = gerAfterApplyUpdates
-    Left = 144
-    Top = 80
-    object cdsCrbCRB_TOT: TFloatField
-      FieldName = 'CRB_TOT'
-      Origin = '"CAD_CRB"."CRB_TOT"'
-    end
-    object cdsCrbCRB_VLRCOND: TFloatField
-      FieldName = 'CRB_VLRCOND'
-      Origin = '"CAD_CRB"."CRB_VLRCOND"'
-    end
-    object cdsCrbCRB_FRACAO: TFloatField
-      FieldName = 'CRB_FRACAO'
-      Origin = '"CAD_CRB"."CRB_FRACAO"'
-    end
-    object cdsCrbCRB_CDG: TIntegerField
-      FieldName = 'CRB_CDG'
-      Origin = '"CAD_CRB"."CRB_CDG"'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object cdsCrbCRB_UNIDADE: TIntegerField
-      FieldName = 'CRB_UNIDADE'
-      Origin = '"CAD_CRB"."CRB_UNIDADE"'
-    end
-    object cdsCrbCRB_DTVENC: TDateField
-      FieldName = 'CRB_DTVENC'
-      Origin = '"CAD_CRB"."CRB_DTVENC"'
-    end
-    object cdsCrbCRB_DTVENCORIG: TDateField
-      FieldName = 'CRB_DTVENCORIG'
-      Origin = '"CAD_CRB"."CRB_DTVENCORIG"'
-    end
-    object cdsCrbCRB_DTPGTO: TDateField
-      FieldName = 'CRB_DTPGTO'
-      Origin = '"CAD_CRB"."CRB_DTPGTO"'
-    end
-    object cdsCrbCRB_JUROS: TFloatField
-      FieldName = 'CRB_JUROS'
-      Origin = '"CAD_CRB"."CRB_JUROS"'
-    end
-    object cdsCrbCRB_MULTA: TFloatField
-      FieldName = 'CRB_MULTA'
-      Origin = '"CAD_CRB"."CRB_MULTA"'
-    end
-    object cdsCrbCRB_RATEIO: TFloatField
-      FieldName = 'CRB_RATEIO'
-      Origin = '"CAD_CRB"."CRB_RATEIO"'
-    end
-    object cdsCrbCRB_BLOCO: TStringField
-      FieldName = 'CRB_BLOCO'
-      Origin = '"CAD_CRB"."CRB_BLOCO"'
-      Size = 8
-    end
-    object intgrfldCrbCRB_CONDOMINO: TIntegerField
-      FieldName = 'CRB_CONDOMINO'
-      Origin = '"CAD_CRB"."CRB_CONDOMINO"'
-    end
-    object smlntfldCrbCRB_STATUS: TSmallintField
-      FieldName = 'CRB_STATUS'
-      Origin = '"CAD_CRB"."CRB_STATUS"'
-    end
-    object intgrfldCrbCRB_USUARIOLANC: TIntegerField
-      FieldName = 'CRB_USUARIOLANC'
-      Origin = '"CAD_CRB"."CRB_USUARIOLANC"'
-      Required = True
-    end
-    object intgrfldCrbCRB_USUARIOBAIXA: TIntegerField
-      FieldName = 'CRB_USUARIOBAIXA'
-      Origin = '"CAD_CRB"."CRB_USUARIOBAIXA"'
-    end
-    object cdsCrbCRB_STATUSDESC: TStringField
-      FieldName = 'CRB_STATUSDESC'
-      FixedChar = True
-      Size = 9
-    end
-    object cdsCrbUSUARIOLANC: TStringField
-      FieldName = 'USUARIOLANC'
-      Origin = '"CAD_USUARIO"."USUARIO_NOME"'
-      Size = 100
-    end
-    object cdsCrbUSUARIOBAIXA: TStringField
-      FieldName = 'USUARIOBAIXA'
-      Origin = '"CAD_USUARIO"."USUARIO_NOME"'
-      Size = 100
-    end
-    object cdsCrbCRB_CONDOMINIO: TIntegerField
-      FieldName = 'CRB_CONDOMINIO'
-      Origin = '"CAD_CRB"."CRB_CONDOMINIO"'
-    end
   end
   object dsCrb: TDataSource
     DataSet = cdsCrb
@@ -918,6 +743,16 @@ object DTM_FINAN: TDTM_FINAN
       FieldName = 'CRB_CONDOMINIO'
       Origin = '"CAD_CRB"."CRB_CONDOMINIO"'
     end
+    object strngfldConsCrbCONDOMINIO: TStringField
+      FieldName = 'CONDOMINIO'
+      Origin = '"CAD_COND"."COND_DESC"'
+      Size = 100
+    end
+    object strngfldConsCrbCONDOMINO: TStringField
+      FieldName = 'CONDOMINO'
+      Origin = '"CAD_FORN"."FORN_RAZAO"'
+      Size = 100
+    end
   end
   object dsConsCrb: TDataSource
     DataSet = cdsConsCrb
@@ -933,5 +768,213 @@ object DTM_FINAN: TDTM_FINAN
       'select * from CAD_CPG')
     Left = 232
     Top = 24
+  end
+  object cdsCrb: TClientDataSet
+    Active = True
+    Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'CRB_TOT'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CRB_VLRCOND'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CRB_FRACAO'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CRB_CDG'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'CRB_UNIDADE'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CRB_DTVENC'
+        DataType = ftDate
+      end
+      item
+        Name = 'CRB_DTVENCORIG'
+        DataType = ftDate
+      end
+      item
+        Name = 'CRB_DTPGTO'
+        DataType = ftDate
+      end
+      item
+        Name = 'CRB_JUROS'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CRB_MULTA'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CRB_RATEIO'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CRB_BLOCO'
+        DataType = ftString
+        Size = 8
+      end
+      item
+        Name = 'CRB_CONDOMINO'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CRB_STATUS'
+        DataType = ftSmallint
+      end
+      item
+        Name = 'CRB_USUARIOLANC'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'CRB_USUARIOBAIXA'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CRB_STATUSDESC'
+        Attributes = [faFixed]
+        DataType = ftString
+        Size = 9
+      end
+      item
+        Name = 'USUARIOLANC'
+        DataType = ftString
+        Size = 100
+      end
+      item
+        Name = 'USUARIOBAIXA'
+        DataType = ftString
+        Size = 100
+      end
+      item
+        Name = 'CRB_CONDOMINIO'
+        DataType = ftInteger
+      end
+      item
+        Name = 'CONDOMINIO'
+        DataType = ftString
+        Size = 100
+      end
+      item
+        Name = 'CONDOMINO'
+        DataType = ftString
+        Size = 100
+      end>
+    IndexDefs = <>
+    Params = <>
+    ProviderName = 'dspCrb'
+    StoreDefs = True
+    AfterInsert = cdsCrbAfterInsert
+    AfterPost = gerAfterPost
+    AfterDelete = gerAfterDelete
+    AfterApplyUpdates = gerAfterApplyUpdates
+    Left = 144
+    Top = 80
+    object cdsCrbCRB_TOT: TFloatField
+      FieldName = 'CRB_TOT'
+      Origin = '"CAD_CRB"."CRB_TOT"'
+    end
+    object cdsCrbCRB_VLRCOND: TFloatField
+      FieldName = 'CRB_VLRCOND'
+      Origin = '"CAD_CRB"."CRB_VLRCOND"'
+    end
+    object cdsCrbCRB_FRACAO: TFloatField
+      FieldName = 'CRB_FRACAO'
+      Origin = '"CAD_CRB"."CRB_FRACAO"'
+    end
+    object cdsCrbCRB_CDG: TIntegerField
+      FieldName = 'CRB_CDG'
+      Origin = '"CAD_CRB"."CRB_CDG"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object cdsCrbCRB_UNIDADE: TIntegerField
+      FieldName = 'CRB_UNIDADE'
+      Origin = '"CAD_CRB"."CRB_UNIDADE"'
+    end
+    object cdsCrbCRB_DTVENC: TDateField
+      FieldName = 'CRB_DTVENC'
+      Origin = '"CAD_CRB"."CRB_DTVENC"'
+    end
+    object cdsCrbCRB_DTVENCORIG: TDateField
+      FieldName = 'CRB_DTVENCORIG'
+      Origin = '"CAD_CRB"."CRB_DTVENCORIG"'
+    end
+    object cdsCrbCRB_DTPGTO: TDateField
+      FieldName = 'CRB_DTPGTO'
+      Origin = '"CAD_CRB"."CRB_DTPGTO"'
+    end
+    object cdsCrbCRB_JUROS: TFloatField
+      FieldName = 'CRB_JUROS'
+      Origin = '"CAD_CRB"."CRB_JUROS"'
+    end
+    object cdsCrbCRB_MULTA: TFloatField
+      FieldName = 'CRB_MULTA'
+      Origin = '"CAD_CRB"."CRB_MULTA"'
+    end
+    object cdsCrbCRB_RATEIO: TFloatField
+      FieldName = 'CRB_RATEIO'
+      Origin = '"CAD_CRB"."CRB_RATEIO"'
+    end
+    object strngfldCrbCRB_BLOCO: TStringField
+      FieldName = 'CRB_BLOCO'
+      Origin = '"CAD_CRB"."CRB_BLOCO"'
+      Size = 8
+    end
+    object cdsCrbCRB_CONDOMINO: TIntegerField
+      FieldName = 'CRB_CONDOMINO'
+      Origin = '"CAD_CRB"."CRB_CONDOMINO"'
+    end
+    object smlntfldCrbCRB_STATUS: TSmallintField
+      FieldName = 'CRB_STATUS'
+    end
+    object cdsCrbCRB_USUARIOLANC: TIntegerField
+      FieldName = 'CRB_USUARIOLANC'
+      Origin = '"CAD_CRB"."CRB_USUARIOLANC"'
+      Required = True
+    end
+    object cdsCrbCRB_USUARIOBAIXA: TIntegerField
+      FieldName = 'CRB_USUARIOBAIXA'
+      Origin = '"CAD_CRB"."CRB_USUARIOBAIXA"'
+    end
+    object strngfldCrbCRB_STATUSDESC: TStringField
+      FieldName = 'CRB_STATUSDESC'
+      FixedChar = True
+      Size = 9
+    end
+    object strngfldCrbUSUARIOLANC: TStringField
+      FieldName = 'USUARIOLANC'
+      Origin = '"CAD_USUARIO"."USUARIO_NOME"'
+      Size = 100
+    end
+    object strngfldCrbUSUARIOBAIXA: TStringField
+      FieldName = 'USUARIOBAIXA'
+      Origin = '"CAD_USUARIO"."USUARIO_NOME"'
+      Size = 100
+    end
+    object cdsCrbCRB_CONDOMINIO: TIntegerField
+      FieldName = 'CRB_CONDOMINIO'
+      Origin = '"CAD_CRB"."CRB_CONDOMINIO"'
+    end
+    object strngfldCrbCONDOMINIO: TStringField
+      FieldName = 'CONDOMINIO'
+      Origin = '"CAD_COND"."COND_DESC"'
+      Size = 100
+    end
+    object strngfldCrbCONDOMINO: TStringField
+      FieldName = 'CONDOMINO'
+      Origin = '"CAD_FORN"."FORN_RAZAO"'
+      Size = 100
+    end
   end
 end

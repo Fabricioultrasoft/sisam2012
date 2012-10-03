@@ -109,6 +109,10 @@ type
     qryCrbUSUARIOBAIXA: TIBStringField;
     qryCrbCRB_CONDOMINIO: TIntegerField;
     qryConsCrbCRB_CONDOMINIO: TIntegerField;
+    ibstrngfldCrbCONDOMINIO: TIBStringField;
+    ibstrngfldConsCrbCONDOMINIO: TIBStringField;
+    ibstrngfldCrbCONDOMINO: TIBStringField;
+    ibstrngfldConsCrbCONDOMINO: TIBStringField;
 {    qryConsCrbCRB_STATUS: TSmallintField;
     qryConsCrbCRB_USUARIOLANC: TIntegerField;
     qryConsCrbCRB_USUARIOBAIXA: TIntegerField;}

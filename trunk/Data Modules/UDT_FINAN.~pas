@@ -27,19 +27,6 @@ type
     cdsCpgCPG_OBS: TStringField;
     cdsCpgCPG_CDG: TIntegerField;
     dspCrb: TDataSetProvider;
-    cdsCrb: TClientDataSet;
-    cdsCrbCRB_TOT: TFloatField;
-    cdsCrbCRB_VLRCOND: TFloatField;
-    cdsCrbCRB_FRACAO: TFloatField;
-    cdsCrbCRB_CDG: TIntegerField;
-    cdsCrbCRB_UNIDADE: TIntegerField;
-    cdsCrbCRB_DTVENC: TDateField;
-    cdsCrbCRB_DTVENCORIG: TDateField;
-    cdsCrbCRB_DTPGTO: TDateField;
-    cdsCrbCRB_JUROS: TFloatField;
-    cdsCrbCRB_MULTA: TFloatField;
-    cdsCrbCRB_RATEIO: TFloatField;
-    cdsCrbCRB_BLOCO: TStringField;
     dsCrb: TDataSource;
     cdsCpgCPG_JUROS: TBCDField;
     cdsCpgCPG_MULTA: TBCDField;
@@ -101,28 +88,45 @@ type
     cdsCpgUSUARIOLANC: TStringField;
     cdsCpgUSUARIOBAIXA: TStringField;
     cdsCpgSTATUSDESC: TStringField;
-    intgrfldCrbCRB_CONDOMINO: TIntegerField;
-    smlntfldCrbCRB_STATUS: TSmallintField;
-    intgrfldCrbCRB_USUARIOLANC: TIntegerField;
-    intgrfldCrbCRB_USUARIOBAIXA: TIntegerField;
     intgrfldConsCrbCRB_CONDOMINO: TIntegerField;
     cdsConsCrbCRB_STATUS: TSmallintField;
     cdsConsCrbCRB_USUARIOLANC: TIntegerField;
     cdsConsCrbCRB_USUARIOBAIXA: TIntegerField;
-    cdsCrbCRB_STATUSDESC: TStringField;
-    cdsCrbUSUARIOLANC: TStringField;
-    cdsCrbUSUARIOBAIXA: TStringField;
     cdsConsCrbCRB_STATUSDESC: TStringField;
     cdsConsCrbUSUARIOLANC: TStringField;
     cdsConsCrbUSUARIOBAIXA: TStringField;
-    cdsCrbCRB_CONDOMINIO: TIntegerField;
     cdsConsCrbCRB_CONDOMINIO: TIntegerField;
+    cdsCrb: TClientDataSet;
+    cdsCrbCRB_TOT: TFloatField;
+    cdsCrbCRB_VLRCOND: TFloatField;
+    cdsCrbCRB_FRACAO: TFloatField;
+    cdsCrbCRB_CDG: TIntegerField;
+    cdsCrbCRB_UNIDADE: TIntegerField;
+    cdsCrbCRB_DTVENC: TDateField;
+    cdsCrbCRB_DTVENCORIG: TDateField;
+    cdsCrbCRB_DTPGTO: TDateField;
+    cdsCrbCRB_JUROS: TFloatField;
+    cdsCrbCRB_MULTA: TFloatField;
+    cdsCrbCRB_RATEIO: TFloatField;
+    strngfldCrbCRB_BLOCO: TStringField;
+    cdsCrbCRB_CONDOMINO: TIntegerField;
+    smlntfldCrbCRB_STATUS: TSmallintField;
+    cdsCrbCRB_USUARIOLANC: TIntegerField;
+    cdsCrbCRB_USUARIOBAIXA: TIntegerField;
+    strngfldCrbCRB_STATUSDESC: TStringField;
+    strngfldCrbUSUARIOLANC: TStringField;
+    strngfldCrbUSUARIOBAIXA: TStringField;
+    cdsCrbCRB_CONDOMINIO: TIntegerField;
+    strngfldCrbCONDOMINIO: TStringField;
+    strngfldConsCrbCONDOMINIO: TStringField;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
     procedure cdsCpgAfterInsert(DataSet: TDataSet);
     procedure cdsCrbAfterInsert(DataSet: TDataSet);
     procedure cdsCpgBeforePost(DataSet: TDataSet);
+    procedure dspCrbGetTableName(Sender: TObject; DataSet: TDataSet;
+      var TableName: String);
   private
     procedure prepararrelatorio(SQL : String);
 
@@ -148,6 +152,8 @@ var
 
 implementation
 
+uses Math;
+
 //uses UDTMGeral;
 
 {$R *.dfm}
@@ -168,10 +174,7 @@ begin
   TClientDataSet(DataSet).ApplyUpdates(-1);
 end;
 
-procedure TDTM_FINAN.gerAfterPost(DataSet: TDataSet);
-begin
-  TClientDataSet(DataSet).ApplyUpdates(-1);
-end;
+
 
 procedure TDTM_FINAN.consultarContas(SQL: string);
 begin
@@ -195,6 +198,11 @@ begin
   qryREL.Open;
 end;
 
+procedure TDTM_FINAN.gerAfterPost(DataSet: TDataSet);
+begin
+  TClientDataSet(DataSet).ApplyUpdates(-1);
+end;
+
 procedure TDTM_FINAN.prepararRelatorioContas;
 begin
   prepararrelatorio('SELECT * FROM CAD_CPG');
@@ -204,6 +212,7 @@ procedure TDTM_FINAN.prepararRelatorioReceitas;
 begin
   prepararrelatorio('SELECT * FROM CAD_CRB');
 end;
+
 procedure TDTM_FINAN.cdsCpgAfterInsert(DataSet: TDataSet);
 begin
   DTMGERAL.executarSQL(' SELECT (GEN_ID(G_CAD_CPG,0) +1)   FROM RDB$DATABASE ');
@@ -236,23 +245,13 @@ begin
   cdsCrb.FieldByName('CRB_CDG').AsInteger:=  DTMgeral.qryGeral.FieldS.Fields[0].ASINTEGER;
   cdsCrb.FieldByName('CRB_USUARIOLANC').AsInteger:=  DTMgeral.usuariocdg;
 
- { cdsCpg.FieldByName('CRB_FGTS').asfloat:=  0;
-  cdsCpg.FieldByName('CRB_IRRF').asfloat:=  0;
-  cdsCpg.FieldByName('CRB_PIS').asfloat:=  0;
-  cdsCpg.FieldByName('CRB_CSLS').asfloat:=  0;
-  cdsCpg.FieldByName('CRB_COFINS').asfloat:=  0;
-  cdsCpg.FieldByName('CRB_INSS').asfloat:=  0;
-  cdsCpg.FieldByName('CRB_ISS').asfloat:=  0;
+  cdsCrb.FieldByName('CRB_VLRCOND').asfloat:=  0;
+  cdsCrb.FieldByName('CRB_TOT').asfloat:=  0;
+  cdsCrb.FieldByName('CRB_RATEIO').asfloat:=  0;
+  cdsCrb.FieldByName('CRB_MULTA').asfloat:=  0;
+  cdsCrb.FieldByName('CRB_JUROS').asfloat:=  0;
 
-  cdsCpg.FieldByName('CRB_TOTLIQ').asfloat:=  0;
-  cdsCpg.FieldByName('CRB_JUROS').asfloat:=  0;
-  cdsCpg.FieldByName('CRB_MULTA').asfloat:=  0;
-  cdsCpg.FieldByName('CRB_DESCONTO').asfloat:=  0;
-  cdsCpg.FieldByName('CRB_ACRESCIMO').asfloat:=  0;
-
-  cdsCpg.FieldByName('CRB_DTEMISSAO').AsDateTime:=  Now;
-
-  cdsCpg.FieldByName('CRB_STATUS').ASINTEGER:=  0;       }
+  cdsCrb.FieldByName('CRB_STATUS').ASINTEGER:=  0;
 end;
 
 procedure TDTM_FINAN.quitarParcelaCRB(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc,vlrjuros,vlrmulta:double);
@@ -315,6 +314,13 @@ begin
  calcularTotLiqCPG(cdsCpg);
  if cdsCpgCPG_STATUS.Value = 1  then
     raise exception.Create('Pagamento ja efetuado, não pode ser alterado.');
+end;
+
+procedure TDTM_FINAN.dspCrbGetTableName(Sender: TObject; DataSet: TDataSet;
+  var TableName: String);
+begin
+  if DataSet = DTM_FINAN_IBX.qryCrb then
+   TableName := 'CAD_CRB' ;
 end;
 
 end.

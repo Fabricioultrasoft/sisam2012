@@ -255,7 +255,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 13
+        TabOrder = 11
       end
       object DBEdit3: TDBEdit
         Left = 128
@@ -271,7 +271,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 12
+        TabOrder = 10
       end
       object DBEdit4: TDBEdit
         Left = 352
@@ -286,7 +286,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 8
+        TabOrder = 6
       end
       object DBEdit5: TDBEdit
         Left = 24
@@ -317,7 +317,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 3
+        TabOrder = 2
       end
       object DBEdit7: TDBEdit
         Left = 24
@@ -332,7 +332,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 5
+        TabOrder = 3
       end
       object DBEdit8: TDBEdit
         Left = 128
@@ -347,7 +347,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 4
       end
       object DBEdit9: TDBEdit
         Left = 256
@@ -362,7 +362,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 7
+        TabOrder = 5
       end
       object DBEdit10: TDBEdit
         Left = 24
@@ -377,7 +377,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 9
+        TabOrder = 7
       end
       object DBEdit11: TDBEdit
         Left = 24
@@ -392,7 +392,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 10
+        TabOrder = 8
       end
       object DBEdit12: TDBEdit
         Left = 24
@@ -407,7 +407,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 11
+        TabOrder = 9
       end
       object DBEdit13: TDBEdit
         Left = 232
@@ -422,7 +422,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 2
+        TabOrder = 1
       end
       object tlb1: TToolBar
         Left = 256
@@ -435,7 +435,7 @@ object FRM_CRB: TFRM_CRB
         Caption = 'tlb1'
         HotImages = DTMGeral.ImgListlButtons
         Images = DTMGeral.ImgListlButtons
-        TabOrder = 14
+        TabOrder = 12
         object btnPrior: TToolButton
           Left = 0
           Top = 2
@@ -495,46 +495,6 @@ object FRM_CRB: TFRM_CRB
           OnClick = btnCancelClick
         end
       end
-      object DBEdit14: TDBEdit
-        Left = 25
-        Top = 136
-        Width = 400
-        Height = 21
-        Color = clInfoBk
-        DataField = 'CRB_CONDOMINO'
-        DataSource = DTM_FINAN.dsCrb
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 4
-      end
-      object DBRadioGroup1: TDBRadioGroup
-        Left = 139
-        Top = 1
-        Width = 82
-        Height = 80
-        Caption = 'Status'
-        DataField = 'CRB_STATUS'
-        DataSource = DTM_FINAN.dsCrb
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        Items.Strings = (
-          'Em aberto'
-          'Pago'
-          'Cancelado')
-        ParentFont = False
-        TabOrder = 1
-        Values.Strings = (
-          '0'
-          '1'
-          '2')
-      end
       object btn1: TBitBtn
         Left = 453
         Top = 266
@@ -542,7 +502,7 @@ object FRM_CRB: TFRM_CRB
         Height = 54
         Anchors = [akBottom]
         Caption = 'Quitar'
-        TabOrder = 15
+        TabOrder = 13
         OnClick = btn1Click
         Glyph.Data = {
           361B0000424D361B000000000000360000002800000030000000300000000100
@@ -771,7 +731,7 @@ object FRM_CRB: TFRM_CRB
         Height = 54
         Anchors = [akBottom]
         Caption = 'Cancelar Pgto'
-        TabOrder = 16
+        TabOrder = 14
         OnClick = btncancelarClick
         Glyph.Data = {
           F6060000424DF606000000000000360000002800000018000000180000000100
@@ -842,6 +802,43 @@ object FRM_CRB: TFRM_CRB
         ListField = 'COND_DESC'
         ListSource = DTM_CAD.dsLkpcond
         NullValueKey = 46
+        TabOrder = 15
+      end
+      object dbrgrpCPG_STATUS: TDBRadioGroup
+        Left = 129
+        Top = -2
+        Width = 92
+        Height = 83
+        Caption = 'Status'
+        DataField = 'CRB_STATUS'
+        DataSource = DTM_FINAN.dsCrb
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        Items.Strings = (
+          'Em aberto'
+          'Pago'
+          'Cancelado')
+        ParentFont = False
+        TabOrder = 16
+        Values.Strings = (
+          '0'
+          '1'
+          '2')
+      end
+      object dblkcbbCRB_CONDOMINIO: TDBLookupComboBox
+        Left = 26
+        Top = 139
+        Width = 307
+        Height = 21
+        DataField = 'CRB_CONDOMINO'
+        DataSource = DTM_FINAN.dsCrb
+        KeyField = 'FORN_CDG'
+        ListField = 'FORN_RAZAO'
+        ListSource = DTM_CAD.dsLkpcaddvs
+        NullValueKey = 46
         TabOrder = 17
       end
     end
@@ -883,13 +880,13 @@ object FRM_CRB: TFRM_CRB
           end
           item
             Expanded = False
-            FieldName = 'CRB_CONDOMINO'
+            FieldName = 'CONDOMINIO'
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clNavy
             Font.Height = -11
             Font.Name = 'MS Sans Serif'
             Font.Style = []
-            Title.Caption = 'Condomino'
+            Title.Caption = 'Condominio'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clNavy
             Title.Font.Height = -11
@@ -1348,12 +1345,18 @@ object FRM_CRB: TFRM_CRB
           Width = 86
           Height = 94
           Caption = 'Status'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
           ItemIndex = 0
           Items.Strings = (
             'Todos'
             'A Vencer'
             'Quitados'
             'Vencidos')
+          ParentFont = False
           TabOrder = 1
         end
         object GroupBox3: TGroupBox

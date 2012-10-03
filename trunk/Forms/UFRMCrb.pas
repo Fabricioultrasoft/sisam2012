@@ -46,7 +46,6 @@ type
     btnDelete: TToolButton;
     btnOk: TToolButton;
     btnCancel: TToolButton;
-    DBEdit14: TDBEdit;
     DBGrid1: TDBGrid;
     GroupBox2: TGroupBox;
     btnPesq: TBitBtn;
@@ -59,12 +58,13 @@ type
     edCodigo: TEdit;
     dtDtIni: TDateTimePicker;
     dtDtFim: TDateTimePicker;
-    DBRadioGroup1: TDBRadioGroup;
     dblkcbbCond: TDBLookupComboBox;
     lkpForn: TDBLookupComboBox;
     btn1: TBitBtn;
     btncancelar: TBitBtn;
     dblkcbbCRB_COND: TDBLookupComboBox;
+    dbrgrpCPG_STATUS: TDBRadioGroup;
+    dblkcbbCRB_CONDOMINIO: TDBLookupComboBox;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnPriorClick(Sender: TObject);
     procedure btntbnextClick(Sender: TObject);
@@ -172,6 +172,9 @@ begin
   if not(varisnull(dblkcbbCond.KeyValue) ) then
       Where := Where + #13 + ' AND  (CRB_CONDOMINIO = ' + inttostr(dblkcbbCond.KeyValue)+' )';
 
+  if not(varisnull(lkpForn.KeyValue) ) then
+      Where := Where + #13 + ' AND  (CRB_CONDOMINO = ' + inttostr(lkpForn.KeyValue)+' )';
+
   If (Trim(edCodigo.Text) <> '') then
     Where := Where + #13 + ' AND CRB_CDG =' +edCodigo.text;
 
@@ -271,6 +274,7 @@ end;
 
 procedure TFRM_CRB.FormShow(Sender: TObject);
 begin
+  DTM_CAD.atualizarLkpCaddvs;
   DTM_CAD.atualizarLkpCond;
   dtDTini.Date:= Now - 60;
   dtDTFIM.Date:= Now + 60;

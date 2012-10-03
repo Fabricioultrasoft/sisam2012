@@ -46,7 +46,6 @@ type
     btnDelete: TToolButton;
     btnOk: TToolButton;
     btnCancel: TToolButton;
-    DBEdit14: TDBEdit;
     DBGrid1: TDBGrid;
     GroupBox2: TGroupBox;
     btnPesq: TBitBtn;
@@ -59,12 +58,13 @@ type
     edCodigo: TEdit;
     dtDtIni: TDateTimePicker;
     dtDtFim: TDateTimePicker;
-    DBRadioGroup1: TDBRadioGroup;
     dblkcbbCond: TDBLookupComboBox;
     lkpForn: TDBLookupComboBox;
     btn1: TBitBtn;
     btncancelar: TBitBtn;
     dblkcbbCRB_COND: TDBLookupComboBox;
+    dbrgrpCPG_STATUS: TDBRadioGroup;
+    dblkcbbCRB_CONDOMINIO: TDBLookupComboBox;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnPriorClick(Sender: TObject);
     procedure btntbnextClick(Sender: TObject);
@@ -170,7 +170,10 @@ begin
     Where := Where + #13 + ' AND (CRB_STATUS = '+inttostr(rgStatus.ItemIndex-1)+')';
 
   if not(varisnull(dblkcbbCond.KeyValue) ) then
-      Where := Where + #13 + ' AND  (CPG_COND = ' + inttostr(dblkcbbCond.KeyValue)+' )';
+      Where := Where + #13 + ' AND  (CRB_CONDOMINIO = ' + inttostr(dblkcbbCond.KeyValue)+' )';
+
+  if not(varisnull(lkpForn.KeyValue) ) then
+      Where := Where + #13 + ' AND  (CRB_CONDOMINO = ' + inttostr(lkpForn.KeyValue)+' )';
 
   If (Trim(edCodigo.Text) <> '') then
     Where := Where + #13 + ' AND CRB_CDG =' +edCodigo.text;
@@ -245,7 +248,7 @@ procedure TFRM_CRB.dblkcbbCondKeyDown(Sender: TObject; var Key: Word;
 begin
 //necessario pq propriedade nullkeyvalue do dblookupcombobox nao funciona , bug do delph 
 if Key = vk_escape then
-    dblkcbbCPG_COND.KeyValue := null;
+    dblkcbbCond.KeyValue := null;
 end;
 
 procedure TFRM_CRB.dblkcbbCondKeyPress(Sender: TObject; var Key: Char);
@@ -271,6 +274,7 @@ end;
 
 procedure TFRM_CRB.FormShow(Sender: TObject);
 begin
+  DTM_CAD.atualizarLkpCaddvs;
   DTM_CAD.atualizarLkpCond;
   dtDTini.Date:= Now - 60;
   dtDTFIM.Date:= Now + 60;
