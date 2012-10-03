@@ -177,20 +177,24 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (
-      'select CRB.*,'
-      '           CASE CRB_STATUS'
-      '           WHEN 0 THEN '#39'Em Aberto'#39
-      '           WHEN 1 THEN '#39'Pago'#39
-      '           WHEN 2 THEN '#39'Cancelado'#39'        '
-      '          END AS CRB_STATUSDESC,'
-      ' UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA   '
-      ' from CAD_CRB CRB'
+      'select C.* ,'
+      '                   CASE CRB_STATUS'
+      '                   WHEN 0 THEN '#39'Em aberto'#39
+      '                   WHEN 1 THEN '#39'Pago'#39
+      '                   WHEN 2 THEN '#39'Cancelado'#39
+      '                   END AS CRB_STATUSDESC,'
+      ''
+      ' UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA,'
+      '  COND_DESC CONDOMINIO, FORN_RAZAO CONDOMINO '
+      '            FROM   CAD_CRB C'
       
         '                LEFT JOIN CAD_USUARIO UL ON UL.USUARIO_CDG = CRB' +
         '_USUARIOLANC '
       
         '            LEFT JOIN CAD_USUARIO UB ON UB.USUARIO_CDG = CRB_USU' +
-        'ARIOBAIXA')
+        'ARIOBAIXA '
+      '            LEFT JOIN CAD_COND ON C.CRB_CONDOMINIO= COND_CDG'
+      '            LEFT JOIN CAD_FORN ON C.CRB_CONDOMINO = FORN_CDG')
     Left = 104
     Top = 16
     object qryCrbCRB_TOT: TFloatField
@@ -253,7 +257,6 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     end
     object smlntfldCrbCRB_STATUS: TSmallintField
       FieldName = 'CRB_STATUS'
-      Origin = '"CAD_CRB"."CRB_STATUS"'
     end
     object intgrfldCrbCRB_USUARIOLANC: TIntegerField
       FieldName = 'CRB_USUARIOLANC'
@@ -282,6 +285,16 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     object qryCrbCRB_CONDOMINIO: TIntegerField
       FieldName = 'CRB_CONDOMINIO'
       Origin = '"CAD_CRB"."CRB_CONDOMINIO"'
+    end
+    object ibstrngfldCrbCONDOMINIO: TIBStringField
+      FieldName = 'CONDOMINIO'
+      Origin = '"CAD_COND"."COND_DESC"'
+      Size = 100
+    end
+    object ibstrngfldCrbCONDOMINO: TIBStringField
+      FieldName = 'CONDOMINO'
+      Origin = '"CAD_FORN"."FORN_RAZAO"'
+      Size = 100
     end
   end
   object qryConsCpg: TIBQuery
@@ -453,20 +466,25 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (
-      'select CRB.*,'
-      '           CASE CRB_STATUS'
-      '           WHEN 0 THEN '#39'Em Aberto'#39
-      '           WHEN 1 THEN '#39'Pago'#39
-      '           WHEN 2 THEN '#39'Cancelado'#39'        '
-      '          END AS CRB_STATUSDESC,'
-      ' UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA'
-      ' from CAD_CRB CRB'
+      'select C.* ,'
+      '                   CASE CRB_STATUS'
+      '                   WHEN 0 THEN '#39'Em aberto'#39
+      '                   WHEN 1 THEN '#39'Pago'#39
+      '                   WHEN 2 THEN '#39'Cancelado'#39
+      '                   END AS CRB_STATUSDESC,'
+      ''
+      ' UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA,'
+      '  COND_DESC CONDOMINIO, FORN_RAZAO CONDOMINO '
+      '            FROM   CAD_CRB C'
       
         '                LEFT JOIN CAD_USUARIO UL ON UL.USUARIO_CDG = CRB' +
         '_USUARIOLANC '
       
         '            LEFT JOIN CAD_USUARIO UB ON UB.USUARIO_CDG = CRB_USU' +
         'ARIOBAIXA '
+      '            LEFT JOIN CAD_COND ON C.CRB_CONDOMINIO= COND_CDG'
+      '            LEFT JOIN CAD_FORN ON C.CRB_CONDOMINO = FORN_CDG'
+      ''
       ''
       '')
     Left = 104
@@ -560,6 +578,16 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     object qryConsCrbCRB_CONDOMINIO: TIntegerField
       FieldName = 'CRB_CONDOMINIO'
       Origin = '"CAD_CRB"."CRB_CONDOMINIO"'
+    end
+    object ibstrngfldConsCrbCONDOMINIO: TIBStringField
+      FieldName = 'CONDOMINIO'
+      Origin = '"CAD_COND"."COND_DESC"'
+      Size = 100
+    end
+    object ibstrngfldConsCrbCONDOMINO: TIBStringField
+      FieldName = 'CONDOMINO'
+      Origin = '"CAD_FORN"."FORN_RAZAO"'
+      Size = 100
     end
   end
 end

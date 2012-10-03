@@ -42,20 +42,22 @@ const
           '    WHERE (1=1)   ';
 
   SQL_RECEBER = 'SELECT  CRB_BLOCO,   CRB_CDG,          CRB_CONDOMINO,   CRB_DTPGTO,  ' + #13 +
-                '        CRB_DTVENC,  CRB_DTVENCORIG,   CRB_FRACAO,      CRB_JUROS,   ' + #13 +
-                '        CRB_MULTA,   CRB_RATEIO,       CRB_STATUS,      CRB_TOT,     ' + #13 +
-                '        CRB_UNIDADE, CRB_USUARIOBAIXA, CRB_USUARIOLANC, CRB_VLRCOND, ' + #13 +
-                '        CASE CRB_STATUS              ' +
-                '          WHEN 0 THEN ''Em aberto''  ' +
-                '          WHEN 1 THEN ''Pago''       ' +
-                '          WHEN 2 THEN ''Cancelado''  ' +
-                '          END AS CRB_STATUSDESC,     ' +
-                '          UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA,   ' +
-                '        CRB_CONDOMINIO '+
-                'FROM    CAD_CRB   '+
-                '      LEFT JOIN CAD_USUARIO UL ON UL.USUARIO_CDG = CRB_USUARIOLANC ' +
-                '      LEFT JOIN CAD_USUARIO UB ON UB.USUARIO_CDG = CRB_USUARIOBAIXA ' +
-                '      WHERE (1=1) ';
+          '        CRB_DTVENC,  CRB_DTVENCORIG,   CRB_FRACAO,      CRB_JUROS,   ' + #13 +
+          '        CRB_MULTA,   CRB_RATEIO,       CRB_STATUS,      CRB_TOT,     ' + #13 +
+          '        CRB_UNIDADE, CRB_USUARIOBAIXA, CRB_USUARIOLANC, CRB_VLRCOND, CRB_CONDOMINIO, ' + #13 +
+          '        CASE CRB_STATUS              ' +
+          '          WHEN 0 THEN ''Em aberto''  ' +
+          '          WHEN 1 THEN ''Pago''       ' +
+          '          WHEN 2 THEN ''Cancelado''  ' +
+          '          END AS CRB_STATUSDESC,     ' +
+          '          UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA,   ' +
+          '          COND_DESC CONDOMINIO, FORN_RAZAO CONDOMINO' +
+          '    FROM   CAD_CRB ' +
+          '      LEFT JOIN CAD_USUARIO UL ON UL.USUARIO_CDG = CRB_USUARIOLANC ' +
+          '      LEFT JOIN CAD_USUARIO UB ON UB.USUARIO_CDG = CRB_USUARIOBAIXA ' +
+          '      LEFT JOIN CAD_COND ON CRB_CONDOMINIO= COND_CDG ' +
+          '      LEFT JOIN CAD_FORN ON CRB_CONDOMINO = FORN_CDG' +
+          '    WHERE (1=1)   ';
 
 implementation
 
