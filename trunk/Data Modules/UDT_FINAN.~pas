@@ -119,6 +119,8 @@ type
     cdsCrbCRB_CONDOMINIO: TIntegerField;
     strngfldCrbCONDOMINIO: TStringField;
     strngfldConsCrbCONDOMINIO: TStringField;
+    strngfldCrbCONDOMINO: TStringField;
+    strngfldConsCrbCONDOMINO: TStringField;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
@@ -140,7 +142,7 @@ type
     procedure consultarReceitas(SQL : String);
     //Relatórios
     procedure prepararRelatorioContas;
-    procedure prepararRelatorioReceitas;
+    procedure prepararRelatorioReceitas (SQL : String);
     procedure cancelarParcelaCRB(recto:integer);
     procedure cancelarParcelaCPG(pgto:integer);
     procedure quitarParcelaCRB(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc,vlrjuros,vlrmulta:double);
@@ -208,9 +210,9 @@ begin
   prepararrelatorio('SELECT * FROM CAD_CPG');
 end;
 
-procedure TDTM_FINAN.prepararRelatorioReceitas;
+procedure TDTM_FINAN.prepararRelatorioReceitas (SQL : String);
 begin
-  prepararrelatorio('SELECT * FROM CAD_CRB');
+  prepararrelatorio(SQL);
 end;
 
 procedure TDTM_FINAN.cdsCpgAfterInsert(DataSet: TDataSet);

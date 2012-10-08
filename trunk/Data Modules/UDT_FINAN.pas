@@ -141,8 +141,8 @@ type
     procedure consultarContas(SQL : String);
     procedure consultarReceitas(SQL : String);
     //Relatórios
-    procedure prepararRelatorioContas;
-    procedure prepararRelatorioReceitas;
+    procedure prepararRelatorioContas   (SQL : String);
+    procedure prepararRelatorioReceitas (SQL : String);
     procedure cancelarParcelaCRB(recto:integer);
     procedure cancelarParcelaCPG(pgto:integer);
     procedure quitarParcelaCRB(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc,vlrjuros,vlrmulta:double);
@@ -205,14 +205,14 @@ begin
   TClientDataSet(DataSet).ApplyUpdates(-1);
 end;
 
-procedure TDTM_FINAN.prepararRelatorioContas;
+procedure TDTM_FINAN.prepararRelatorioContas (SQL : String);
 begin
-  prepararrelatorio('SELECT * FROM CAD_CPG');
+  prepararrelatorio(SQL);
 end;
 
-procedure TDTM_FINAN.prepararRelatorioReceitas;
+procedure TDTM_FINAN.prepararRelatorioReceitas (SQL : String);
 begin
-  prepararrelatorio('SELECT * FROM CAD_CRB');
+  prepararrelatorio(SQL);
 end;
 
 procedure TDTM_FINAN.cdsCpgAfterInsert(DataSet: TDataSet);

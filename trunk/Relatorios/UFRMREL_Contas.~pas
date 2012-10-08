@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, FR_DSet, FR_DBSet, FR_Class, StdCtrls, Buttons, DB,
-  IBCustomDataSet, IBQuery;
+  IBCustomDataSet, IBQuery, DBCtrls, ExtCtrls, ComCtrls, SqlConst;
 
 type
   TFRMRelCpg = class(TForm)
@@ -14,12 +14,21 @@ type
     btnOK: TBitBtn;
     frContas: TfrReport;
     frDBDataSet1: TfrDBDataSet;
+    lbl1: TLabel;
+    dtpDtIni: TDateTimePicker;
+    lbl2: TLabel;
+    dtpDtFim: TDateTimePicker;
+    rgStatus: TRadioGroup;
+    lbl3: TLabel;
+    dblkcbbCond: TDBLookupComboBox;
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure FormKeyPress(Sender: TObject; var Key: Char);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
   private
+    procedure FiltroContas;
     { Private declarations }
   public
     { Public declarations }
@@ -30,14 +39,9 @@ var
 
 implementation
 
-uses UDT_FINAN;
+uses UDT_FINAN, UDT_CAD;
 
 {$R *.dfm}
-
-procedure TFRMRelCpg.btnOKClick(Sender: TObject);
-begin
-  frContas.ShowReport;
-end;
 
 procedure TFRMRelCpg.btnCancelarClick(Sender: TObject);
 begin
@@ -52,14 +56,53 @@ end;
 
 procedure TFRMRelCpg.FormCreate(Sender: TObject);
 begin
-DTM_FINAN.prepararRelatorioContas;
+  DTM_CAD.atualizarLkpCaddvs;
 end;
+
+procedure TFRMRelCpg.FiltroContas;
+ var Sql, Where, Status : String;
+     Cond : Integer;
+begin
+  Where := '';
+  Status := '';
+
+    Where := Where + #13 + ' AND  CPG_DTVENC BETWEEN  ''' + FormatDateTime('yyyy-MM-dd',dtpDtIni.datetime) + ''' '
+                           + '  AND  ''' + FormatDateTime('yyyy-MM-dd',dtpDtFim.datetime) + '''  ';
+
+  if (rgStatus.ItemIndex > 0) then
+    Where := Where + #13 + ' AND (CPG_STATUS = '+inttostr(rgStatus.ItemIndex-1)+')';
+
+  if not(varisnull(dblkcbbCond.KeyValue) ) then
+      Where := Where + #13 + ' AND  (CPG_COND = ' + inttostr(dblkcbbCond.KeyValue)+' )';
+
+
+  SQL := (SQL_PAGAR);
+
+  If (Trim(Where) <> '') then
+  SQL := SQL + #13 + WHERE;
+
+
+  DTM_FINAN.prepararRelatorioContas(SQL);
+end;
+
+procedure TFRMRelCpg.btnOKClick(Sender: TObject);
+begin
+  FiltroContas;
+  frContas.ShowReport;
+end;
+
 
 procedure TFRMRelCpg.FormClose(Sender: TObject;
   var Action: TCloseAction);
 begin
  action:=caFree;
  FRMRelCpg:=nil;
+end;
+
+procedure TFRMRelCpg.FormShow(Sender: TObject);
+begin
+   DTM_CAD.atualizarLkpCaddvs;
+   DTM_CAD.atualizarLkpCond;
 end;
 
 end.

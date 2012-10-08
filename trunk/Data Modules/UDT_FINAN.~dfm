@@ -5,7 +5,6 @@ object DTM_FINAN: TDTM_FINAN
   Height = 476
   Width = 564
   object cdsCpg: TClientDataSet
-    Active = True
     Aggregates = <>
     FieldDefs = <
       item
@@ -748,6 +747,11 @@ object DTM_FINAN: TDTM_FINAN
       Origin = '"CAD_COND"."COND_DESC"'
       Size = 100
     end
+    object strngfldConsCrbCONDOMINO: TStringField
+      FieldName = 'CONDOMINO'
+      Origin = '"CAD_FORN"."FORN_RAZAO"'
+      Size = 100
+    end
   end
   object dsConsCrb: TDataSource
     DataSet = cdsConsCrb
@@ -760,12 +764,28 @@ object DTM_FINAN: TDTM_FINAN
     BufferChunks = 1000
     CachedUpdates = False
     SQL.Strings = (
-      'select * from CAD_CPG')
-    Left = 232
-    Top = 24
+      'select C.* ,'
+      '                   CASE CRB_STATUS'
+      '                   WHEN 0 THEN '#39'Em aberto'#39
+      '                   WHEN 1 THEN '#39'Pago'#39
+      '                   WHEN 2 THEN '#39'Cancelado'#39
+      '                   END AS CRB_STATUSDESC,'
+      ''
+      ' UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA,'
+      '  COND_DESC CONDOMINIO, FORN_RAZAO CONDOMINO '
+      '            FROM   CAD_CRB C'
+      
+        '                LEFT JOIN CAD_USUARIO UL ON UL.USUARIO_CDG = CRB' +
+        '_USUARIOLANC '
+      
+        '            LEFT JOIN CAD_USUARIO UB ON UB.USUARIO_CDG = CRB_USU' +
+        'ARIOBAIXA '
+      '            LEFT JOIN CAD_COND ON C.CRB_CONDOMINIO= COND_CDG'
+      '            LEFT JOIN CAD_FORN ON C.CRB_CONDOMINO = FORN_CDG')
+    Left = 352
+    Top = 16
   end
   object cdsCrb: TClientDataSet
-    Active = True
     Aggregates = <>
     FieldDefs = <
       item
@@ -857,6 +877,11 @@ object DTM_FINAN: TDTM_FINAN
       end
       item
         Name = 'CONDOMINIO'
+        DataType = ftString
+        Size = 100
+      end
+      item
+        Name = 'CONDOMINO'
         DataType = ftString
         Size = 100
       end>
@@ -959,6 +984,11 @@ object DTM_FINAN: TDTM_FINAN
     object strngfldCrbCONDOMINIO: TStringField
       FieldName = 'CONDOMINIO'
       Origin = '"CAD_COND"."COND_DESC"'
+      Size = 100
+    end
+    object strngfldCrbCONDOMINO: TStringField
+      FieldName = 'CONDOMINO'
+      Origin = '"CAD_FORN"."FORN_RAZAO"'
       Size = 100
     end
   end
