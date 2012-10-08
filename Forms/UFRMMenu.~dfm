@@ -3,7 +3,7 @@ object FRMMenu: TFRMMenu
   Top = 186
   Width = 883
   Height = 706
-  Caption = 'Menu'
+  Caption = 'ho'
   Color = clBtnFace
   DefaultMonitor = dmMainForm
   Font.Charset = DEFAULT_CHARSET

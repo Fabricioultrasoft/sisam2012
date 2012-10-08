@@ -1,6 +1,6 @@
 object FRM_CPG: TFRM_CPG
-  Left = 294
-  Top = 260
+  Left = 305
+  Top = 195
   Width = 629
   Height = 472
   Caption = 'Contas a Pagar'
@@ -66,9 +66,9 @@ object FRM_CPG: TFRM_CPG
   object pgControl: TPageControl
     Left = 0
     Top = 0
-    Width = 613
-    Height = 434
-    ActivePage = PC_Cons
+    Width = 621
+    Height = 438
+    ActivePage = PC_Contas
     Align = alClient
     TabOrder = 0
     OnChange = pgControlChange
@@ -324,6 +324,7 @@ object FRM_CPG: TFRM_CPG
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
         Font.Style = []
+        MaxLength = 8
         ParentFont = False
         TabOrder = 5
       end
@@ -339,6 +340,7 @@ object FRM_CPG: TFRM_CPG
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
         Font.Style = []
+        MaxLength = 8
         ParentFont = False
         TabOrder = 6
       end
@@ -416,6 +418,7 @@ object FRM_CPG: TFRM_CPG
         Font.Height = -11
         Font.Name = 'MS Sans Serif'
         Font.Style = []
+        MaxLength = 8
         ParentFont = False
         TabOrder = 7
       end
@@ -1177,8 +1180,8 @@ object FRM_CPG: TFRM_CPG
       object DBGrid1: TDBGrid
         Left = 0
         Top = 105
-        Width = 605
-        Height = 301
+        Width = 613
+        Height = 305
         Align = alClient
         DataSource = DTM_FINAN.dsConsCpg
         TabOrder = 0
@@ -1366,7 +1369,7 @@ object FRM_CPG: TFRM_CPG
       object grp1: TGroupBox
         Left = 0
         Top = 0
-        Width = 605
+        Width = 613
         Height = 105
         Align = alTop
         Caption = 'grp1'
