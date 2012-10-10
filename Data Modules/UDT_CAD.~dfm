@@ -491,25 +491,9 @@ object DTM_CAD: TDTM_CAD
       Required = True
       Size = 100
     end
-    object cdsCondCOND_ABREV: TIntegerField
-      FieldName = 'COND_ABREV'
-      Origin = '"CAD_COND"."COND_ABREV"'
-    end
-    object cdsCondCOND_PADRAO: TIntegerField
-      FieldName = 'COND_PADRAO'
-      Origin = '"CAD_COND"."COND_PADRAO"'
-    end
-    object cdsCondCOND_END: TIntegerField
-      FieldName = 'COND_END'
-      Origin = '"CAD_COND"."COND_END"'
-    end
     object cdsCondCOND_CEP: TIntegerField
       FieldName = 'COND_CEP'
       Origin = '"CAD_COND"."COND_CEP"'
-    end
-    object cdsCondCOND_BAIRRO: TIntegerField
-      FieldName = 'COND_BAIRRO'
-      Origin = '"CAD_COND"."COND_BAIRRO"'
     end
     object cdsCondCOND_CID: TStringField
       FieldName = 'COND_CID'
@@ -558,6 +542,17 @@ object DTM_CAD: TDTM_CAD
     object cdsCondCOND_FORNECEDOR: TIntegerField
       FieldName = 'COND_FORNECEDOR'
       Origin = '"CAD_COND"."COND_FORNECEDOR"'
+    end
+    object cdsCondCOND_ABREV: TStringField
+      FieldName = 'COND_ABREV'
+    end
+    object cdsCondCOND_END: TStringField
+      FieldName = 'COND_END'
+      Size = 100
+    end
+    object cdsCondCOND_BAIRRO: TStringField
+      FieldName = 'COND_BAIRRO'
+      Size = 50
     end
   end
   object dsCond: TDataSource
@@ -1090,29 +1085,11 @@ object DTM_CAD: TDTM_CAD
       Required = True
       Size = 100
     end
-    object IntegerField9: TIntegerField
-      FieldName = 'COND_ABREV'
-      Origin = '"CAD_COND"."COND_ABREV"'
-    end
-    object IntegerField10: TIntegerField
-      FieldName = 'COND_PADRAO'
-      Origin = '"CAD_COND"."COND_PADRAO"'
-    end
-    object IntegerField11: TIntegerField
-      DisplayLabel = 'Endere'#231'o'
-      FieldName = 'COND_END'
-      Origin = '"CAD_COND"."COND_END"'
-    end
     object IntegerField12: TIntegerField
       DisplayLabel = 'CEP'
       DisplayWidth = 10
       FieldName = 'COND_CEP'
       Origin = '"CAD_COND"."COND_CEP"'
-    end
-    object IntegerField13: TIntegerField
-      DisplayLabel = 'Bairro'
-      FieldName = 'COND_BAIRRO'
-      Origin = '"CAD_COND"."COND_BAIRRO"'
     end
     object StringField35: TStringField
       DisplayLabel = 'Cidade'
@@ -1166,6 +1143,17 @@ object DTM_CAD: TDTM_CAD
     object cdsConsCondCOND_FORNECEDOR: TIntegerField
       FieldName = 'COND_FORNECEDOR'
       Origin = '"CAD_COND"."COND_FORNECEDOR"'
+    end
+    object cdsConsCondCOND_ABREV: TStringField
+      FieldName = 'COND_ABREV'
+    end
+    object cdsConsCondCOND_END: TStringField
+      FieldName = 'COND_END'
+      Size = 100
+    end
+    object cdsConsCondCOND_BAIRRO: TStringField
+      FieldName = 'COND_BAIRRO'
+      Size = 50
     end
   end
   object dsConsCond: TDataSource
@@ -1384,29 +1372,11 @@ object DTM_CAD: TDTM_CAD
       Required = True
       Size = 100
     end
-    object IntegerField16: TIntegerField
-      FieldName = 'COND_ABREV'
-      Origin = '"CAD_COND"."COND_ABREV"'
-    end
-    object IntegerField17: TIntegerField
-      FieldName = 'COND_PADRAO'
-      Origin = '"CAD_COND"."COND_PADRAO"'
-    end
-    object IntegerField18: TIntegerField
-      DisplayLabel = 'Endere'#231'o'
-      FieldName = 'COND_END'
-      Origin = '"CAD_COND"."COND_END"'
-    end
     object IntegerField19: TIntegerField
       DisplayLabel = 'CEP'
       DisplayWidth = 10
       FieldName = 'COND_CEP'
       Origin = '"CAD_COND"."COND_CEP"'
-    end
-    object IntegerField20: TIntegerField
-      DisplayLabel = 'Bairro'
-      FieldName = 'COND_BAIRRO'
-      Origin = '"CAD_COND"."COND_BAIRRO"'
     end
     object StringField43: TStringField
       DisplayLabel = 'Cidade'
@@ -1460,6 +1430,17 @@ object DTM_CAD: TDTM_CAD
     object cdsLkpcondCOND_FORNECEDOR: TIntegerField
       FieldName = 'COND_FORNECEDOR'
       Origin = '"CAD_COND"."COND_FORNECEDOR"'
+    end
+    object cdsLkpcondCOND_ABREV: TStringField
+      FieldName = 'COND_ABREV'
+    end
+    object cdsLkpcondCOND_END: TStringField
+      FieldName = 'COND_END'
+      Size = 100
+    end
+    object cdsLkpcondCOND_BAIRRO: TStringField
+      FieldName = 'COND_BAIRRO'
+      Size = 50
     end
   end
   object dsLkpcond: TDataSource

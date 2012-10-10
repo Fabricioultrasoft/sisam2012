@@ -141,14 +141,16 @@ procedure TFRMMenu.Help1Click(Sender: TObject);
 var texto:string;
 begin
 texto:=#10+       #9+
-               'Sassim 2012 - Sistema Financeiro '+versao+' '+#10+
+               'Sisam 2012 - Sistema Financeiro '+versao+' '+#10+
                #9+#9+'------------'+#10+#10+
                #9+'Licenciado  © 2012 Sisam  '+#10+
                '                                      '+#10+#10+
                #9+' - Versão '+versao+'  -  '+ #10+
                '( ••••••••••••••••••••••••••••••••••••••••••••••••••)'+#10+#10+
-               #9+'     Email: palominha@hotmail.com'+#10+
-               #9+'     Paloma Pereira '+#10+
+               #9+'     Email: desenvolvimento@solucioneeficazze.com'+#10+
+               #9+'     Equipe Gama '+#10+
+{               #9+'     Email: palominha@hotmail.com'+#10+
+               #9+'     Paloma Pereira '+#10+}
                '                       '+#10;
 
 

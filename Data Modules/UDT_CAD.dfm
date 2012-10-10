@@ -604,6 +604,9 @@ object DTM_CAD: TDTM_CAD
     object cdsUserUSUARIO_ATIVO: TIntegerField
       FieldName = 'USUARIO_ATIVO'
     end
+    object cdsUserUSUARIO_ADMIN: TSmallintField
+      FieldName = 'USUARIO_ADMIN'
+    end
   end
   object dsUser: TDataSource
     DataSet = cdsUser
@@ -1449,7 +1452,6 @@ object DTM_CAD: TDTM_CAD
     Top = 468
   end
   object dspLkpCrbcond: TDataSetProvider
-    DataSet = DTM_CAD_IBX.qryLkpCrbCond
     Options = [poAllowCommandText]
     UpdateMode = upWhereKeyOnly
     Left = 348

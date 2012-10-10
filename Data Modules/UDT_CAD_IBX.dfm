@@ -414,6 +414,10 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       FieldName = 'USUARIO_ATIVO'
       Origin = '"CAD_USUARIO"."USUARIO_ATIVO"'
     end
+    object qryUserUSUARIO_ADMIN: TSmallintField
+      FieldName = 'USUARIO_ADMIN'
+      Origin = '"CAD_USUARIO"."USUARIO_ADMIN"'
+    end
   end
   object qryConsCaddvs: TIBQuery
     Database = DTMGeral.Database

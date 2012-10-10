@@ -22,6 +22,7 @@ type
     { Private declarations }
   public
     { Public declarations }
+    Admin:boolean;
     usuarioNome,senha:string;
     usuariocdg:Integer;
     procedure executarSQL(Sql: string);
@@ -65,6 +66,10 @@ end;
 
 procedure TDTMGeral.DataModuleCreate(Sender: TObject);
 begin
+  Admin:=false;
+  usuarioNome:='';
+  senha:='';
+  usuariocdg:= -1;
   // Desconectando
   Database.Connected := False;
   Transaction.Active := False;
