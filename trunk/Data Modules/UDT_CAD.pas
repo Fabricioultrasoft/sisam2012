@@ -228,6 +228,7 @@ type
     cdsLkpcondCOND_ABREV: TStringField;
     cdsLkpcondCOND_END: TStringField;
     cdsLkpcondCOND_BAIRRO: TStringField;
+    cdsUserUSUARIO_ADMIN: TSmallintField;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);

@@ -212,6 +212,7 @@ type
     qryConsCondCOND_ABREV: TIBStringField;
     qryConsCondCOND_END: TIBStringField;
     qryConsCondCOND_BAIRRO: TIBStringField;
+    qryUserUSUARIO_ADMIN: TSmallintField;
   private
     { Private declarations }
   public

@@ -36,7 +36,7 @@ type
   private
      reg:treg;
     function Verifica : Boolean;
-   procedure entrar(PusuarioCdg:integer);
+   procedure entrar(P_usuarioCdg:integer;P_admin:integer);
   public
     { Public declarations }
   end;
@@ -69,7 +69,8 @@ begin
 end;
 
 procedure TFRMLogin.btnEntrarClick(Sender: TObject);
-var usuariocdg:Integer;
+var admin , usuariocdg:Integer;
+
 begin
   //verificaçoes basicas
   if Verifica then
@@ -93,9 +94,13 @@ begin
     end
     else
     begin
+      //verificar se usuario esta ativo
       IF DTMGeral.cdsGeral.FieldByName('USUARIO_ATIVO').AsInteger <> 1  THEN
         raise Exception.Create('Este Usuário esta desativado!');
+
+      //guardar nas variaveis para poder fechar o dataset
       usuariocdg:= DTMGeral.cdsGeral.FieldByName('USUARIO_CDG').AsInteger  ;
+      admin:=      DTMGeral.cdsGeral.FieldByName('USUARIO_ADMIN').asinteger;
       DTMGeral.cdsGeral.Close;
 
       //operacoes com o registro do windows  para gravar usuario e senha
@@ -111,27 +116,32 @@ begin
       else reg.lembrar(edtusuario.text,true);
 
       //entrar no sistema
-      entrar(usuariocdg);
+      entrar(usuariocdg,admin );
     end;
   end;
 end;
 
 
-procedure TFRMLogin.entrar(PusuarioCdg:integer);
+procedure TFRMLogin.entrar(P_usuarioCdg:integer;P_Admin:integer);
 begin
      DTMgeral.usuarionome:= edTusuario.text;
-     DTMgeral.usuariocdg:= PusuarioCdg;
+     DTMgeral.usuariocdg:= P_usuarioCdg;
      DTMgeral.senha:=    edTsenha.text;
+     DTMgeral.Admin:=(P_Admin = 1);
      Hide;
+
      //criando form principal
      IF FRMMenu = NIL then
         FRMMenu :=  TFRMMenu.Create(self);
 
-     //mostrando form    
+     //mostrando form
      FRMMenu.Logoff1.Caption:='Efetuar Logoff de '+dtmgeral.usuarionome;
      FRMMenu.Show;
      FRMMenu.Enabled:=True;
      FRMMenu.Caption:='SISAM '+versao+' » '+dtmgeral.usuarionome;
+
+     //Habilita cadastro de usuario se for admin
+     FRMMenu.menucadusuario.Visible:= (P_admin = 1);
 end;
 
 procedure TFRMLogin.FormShow(Sender: TObject);

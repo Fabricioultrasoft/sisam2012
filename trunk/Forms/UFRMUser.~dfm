@@ -1,8 +1,8 @@
 object FRM_USER: TFRM_USER
   Left = 433
   Top = 369
-  Width = 318
-  Height = 302
+  Width = 314
+  Height = 382
   Caption = 'Cadastro de Usu'#225'rio'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -14,13 +14,13 @@ object FRM_USER: TFRM_USER
   OnClose = FormClose
   OnCreate = FormCreate
   DesignSize = (
-    302
-    264)
+    298
+    344)
   PixelsPerInch = 96
   TextHeight = 13
   object tlb1: TToolBar
     Left = 10
-    Top = 229
+    Top = 309
     Width = 159
     Height = 27
     Align = alNone
@@ -94,11 +94,11 @@ object FRM_USER: TFRM_USER
     Left = 8
     Top = 5
     Width = 281
-    Height = 217
+    Height = 294
     TabOrder = 1
     object lbl2: TLabel
       Left = 12
-      Top = 145
+      Top = 225
       Width = 78
       Height = 13
       Caption = 'Alterar Senha'
@@ -136,12 +136,38 @@ object FRM_USER: TFRM_USER
       Font.Style = [fsBold]
       ParentFont = False
     end
+    object lbl4: TLabel
+      Left = 12
+      Top = 94
+      Width = 89
+      Height = 13
+      Caption = 'Nome Completo'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clNavy
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object lbl5: TLabel
+      Left = 12
+      Top = 138
+      Width = 58
+      Height = 13
+      Caption = 'Descri'#231#227'o'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clNavy
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
     object btntrocarsenha: TBitBtn
       Left = 10
-      Top = 160
+      Top = 240
       Width = 80
       Height = 45
-      TabOrder = 0
+      TabOrder = 5
       OnClick = btntrocarsenhaClick
       Glyph.Data = {
         360C0000424D360C000000000000360000002800000020000000200000000100
@@ -248,7 +274,7 @@ object FRM_USER: TFRM_USER
       Top = 66
       Width = 207
       Height = 21
-      DataField = 'USUARIO_DESC'
+      DataField = 'USUARIO_LOGIN'
       DataSource = DTM_CAD.dsUser
       TabOrder = 1
     end
@@ -259,7 +285,43 @@ object FRM_USER: TFRM_USER
       Height = 21
       DataField = 'USUARIO_CDG'
       DataSource = DTM_CAD.dsUser
+      TabOrder = 0
+    end
+    object DBEdit3: TDBEdit
+      Left = 11
+      Top = 108
+      Width = 207
+      Height = 21
+      DataField = 'USUARIO_NOME'
+      DataSource = DTM_CAD.dsUser
       TabOrder = 2
+    end
+    object dbchkUSUARIO_ATIVO: TDBCheckBox
+      Left = 13
+      Top = 196
+      Width = 107
+      Height = 17
+      Caption = 'Usu'#225'rio Ativo'
+      DataField = 'USUARIO_ATIVO'
+      DataSource = DTM_CAD.dsUser
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 4
+      ValueChecked = '1'
+      ValueUnchecked = '0'
+    end
+    object DBEdit4: TDBEdit
+      Left = 11
+      Top = 152
+      Width = 207
+      Height = 21
+      DataField = 'USUARIO_DESC'
+      DataSource = DTM_CAD.dsUser
+      TabOrder = 3
     end
   end
   object dsuser: TDataSource

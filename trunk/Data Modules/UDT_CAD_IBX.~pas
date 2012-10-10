@@ -60,11 +60,7 @@ type
     qryEmpreEMPRE_CDG: TIntegerField;
     qryCond: TIBQuery;
     qryCondCOND_DESC: TIBStringField;
-    qryCondCOND_ABREV: TIntegerField;
-    qryCondCOND_PADRAO: TIntegerField;
-    qryCondCOND_END: TIntegerField;
     qryCondCOND_CEP: TIntegerField;
-    qryCondCOND_BAIRRO: TIntegerField;
     qryCondCOND_CID: TIBStringField;
     qryCondCOND_UF: TIBStringField;
     qryCondCOND_TELEFONE: TIBStringField;
@@ -130,11 +126,7 @@ type
     IntegerField8: TIntegerField;
     qryConsCond: TIBQuery;
     IBStringField34: TIBStringField;
-    IntegerField9: TIntegerField;
-    IntegerField10: TIntegerField;
-    IntegerField11: TIntegerField;
     IntegerField12: TIntegerField;
-    IntegerField13: TIntegerField;
     IBStringField35: TIBStringField;
     IBStringField36: TIBStringField;
     IBStringField37: TIBStringField;
@@ -214,6 +206,12 @@ type
     qryConsCondCOND_FORNECEDOR: TIntegerField;
     qryLkpCondCOND_BLOCO: TIBStringField;
     qryLkpCondCOND_FORNECEDOR: TIntegerField;
+    qryCondCOND_ABREV: TIBStringField;
+    qryCondCOND_END: TIBStringField;
+    qryCondCOND_BAIRRO: TIBStringField;
+    qryConsCondCOND_ABREV: TIBStringField;
+    qryConsCondCOND_END: TIBStringField;
+    qryConsCondCOND_BAIRRO: TIBStringField;
   private
     { Private declarations }
   public

@@ -323,6 +323,24 @@ object FRM_USER: TFRM_USER
       DataSource = DTM_CAD.dsUser
       TabOrder = 3
     end
+    object dbchkUSUARIO_ATIVO1: TDBCheckBox
+      Left = 141
+      Top = 196
+      Width = 107
+      Height = 17
+      Caption = 'Usu'#225'rio Admin'
+      DataField = 'USUARIO_ADMIN'
+      DataSource = DTM_CAD.dsUser
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 6
+      ValueChecked = '1'
+      ValueUnchecked = '0'
+    end
   end
   object dsuser: TDataSource
     DataSet = DTM_CAD.cdsUser

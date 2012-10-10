@@ -318,7 +318,7 @@ object FRMMenu: TFRMMenu
   object StatusBar: TStatusBar
     Left = 0
     Top = 0
-    Width = 875
+    Width = 867
     Height = 5
     Align = alTop
     Panels = <>
@@ -326,7 +326,7 @@ object FRMMenu: TFRMMenu
   object ToolBar1: TToolBar
     Left = 0
     Top = 5
-    Width = 875
+    Width = 867
     Height = 84
     ButtonHeight = 81
     ButtonWidth = 113
@@ -10727,13 +10727,9 @@ object FRMMenu: TFRMMenu
         Caption = 'Calculadora'
         OnClick = Calculadora1Click
       end
-      object Calendrio1: TMenuItem
-        Caption = 'Cadastrar Usuario'
-        OnClick = Calendrio1Click
-      end
-      object Sair1: TMenuItem
-        Caption = 'Sair'
-        OnClick = Sair1Click
+      object menucadusuario: TMenuItem
+        Caption = 'Cadastrar Usu'#225'rio'
+        OnClick = menucadusuarioClick
       end
     end
     object Relatrios1: TMenuItem
