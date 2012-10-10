@@ -1,6 +1,6 @@
 object FRMcpgQuitacao: TFRMcpgQuitacao
-  Left = 505
-  Top = 366
+  Left = 671
+  Top = 238
   Width = 377
   Height = 188
   Caption = 'Quita'#231#227'o Contas a Pagar'

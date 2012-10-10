@@ -121,6 +121,10 @@ type
     strngfldConsCrbCONDOMINIO: TStringField;
     strngfldCrbCONDOMINO: TStringField;
     strngfldConsCrbCONDOMINO: TStringField;
+    cdsCrbCRB_TOTPGTO: TFloatField;
+    cdsCrbCRB_DESCONTO: TFloatField;
+    cdsConsCrbCRB_TOTPGTO: TFloatField;
+    cdsConsCrbCRB_DESCONTO: TFloatField;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
@@ -145,7 +149,7 @@ type
     procedure prepararRelatorioReceitas (SQL : String);
     procedure cancelarParcelaCRB(recto:integer);
     procedure cancelarParcelaCPG(pgto:integer);
-    procedure quitarParcelaCRB(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc,vlrjuros,vlrmulta:double);
+    FUNCTION  quitarParcelaCRB(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc:double):boolean;
     function quitarParcelaCPG(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc:double):boolean;
   end;
 
@@ -256,15 +260,15 @@ begin
   cdsCrb.FieldByName('CRB_STATUS').ASINTEGER:=  0;
 end;
 
-procedure TDTM_FINAN.quitarParcelaCRB(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc,vlrjuros,vlrmulta:double);
+FUNCTION TDTM_FINAN.quitarParcelaCRB(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc:double):Boolean;
 begin
+  result:=False;
   DTMGeral.executarSQL(' UPDATE CAD_CRB SET CRB_TOTPGTO = '
                           +StringReplace(FloatToStr(vlrbaixa),',','.',[rfReplaceAll])+', '
-                          +' CPG_DESCONTO = '  +StringReplace(FloatToStr(vLRdesc),',','.',[rfReplaceAll])+', '
-                          +' CPG_JUROS = '  +StringReplace(FloatToStr(vLRJUROS),',','.',[rfReplaceAll])+', '
-                          +' CPG_MULTA = '  +StringReplace(FloatToStr(vLRmulta),',','.',[rfReplaceAll])+', '
-                            +' , CPG_STATUS = 1  WHERE CPG_CDG = '+ IntToStr(pgto) );
+                          +' CRB_DESCONTO = '  +StringReplace(FloatToStr(vLRdesc),',','.',[rfReplaceAll])+', '
+                          +' CRB_STATUS = 1  WHERE CRB_CDG = '+ IntToStr(pgto) );
 
+result:=True;;
 end;
 
 function TDTM_FINAN.quitarParcelaCPG(pgto:Integer;dataBaixa:Tdatetime;vlrbaixa,vlrdesc:double):boolean;
@@ -283,7 +287,7 @@ end;
 
 procedure TDTM_FINAN.cancelarParcelaCPG(pgto: integer);
 begin
-  DTMGeral.executarSQL(' UPDATE CAD_CPG SET CPG_STATUS = 2 WHERE CPG_CDG = '+INTTOSTR(PGTO));
+   DTMGeral.executarSQL(' UPDATE CAD_CPG SET CPG_STATUS = 2 WHERE CPG_CDG = '+INTTOSTR(PGTO));
 end;
 
 procedure TDTM_FINAN.cancelarParcelaCRB(recto: integer);

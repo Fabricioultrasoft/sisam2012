@@ -65,6 +65,10 @@ type
     dblkcbbCRB_COND: TDBLookupComboBox;
     dbrgrpCPG_STATUS: TDBRadioGroup;
     dblkcbbCRB_CONDOMINIO: TDBLookupComboBox;
+    DBEdit1: TDBEdit;
+    lbl1: TLabel;
+    DBEdit14: TDBEdit;
+    lbl2: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnPriorClick(Sender: TObject);
     procedure btntbnextClick(Sender: TObject);

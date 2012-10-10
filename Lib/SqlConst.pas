@@ -45,6 +45,7 @@ const
           '        CRB_DTVENC,  CRB_DTVENCORIG,   CRB_FRACAO,      CRB_JUROS,   ' + #13 +
           '        CRB_MULTA,   CRB_RATEIO,       CRB_STATUS,      CRB_TOT,     ' + #13 +
           '        CRB_UNIDADE, CRB_USUARIOBAIXA, CRB_USUARIOLANC, CRB_VLRCOND, CRB_CONDOMINIO, ' + #13 +
+          '        CRB_TOTPGTO ,  CRB_DESCONTO, ' +
           '        CASE CRB_STATUS              ' +
           '          WHEN 0 THEN ''Em aberto''  ' +
           '          WHEN 1 THEN ''Pago''       ' +

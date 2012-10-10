@@ -1,6 +1,6 @@
 object FRM_CRB: TFRM_CRB
-  Left = 221
-  Top = 196
+  Left = 385
+  Top = 251
   Width = 704
   Height = 430
   Caption = 'Contas a Receber'
@@ -36,17 +36,17 @@ object FRM_CRB: TFRM_CRB
   object pcControl: TPageControl
     Left = 0
     Top = 0
-    Width = 696
-    Height = 396
-    ActivePage = PC_Consulta
+    Width = 688
+    Height = 392
+    ActivePage = PC_Receitas
     Align = alClient
     TabOrder = 0
     OnChange = pcControlChange
     object PC_Receitas: TTabSheet
       Caption = 'Receitas'
       DesignSize = (
-        688
-        368)
+        680
+        364)
       object Label1: TLabel
         Left = 24
         Top = 72
@@ -234,6 +234,34 @@ object FRM_CRB: TFRM_CRB
         Width = 53
         Height = 13
         Caption = 'Condomino'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object lbl1: TLabel
+        Left = 128
+        Top = 314
+        Width = 52
+        Height = 13
+        Caption = 'Valor Pago'
+        FocusControl = DBEdit1
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object lbl2: TLabel
+        Left = 432
+        Top = 176
+        Width = 46
+        Height = 13
+        Caption = 'Desconto'
+        FocusControl = DBEdit14
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -11
@@ -841,6 +869,37 @@ object FRM_CRB: TFRM_CRB
         NullValueKey = 46
         TabOrder = 17
       end
+      object DBEdit1: TDBEdit
+        Left = 128
+        Top = 328
+        Width = 134
+        Height = 21
+        Color = clMenu
+        DataField = 'CRB_TOTPGTO'
+        DataSource = DTM_FINAN.dsCrb
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 18
+      end
+      object DBEdit14: TDBEdit
+        Left = 432
+        Top = 192
+        Width = 73
+        Height = 21
+        DataField = 'CRB_DESCONTO'
+        DataSource = DTM_FINAN.dsCrb
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 19
+      end
     end
     object PC_Consulta: TTabSheet
       Caption = 'Consulta'
@@ -848,8 +907,8 @@ object FRM_CRB: TFRM_CRB
       object DBGrid1: TDBGrid
         Left = 0
         Top = 140
-        Width = 688
-        Height = 228
+        Width = 680
+        Height = 224
         Align = alClient
         DataSource = DTM_FINAN.dsConsCrb
         TabOrder = 0
@@ -957,6 +1016,7 @@ object FRM_CRB: TFRM_CRB
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -973,6 +1033,7 @@ object FRM_CRB: TFRM_CRB
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -989,6 +1050,7 @@ object FRM_CRB: TFRM_CRB
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -1016,6 +1078,7 @@ object FRM_CRB: TFRM_CRB
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -1027,13 +1090,14 @@ object FRM_CRB: TFRM_CRB
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end>
       end
       object GroupBox2: TGroupBox
         Left = 0
         Top = 0
-        Width = 688
+        Width = 680
         Height = 140
         Align = alTop
         TabOrder = 1

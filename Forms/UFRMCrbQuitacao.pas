@@ -16,10 +16,6 @@ type
     lbl2: TLabel;
     lbldesc: TLabel;
     lbldescvalor: TLabel;
-    edtjuros: TEdit;
-    lbl3: TLabel;
-    edtmulta: TEdit;
-    lbl4: TLabel;
     lbl5: TLabel;
     lblapagar: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -59,11 +55,6 @@ begin
     if StrToFloatdef(edtvalor.text,-1) = -1 then
        Raise Exception.Create('Coloque um valor válido para o pagamento');
 
-    if StrToFloatdef(edtjuros.text,-1) = -1 then
-       Raise Exception.Create('Coloque um valor válido para o Juros');
-
-    if StrToFloatdef(edtmulta.text,-1) = -1 then
-       Raise Exception.Create('Coloque um valor válido para a Multa');
 end;
 
 procedure TFRMCRBquitacao.setVlrreceber(vlr: double);
@@ -86,10 +77,12 @@ procedure TFRMCRBquitacao.quitar;
 begin
 verificarcampos;
 calcularDesc;
-if dtm_finan.quitarParcelaCPG(recto,dtprecto.DateTime,StrToFloat(edtvalor.text),
+if dtm_finan.quitarParcelaCRB(recto,dtprecto.DateTime,StrToFloat(edtvalor.text),
                         vlrdesc) then
 begin
   ShowMessage('Pagamento Efetuado.');
+  if DTM_FINAN.cdscrb.Active then
+    DTM_FINAN.cdscrb.Refresh;
   close;
 end;
 

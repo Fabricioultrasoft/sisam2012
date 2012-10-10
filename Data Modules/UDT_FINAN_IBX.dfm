@@ -7,8 +7,6 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
   object qryCpg: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select C.* ,'
       '                   CASE CPG_STATUS'
@@ -174,8 +172,6 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
   object qryCrb: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select C.* ,'
       '                   CASE CRB_STATUS'
@@ -296,12 +292,18 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       Origin = '"CAD_FORN"."FORN_RAZAO"'
       Size = 100
     end
+    object qryCrbCRB_TOTPGTO: TFloatField
+      FieldName = 'CRB_TOTPGTO'
+      Origin = '"CAD_CRB"."CRB_TOTPGTO"'
+    end
+    object qryCrbCRB_DESCONTO: TFloatField
+      FieldName = 'CRB_DESCONTO'
+      Origin = '"CAD_CRB"."CRB_DESCONTO"'
+    end
   end
   object qryConsCpg: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select C.* ,'
       '                   CASE CPG_STATUS'
@@ -463,8 +465,6 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
   object qryConsCrb: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select C.* ,'
       '                   CASE CRB_STATUS'
@@ -588,6 +588,14 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       FieldName = 'CONDOMINO'
       Origin = '"CAD_FORN"."FORN_RAZAO"'
       Size = 100
+    end
+    object qryConsCrbCRB_TOTPGTO: TFloatField
+      FieldName = 'CRB_TOTPGTO'
+      Origin = '"CAD_CRB"."CRB_TOTPGTO"'
+    end
+    object qryConsCrbCRB_DESCONTO: TFloatField
+      FieldName = 'CRB_DESCONTO'
+      Origin = '"CAD_CRB"."CRB_DESCONTO"'
     end
   end
 end
