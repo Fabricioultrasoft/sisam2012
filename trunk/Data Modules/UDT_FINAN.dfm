@@ -274,6 +274,7 @@ object DTM_FINAN: TDTM_FINAN
     object cdsCpgCPG_TOTPGTO: TFloatField
       FieldName = 'CPG_TOTPGTO'
       Origin = '"CAD_CPG"."CPG_TOTPGTO"'
+      ReadOnly = True
       DisplayFormat = '##0.00'
     end
     object cdsCpgCPG_STATUS: TSmallintField
@@ -752,6 +753,12 @@ object DTM_FINAN: TDTM_FINAN
       Origin = '"CAD_FORN"."FORN_RAZAO"'
       Size = 100
     end
+    object cdsConsCrbCRB_TOTPGTO: TFloatField
+      FieldName = 'CRB_TOTPGTO'
+    end
+    object cdsConsCrbCRB_DESCONTO: TFloatField
+      FieldName = 'CRB_DESCONTO'
+    end
   end
   object dsConsCrb: TDataSource
     DataSet = cdsConsCrb
@@ -761,8 +768,6 @@ object DTM_FINAN: TDTM_FINAN
   object qryREL: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select C.* ,'
       '                   CASE CRB_STATUS'
@@ -884,6 +889,14 @@ object DTM_FINAN: TDTM_FINAN
         Name = 'CONDOMINO'
         DataType = ftString
         Size = 100
+      end
+      item
+        Name = 'CRB_TOTPGTO'
+        DataType = ftFloat
+      end
+      item
+        Name = 'CRB_DESCONTO'
+        DataType = ftFloat
       end>
     IndexDefs = <>
     Params = <>
@@ -990,6 +1003,13 @@ object DTM_FINAN: TDTM_FINAN
       FieldName = 'CONDOMINO'
       Origin = '"CAD_FORN"."FORN_RAZAO"'
       Size = 100
+    end
+    object cdsCrbCRB_TOTPGTO: TFloatField
+      FieldName = 'CRB_TOTPGTO'
+      ReadOnly = True
+    end
+    object cdsCrbCRB_DESCONTO: TFloatField
+      FieldName = 'CRB_DESCONTO'
     end
   end
 end

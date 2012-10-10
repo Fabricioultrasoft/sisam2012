@@ -13,7 +13,7 @@ uses
   {$IFDEF DELPHI7} MaskUtils, Variants{$ENDIF}  ;
 
 const
-    versao   = '0.9';
+    versao   = '1.0';
 
 procedure SetSqlCommand(SQL : String;  var cds:TClientDataSet);
 function NomeComputador : string;

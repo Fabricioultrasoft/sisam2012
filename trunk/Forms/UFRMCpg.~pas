@@ -94,6 +94,8 @@ type
     lbl7: TLabel;
     lbl8: TLabel;
     DBEdit10: TDBEdit;
+    lbl9: TLabel;
+    DBEdit11: TDBEdit;
 
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);

@@ -1,9 +1,9 @@
 object FRMCRBquitacao: TFRMCRBquitacao
-  Left = 238
-  Top = 394
+  Left = 361
+  Top = 416
   Width = 360
   Height = 194
-  Caption = 'Quitar Parcela'
+  Caption = 'Quitar Parcela - Contas a receber'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,13 +13,13 @@ object FRMCRBquitacao: TFRMCRBquitacao
   OldCreateOrder = False
   OnClose = FormClose
   DesignSize = (
-    352
-    160)
+    344
+    156)
   PixelsPerInch = 96
   TextHeight = 13
   object lbl1: TLabel
-    Left = 232
-    Top = 56
+    Left = 128
+    Top = 8
     Width = 89
     Height = 13
     Caption = 'Data Recebimento'
@@ -62,32 +62,6 @@ object FRMCRBquitacao: TFRMCRBquitacao
     Width = 21
     Height = 13
     Caption = '0,00'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
-    Font.Height = -11
-    Font.Name = 'MS Sans Serif'
-    Font.Style = []
-    ParentFont = False
-  end
-  object lbl3: TLabel
-    Left = 123
-    Top = 9
-    Width = 25
-    Height = 13
-    Caption = 'Juros'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clNavy
-    Font.Height = -11
-    Font.Name = 'MS Sans Serif'
-    Font.Style = []
-    ParentFont = False
-  end
-  object lbl4: TLabel
-    Left = 227
-    Top = 9
-    Width = 26
-    Height = 13
-    Caption = 'Multa'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clNavy
     Font.Height = -11
@@ -202,26 +176,12 @@ object FRMCRBquitacao: TFRMCRBquitacao
     TabOrder = 2
   end
   object dtprecto: TDateTimePicker
-    Left = 232
-    Top = 71
+    Left = 128
+    Top = 23
     Width = 90
     Height = 21
     Date = 41177.903434178240000000
     Time = 41177.903434178240000000
     TabOrder = 3
-  end
-  object edtjuros: TEdit
-    Left = 123
-    Top = 23
-    Width = 97
-    Height = 21
-    TabOrder = 4
-  end
-  object edtmulta: TEdit
-    Left = 227
-    Top = 23
-    Width = 97
-    Height = 21
-    TabOrder = 5
   end
 end

@@ -113,6 +113,10 @@ type
     ibstrngfldConsCrbCONDOMINIO: TIBStringField;
     ibstrngfldCrbCONDOMINO: TIBStringField;
     ibstrngfldConsCrbCONDOMINO: TIBStringField;
+    qryCrbCRB_TOTPGTO: TFloatField;
+    qryCrbCRB_DESCONTO: TFloatField;
+    qryConsCrbCRB_TOTPGTO: TFloatField;
+    qryConsCrbCRB_DESCONTO: TFloatField;
 {    qryConsCrbCRB_STATUS: TSmallintField;
     qryConsCrbCRB_USUARIOLANC: TIntegerField;
     qryConsCrbCRB_USUARIOBAIXA: TIntegerField;}

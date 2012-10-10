@@ -185,7 +185,7 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       '                   END AS CRB_STATUSDESC,'
       ''
       ' UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA,'
-      '  COND_DESC CONDOMINIO '
+      '  COND_DESC CONDOMINIO, FORN_RAZAO CONDOMINO '
       '            FROM   CAD_CRB C'
       
         '                LEFT JOIN CAD_USUARIO UL ON UL.USUARIO_CDG = CRB' +
@@ -193,7 +193,8 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       
         '            LEFT JOIN CAD_USUARIO UB ON UB.USUARIO_CDG = CRB_USU' +
         'ARIOBAIXA '
-      '            LEFT JOIN CAD_COND ON C.CRB_CONDOMINIO= COND_CDG')
+      '            LEFT JOIN CAD_COND ON C.CRB_CONDOMINIO= COND_CDG'
+      '            LEFT JOIN CAD_FORN ON C.CRB_CONDOMINO = FORN_CDG')
     Left = 104
     Top = 16
     object qryCrbCRB_TOT: TFloatField
@@ -288,6 +289,11 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     object ibstrngfldCrbCONDOMINIO: TIBStringField
       FieldName = 'CONDOMINIO'
       Origin = '"CAD_COND"."COND_DESC"'
+      Size = 100
+    end
+    object ibstrngfldCrbCONDOMINO: TIBStringField
+      FieldName = 'CONDOMINO'
+      Origin = '"CAD_FORN"."FORN_RAZAO"'
       Size = 100
     end
   end
@@ -468,7 +474,7 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
       '                   END AS CRB_STATUSDESC,'
       ''
       ' UL.USUARIO_NOME USUARIOLANC, UB.USUARIO_NOME USUARIOBAIXA,'
-      '  COND_DESC CONDOMINIO '
+      '  COND_DESC CONDOMINIO, FORN_RAZAO CONDOMINO '
       '            FROM   CAD_CRB C'
       
         '                LEFT JOIN CAD_USUARIO UL ON UL.USUARIO_CDG = CRB' +
@@ -477,6 +483,7 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
         '            LEFT JOIN CAD_USUARIO UB ON UB.USUARIO_CDG = CRB_USU' +
         'ARIOBAIXA '
       '            LEFT JOIN CAD_COND ON C.CRB_CONDOMINIO= COND_CDG'
+      '            LEFT JOIN CAD_FORN ON C.CRB_CONDOMINO = FORN_CDG'
       ''
       ''
       '')
@@ -575,6 +582,11 @@ object DTM_FINAN_IBX: TDTM_FINAN_IBX
     object ibstrngfldConsCrbCONDOMINIO: TIBStringField
       FieldName = 'CONDOMINIO'
       Origin = '"CAD_COND"."COND_DESC"'
+      Size = 100
+    end
+    object ibstrngfldConsCrbCONDOMINO: TIBStringField
+      FieldName = 'CONDOMINO'
+      Origin = '"CAD_FORN"."FORN_RAZAO"'
       Size = 100
     end
   end
