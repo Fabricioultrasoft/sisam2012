@@ -292,7 +292,7 @@ end;
 
 procedure TDTM_FINAN.cancelarParcelaCRB(recto: integer);
 begin
-
+   DTMGeral.executarSQL(' UPDATE CAD_CRB SET CRB_STATUS = 2 WHERE CPG_CDG = '+INTTOSTR(PGTO));
 end;
 
 procedure TDTM_FINAN.calcularTotLiqCPG(var cds:tclientdataset);

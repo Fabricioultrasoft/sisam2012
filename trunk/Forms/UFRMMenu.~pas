@@ -22,8 +22,7 @@ type
     MainMenu1: TMainMenu;
     Ferramentas1: TMenuItem;
     Calculadora1: TMenuItem;
-    Calendrio1: TMenuItem;
-    Sair1: TMenuItem;
+    menucadusuario: TMenuItem;
     Sobre1: TMenuItem;
     Sisam1: TMenuItem;
     Help1: TMenuItem;
@@ -46,7 +45,7 @@ type
     procedure tbCadastroClick(Sender: TObject);
     procedure Calculadora1Click(Sender: TObject);
     procedure Sair1Click(Sender: TObject);
-    procedure Calendrio1Click(Sender: TObject);
+    procedure menucadusuarioClick(Sender: TObject);
     procedure tbPagarClick(Sender: TObject);
     procedure tbReceberClick(Sender: TObject);
     procedure actEmpreExecute(Sender: TObject);
@@ -117,7 +116,7 @@ begin
   Application.Terminate;
 end;
 
-procedure TFRMMenu.Calendrio1Click(Sender: TObject);
+procedure TFRMMenu.menucadusuarioClick(Sender: TObject);
 begin
 abrirfrmUsuario;
 end;

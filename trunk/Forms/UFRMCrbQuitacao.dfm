@@ -13,8 +13,8 @@ object FRMCRBquitacao: TFRMCRBquitacao
   OldCreateOrder = False
   OnClose = FormClose
   DesignSize = (
-    344
-    156)
+    352
+    160)
   PixelsPerInch = 96
   TextHeight = 13
   object lbl1: TLabel
@@ -140,6 +140,7 @@ object FRMCRBquitacao: TFRMCRBquitacao
     Anchors = [akBottom]
     Caption = 'Cancelar'
     TabOrder = 1
+    OnClick = btnCancelarClick
     Glyph.Data = {
       36030000424D3603000000000000360000002800000010000000100000000100
       18000000000000030000C40E0000C40E00000000000000000000FFFFFFFFFFFF

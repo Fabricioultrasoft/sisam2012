@@ -1,6 +1,6 @@
 object FRMRelCpg: TFRMRelCpg
-  Left = 329
-  Top = 212
+  Left = 497
+  Top = 202
   Width = 323
   Height = 329
   Caption = 'Relat'#243'rio Contas a Pagar'
@@ -67,9 +67,9 @@ object FRMRelCpg: TFRMRelCpg
       ParentFont = False
     end
     object btnCancelar: TBitBtn
-      Left = 141
+      Left = 131
       Top = 188
-      Width = 93
+      Width = 99
       Height = 31
       Anchors = [akBottom]
       Caption = 'Cancelar'

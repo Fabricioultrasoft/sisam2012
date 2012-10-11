@@ -768,6 +768,8 @@ object DTM_FINAN: TDTM_FINAN
   object qryREL: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select C.* ,'
       '                   CASE CRB_STATUS'
