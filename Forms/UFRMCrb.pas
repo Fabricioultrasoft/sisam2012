@@ -300,8 +300,8 @@ if DTM_FINAN.dsCrb.State in [dsinsert,dsedit] then
 
 if MessageDlg('Confirma cancelamento da nota?',mtCustom,
                               [mbYes,mbno,mbCancel], 0) = mryes then
-  IF DTM_FINAN.cdsCpg.fieldbyname('CRB_STATUS').AsInteger = 0  THEN
-    DTM_FINAN.cancelarParcelaCPG(DTM_FINAN.cdsCpg.fieldbyname('CRB_CDG').AsInteger)
+  IF DTM_FINAN.cdsCrb.fieldbyname('CRB_STATUS').AsInteger = 0  THEN
+    DTM_FINAN.cancelarParcelaCrb(DTM_FINAN.cdsCrb.fieldbyname('CRB_CDG').AsInteger)
   else
     raise exceptION.Create('Para cancelar a parcela deve estar com status ''Em aberto''');
 end;

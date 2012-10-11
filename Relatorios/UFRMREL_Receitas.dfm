@@ -80,7 +80,7 @@ object FRMRelCrb: TFRMRelCrb
       ParentFont = False
     end
     object btnCancelar: TBitBtn
-      Left = 117
+      Left = 124
       Top = 228
       Width = 96
       Height = 31
@@ -205,9 +205,10 @@ object FRMRelCrb: TFRMRelCrb
       ItemIndex = 0
       Items.Strings = (
         'Todos'
-        'A Vencer'
-        'Quitados'
-        'Vencidos')
+        'Em aberto'
+        'Pago'
+        'Cancelado'
+        '')
       ParentFont = False
       TabOrder = 6
     end

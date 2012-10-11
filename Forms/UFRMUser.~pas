@@ -29,6 +29,7 @@ type
     dbchkUSUARIO_ATIVO: TDBCheckBox;
     DBEdit4: TDBEdit;
     lbl5: TLabel;
+    dbchkUSUARIO_ATIVO1: TDBCheckBox;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btntrocarsenhaClick(Sender: TObject);
     procedure btnPriorClick(Sender: TObject);

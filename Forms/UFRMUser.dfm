@@ -1,6 +1,6 @@
 object FRM_USER: TFRM_USER
-  Left = 433
-  Top = 369
+  Left = 382
+  Top = 282
   Width = 314
   Height = 382
   Caption = 'Cadastro de Usu'#225'rio'
@@ -14,8 +14,8 @@ object FRM_USER: TFRM_USER
   OnClose = FormClose
   OnCreate = FormCreate
   DesignSize = (
-    298
-    344)
+    306
+    348)
   PixelsPerInch = 96
   TextHeight = 13
   object tlb1: TToolBar

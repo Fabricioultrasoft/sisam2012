@@ -36,8 +36,8 @@ object FRM_CRB: TFRM_CRB
   object pcControl: TPageControl
     Left = 0
     Top = 0
-    Width = 688
-    Height = 392
+    Width = 696
+    Height = 396
     ActivePage = PC_Receitas
     Align = alClient
     TabOrder = 0
@@ -45,8 +45,8 @@ object FRM_CRB: TFRM_CRB
     object PC_Receitas: TTabSheet
       Caption = 'Receitas'
       DesignSize = (
-        680
-        364)
+        688
+        368)
       object Label1: TLabel
         Left = 24
         Top = 72
@@ -758,7 +758,7 @@ object FRM_CRB: TFRM_CRB
         Width = 137
         Height = 54
         Anchors = [akBottom]
-        Caption = 'Cancelar Pgto'
+        Caption = 'Cancelar Recto'
         TabOrder = 14
         OnClick = btncancelarClick
         Glyph.Data = {
@@ -907,8 +907,8 @@ object FRM_CRB: TFRM_CRB
       object DBGrid1: TDBGrid
         Left = 0
         Top = 140
-        Width = 680
-        Height = 224
+        Width = 688
+        Height = 228
         Align = alClient
         DataSource = DTM_FINAN.dsConsCrb
         TabOrder = 0
@@ -1097,7 +1097,7 @@ object FRM_CRB: TFRM_CRB
       object GroupBox2: TGroupBox
         Left = 0
         Top = 0
-        Width = 680
+        Width = 688
         Height = 140
         Align = alTop
         TabOrder = 1
@@ -1428,9 +1428,9 @@ object FRM_CRB: TFRM_CRB
           ItemIndex = 0
           Items.Strings = (
             'Todos'
-            'A Vencer'
-            'Quitados'
-            'Vencidos')
+            'Em aberto'
+            'Pago'
+            'Cancelado')
           ParentFont = False
           TabOrder = 1
         end

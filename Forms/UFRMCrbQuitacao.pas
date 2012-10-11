@@ -20,6 +20,7 @@ type
     lblapagar: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnOKClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
   private
     { Private declarations }
     recto:integer;
@@ -80,7 +81,7 @@ calcularDesc;
 if dtm_finan.quitarParcelaCRB(recto,dtprecto.DateTime,StrToFloat(edtvalor.text),
                         vlrdesc) then
 begin
-  ShowMessage('Pagamento Efetuado.');
+  ShowMessage('Recebimento Efetuado.');
   if DTM_FINAN.cdscrb.Active then
     DTM_FINAN.cdscrb.Refresh;
   close;
@@ -91,6 +92,11 @@ end;
 procedure TFRMCRBquitacao.btnOKClick(Sender: TObject);
 begin
 quitar;
+end;
+
+procedure TFRMCRBquitacao.btnCancelarClick(Sender: TObject);
+begin
+Close;
 end;
 
 end.

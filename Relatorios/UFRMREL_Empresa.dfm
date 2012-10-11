@@ -30,7 +30,7 @@ object FRMREL_Empresa: TFRMREL_Empresa
       254
       144)
     object btnOK: TBitBtn
-      Left = 124
+      Left = 20
       Top = 100
       Width = 105
       Height = 31
@@ -67,7 +67,7 @@ object FRMREL_Empresa: TFRMREL_Empresa
         FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
     end
     object btnCancelar: TBitBtn
-      Left = 12
+      Left = 123
       Top = 100
       Width = 93
       Height = 31
