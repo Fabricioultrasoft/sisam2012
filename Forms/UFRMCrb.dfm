@@ -1016,7 +1016,6 @@ object FRM_CRB: TFRM_CRB
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
-            Width = 64
             Visible = True
           end
           item
@@ -1033,7 +1032,6 @@ object FRM_CRB: TFRM_CRB
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
-            Width = 64
             Visible = True
           end
           item
@@ -1050,7 +1048,6 @@ object FRM_CRB: TFRM_CRB
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
-            Width = 64
             Visible = True
           end
           item
@@ -1078,7 +1075,6 @@ object FRM_CRB: TFRM_CRB
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
-            Width = 64
             Visible = True
           end
           item
@@ -1090,7 +1086,6 @@ object FRM_CRB: TFRM_CRB
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
-            Width = 64
             Visible = True
           end>
       end
@@ -1491,5 +1486,11 @@ object FRM_CRB: TFRM_CRB
         end
       end
     end
+  end
+  object dscrb: TDataSource
+    DataSet = DTM_FINAN.cdsCrb
+    OnStateChange = dscrbStateChange
+    Left = 524
+    Top = 104
   end
 end

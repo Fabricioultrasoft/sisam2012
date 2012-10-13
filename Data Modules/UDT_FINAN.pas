@@ -266,7 +266,9 @@ begin
   DTMGeral.executarSQL(' UPDATE CAD_CRB SET CRB_TOTPGTO = '
                           +StringReplace(FloatToStr(vlrbaixa),',','.',[rfReplaceAll])+', '
                           +' CRB_DESCONTO = '  +StringReplace(FloatToStr(vLRdesc),',','.',[rfReplaceAll])+', '
-                          +' CRB_STATUS = 1  WHERE CRB_CDG = '+ IntToStr(pgto) );
+                          +' CRB_STATUS = 1, '
+                          +' CRB_DTPGTO = '''+ FormatDateTime('yyyy-MM-dd',dataBaixa)+''' '
+                          +' WHERE CRB_CDG = '+ IntToStr(pgto) );
 
 result:=True;;
 end;

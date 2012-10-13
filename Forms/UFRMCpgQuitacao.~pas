@@ -19,9 +19,9 @@ type
     dtprecto: TDateTimePicker;
     btnquitar: TBitBtn;
    procedure FormShow(Sender: TObject);
-    procedure btnCancelarClick(Sender: TObject);
-    procedure btnquitarClick(Sender: TObject);
-    procedure edtvalorExit(Sender: TObject);
+   procedure btnCancelarClick(Sender: TObject);
+   procedure btnquitarClick(Sender: TObject);
+   procedure edtvalorExit(Sender: TObject);
   //  procedure edtvalorExit(Sender: TObject);
     //procedure FormCreate(Sender: TObject);
   private
@@ -29,7 +29,7 @@ type
     vlrapagar,vlrdesc:Double;
     procedure btnOKClick(Sender: TObject);
     procedure calcularDesc;
-   procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure verificarcampos;
     procedure quitar;
     { Private declarations }

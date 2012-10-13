@@ -69,6 +69,7 @@ type
     lbl1: TLabel;
     DBEdit14: TDBEdit;
     lbl2: TLabel;
+    dscrb: TDataSource;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnPriorClick(Sender: TObject);
     procedure btntbnextClick(Sender: TObject);
@@ -94,6 +95,7 @@ type
     procedure pcControlChange(Sender: TObject);
     procedure btncancelarClick(Sender: TObject);
     procedure btn1Click(Sender: TObject);
+    procedure dscrbStateChange(Sender: TObject);
   private
     procedure FiltrarReceitas;
   public
@@ -317,6 +319,12 @@ begin
                         dtm_finan.cdscrb.fieldbyname('CRB_CDG').AsInteger,
                         dtm_finan.cdscrb.fieldbyname('CRB_TOT').AsInteger
                           );
+end;
+
+procedure TFRM_CRB.dscrbStateChange(Sender: TObject);
+begin
+  // ativar botoes do navigator qndo estiver em edição
+  dtmgeral.DSstateChange(dscrb,tlb1);
 end;
 
 end.
