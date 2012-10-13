@@ -659,10 +659,12 @@ object DTM_FINAN: TDTM_FINAN
     object FloatField10: TFloatField
       FieldName = 'CRB_TOT'
       Origin = '"CAD_CRB"."CRB_TOT"'
+      DisplayFormat = '##0.00'
     end
     object FloatField11: TFloatField
       FieldName = 'CRB_VLRCOND'
       Origin = '"CAD_CRB"."CRB_VLRCOND"'
+      DisplayFormat = '##0.00'
     end
     object FloatField12: TFloatField
       FieldName = 'CRB_FRACAO'
@@ -681,26 +683,32 @@ object DTM_FINAN: TDTM_FINAN
     object DateField4: TDateField
       FieldName = 'CRB_DTVENC'
       Origin = '"CAD_CRB"."CRB_DTVENC"'
+      EditMask = '!99/99/00;1;_'
     end
     object DateField5: TDateField
       FieldName = 'CRB_DTVENCORIG'
       Origin = '"CAD_CRB"."CRB_DTVENCORIG"'
+      EditMask = '!99/99/00;1;_'
     end
     object DateField6: TDateField
       FieldName = 'CRB_DTPGTO'
       Origin = '"CAD_CRB"."CRB_DTPGTO"'
+      EditMask = '!99/99/00;1;_'
     end
     object FloatField13: TFloatField
       FieldName = 'CRB_JUROS'
       Origin = '"CAD_CRB"."CRB_JUROS"'
+      DisplayFormat = '##0.00'
     end
     object FloatField14: TFloatField
       FieldName = 'CRB_MULTA'
       Origin = '"CAD_CRB"."CRB_MULTA"'
+      DisplayFormat = '##0.00'
     end
     object FloatField15: TFloatField
       FieldName = 'CRB_RATEIO'
       Origin = '"CAD_CRB"."CRB_RATEIO"'
+      DisplayFormat = '##0.00'
     end
     object StringField6: TStringField
       FieldName = 'CRB_BLOCO'
@@ -755,9 +763,11 @@ object DTM_FINAN: TDTM_FINAN
     end
     object cdsConsCrbCRB_TOTPGTO: TFloatField
       FieldName = 'CRB_TOTPGTO'
+      DisplayFormat = '##0.00'
     end
     object cdsConsCrbCRB_DESCONTO: TFloatField
       FieldName = 'CRB_DESCONTO'
+      DisplayFormat = '##0.00'
     end
   end
   object dsConsCrb: TDataSource
@@ -913,10 +923,12 @@ object DTM_FINAN: TDTM_FINAN
     object cdsCrbCRB_TOT: TFloatField
       FieldName = 'CRB_TOT'
       Origin = '"CAD_CRB"."CRB_TOT"'
+      DisplayFormat = '##0.00'
     end
     object cdsCrbCRB_VLRCOND: TFloatField
       FieldName = 'CRB_VLRCOND'
       Origin = '"CAD_CRB"."CRB_VLRCOND"'
+      DisplayFormat = '##0.00'
     end
     object cdsCrbCRB_FRACAO: TFloatField
       FieldName = 'CRB_FRACAO'
@@ -935,10 +947,12 @@ object DTM_FINAN: TDTM_FINAN
     object cdsCrbCRB_DTVENC: TDateField
       FieldName = 'CRB_DTVENC'
       Origin = '"CAD_CRB"."CRB_DTVENC"'
+      EditMask = '!99/99/00;1;_'
     end
     object cdsCrbCRB_DTVENCORIG: TDateField
       FieldName = 'CRB_DTVENCORIG'
       Origin = '"CAD_CRB"."CRB_DTVENCORIG"'
+      EditMask = '!99/99/00;1;_'
     end
     object cdsCrbCRB_DTPGTO: TDateField
       FieldName = 'CRB_DTPGTO'
@@ -947,14 +961,17 @@ object DTM_FINAN: TDTM_FINAN
     object cdsCrbCRB_JUROS: TFloatField
       FieldName = 'CRB_JUROS'
       Origin = '"CAD_CRB"."CRB_JUROS"'
+      DisplayFormat = '##0.00'
     end
     object cdsCrbCRB_MULTA: TFloatField
       FieldName = 'CRB_MULTA'
       Origin = '"CAD_CRB"."CRB_MULTA"'
+      DisplayFormat = '##0.00'
     end
     object cdsCrbCRB_RATEIO: TFloatField
       FieldName = 'CRB_RATEIO'
       Origin = '"CAD_CRB"."CRB_RATEIO"'
+      DisplayFormat = '##0.00'
     end
     object strngfldCrbCRB_BLOCO: TStringField
       FieldName = 'CRB_BLOCO'
@@ -1009,9 +1026,11 @@ object DTM_FINAN: TDTM_FINAN
     object cdsCrbCRB_TOTPGTO: TFloatField
       FieldName = 'CRB_TOTPGTO'
       ReadOnly = True
+      DisplayFormat = '##0.00'
     end
     object cdsCrbCRB_DESCONTO: TFloatField
       FieldName = 'CRB_DESCONTO'
+      DisplayFormat = '##0.00'
     end
   end
 end

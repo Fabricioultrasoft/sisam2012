@@ -12,6 +12,7 @@ object FRMCRBquitacao: TFRMCRBquitacao
   Font.Style = []
   OldCreateOrder = False
   OnClose = FormClose
+  OnShow = FormShow
   DesignSize = (
     352
     160)

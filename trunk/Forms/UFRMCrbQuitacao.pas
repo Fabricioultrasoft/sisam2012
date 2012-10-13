@@ -21,6 +21,8 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnOKClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
+    procedure edtvalorExit(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
     recto:integer;
@@ -94,9 +96,25 @@ begin
 quitar;
 end;
 
+procedure TFRMCrbQuitacao.edtvalorExit(Sender: TObject);
+begin
+if  StrToFloatdef(edtvalor.Text,-1) <> -1  then
+  edtvalor.Text:= FormatFloat('###0.00',strtofloat(edtvalor.TexT));
+
+calcularDesc;
+end;
+
 procedure TFRMCRBquitacao.btnCancelarClick(Sender: TObject);
 begin
 Close;
+end;
+
+procedure TFRMCRBquitacao.FormShow(Sender: TObject);
+begin
+edtvalor.Text:=FormatFloat('###0.00',vlrrecto);
+lblapagar.Caption:=FormatFloat('###0.00',vlrrecto);
+edtvalor.SetFocus;
+
 end;
 
 end.

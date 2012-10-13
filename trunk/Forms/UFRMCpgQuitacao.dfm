@@ -1,6 +1,6 @@
 object FRMcpgQuitacao: TFRMcpgQuitacao
-  Left = 671
-  Top = 238
+  Left = 602
+  Top = 236
   Width = 377
   Height = 188
   Caption = 'Quita'#231#227'o Contas a Pagar'
@@ -13,8 +13,8 @@ object FRMcpgQuitacao: TFRMcpgQuitacao
   OldCreateOrder = False
   OnShow = FormShow
   DesignSize = (
-    361
-    150)
+    369
+    154)
   PixelsPerInch = 96
   TextHeight = 13
   object lbl1: TLabel
