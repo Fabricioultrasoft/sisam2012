@@ -17,9 +17,9 @@ type
     grp1: TGroupBox;
     lbl3: TLabel;
     lbl6: TLabel;
-    DBEdit1: TDBEdit;
+    dbedtFORN_CNPJ: TDBEdit;
     DBEdit2: TDBEdit;
-    DBEdit17: TDBEdit;
+    dbedtFORN_CPFCNPJ: TDBEdit;
     DBEdit3: TDBEdit;
     DBEdit5: TDBEdit;
     DBEdit4: TDBEdit;
@@ -102,6 +102,8 @@ type
     lbl34: TLabel;
     chkfuncionario: TCheckBox;
     dbchkFORN_TPINCORPORADORA1: TDBCheckBox;
+    dbedtFORN_RG: TDBEdit;
+    lbl35: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure dtsCadStateChange(Sender: TObject);
@@ -201,7 +203,7 @@ begin
 
 
  if (chkcond.checked or chkincorp.checked  or
-       chkforn.checked  or chkcond.checked or chkfuncionario.checked ) then
+       chkforn.checked  or chksindico.checked or chkfuncionario.checked ) then
  begin
    SQL  := SQL + ' AND ( 1=0 ';
 

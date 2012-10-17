@@ -307,6 +307,8 @@ object FRMMenu: TFRMMenu
       Hint = 'Cadastro de Empresa'
       Caption = 'tbEmpre'
       ImageIndex = 0
+      ParentShowHint = False
+      ShowHint = True
       OnClick = actEmpreExecute
     end
     object tbCadastro: TToolButton
@@ -315,6 +317,8 @@ object FRMMenu: TFRMMenu
       Hint = 'Cadastros Diversos'
       Caption = 'tbCadastro'
       ImageIndex = 1
+      ParentShowHint = False
+      ShowHint = True
       OnClick = tbCadastroClick
     end
     object ToolButton1: TToolButton
@@ -323,6 +327,8 @@ object FRMMenu: TFRMMenu
       Hint = 'Cadastro de Condom'#237'nios'
       Caption = 'ToolButton1'
       ImageIndex = 2
+      ParentShowHint = False
+      ShowHint = True
       OnClick = ToolButton1Click
     end
     object tbPagar: TToolButton
@@ -331,6 +337,8 @@ object FRMMenu: TFRMMenu
       Hint = 'Contas '#224' Pagar'
       Caption = 'tbPagar'
       ImageIndex = 3
+      ParentShowHint = False
+      ShowHint = True
       OnClick = tbPagarClick
     end
     object tbReceber: TToolButton
@@ -339,6 +347,8 @@ object FRMMenu: TFRMMenu
       Hint = 'Contas '#224' Receber'
       Caption = 'tbReceber'
       ImageIndex = 4
+      ParentShowHint = False
+      ShowHint = True
       OnClick = tbReceberClick
     end
   end
@@ -354,7 +364,7 @@ object FRMMenu: TFRMMenu
     Left = 648
     Top = 160
     Bitmap = {
-      494C01010500090004005A005A00FFFFFFFFFF00FFFFFFFFFFFFFFFF424D3600
+      494C01010500090004005A005A00FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000680100000E0100000100200000000000C0EE
       0500000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -12913,7 +12923,8 @@ object FRMMenu: TFRMMenu
       FFFFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
       FFFFFFFFFFFFFFFFFFFFC00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000
       FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-      FFFFFFFFFFFFFFFFFFFFFFFFFF000000}
+      FFFFFFFFFFFFFFFFFFFFFFFFFF00000000000000000000000000000000000000
+      000000000000}
   end
   object MainMenu1: TMainMenu
     Left = 616
@@ -12979,6 +12990,10 @@ object FRMMenu: TFRMMenu
         Caption = 'Condominios'
         OnClick = Condominios1Click
       end
+      object CadastrosDiversos1: TMenuItem
+        Caption = 'Cadastros Diversos'
+        OnClick = CadastrosDiversos1Click
+      end
       object RelContasaPagar: TMenuItem
         Caption = 'Contas a Pagar'
         OnClick = RelContasapagar1Click
@@ -12990,12 +13005,12 @@ object FRMMenu: TFRMMenu
     end
     object Sobre1: TMenuItem
       Caption = 'Sobre'
-      object Sisam1: TMenuItem
-        Caption = 'Sisam'
-      end
       object Help1: TMenuItem
-        Caption = 'Help '
+        Caption = 'Sisam'
         OnClick = Help1Click
+      end
+      object Sisam1: TMenuItem
+        Caption = 'Help'
       end
     end
   end

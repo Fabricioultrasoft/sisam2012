@@ -1,6 +1,6 @@
 object FRM_EMPRE: TFRM_EMPRE
-  Left = 266
-  Top = 326
+  Left = 201
+  Top = 108
   Width = 931
   Height = 528
   Caption = 'Cadastro de Empresa'
@@ -656,7 +656,7 @@ object FRM_EMPRE: TFRM_EMPRE
           ParentFont = False
         end
         object Label5: TLabel
-          Left = 108
+          Left = 172
           Top = 61
           Width = 71
           Height = 13
@@ -670,7 +670,7 @@ object FRM_EMPRE: TFRM_EMPRE
           ParentFont = False
         end
         object Label4: TLabel
-          Left = 108
+          Left = 172
           Top = 13
           Width = 63
           Height = 13
@@ -742,9 +742,9 @@ object FRM_EMPRE: TFRM_EMPRE
           TabOrder = 4
         end
         object DBEdit5: TDBEdit
-          Left = 108
+          Left = 168
           Top = 77
-          Width = 526
+          Width = 466
           Height = 21
           Color = clInfoBk
           DataField = 'EMPRE_FANTASIA'
@@ -758,9 +758,9 @@ object FRM_EMPRE: TFRM_EMPRE
           TabOrder = 3
         end
         object DBEdrazao: TDBEdit
-          Left = 108
+          Left = 168
           Top = 29
-          Width = 526
+          Width = 466
           Height = 21
           Color = clInfoBk
           DataField = 'EMPRE_RAZAO'
@@ -776,7 +776,7 @@ object FRM_EMPRE: TFRM_EMPRE
         object DBEdit16: TDBEdit
           Left = 11
           Top = 29
-          Width = 86
+          Width = 149
           Height = 21
           Color = clInfoBk
           DataField = 'EMPRE_CDG'
@@ -792,7 +792,7 @@ object FRM_EMPRE: TFRM_EMPRE
         object DBEdit1: TDBEdit
           Left = 11
           Top = 77
-          Width = 86
+          Width = 149
           Height = 21
           Color = clInfoBk
           DataField = 'EMPRE_CNPJ'
@@ -870,7 +870,6 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
-            Width = 64
             Visible = True
           end
           item
@@ -882,7 +881,6 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
-            Width = 64
             Visible = True
           end
           item
@@ -894,7 +892,6 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
-            Width = 64
             Visible = True
           end
           item
@@ -906,7 +903,6 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
-            Width = 64
             Visible = True
           end
           item
@@ -918,7 +914,6 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
-            Width = 64
             Visible = True
           end
           item
@@ -930,13 +925,11 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
-            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'EMPRE_CDG'
-            Width = 64
             Visible = True
           end
           item

@@ -60,7 +60,6 @@ type
     qryEmpreEMPRE_CDG: TIntegerField;
     qryCond: TIBQuery;
     qryCondCOND_DESC: TIBStringField;
-    qryCondCOND_CEP: TIntegerField;
     qryCondCOND_CID: TIBStringField;
     qryCondCOND_UF: TIBStringField;
     qryCondCOND_TELEFONE: TIBStringField;
@@ -126,7 +125,6 @@ type
     IntegerField8: TIntegerField;
     qryConsCond: TIBQuery;
     IBStringField34: TIBStringField;
-    IntegerField12: TIntegerField;
     IBStringField35: TIBStringField;
     IBStringField36: TIBStringField;
     IBStringField37: TIBStringField;
@@ -140,7 +138,6 @@ type
     IntegerField16: TIntegerField;
     IntegerField17: TIntegerField;
     IntegerField18: TIntegerField;
-    IntegerField19: TIntegerField;
     IntegerField20: TIntegerField;
     IBStringField43: TIBStringField;
     IBStringField44: TIBStringField;
@@ -213,6 +210,50 @@ type
     qryConsCondCOND_END: TIBStringField;
     qryConsCondCOND_BAIRRO: TIBStringField;
     qryUserUSUARIO_ADMIN: TSmallintField;
+    qryLkCadSind: TIBQuery;
+    ibstrngfld1: TIBStringField;
+    ibstrngfld2: TIBStringField;
+    ibstrngfld3: TIBStringField;
+    ibstrngfld4: TIBStringField;
+    ibstrngfld5: TIBStringField;
+    ibstrngfld6: TIBStringField;
+    ibstrngfld7: TIBStringField;
+    ibstrngfld8: TIBStringField;
+    ibstrngfld9: TIBStringField;
+    ibstrngfld10: TIBStringField;
+    ibstrngfld11: TIBStringField;
+    ibstrngfld12: TIBStringField;
+    ibstrngfld13: TIBStringField;
+    ibstrngfld14: TIBStringField;
+    ibstrngfld15: TIBStringField;
+    ibstrngfld16: TIBStringField;
+    IntegerField9: TIntegerField;
+    IntegerField10: TIntegerField;
+    DateField5: TDateField;
+    smlntfld1: TSmallintField;
+    IntegerField11: TIntegerField;
+    ibstrngfld17: TIBStringField;
+    TimeField9: TTimeField;
+    TimeField10: TTimeField;
+    TimeField11: TTimeField;
+    TimeField12: TTimeField;
+    DateField6: TDateField;
+    IntegerField13: TIntegerField;
+    smlntfld2: TSmallintField;
+    smlntfld3: TSmallintField;
+    IntegerField30: TIntegerField;
+    IntegerField31: TIntegerField;
+    IntegerField32: TIntegerField;
+    IntegerField33: TIntegerField;
+    ibstrngfldLkCadSindFORN_FANTASIA: TIBStringField;
+    ibstrngfldLkCadSindFORN_CNPJ: TIBStringField;
+    ibstrngfldCaddvsFORN_CNPJ: TIBStringField;
+    ibstrngfldConsCaddvsFORN_CNPJ: TIBStringField;
+    ibstrngfldLkpcaddvsFORN_FANTASIA: TIBStringField;
+    ibstrngfldLkpcaddvsFORN_CNPJ: TIBStringField;
+    ibstrngfldCondCOND_CEP: TIBStringField;
+    ibstrngfldConsCondCOND_CEP: TIBStringField;
+    ibstrngfldLkpCondCOND_CEP: TIBStringField;
   private
     { Private declarations }
   public

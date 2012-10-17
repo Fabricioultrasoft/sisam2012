@@ -20,9 +20,9 @@ object FRMcpgQuitacao: TFRMcpgQuitacao
   object lbl1: TLabel
     Left = 126
     Top = 8
-    Width = 89
+    Width = 80
     Height = 13
-    Caption = 'Data Recebimento'
+    Caption = 'Data Pagamento'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clNavy
     Font.Height = -11

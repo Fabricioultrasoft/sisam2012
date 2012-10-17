@@ -7,6 +7,8 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryCaddvs: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select F.*, FORN_FANTASIA'
       ' '
@@ -173,10 +175,22 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       Origin = '"CAD_FORN"."FORN_FANTASIA"'
       Size = 100
     end
+    object ibstrngfldCaddvsFORN_CNPJ: TIBStringField
+      FieldName = 'FORN_CNPJ'
+      Origin = '"CAD_FORN"."FORN_CNPJ"'
+      Size = 14
+    end
+    object ibstrngfldCaddvsFORN_FANTASIA1: TIBStringField
+      FieldName = 'FORN_FANTASIA1'
+      Origin = '"CAD_FORN"."FORN_FANTASIA"'
+      Size = 100
+    end
   end
   object qryEmpre: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       
         ' SELECT EMPRE_BAIRRO,   EMPRE_CDG,      EMPRE_CEP,      EMPRE_CI' +
@@ -300,6 +314,8 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryCond: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_COND')
     Left = 168
@@ -309,10 +325,6 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       Origin = '"CAD_COND"."COND_DESC"'
       Required = True
       Size = 100
-    end
-    object qryCondCOND_CEP: TIntegerField
-      FieldName = 'COND_CEP'
-      Origin = '"CAD_COND"."COND_CEP"'
     end
     object qryCondCOND_CID: TIBStringField
       FieldName = 'COND_CID'
@@ -376,10 +388,17 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       Origin = '"CAD_COND"."COND_BAIRRO"'
       Size = 50
     end
+    object ibstrngfldCondCOND_CEP: TIBStringField
+      FieldName = 'COND_CEP'
+      Origin = '"CAD_COND"."COND_CEP"'
+      Size = 8
+    end
   end
   object qryUser: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_USUARIO')
     Left = 224
@@ -414,10 +433,16 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       FieldName = 'USUARIO_ATIVO'
       Origin = '"CAD_USUARIO"."USUARIO_ATIVO"'
     end
+    object qryUserUSUARIO_ADMIN: TSmallintField
+      FieldName = 'USUARIO_ADMIN'
+      Origin = '"CAD_USUARIO"."USUARIO_ADMIN"'
+    end
   end
   object qryConsCaddvs: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select * '
       'from CAD_FORN')
@@ -583,10 +608,17 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       Origin = '"CAD_FORN"."FORN_FANTASIA"'
       Size = 100
     end
+    object ibstrngfldConsCaddvsFORN_CNPJ: TIBStringField
+      FieldName = 'FORN_CNPJ'
+      Origin = '"CAD_FORN"."FORN_CNPJ"'
+      Size = 14
+    end
   end
   object qryConsEmpre: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       
         ' SELECT EMPRE_BAIRRO,   EMPRE_CDG,      EMPRE_CEP,      EMPRE_CI' +
@@ -709,6 +741,8 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryConsCond: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_COND')
     Left = 168
@@ -718,10 +752,6 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       Origin = '"CAD_COND"."COND_DESC"'
       Required = True
       Size = 100
-    end
-    object IntegerField12: TIntegerField
-      FieldName = 'COND_CEP'
-      Origin = '"CAD_COND"."COND_CEP"'
     end
     object IBStringField35: TIBStringField
       FieldName = 'COND_CID'
@@ -785,10 +815,17 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       Origin = '"CAD_COND"."COND_BAIRRO"'
       Size = 50
     end
+    object ibstrngfldConsCondCOND_CEP: TIBStringField
+      FieldName = 'COND_CEP'
+      Origin = '"CAD_COND"."COND_CEP"'
+      Size = 8
+    end
   end
   object qryLkpCond: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_COND')
     Left = 168
@@ -810,10 +847,6 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     object IntegerField18: TIntegerField
       FieldName = 'COND_END'
       Origin = '"CAD_COND"."COND_END"'
-    end
-    object IntegerField19: TIntegerField
-      FieldName = 'COND_CEP'
-      Origin = '"CAD_COND"."COND_CEP"'
     end
     object IntegerField20: TIntegerField
       FieldName = 'COND_BAIRRO'
@@ -867,10 +900,17 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       FieldName = 'COND_FORNECEDOR'
       Origin = '"CAD_COND"."COND_FORNECEDOR"'
     end
+    object ibstrngfldLkpCondCOND_CEP: TIBStringField
+      FieldName = 'COND_CEP'
+      Origin = '"CAD_COND"."COND_CEP"'
+      Size = 8
+    end
   end
   object qryLkpcaddvs: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select * '
       'from CAD_FORN')
@@ -1030,6 +1070,193 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       Origin = '"CAD_FORN"."FORN_CDG"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+    end
+    object ibstrngfldLkpcaddvsFORN_FANTASIA: TIBStringField
+      FieldName = 'FORN_FANTASIA'
+      Origin = '"CAD_FORN"."FORN_FANTASIA"'
+      Size = 100
+    end
+    object ibstrngfldLkpcaddvsFORN_CNPJ: TIBStringField
+      FieldName = 'FORN_CNPJ'
+      Origin = '"CAD_FORN"."FORN_CNPJ"'
+      Size = 14
+    end
+  end
+  object qryLkCadSind: TIBQuery
+    Database = DTMGeral.Database
+    Transaction = DTMGeral.Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
+    SQL.Strings = (
+      'select * '
+      'from CAD_FORN'
+      'where (1=1) and FORN_TPSINDICO = 1')
+    Left = 24
+    Top = 208
+    object ibstrngfld1: TIBStringField
+      FieldName = 'FORN_CPFCNPJ'
+      Origin = 'CAD_FORN.FORN_CPFCNPJ'
+      Size = 14
+    end
+    object ibstrngfld2: TIBStringField
+      FieldName = 'FORN_RAZAO'
+      Origin = 'CAD_FORN.FORN_RAZAO'
+      Size = 100
+    end
+    object ibstrngfld3: TIBStringField
+      FieldName = 'FORN_CEP'
+      Origin = 'CAD_FORN.FORN_CEP'
+      Size = 8
+    end
+    object ibstrngfld4: TIBStringField
+      FieldName = 'FORN_ENDERECO'
+      Origin = 'CAD_FORN.FORN_ENDERECO'
+      Size = 100
+    end
+    object ibstrngfld5: TIBStringField
+      FieldName = 'FORN_BAIRRO'
+      Origin = 'CAD_FORN.FORN_BAIRRO'
+      Size = 30
+    end
+    object ibstrngfld6: TIBStringField
+      FieldName = 'FORN_CIDADE'
+      Origin = 'CAD_FORN.FORN_CIDADE'
+    end
+    object ibstrngfld7: TIBStringField
+      FieldName = 'FORN_UF'
+      Origin = 'CAD_FORN.FORN_UF'
+      Size = 2
+    end
+    object ibstrngfld8: TIBStringField
+      FieldName = 'FORN_TELEFONE'
+      Origin = 'CAD_FORN.FORN_TELEFONE'
+      Size = 18
+    end
+    object ibstrngfld9: TIBStringField
+      FieldName = 'FORN_RAMAL'
+      Origin = 'CAD_FORN.FORN_RAMAL'
+      Size = 6
+    end
+    object ibstrngfld10: TIBStringField
+      FieldName = 'FORN_TELEFONE1'
+      Origin = 'CAD_FORN.FORN_TELEFONE1'
+      Size = 18
+    end
+    object ibstrngfld11: TIBStringField
+      FieldName = 'FORN_EMAIL'
+      Origin = 'CAD_FORN.FORN_EMAIL'
+      Size = 60
+    end
+    object ibstrngfld12: TIBStringField
+      FieldName = 'FORN_EMAIL1'
+      Origin = 'CAD_FORN.FORN_EMAIL1'
+      Size = 60
+    end
+    object ibstrngfld13: TIBStringField
+      FieldName = 'FORN_SITE'
+      Origin = 'CAD_FORN.FORN_SITE'
+      Size = 80
+    end
+    object ibstrngfld14: TIBStringField
+      FieldName = 'FORN_CELULAR'
+      Origin = 'CAD_FORN.FORN_CELULAR'
+      Size = 18
+    end
+    object ibstrngfld15: TIBStringField
+      FieldName = 'FORN_CELULAR1'
+      Origin = 'CAD_FORN.FORN_CELULAR1'
+      EditMask = '(99)00000\-9999;1;_'
+      Size = 18
+    end
+    object ibstrngfld16: TIBStringField
+      FieldName = 'FORN_RG'
+      Origin = 'CAD_FORN.FORN_RG'
+      Size = 15
+    end
+    object IntegerField9: TIntegerField
+      FieldName = 'FORN_TIPO'
+      Origin = 'CAD_FORN.FORN_TIPO'
+    end
+    object IntegerField10: TIntegerField
+      FieldName = 'FORN_ESTADOCIVIL'
+      Origin = 'CAD_FORN.FORN_ESTADOCIVIL'
+    end
+    object DateField5: TDateField
+      FieldName = 'FORN_DTNASCIMENTO'
+      Origin = 'CAD_FORN.FORN_DTNASCIMENTO'
+    end
+    object smlntfld1: TSmallintField
+      FieldName = 'FORN_SEXO'
+      Origin = 'CAD_FORN.FORN_SEXO'
+    end
+    object IntegerField11: TIntegerField
+      FieldName = 'FORN_OCUPACAO'
+      Origin = 'CAD_FORN.FORN_OCUPACAO'
+    end
+    object ibstrngfld17: TIBStringField
+      FieldName = 'FORN_CONJUGE'
+      Origin = 'CAD_FORN.FORN_CONJUGE'
+      Size = 14
+    end
+    object TimeField9: TTimeField
+      FieldName = 'FORN_HRENTRADA1'
+      Origin = 'CAD_FORN.FORN_HRENTRADA1'
+    end
+    object TimeField10: TTimeField
+      FieldName = 'FORN_HRENTRADA2'
+      Origin = 'CAD_FORN.FORN_HRENTRADA2'
+    end
+    object TimeField11: TTimeField
+      FieldName = 'FORN_HRSAIDA1'
+      Origin = 'CAD_FORN.FORN_HRSAIDA1'
+    end
+    object TimeField12: TTimeField
+      FieldName = 'FORN_HRSAIDA2'
+      Origin = 'CAD_FORN.FORN_HRSAIDA2'
+    end
+    object DateField6: TDateField
+      FieldName = 'FORN_DTCADASTRO'
+      Origin = 'CAD_FORN.FORN_DTCADASTRO'
+    end
+    object IntegerField13: TIntegerField
+      FieldName = 'FORN_COND'
+      Origin = 'CAD_FORN.FORN_COND'
+    end
+    object smlntfld2: TSmallintField
+      FieldName = 'FORN_TPCONDOMINO'
+      Origin = 'CAD_FORN.FORN_TPCONDOMINO'
+    end
+    object smlntfld3: TSmallintField
+      FieldName = 'FORN_TPFUNCIONARIO'
+      Origin = 'CAD_FORN.FORN_TPFUNCIONARIO'
+    end
+    object IntegerField30: TIntegerField
+      FieldName = 'FORN_TPFORNECEDOR'
+      Origin = 'CAD_FORN.FORN_TPFORNECEDOR'
+    end
+    object IntegerField31: TIntegerField
+      FieldName = 'FORN_TPSINDICO'
+      Origin = 'CAD_FORN.FORN_TPSINDICO'
+    end
+    object IntegerField32: TIntegerField
+      FieldName = 'FORN_TPINCORPORADORA'
+      Origin = 'CAD_FORN.FORN_TPINCORPORADORA'
+    end
+    object IntegerField33: TIntegerField
+      FieldName = 'FORN_CDG'
+      Origin = '"CAD_FORN"."FORN_CDG"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object ibstrngfldLkCadSindFORN_FANTASIA: TIBStringField
+      FieldName = 'FORN_FANTASIA'
+      Origin = '"CAD_FORN"."FORN_FANTASIA"'
+      Size = 100
+    end
+    object ibstrngfldLkCadSindFORN_CNPJ: TIBStringField
+      FieldName = 'FORN_CNPJ'
+      Origin = '"CAD_FORN"."FORN_CNPJ"'
+      Size = 14
     end
   end
 end

@@ -4,7 +4,7 @@ interface
 
 uses
   SysUtils, Classes, UDTMGeral, UDT_CAD_IBX, DB, DBClient, Provider,ufuncoes,sqlconst,
-  IBCustomDataSet, IBQuery;
+  IBCustomDataSet, IBQuery, Messages, SqlRel;
 
 type
   TDTM_CAD = class(TDataModule)
@@ -67,7 +67,6 @@ type
     cdsCond: TClientDataSet;
     dsCond: TDataSource;
     cdsCondCOND_DESC: TStringField;
-    cdsCondCOND_CEP: TIntegerField;
     cdsCondCOND_CID: TStringField;
     cdsCondCOND_UF: TStringField;
     cdsCondCOND_TELEFONE: TStringField;
@@ -140,7 +139,6 @@ type
     dspConsCond: TDataSetProvider;
     cdsConsCond: TClientDataSet;
     StringField34: TStringField;
-    IntegerField12: TIntegerField;
     StringField35: TStringField;
     StringField36: TStringField;
     StringField37: TStringField;
@@ -193,7 +191,6 @@ type
     dspLkpcond: TDataSetProvider;
     cdsLkpcond: TClientDataSet;
     StringField42: TStringField;
-    IntegerField19: TIntegerField;
     StringField43: TStringField;
     StringField44: TStringField;
     StringField45: TStringField;
@@ -228,6 +225,56 @@ type
     cdsLkpcondCOND_ABREV: TStringField;
     cdsLkpcondCOND_END: TStringField;
     cdsLkpcondCOND_BAIRRO: TStringField;
+    cdsUserUSUARIO_ADMIN: TSmallintField;
+    dspLkcadsind: TDataSetProvider;
+    cdsLkpCadSind: TClientDataSet;
+    strngfld1: TStringField;
+    strngfld2: TStringField;
+    strngfld3: TStringField;
+    strngfld4: TStringField;
+    strngfld5: TStringField;
+    strngfld6: TStringField;
+    strngfld7: TStringField;
+    strngfld8: TStringField;
+    strngfld9: TStringField;
+    strngfld10: TStringField;
+    strngfld11: TStringField;
+    strngfld12: TStringField;
+    strngfld13: TStringField;
+    strngfld14: TStringField;
+    strngfld15: TStringField;
+    strngfld16: TStringField;
+    IntegerField9: TIntegerField;
+    IntegerField10: TIntegerField;
+    DateField3: TDateField;
+    smlntfld1: TSmallintField;
+    IntegerField11: TIntegerField;
+    strngfld17: TStringField;
+    TimeField5: TTimeField;
+    TimeField6: TTimeField;
+    TimeField7: TTimeField;
+    TimeField8: TTimeField;
+    DateField4: TDateField;
+    IntegerField13: TIntegerField;
+    smlntfld2: TSmallintField;
+    smlntfld3: TSmallintField;
+    IntegerField16: TIntegerField;
+    IntegerField17: TIntegerField;
+    IntegerField18: TIntegerField;
+    IntegerField20: TIntegerField;
+    strngfld18: TStringField;
+    dsLkpcadsind: TDataSource;
+    strngfldCaddvsFORN_CNPJ: TStringField;
+    strngfldConsCaddvsFORN_CNPJ: TStringField;
+    strngfldLkpCaddvsFORN_CNPJ: TStringField;
+    strngfldLkpCadSindFORN_CNPJ: TStringField;
+    strngfldConsEmpreEMPRE_CONTATO: TStringField;
+    strngfldConsEmpreEMPRE_DDD: TStringField;
+    strngfldConsEmpreEMPRE_PAIS: TStringField;
+    strngfldConsEmpreEMPRE_RAMAL: TStringField;
+    strngfldCondCOND_CEP: TStringField;
+    strngfldConsCondCOND_CEP: TStringField;
+    strngfldLkpcondCOND_CEP: TStringField;
     procedure gerAfterPost(DataSet: TDataSet);
     procedure gerAfterDelete(DataSet: TDataSet);
     procedure gerAfterApplyUpdates(Sender: TObject; var OwnerData: OleVariant);
@@ -242,6 +289,7 @@ type
     { Public declarations }
     //lookups
     procedure atualizarLkpCaddvs();
+    procedure atualizarLkpCadsind();
     procedure atualizarLkpCond();    
     // consultas
     procedure consultarEmpresas(SQL:string);
@@ -249,7 +297,8 @@ type
     procedure consultarCondominios(SQL:string);
     //Relatorios
     procedure prepararRelatorioEmpresa;
-    procedure prepararRelatorioCondominio;    
+    procedure prepararRelatorioCondominio;
+    procedure prepararRelatorioFornecedores;
   end;
 
 var
@@ -299,7 +348,12 @@ begin
 end;
 
 
-
+procedure TDTM_CAD.atualizarLkpCadSind;
+begin
+  cdsLkpCadSind.Close;
+  SetSqlCommand(sql_caddvs+'AND FORN_TPSINDICO = 1',cdsLkpCadsind) ;
+  cdsLkpCadsind.Open;
+end;
 
 
 procedure TDTM_CAD.atualizarLkpCaddvs;
@@ -319,15 +373,19 @@ end;
 
 procedure TDTM_CAD.prepararRelatorioEmpresa();
 begin
-  prepararRelatorio('SELECT * FROM CAD_EMPRESA ');
+  prepararRelatorio(SQL_REL_EMPRE);
 end;
 
 
 procedure TDTM_CAD.prepararRelatorioCondominio;
 begin
-  prepararRelatorio('SELECT * FROM CAD_COND ');
+  prepararRelatorio(SQL_REL_COND);
 end;
 
+procedure TDTM_CAD.prepararRelatorioFornecedores;
+begin
+  prepararRelatorio(SQL_REL_FORN);
+end;
 
 
 procedure TDTM_CAD.cdsEmpreAfterInsert(DataSet: TDataSet);

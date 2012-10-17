@@ -1193,8 +1193,8 @@ object FRM_CPG: TFRM_CPG
         Width = 134
         Height = 21
         Color = clMenu
-        DataField = 'CRB_TOTPGTO'
-        DataSource = DTM_FINAN.dsCrb
+        DataField = 'CPG_TOTPGTO'
+        DataSource = DTM_FINAN.dsCpg
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -11

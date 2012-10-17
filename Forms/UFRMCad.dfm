@@ -1,6 +1,6 @@
 object FRM_CADDVS: TFRM_CADDVS
-  Left = 391
-  Top = 230
+  Left = 189
+  Top = 102
   Width = 801
   Height = 688
   Caption = 'Cadastro Diverso'
@@ -35,16 +35,16 @@ object FRM_CADDVS: TFRM_CADDVS
   object PC_CadastrosDvs: TPageControl
     Left = 0
     Top = 0
-    Width = 785
-    Height = 650
-    ActivePage = tabCadastro
+    Width = 793
+    Height = 654
+    ActivePage = tbConsulta
     Align = alClient
     TabOrder = 0
     object tabCadastro: TTabSheet
       Caption = 'Cadastro'
       DesignSize = (
-        777
-        622)
+        785
+        626)
       object grp1: TGroupBox
         Left = 8
         Top = 3
@@ -81,9 +81,9 @@ object FRM_CADDVS: TFRM_CADDVS
         object lbl1: TLabel
           Left = 272
           Top = 12
-          Width = 22
+          Width = 20
           Height = 13
-          Caption = 'R.G.'
+          Caption = 'CPF'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clNavy
           Font.Height = -11
@@ -247,30 +247,43 @@ object FRM_CADDVS: TFRM_CADDVS
           Font.Style = []
           ParentFont = False
         end
-        object DBEdit1: TDBEdit
+        object lbl35: TLabel
+          Left = 312
+          Top = 52
+          Width = 22
+          Height = 13
+          Caption = 'R.G.'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object dbedtFORN_CNPJ: TDBEdit
           Left = 79
           Top = 27
           Width = 184
           Height = 21
-          DataField = 'FORN_CPFCNPJ'
+          DataField = 'FORN_CNPJ'
           DataSource = dtsCad
           TabOrder = 1
         end
         object DBEdit2: TDBEdit
           Left = 16
           Top = 67
-          Width = 454
+          Width = 289
           Height = 21
           DataField = 'FORN_FANTASIA'
           DataSource = dtsCad
           TabOrder = 3
         end
-        object DBEdit17: TDBEdit
+        object dbedtFORN_CPFCNPJ: TDBEdit
           Left = 272
           Top = 26
           Width = 199
           Height = 21
-          DataField = 'FORN_RG'
+          DataField = 'FORN_CPFCNPJ'
           DataSource = dtsCad
           TabOrder = 2
         end
@@ -442,6 +455,15 @@ object FRM_CADDVS: TFRM_CADDVS
           TabOrder = 19
           ValueChecked = '1'
           ValueUnchecked = '0'
+        end
+        object dbedtFORN_RG: TDBEdit
+          Left = 312
+          Top = 66
+          Width = 156
+          Height = 21
+          DataField = 'FORN_RG'
+          DataSource = dtsCad
+          TabOrder = 20
         end
       end
       object grp2: TGroupBox
@@ -794,7 +816,7 @@ object FRM_CADDVS: TFRM_CADDVS
       object grp3: TGroupBox
         Left = 0
         Top = 0
-        Width = 777
+        Width = 785
         Height = 143
         Align = alTop
         Caption = 'Pesquisar'
@@ -841,9 +863,9 @@ object FRM_CADDVS: TFRM_CADDVS
         object lbl30: TLabel
           Left = 296
           Top = 59
-          Width = 27
+          Width = 20
           Height = 13
-          Caption = 'CNPJ'
+          Caption = 'CPF'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clNavy
           Font.Height = -11
@@ -1232,8 +1254,8 @@ object FRM_CADDVS: TFRM_CADDVS
       object dbgrd1: TDBGrid
         Left = 0
         Top = 143
-        Width = 777
-        Height = 479
+        Width = 785
+        Height = 483
         Align = alClient
         DataSource = DTM_CAD.dsConsCaddvs
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]

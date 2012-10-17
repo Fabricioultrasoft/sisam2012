@@ -50,16 +50,16 @@ object FRM_COND: TFRM_COND
   object PC_Condominio: TPageControl
     Left = 0
     Top = 0
-    Width = 869
-    Height = 600
-    ActivePage = TabSheet1
+    Width = 877
+    Height = 604
+    ActivePage = TabSheet2
     Align = alClient
     TabOrder = 0
     object TabSheet1: TTabSheet
       Caption = 'Cadastro'
       DesignSize = (
-        861
-        572)
+        869
+        576)
       object grp1: TGroupBox
         Left = 6
         Top = 3
@@ -68,7 +68,7 @@ object FRM_COND: TFRM_COND
         Anchors = [akLeft, akTop, akRight, akBottom]
         TabOrder = 0
         object lbl2: TLabel
-          Left = 11
+          Left = 163
           Top = 100
           Width = 63
           Height = 13
@@ -120,8 +120,8 @@ object FRM_COND: TFRM_COND
           ParentFont = False
         end
         object lbl9: TLabel
-          Left = 160
-          Top = 140
+          Left = 8
+          Top = 100
           Width = 93
           Height = 13
           Caption = 'Incorpora'#231#227'o CNPJ'
@@ -210,19 +210,6 @@ object FRM_COND: TFRM_COND
           Font.Style = []
           ParentFont = False
         end
-        object lbl16: TLabel
-          Left = 328
-          Top = 250
-          Width = 35
-          Height = 13
-          Caption = 'Cindico'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
-          Font.Height = -11
-          Font.Name = 'MS Sans Serif'
-          Font.Style = []
-          ParentFont = False
-        end
         object lbl18: TLabel
           Left = 15
           Top = 290
@@ -239,9 +226,9 @@ object FRM_COND: TFRM_COND
         object lbl22: TLabel
           Left = 159
           Top = 61
-          Width = 54
+          Width = 37
           Height = 13
-          Caption = 'Fornecedor'
+          Caption = 'S'#237'ndico'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clNavy
           Font.Height = -11
@@ -268,9 +255,9 @@ object FRM_COND: TFRM_COND
           TabOrder = 2
         end
         object DBEdit14: TDBEdit
-          Left = 10
+          Left = 160
           Top = 114
-          Width = 355
+          Width = 233
           Height = 21
           DataField = 'COND_INCORPORADORA'
           DataSource = DTM_CAD.dsCond
@@ -288,16 +275,16 @@ object FRM_COND: TFRM_COND
         object DBEdit4: TDBEdit
           Left = 10
           Top = 154
-          Width = 134
+          Width = 383
           Height = 21
           DataField = 'COND_END'
           DataSource = DTM_CAD.dsCond
           TabOrder = 5
         end
         object DBEdit15: TDBEdit
-          Left = 160
-          Top = 154
-          Width = 235
+          Left = 8
+          Top = 114
+          Width = 137
           Height = 21
           DataField = 'COND_INCORPCNPJ'
           DataSource = DTM_CAD.dsCond
@@ -330,15 +317,6 @@ object FRM_COND: TFRM_COND
           DataSource = DTM_CAD.dsCond
           TabOrder = 9
         end
-        object DBEdit10: TDBEdit
-          Left = 327
-          Top = 263
-          Width = 134
-          Height = 21
-          DataField = 'COND_SINDICO'
-          DataSource = DTM_CAD.dsCond
-          TabOrder = 12
-        end
         object DBEdit8: TDBEdit
           Left = 287
           Top = 263
@@ -364,19 +342,19 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_EMAIL'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 13
+          TabOrder = 12
         end
         object dblkcbbCOND_FORNECEDOR: TDBLookupComboBox
           Left = 158
           Top = 74
-          Width = 210
+          Width = 235
           Height = 21
           DataField = 'COND_FORNECEDOR'
           DataSource = DTM_CAD.dsCond
           KeyField = 'FORN_CDG'
           ListField = 'FORN_RAZAO'
           ListFieldIndex = 1
-          ListSource = DTM_CAD.dsLkpcaddvs
+          ListSource = DTM_CAD.dsLkpcadsind
           TabOrder = 3
         end
       end
@@ -458,7 +436,7 @@ object FRM_COND: TFRM_COND
       object grp2: TGroupBox
         Left = 0
         Top = 0
-        Width = 861
+        Width = 869
         Height = 105
         Align = alTop
         Caption = 'Pesquisar'
@@ -507,7 +485,7 @@ object FRM_COND: TFRM_COND
           Top = 59
           Width = 35
           Height = 13
-          Caption = 'Cindico'
+          Caption = 'Sindico'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clNavy
           Font.Height = -11
@@ -520,7 +498,7 @@ object FRM_COND: TFRM_COND
           Top = 32
           Width = 64
           Height = 64
-          TabOrder = 4
+          TabOrder = 3
           WordWrap = True
           OnClick = btnPesqClick
           Glyph.Data = {
@@ -800,20 +778,26 @@ object FRM_COND: TFRM_COND
           TabOrder = 0
           OnKeyPress = edtdescKeyPress
         end
-        object edtcindico: TEdit
-          Left = 294
-          Top = 72
-          Width = 233
+        object dblkcbbSind: TDBLookupComboBox
+          Left = 300
+          Top = 74
+          Width = 230
           Height = 21
-          TabOrder = 3
-          OnKeyPress = edtdescKeyPress
+          DataField = 'COND_FORNECEDOR'
+          DataSource = DTM_CAD.dsCond
+          KeyField = 'FORN_CDG'
+          ListField = 'FORN_RAZAO'
+          ListFieldIndex = 1
+          ListSource = DTM_CAD.dsLkpcadsind
+          TabOrder = 4
+          OnKeyDown = dblkcbbSindKeyDown
         end
       end
       object dbgrd1: TDBGrid
         Left = 0
         Top = 105
-        Width = 861
-        Height = 467
+        Width = 869
+        Height = 471
         Align = alClient
         DataSource = DTM_CAD.dsConsCond
         Font.Charset = DEFAULT_CHARSET

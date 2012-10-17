@@ -96,7 +96,7 @@ begin
 quitar;
 end;
 
-procedure TFRMcpgQuitacao.edtvalorExit(Sender: TObject);
+procedure TFRMCrbQuitacao.edtvalorExit(Sender: TObject);
 begin
 if  StrToFloatdef(edtvalor.Text,-1) <> -1  then
   edtvalor.Text:= FormatFloat('###0.00',strtofloat(edtvalor.TexT));
@@ -111,8 +111,8 @@ end;
 
 procedure TFRMCRBquitacao.FormShow(Sender: TObject);
 begin
-edtvalor.Text:=FormatFloat('###0.00',vlrapagar);
-lblapagar.Caption:=FormatFloat('###0.00',vlrapagar);
+edtvalor.Text:=FormatFloat('###0.00',vlrrecto);
+lblapagar.Caption:=FormatFloat('###0.00',vlrrecto);
 edtvalor.SetFocus;
 
 end;
