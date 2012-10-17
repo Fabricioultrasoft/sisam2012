@@ -13,14 +13,12 @@ type
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
     grp1: TGroupBox;
-    lbl1: TLabel;
     lbl2: TLabel;
     lbl4: TLabel;
     lbl5: TLabel;
     lbl6: TLabel;
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
-    DBEdit3: TDBEdit;
     DBEdit14: TDBEdit;
     DBEdit16: TDBEdit;
     DBEdit4: TDBEdit;
@@ -35,12 +33,10 @@ type
     lbl11: TLabel;
     lbl12: TLabel;
     lbl13: TLabel;
-    DBEdit10: TDBEdit;
     DBEdit8: TDBEdit;
     DBEdit7: TDBEdit;
     lbl14: TLabel;
     lbl15: TLabel;
-    lbl16: TLabel;
     DBEdit17: TDBEdit;
     lbl18: TLabel;
     tlb1: TToolBar;
@@ -60,10 +56,10 @@ type
     edtincorporadora: TEdit;
     edtcidade: TEdit;
     edtdesc: TEdit;
-    edtcindico: TEdit;
     dbgrd1: TDBGrid;
     dblkcbbCOND_FORNECEDOR: TDBLookupComboBox;
     lbl22: TLabel;
+    dblkcbbSind: TDBLookupComboBox;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnPriorClick(Sender: TObject);
@@ -96,7 +92,9 @@ procedure TFRM_COND.FormCreate(Sender: TObject);
 begin
   DTM_CAD.cdsCond.Close;
   DTM_CAD.cdsCond.Open;
-  DTM_CAD.atualizarLkpCaddvs;
+  DTM_CAD.atualizarLkpCadSind;
+
+  PC_Condominio.ActivePageIndex := 0;
 end;
 
 procedure TFRM_COND.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -156,8 +154,8 @@ begin
  if (Trim(edtcidade.Text) <> '') then
    SQL  := SQL + ' AND UPPER(COND_CID) LIKE UPPER(''%'+ Trim(edtcidade.Text) +'%'') ';
 
- if (Trim(edtcindico.Text) <> '') then
-   SQL  := SQL + ' AND UPPER(COND_CINDICO) LIKE UPPER(''%'+ trim(edtcindico.TEXT) +'%'') ';
+  if not(varisnull(dblkcbbSind.KeyValue) ) then
+      SQL  := SQL + ' AND  (COND_FORNECEDOR = ' + inttostr(dblkcbbSind.KeyValue)+' )';
 
  DTM_CAD.consultarCondominios(SQL);
 end;

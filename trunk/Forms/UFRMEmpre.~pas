@@ -115,7 +115,7 @@ procedure TFRM_EMPRE.FormCreate(Sender: TObject);
 begin
   DTM_CAD.cdsEmpre.Close;
   DTM_CAD.cdsEmpre.Open;
-
+  PC_Empresa.ActivePageindex := 0;
 end;
 
 procedure TFRM_EMPRE.tbAddClick(Sender: TObject);

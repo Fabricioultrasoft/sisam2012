@@ -324,7 +324,7 @@ end;
 procedure TFRM_CRB.dscrbStateChange(Sender: TObject);
 begin
   // ativar botoes do navigator qndo estiver em edição
-  dtmgeral.DSstateChange(dscpg,tlb1);
+  dtmgeral.DSstateChange(dscrb,tlb1);
 end;
 
 end.

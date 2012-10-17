@@ -133,6 +133,8 @@ type
     procedure cdsCpgBeforePost(DataSet: TDataSet);
     procedure dspCrbGetTableName(Sender: TObject; DataSet: TDataSet;
       var TableName: String);
+    procedure dspCpgGetTableName(Sender: TObject; DataSet: TDataSet;
+      var TableName: String);
   private
     procedure prepararrelatorio(SQL : String);
 
@@ -329,6 +331,13 @@ procedure TDTM_FINAN.dspCrbGetTableName(Sender: TObject; DataSet: TDataSet;
 begin
   if DataSet = DTM_FINAN_IBX.qryCrb then
    TableName := 'CAD_CRB' ;
+end;
+
+procedure TDTM_FINAN.dspCpgGetTableName(Sender: TObject; DataSet: TDataSet;
+  var TableName: String);
+begin
+  if DataSet = DTM_FINAN_IBX.qryCpg then
+   TableName := 'CAD_CPG' ;
 end;
 
 end.

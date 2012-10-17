@@ -29,6 +29,10 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure dblkcbbCondKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure dblkcbbFornKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     procedure FiltroReceitas;
     { Private declarations }
@@ -108,6 +112,20 @@ procedure TFRMRelCrb.FormShow(Sender: TObject);
 begin
   DTM_CAD.atualizarLkpCaddvs;
   DTM_CAD.atualizarLkpCond;
+end;
+
+procedure TFRMRelCrb.dblkcbbCondKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+if Key = vk_escape then
+    dblkcbbCond.KeyValue := null;
+end;
+
+procedure TFRMRelCrb.dblkcbbFornKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+if Key = vk_escape then
+    dblkcbbForn.KeyValue := null;
 end;
 
 end.

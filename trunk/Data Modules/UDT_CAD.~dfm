@@ -1,7 +1,7 @@
 object DTM_CAD: TDTM_CAD
   OldCreateOrder = False
-  Left = 426
-  Top = 311
+  Left = 358
+  Top = 182
   Height = 580
   Width = 780
   object dspCaddvs: TDataSetProvider
@@ -179,6 +179,16 @@ object DTM_CAD: TDTM_CAD
         Name = 'FORN_FANTASIA'
         DataType = ftString
         Size = 100
+      end
+      item
+        Name = 'FORN_CNPJ'
+        DataType = ftString
+        Size = 14
+      end
+      item
+        Name = 'FORN_FANTASIA1'
+        DataType = ftString
+        Size = 100
       end>
     IndexDefs = <>
     IndexFieldNames = 'FORN_CDG'
@@ -194,6 +204,7 @@ object DTM_CAD: TDTM_CAD
     object cdsCaddvsFORN_CPFCNPJ: TStringField
       FieldName = 'FORN_CPFCNPJ'
       Origin = 'CAD_FORN.FORN_CPFCNPJ'
+      EditMask = '000\.000\.000\/00;1;_'
       Size = 14
     end
     object cdsCaddvsFORN_RAZAO: TStringField
@@ -204,6 +215,7 @@ object DTM_CAD: TDTM_CAD
     object cdsCaddvsFORN_CEP: TStringField
       FieldName = 'FORN_CEP'
       Origin = 'CAD_FORN.FORN_CEP'
+      EditMask = '00000\-000;1;_'
       Size = 8
     end
     object cdsCaddvsFORN_ENDERECO: TStringField
@@ -228,6 +240,7 @@ object DTM_CAD: TDTM_CAD
     object cdsCaddvsFORN_TELEFONE: TStringField
       FieldName = 'FORN_TELEFONE'
       Origin = 'CAD_FORN.FORN_TELEFONE'
+      EditMask = '!\(99\)0000-0000;1;_'
       Size = 18
     end
     object cdsCaddvsFORN_RAMAL: TStringField
@@ -238,6 +251,7 @@ object DTM_CAD: TDTM_CAD
     object cdsCaddvsFORN_TELEFONE1: TStringField
       FieldName = 'FORN_TELEFONE1'
       Origin = 'CAD_FORN.FORN_TELEFONE1'
+      EditMask = '!\(99\)0000-0000;1;_'
       Size = 18
     end
     object cdsCaddvsFORN_EMAIL: TStringField
@@ -258,7 +272,7 @@ object DTM_CAD: TDTM_CAD
     object cdsCaddvsFORN_CELULAR: TStringField
       FieldName = 'FORN_CELULAR'
       Origin = 'CAD_FORN.FORN_CELULAR'
-      EditMask = '(99)00000\-9999;1;_'
+      EditMask = '!\(99\)00000-0000;1;_'
       Size = 18
     end
     object cdsCaddvsFORN_CELULAR1: TStringField
@@ -270,6 +284,7 @@ object DTM_CAD: TDTM_CAD
     object cdsCaddvsFORN_RG: TStringField
       FieldName = 'FORN_RG'
       Origin = 'CAD_FORN.FORN_RG'
+      EditMask = '00\.000\.000\-0;1;_'
       Size = 15
     end
     object cdsCaddvsFORN_TIPO: TIntegerField
@@ -283,6 +298,7 @@ object DTM_CAD: TDTM_CAD
     object cdsCaddvsFORN_DTNASCIMENTO: TDateField
       FieldName = 'FORN_DTNASCIMENTO'
       Origin = 'CAD_FORN.FORN_DTNASCIMENTO'
+      EditMask = '!99/99/00;1;_'
     end
     object cdsCaddvsFORN_SEXO: TSmallintField
       FieldName = 'FORN_SEXO'
@@ -316,6 +332,7 @@ object DTM_CAD: TDTM_CAD
     object cdsCaddvsFORN_DTCADASTRO: TDateField
       FieldName = 'FORN_DTCADASTRO'
       Origin = 'CAD_FORN.FORN_DTCADASTRO'
+      EditMask = '!99/99/00;1;_'
     end
     object cdsCaddvsFORN_COND: TIntegerField
       FieldName = 'FORN_COND'
@@ -349,12 +366,23 @@ object DTM_CAD: TDTM_CAD
       FieldName = 'FORN_FANTASIA'
       Size = 100
     end
+    object strngfldCaddvsFORN_CNPJ: TStringField
+      FieldName = 'FORN_CNPJ'
+      EditMask = '00\.000\.000\/0000\-00;1;_'
+      Size = 14
+    end
   end
   object cdsEmpre: TClientDataSet
     Aggregates = <>
+    FieldDefs = <
+      item
+        Name = 'cdsEmpreField1'
+      end>
+    IndexDefs = <>
     IndexFieldNames = 'EMPRE_CDG'
     Params = <>
     ProviderName = 'dspEmpre'
+    StoreDefs = True
     AfterInsert = cdsEmpreAfterInsert
     AfterPost = gerAfterPost
     AfterDelete = gerAfterDelete
@@ -364,15 +392,18 @@ object DTM_CAD: TDTM_CAD
     object cdsEmpreEMPRE_CNPJ: TStringField
       FieldName = 'EMPRE_CNPJ'
       Origin = 'CAD_EMPRESA.EMPRE_CNPJ'
+      EditMask = '00\.000\.000\/0000\-00;1;_'
       Size = 14
     end
     object cdsEmpreEMPRE_INSESTAD: TStringField
       FieldName = 'EMPRE_INSESTAD'
       Origin = 'CAD_EMPRESA.EMPRE_INSESTAD'
+      EditMask = '000\.000\.000\.000;1;_'
     end
     object cdsEmpreEMPRE_INSMUNI: TStringField
       FieldName = 'EMPRE_INSMUNI'
       Origin = 'CAD_EMPRESA.EMPRE_INSMUNI'
+      EditMask = '0\.000\.000;1;_'
     end
     object cdsEmpreEMPRE_RAZAO: TStringField
       FieldName = 'EMPRE_RAZAO'
@@ -387,11 +418,13 @@ object DTM_CAD: TDTM_CAD
     object cdsEmpreEMPRE_TELEFONE: TStringField
       FieldName = 'EMPRE_TELEFONE'
       Origin = 'CAD_EMPRESA.EMPRE_TELEFONE'
+      EditMask = '!\(99\)0000-0000;1;_'
       Size = 18
     end
     object cdsEmpreEMPRE_FAX: TStringField
       FieldName = 'EMPRE_FAX'
       Origin = 'CAD_EMPRESA.EMPRE_FAX'
+      EditMask = '!\(99\)0000-0000;1;_'
       Size = 18
     end
     object cdsEmpreEMPRE_ENDERECO: TStringField
@@ -417,6 +450,7 @@ object DTM_CAD: TDTM_CAD
     object cdsEmpreEMPRE_CEP: TStringField
       FieldName = 'EMPRE_CEP'
       Origin = 'CAD_EMPRESA.EMPRE_CEP'
+      EditMask = '00000\-000;1;_'
       Size = 8
     end
     object cdsEmpreEMPRE_LOGOTIPO: TStringField
@@ -491,10 +525,6 @@ object DTM_CAD: TDTM_CAD
       Required = True
       Size = 100
     end
-    object cdsCondCOND_CEP: TIntegerField
-      FieldName = 'COND_CEP'
-      Origin = '"CAD_COND"."COND_CEP"'
-    end
     object cdsCondCOND_CID: TStringField
       FieldName = 'COND_CID'
       Origin = '"CAD_COND"."COND_CID"'
@@ -507,6 +537,7 @@ object DTM_CAD: TDTM_CAD
     object cdsCondCOND_TELEFONE: TStringField
       FieldName = 'COND_TELEFONE'
       Origin = '"CAD_COND"."COND_TELEFONE"'
+      EditMask = '!\(99\)0000-0000;1;_'
       Size = 18
     end
     object cdsCondCOND_SINDICO: TIntegerField
@@ -532,6 +563,7 @@ object DTM_CAD: TDTM_CAD
     object cdsCondCOND_INCORPCNPJ: TStringField
       FieldName = 'COND_INCORPCNPJ'
       Origin = '"CAD_COND"."COND_INCORPCNPJ"'
+      EditMask = '00\.000\.000\/0000\-00;1;_'
       Size = 14
     end
     object cdsCondCOND_BLOCO: TStringField
@@ -553,6 +585,11 @@ object DTM_CAD: TDTM_CAD
     object cdsCondCOND_BAIRRO: TStringField
       FieldName = 'COND_BAIRRO'
       Size = 50
+    end
+    object strngfldCondCOND_CEP: TStringField
+      FieldName = 'COND_CEP'
+      EditMask = '00000\-000;1;_'
+      Size = 8
     end
   end
   object dsCond: TDataSource
@@ -604,6 +641,9 @@ object DTM_CAD: TDTM_CAD
     object cdsUserUSUARIO_ATIVO: TIntegerField
       FieldName = 'USUARIO_ATIVO'
     end
+    object cdsUserUSUARIO_ADMIN: TSmallintField
+      FieldName = 'USUARIO_ADMIN'
+    end
   end
   object dsUser: TDataSource
     DataSet = cdsUser
@@ -630,15 +670,18 @@ object DTM_CAD: TDTM_CAD
     object StringField1: TStringField
       FieldName = 'EMPRE_CNPJ'
       Origin = 'CAD_EMPRESA.EMPRE_CNPJ'
+      EditMask = '00\.000\.000\/0000\-00;1;_'
       Size = 14
     end
     object StringField2: TStringField
       FieldName = 'EMPRE_INSESTAD'
       Origin = 'CAD_EMPRESA.EMPRE_INSESTAD'
+      EditMask = '000\.000\.000\.000;1;_'
     end
     object StringField3: TStringField
       FieldName = 'EMPRE_INSMUNI'
       Origin = 'CAD_EMPRESA.EMPRE_INSMUNI'
+      EditMask = '0\.000\.000;1;_'
     end
     object StringField4: TStringField
       FieldName = 'EMPRE_RAZAO'
@@ -653,11 +696,13 @@ object DTM_CAD: TDTM_CAD
     object StringField6: TStringField
       FieldName = 'EMPRE_TELEFONE'
       Origin = 'CAD_EMPRESA.EMPRE_TELEFONE'
+      EditMask = '!\(99\)0000-0000;1;_'
       Size = 18
     end
     object StringField7: TStringField
       FieldName = 'EMPRE_FAX'
       Origin = 'CAD_EMPRESA.EMPRE_FAX'
+      EditMask = '!\(99\)0000-0000;1;_'
       Size = 18
     end
     object StringField8: TStringField
@@ -683,6 +728,7 @@ object DTM_CAD: TDTM_CAD
     object StringField12: TStringField
       FieldName = 'EMPRE_CEP'
       Origin = 'CAD_EMPRESA.EMPRE_CEP'
+      EditMask = '00000\-000;1;_'
       Size = 8
     end
     object StringField13: TStringField
@@ -705,6 +751,22 @@ object DTM_CAD: TDTM_CAD
       Origin = 'CAD_EMPRESA.EMPRE_CDG'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
+    end
+    object strngfldConsEmpreEMPRE_CONTATO: TStringField
+      FieldName = 'EMPRE_CONTATO'
+      Size = 100
+    end
+    object strngfldConsEmpreEMPRE_DDD: TStringField
+      FieldName = 'EMPRE_DDD'
+      Size = 3
+    end
+    object strngfldConsEmpreEMPRE_PAIS: TStringField
+      FieldName = 'EMPRE_PAIS'
+      Size = 60
+    end
+    object strngfldConsEmpreEMPRE_RAMAL: TStringField
+      FieldName = 'EMPRE_RAMAL'
+      Size = 6
     end
   end
   object dsConsEmpre: TDataSource
@@ -880,6 +942,11 @@ object DTM_CAD: TDTM_CAD
         Name = 'FORN_FANTASIA'
         DataType = ftString
         Size = 100
+      end
+      item
+        Name = 'FORN_CNPJ'
+        DataType = ftString
+        Size = 14
       end>
     IndexDefs = <>
     IndexFieldNames = 'FORN_CDG'
@@ -894,6 +961,7 @@ object DTM_CAD: TDTM_CAD
     object StringField17: TStringField
       FieldName = 'FORN_CPFCNPJ'
       Origin = 'CAD_FORN.FORN_CPFCNPJ'
+      EditMask = '000\.000\.000\/00;1;_'
       Size = 14
     end
     object StringField18: TStringField
@@ -905,6 +973,7 @@ object DTM_CAD: TDTM_CAD
     object StringField19: TStringField
       FieldName = 'FORN_CEP'
       Origin = 'CAD_FORN.FORN_CEP'
+      EditMask = '00000\-000;1;_'
       Size = 8
     end
     object StringField20: TStringField
@@ -933,6 +1002,7 @@ object DTM_CAD: TDTM_CAD
       DisplayLabel = 'Telefone'
       FieldName = 'FORN_TELEFONE'
       Origin = 'CAD_FORN.FORN_TELEFONE'
+      EditMask = '!\(99\)0000-0000;1;_'
       Size = 18
     end
     object StringField25: TStringField
@@ -943,6 +1013,7 @@ object DTM_CAD: TDTM_CAD
     object StringField26: TStringField
       FieldName = 'FORN_TELEFONE1'
       Origin = 'CAD_FORN.FORN_TELEFONE1'
+      EditMask = '!\(99\)0000-0000;1;_'
       Size = 18
     end
     object StringField27: TStringField
@@ -963,7 +1034,7 @@ object DTM_CAD: TDTM_CAD
     object StringField30: TStringField
       FieldName = 'FORN_CELULAR'
       Origin = 'CAD_FORN.FORN_CELULAR'
-      EditMask = '(99)00000\-9999;1;_'
+      EditMask = '!\(99\)00000-0000;1;_'
       Size = 18
     end
     object StringField31: TStringField
@@ -975,6 +1046,7 @@ object DTM_CAD: TDTM_CAD
     object StringField32: TStringField
       FieldName = 'FORN_RG'
       Origin = 'CAD_FORN.FORN_RG'
+      EditMask = '00\.000\.000\-0;1;_'
       Size = 15
     end
     object IntegerField2: TIntegerField
@@ -988,6 +1060,7 @@ object DTM_CAD: TDTM_CAD
     object DateField1: TDateField
       FieldName = 'FORN_DTNASCIMENTO'
       Origin = 'CAD_FORN.FORN_DTNASCIMENTO'
+      EditMask = '!99/99/00;1;_'
     end
     object SmallintField1: TSmallintField
       FieldName = 'FORN_SEXO'
@@ -1021,6 +1094,7 @@ object DTM_CAD: TDTM_CAD
     object DateField2: TDateField
       FieldName = 'FORN_DTCADASTRO'
       Origin = 'CAD_FORN.FORN_DTCADASTRO'
+      EditMask = '!99/99/00;1;_'
     end
     object IntegerField5: TIntegerField
       DisplayLabel = 'Condominio'
@@ -1055,6 +1129,11 @@ object DTM_CAD: TDTM_CAD
       FieldName = 'FORN_FANTASIA'
       Size = 100
     end
+    object strngfldConsCaddvsFORN_CNPJ: TStringField
+      FieldName = 'FORN_CNPJ'
+      EditMask = '00\.000\.000\/0000\-00;1;_'
+      Size = 14
+    end
   end
   object dsConsCaddvs: TDataSource
     DataSet = cdsConsCaddvs
@@ -1085,12 +1164,6 @@ object DTM_CAD: TDTM_CAD
       Required = True
       Size = 100
     end
-    object IntegerField12: TIntegerField
-      DisplayLabel = 'CEP'
-      DisplayWidth = 10
-      FieldName = 'COND_CEP'
-      Origin = '"CAD_COND"."COND_CEP"'
-    end
     object StringField35: TStringField
       DisplayLabel = 'Cidade'
       FieldName = 'COND_CID'
@@ -1105,6 +1178,7 @@ object DTM_CAD: TDTM_CAD
     object StringField37: TStringField
       FieldName = 'COND_TELEFONE'
       Origin = '"CAD_COND"."COND_TELEFONE"'
+      EditMask = '!\(99\)0000-0000;1;_'
       Size = 18
     end
     object IntegerField14: TIntegerField
@@ -1133,6 +1207,7 @@ object DTM_CAD: TDTM_CAD
     object StringField41: TStringField
       FieldName = 'COND_INCORPCNPJ'
       Origin = '"CAD_COND"."COND_INCORPCNPJ"'
+      EditMask = '00\.000\.000\/0000\-00;1;_'
       Size = 14
     end
     object cdsConsCondCOND_BLOCO: TStringField
@@ -1154,6 +1229,11 @@ object DTM_CAD: TDTM_CAD
     object cdsConsCondCOND_BAIRRO: TStringField
       FieldName = 'COND_BAIRRO'
       Size = 50
+    end
+    object strngfldConsCondCOND_CEP: TStringField
+      FieldName = 'COND_CEP'
+      EditMask = '00000\-000;1;_'
+      Size = 8
     end
   end
   object dsConsCond: TDataSource
@@ -1180,6 +1260,7 @@ object DTM_CAD: TDTM_CAD
     object cdsLkpCaddvsFORN_CPFCNPJ: TStringField
       FieldName = 'FORN_CPFCNPJ'
       Origin = 'CAD_FORN.FORN_CPFCNPJ'
+      EditMask = '000\.000\.000\/00;1;_'
       Size = 14
     end
     object cdsLkpCaddvsFORN_RAZAO: TStringField
@@ -1190,6 +1271,7 @@ object DTM_CAD: TDTM_CAD
     object cdsLkpCaddvsFORN_CEP: TStringField
       FieldName = 'FORN_CEP'
       Origin = 'CAD_FORN.FORN_CEP'
+      EditMask = '00000\-000;1;_'
       Size = 8
     end
     object cdsLkpCaddvsFORN_ENDERECO: TStringField
@@ -1214,6 +1296,7 @@ object DTM_CAD: TDTM_CAD
     object cdsLkpCaddvsFORN_TELEFONE: TStringField
       FieldName = 'FORN_TELEFONE'
       Origin = 'CAD_FORN.FORN_TELEFONE'
+      EditMask = '!\(99\)0000-0000;1;_'
       Size = 18
     end
     object cdsLkpCaddvsFORN_RAMAL: TStringField
@@ -1224,6 +1307,7 @@ object DTM_CAD: TDTM_CAD
     object cdsLkpCaddvsFORN_TELEFONE1: TStringField
       FieldName = 'FORN_TELEFONE1'
       Origin = 'CAD_FORN.FORN_TELEFONE1'
+      EditMask = '!\(99\)0000-0000;1;_'
       Size = 18
     end
     object cdsLkpCaddvsFORN_EMAIL: TStringField
@@ -1244,16 +1328,19 @@ object DTM_CAD: TDTM_CAD
     object cdsLkpCaddvsFORN_CELULAR: TStringField
       FieldName = 'FORN_CELULAR'
       Origin = 'CAD_FORN.FORN_CELULAR'
+      EditMask = '!\(99\)00000-0000;1;_'
       Size = 18
     end
     object cdsLkpCaddvsFORN_CELULAR1: TStringField
       FieldName = 'FORN_CELULAR1'
       Origin = 'CAD_FORN.FORN_CELULAR1'
+      EditMask = '!\(99\)00000-0000;1;_'
       Size = 18
     end
     object cdsLkpCaddvsFORN_RG: TStringField
       FieldName = 'FORN_RG'
       Origin = 'CAD_FORN.FORN_RG'
+      EditMask = '00\.000\.000\-0;1;_'
       Size = 15
     end
     object cdsLkpCaddvsFORN_TIPO: TIntegerField
@@ -1267,6 +1354,7 @@ object DTM_CAD: TDTM_CAD
     object cdsLkpCaddvsFORN_DTNASCIMENTO: TDateField
       FieldName = 'FORN_DTNASCIMENTO'
       Origin = 'CAD_FORN.FORN_DTNASCIMENTO'
+      EditMask = '!99/99/00;1;_'
     end
     object cdsLkpCaddvsFORN_SEXO: TSmallintField
       FieldName = 'FORN_SEXO'
@@ -1300,6 +1388,7 @@ object DTM_CAD: TDTM_CAD
     object cdsLkpCaddvsFORN_DTCADASTRO: TDateField
       FieldName = 'FORN_DTCADASTRO'
       Origin = 'CAD_FORN.FORN_DTCADASTRO'
+      EditMask = '!99/99/00;1;_'
     end
     object cdsLkpCaddvsFORN_COND: TIntegerField
       FieldName = 'FORN_COND'
@@ -1333,6 +1422,11 @@ object DTM_CAD: TDTM_CAD
       FieldName = 'FORN_FANTASIA'
       Size = 100
     end
+    object strngfldLkpCaddvsFORN_CNPJ: TStringField
+      FieldName = 'FORN_CNPJ'
+      EditMask = '00\.000\.000\/0000\-00;1;_'
+      Size = 14
+    end
   end
   object dsLkpcaddvs: TDataSource
     DataSet = cdsLkpCaddvs
@@ -1342,6 +1436,9 @@ object DTM_CAD: TDTM_CAD
   object qryREL: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
+    Active = True
+    BufferChunks = 1000
+    CachedUpdates = False
     SQL.Strings = (
       'select * from cad_empresa'
       '')
@@ -1372,12 +1469,6 @@ object DTM_CAD: TDTM_CAD
       Required = True
       Size = 100
     end
-    object IntegerField19: TIntegerField
-      DisplayLabel = 'CEP'
-      DisplayWidth = 10
-      FieldName = 'COND_CEP'
-      Origin = '"CAD_COND"."COND_CEP"'
-    end
     object StringField43: TStringField
       DisplayLabel = 'Cidade'
       FieldName = 'COND_CID'
@@ -1392,6 +1483,7 @@ object DTM_CAD: TDTM_CAD
     object StringField45: TStringField
       FieldName = 'COND_TELEFONE'
       Origin = '"CAD_COND"."COND_TELEFONE"'
+      EditMask = '!\(99\)0000-0000;1;_'
       Size = 18
     end
     object IntegerField21: TIntegerField
@@ -1420,6 +1512,7 @@ object DTM_CAD: TDTM_CAD
     object StringField49: TStringField
       FieldName = 'COND_INCORPCNPJ'
       Origin = '"CAD_COND"."COND_INCORPCNPJ"'
+      EditMask = '00\.000\.000\/0000\-00;1;_'
       Size = 14
     end
     object cdsLkpcondCOND_BLOCO: TStringField
@@ -1442,6 +1535,11 @@ object DTM_CAD: TDTM_CAD
       FieldName = 'COND_BAIRRO'
       Size = 50
     end
+    object strngfldLkpcondCOND_CEP: TStringField
+      FieldName = 'COND_CEP'
+      EditMask = '00000\-000;1;_'
+      Size = 8
+    end
   end
   object dsLkpcond: TDataSource
     DataSet = cdsLkpcond
@@ -1449,7 +1547,6 @@ object DTM_CAD: TDTM_CAD
     Top = 468
   end
   object dspLkpCrbcond: TDataSetProvider
-    DataSet = DTM_CAD_IBX.qryLkpCrbCond
     Options = [poAllowCommandText]
     UpdateMode = upWhereKeyOnly
     Left = 348
@@ -1479,5 +1576,197 @@ object DTM_CAD: TDTM_CAD
     DataSet = cdsLkpCrbCond
     Left = 352
     Top = 460
+  end
+  object dspLkcadsind: TDataSetProvider
+    DataSet = DTM_CAD_IBX.qryLkCadSind
+    Options = [poAllowCommandText]
+    UpdateMode = upWhereKeyOnly
+    Left = 120
+    Top = 376
+  end
+  object cdsLkpCadSind: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'dspLkcadsind'
+    AfterPost = gerAfterPost
+    AfterDelete = gerAfterDelete
+    AfterApplyUpdates = gerAfterApplyUpdates
+    Left = 120
+    Top = 420
+    object strngfld1: TStringField
+      FieldName = 'FORN_CPFCNPJ'
+      Origin = 'CAD_FORN.FORN_CPFCNPJ'
+      EditMask = '000\.000\.000\/00;1;_'
+      Size = 14
+    end
+    object strngfld2: TStringField
+      FieldName = 'FORN_RAZAO'
+      Origin = 'CAD_FORN.FORN_RAZAO'
+      Size = 100
+    end
+    object strngfld3: TStringField
+      FieldName = 'FORN_CEP'
+      Origin = 'CAD_FORN.FORN_CEP'
+      EditMask = '00000\-000;1;_'
+      Size = 8
+    end
+    object strngfld4: TStringField
+      FieldName = 'FORN_ENDERECO'
+      Origin = 'CAD_FORN.FORN_ENDERECO'
+      Size = 100
+    end
+    object strngfld5: TStringField
+      FieldName = 'FORN_BAIRRO'
+      Origin = 'CAD_FORN.FORN_BAIRRO'
+      Size = 30
+    end
+    object strngfld6: TStringField
+      FieldName = 'FORN_CIDADE'
+      Origin = 'CAD_FORN.FORN_CIDADE'
+    end
+    object strngfld7: TStringField
+      FieldName = 'FORN_UF'
+      Origin = 'CAD_FORN.FORN_UF'
+      Size = 2
+    end
+    object strngfld8: TStringField
+      FieldName = 'FORN_TELEFONE'
+      Origin = 'CAD_FORN.FORN_TELEFONE'
+      EditMask = '!\(99\)0000-0000;1;_'
+      Size = 18
+    end
+    object strngfld9: TStringField
+      FieldName = 'FORN_RAMAL'
+      Origin = 'CAD_FORN.FORN_RAMAL'
+      Size = 6
+    end
+    object strngfld10: TStringField
+      FieldName = 'FORN_TELEFONE1'
+      Origin = 'CAD_FORN.FORN_TELEFONE1'
+      EditMask = '!\(99\)0000-0000;1;_'
+      Size = 18
+    end
+    object strngfld11: TStringField
+      FieldName = 'FORN_EMAIL'
+      Origin = 'CAD_FORN.FORN_EMAIL'
+      Size = 60
+    end
+    object strngfld12: TStringField
+      FieldName = 'FORN_EMAIL1'
+      Origin = 'CAD_FORN.FORN_EMAIL1'
+      Size = 60
+    end
+    object strngfld13: TStringField
+      FieldName = 'FORN_SITE'
+      Origin = 'CAD_FORN.FORN_SITE'
+      Size = 80
+    end
+    object strngfld14: TStringField
+      FieldName = 'FORN_CELULAR'
+      Origin = 'CAD_FORN.FORN_CELULAR'
+      EditMask = '!\(99\)00000-0000;1;_'
+      Size = 18
+    end
+    object strngfld15: TStringField
+      FieldName = 'FORN_CELULAR1'
+      Origin = 'CAD_FORN.FORN_CELULAR1'
+      EditMask = '!\(99\)00000-0000;1;_'
+      Size = 18
+    end
+    object strngfld16: TStringField
+      FieldName = 'FORN_RG'
+      Origin = 'CAD_FORN.FORN_RG'
+      EditMask = '00\.000\.000\-0;1;_'
+      Size = 15
+    end
+    object IntegerField9: TIntegerField
+      FieldName = 'FORN_TIPO'
+      Origin = 'CAD_FORN.FORN_TIPO'
+    end
+    object IntegerField10: TIntegerField
+      FieldName = 'FORN_ESTADOCIVIL'
+      Origin = 'CAD_FORN.FORN_ESTADOCIVIL'
+    end
+    object DateField3: TDateField
+      FieldName = 'FORN_DTNASCIMENTO'
+      Origin = 'CAD_FORN.FORN_DTNASCIMENTO'
+      EditMask = '!99/99/00;1;_'
+    end
+    object smlntfld1: TSmallintField
+      FieldName = 'FORN_SEXO'
+      Origin = 'CAD_FORN.FORN_SEXO'
+    end
+    object IntegerField11: TIntegerField
+      FieldName = 'FORN_OCUPACAO'
+      Origin = 'CAD_FORN.FORN_OCUPACAO'
+    end
+    object strngfld17: TStringField
+      FieldName = 'FORN_CONJUGE'
+      Origin = 'CAD_FORN.FORN_CONJUGE'
+      Size = 14
+    end
+    object TimeField5: TTimeField
+      FieldName = 'FORN_HRENTRADA1'
+      Origin = 'CAD_FORN.FORN_HRENTRADA1'
+    end
+    object TimeField6: TTimeField
+      FieldName = 'FORN_HRENTRADA2'
+      Origin = 'CAD_FORN.FORN_HRENTRADA2'
+    end
+    object TimeField7: TTimeField
+      FieldName = 'FORN_HRSAIDA1'
+      Origin = 'CAD_FORN.FORN_HRSAIDA1'
+    end
+    object TimeField8: TTimeField
+      FieldName = 'FORN_HRSAIDA2'
+      Origin = 'CAD_FORN.FORN_HRSAIDA2'
+    end
+    object DateField4: TDateField
+      FieldName = 'FORN_DTCADASTRO'
+      Origin = 'CAD_FORN.FORN_DTCADASTRO'
+      EditMask = '!99/99/00;1;_'
+    end
+    object IntegerField13: TIntegerField
+      FieldName = 'FORN_COND'
+      Origin = 'CAD_FORN.FORN_COND'
+    end
+    object smlntfld2: TSmallintField
+      FieldName = 'FORN_TPCONDOMINO'
+      Origin = 'CAD_FORN.FORN_TPCONDOMINO'
+    end
+    object smlntfld3: TSmallintField
+      FieldName = 'FORN_TPFUNCIONARIO'
+      Origin = 'CAD_FORN.FORN_TPFUNCIONARIO'
+    end
+    object IntegerField16: TIntegerField
+      FieldName = 'FORN_TPFORNECEDOR'
+      Origin = 'CAD_FORN.FORN_TPFORNECEDOR'
+    end
+    object IntegerField17: TIntegerField
+      FieldName = 'FORN_TPSINDICO'
+      Origin = 'CAD_FORN.FORN_TPSINDICO'
+    end
+    object IntegerField18: TIntegerField
+      FieldName = 'FORN_TPINCORPORADORA'
+      Origin = 'CAD_FORN.FORN_TPINCORPORADORA'
+    end
+    object IntegerField20: TIntegerField
+      FieldName = 'FORN_CDG'
+      Required = True
+    end
+    object strngfld18: TStringField
+      FieldName = 'FORN_FANTASIA'
+      Size = 100
+    end
+    object strngfldLkpCadSindFORN_CNPJ: TStringField
+      FieldName = 'FORN_CNPJ'
+      EditMask = '00\.000\.000\/0000\-00;1;_'
+      Size = 14
+    end
+  end
+  object dsLkpcadsind: TDataSource
+    DataSet = cdsLkpCadSind
+    Left = 120
+    Top = 472
   end
 end

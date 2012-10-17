@@ -1,7 +1,7 @@
 object DTM_FINAN: TDTM_FINAN
   OldCreateOrder = False
-  Left = 426
-  Top = 216
+  Left = 405
+  Top = 206
   Height = 476
   Width = 564
   object cdsCpg: TClientDataSet
@@ -311,6 +311,7 @@ object DTM_FINAN: TDTM_FINAN
     DataSet = DTM_FINAN_IBX.qryCpg
     Options = [poAllowCommandText]
     UpdateMode = upWhereKeyOnly
+    OnGetTableName = dspCpgGetTableName
     Left = 40
     Top = 16
   end
@@ -485,6 +486,7 @@ object DTM_FINAN: TDTM_FINAN
     object DateField2: TDateField
       FieldName = 'CPG_DTEMISSAO'
       Origin = '"CAD_CPG"."CPG_DTEMISSAO"'
+      EditMask = '!99/99/00;1;_'
     end
     object StringField1: TStringField
       FieldName = 'CPG_NDESC'
@@ -539,6 +541,7 @@ object DTM_FINAN: TDTM_FINAN
     object DateField3: TDateField
       FieldName = 'CPG_DTPGTO'
       Origin = '"CAD_CPG"."CPG_DTPGTO"'
+      EditMask = '!99/99/00;1;_'
     end
     object IntegerField1: TIntegerField
       DisplayLabel = 'Cod.'
@@ -957,6 +960,7 @@ object DTM_FINAN: TDTM_FINAN
     object cdsCrbCRB_DTPGTO: TDateField
       FieldName = 'CRB_DTPGTO'
       Origin = '"CAD_CRB"."CRB_DTPGTO"'
+      EditMask = '!99/99/00;1;_'
     end
     object cdsCrbCRB_JUROS: TFloatField
       FieldName = 'CRB_JUROS'

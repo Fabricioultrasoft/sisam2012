@@ -38,7 +38,7 @@ object FRM_CRB: TFRM_CRB
     Top = 0
     Width = 696
     Height = 396
-    ActivePage = PC_Receitas
+    ActivePage = PC_Consulta
     Align = alClient
     TabOrder = 0
     OnChange = pcControlChange

@@ -6,7 +6,8 @@ object DTMGeral: TDTMGeral
   Height = 422
   Width = 542
   object Database: TIBDatabase
-    DatabaseName = 'C:\Sisam2012\Database\AMARILLIS.FDB'
+    Connected = True
+    DatabaseName = 'C:\Sisam\Database\AMARILLIS.FDB'
     Params.Strings = (
       'user_name=SYSDBA'
       'password=masterkey'
@@ -17,6 +18,7 @@ object DTMGeral: TDTMGeral
     Top = 40
   end
   object Transaction: TIBTransaction
+    Active = True
     DefaultDatabase = Database
     Params.Strings = (
       'read_committed'
@@ -28,6 +30,8 @@ object DTMGeral: TDTMGeral
   object qryGeral: TIBQuery
     Database = Database
     Transaction = Transaction
+    BufferChunks = 1000
+    CachedUpdates = False
     Left = 24
     Top = 112
   end

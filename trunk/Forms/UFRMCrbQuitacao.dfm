@@ -73,9 +73,9 @@ object FRMCRBquitacao: TFRMCRBquitacao
   object lbl5: TLabel
     Left = 15
     Top = 60
-    Width = 64
+    Width = 77
     Height = 13
-    Caption = 'Valor a Pagar'
+    Caption = 'Valor a Receber'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clNavy
     Font.Height = -11
@@ -102,7 +102,7 @@ object FRMCRBquitacao: TFRMCRBquitacao
     Width = 130
     Height = 31
     Anchors = [akBottom]
-    Caption = 'Efetuar Pagamento'
+    Caption = 'Efetuar Recebimento'
     TabOrder = 0
     OnClick = btnOKClick
     Glyph.Data = {

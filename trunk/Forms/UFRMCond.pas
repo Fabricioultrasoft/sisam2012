@@ -33,12 +33,10 @@ type
     lbl11: TLabel;
     lbl12: TLabel;
     lbl13: TLabel;
-    DBEdit10: TDBEdit;
     DBEdit8: TDBEdit;
     DBEdit7: TDBEdit;
     lbl14: TLabel;
     lbl15: TLabel;
-    lbl16: TLabel;
     DBEdit17: TDBEdit;
     lbl18: TLabel;
     tlb1: TToolBar;
@@ -58,10 +56,10 @@ type
     edtincorporadora: TEdit;
     edtcidade: TEdit;
     edtdesc: TEdit;
-    edtcindico: TEdit;
     dbgrd1: TDBGrid;
     dblkcbbCOND_FORNECEDOR: TDBLookupComboBox;
     lbl22: TLabel;
+    dblkcbbSind: TDBLookupComboBox;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnPriorClick(Sender: TObject);
@@ -74,6 +72,8 @@ type
     procedure dbgrd1DblClick(Sender: TObject);
     procedure btnPesqClick(Sender: TObject);
     procedure edtdescKeyPress(Sender: TObject; var Key: Char);
+    procedure dblkcbbSindKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     procedure filtrarCondominio;
     { Private declarations }
@@ -94,7 +94,9 @@ procedure TFRM_COND.FormCreate(Sender: TObject);
 begin
   DTM_CAD.cdsCond.Close;
   DTM_CAD.cdsCond.Open;
-  DTM_CAD.atualizarLkpCaddvs;
+  DTM_CAD.atualizarLkpCadSind;
+
+  PC_Condominio.ActivePageIndex := 0;
 end;
 
 procedure TFRM_COND.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -154,8 +156,8 @@ begin
  if (Trim(edtcidade.Text) <> '') then
    SQL  := SQL + ' AND UPPER(COND_CID) LIKE UPPER(''%'+ Trim(edtcidade.Text) +'%'') ';
 
- if (Trim(edtcindico.Text) <> '') then
-   SQL  := SQL + ' AND UPPER(COND_CINDICO) LIKE UPPER(''%'+ trim(edtcindico.TEXT) +'%'') ';
+  if not(varisnull(dblkcbbSind.KeyValue) ) then
+      SQL  := SQL + ' AND  (COND_FORNECEDOR = ' + inttostr(dblkcbbSind.KeyValue)+' )';
 
  DTM_CAD.consultarCondominios(SQL);
 end;
@@ -176,6 +178,13 @@ procedure TFRM_COND.edtdescKeyPress(Sender: TObject; var Key: Char);
 begin
 if key = #13 then
   btnPesqClick(self);
+end;
+
+procedure TFRM_COND.dblkcbbSindKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+if Key = vk_escape then
+    dblkcbbSind.KeyValue := null;
 end;
 
 end.

@@ -41,6 +41,7 @@ type
     Condominios1: TMenuItem;
     RelContasaPagar: TMenuItem;
     ContasaReceber2: TMenuItem;
+    CadastrosDiversos1: TMenuItem;
     procedure ToolButton1Click(Sender: TObject);
     procedure tbCadastroClick(Sender: TObject);
     procedure Calculadora1Click(Sender: TObject);
@@ -62,6 +63,7 @@ type
     procedure Condominios1Click(Sender: TObject);
     procedure RelContasapagar1Click(Sender: TObject);
     procedure RelContasareceber1Click(Sender: TObject);
+    procedure CadastrosDiversos1Click(Sender: TObject);
   private
     { Private declarations }
     procedure deslogar(relogar: boolean);
@@ -75,6 +77,7 @@ type
     procedure abrirFRMUsuario();
     procedure abrirFRMRELEmpresa;
     procedure abrirFRMRELCondominio;
+    procedure abrirFRMRELCaddvs;    
     procedure abrirFRMRelCpg;
     procedure abrirFRMRelCrb;
 
@@ -92,7 +95,8 @@ implementation
 
 uses UFRMCad, UFRMEmpre, UFRMCond, UFRMUser, UFRMCpg, UFRMCrb,
   UTrocarSenha, UFRMLogin, UDTMGeral, UFRMREL_Empresa, UFRMREL_Condominio,
-  UFRMREL_Contas, UFRMREL_Receitas, UFRMCrbQuitacao, UFRMCpgQuitacao;
+  UFRMREL_Contas, UFRMREL_Receitas, UFRMCrbQuitacao, UFRMCpgQuitacao,
+  UFRMREL_Fornecedores;
 
 {$R *.dfm}
 
@@ -274,6 +278,13 @@ begin
   FRMREL_Condominio.ShowModal;
 end;
 
+procedure TFRMMenu.abrirFRMRELCaddvs;
+begin
+  if FRMREL_Fornecedores = nil then
+    FRMREL_Fornecedores:= TFRMREL_Fornecedores.create(self);
+  FRMREL_Fornecedores.ShowModal;
+end;
+
 procedure TFRMMenu.abrirFRMRelCpg;
 begin
   if FRMRelCpg = nil then
@@ -308,6 +319,11 @@ end;
 procedure TFRMMenu.Condominios1Click(Sender: TObject);
 begin
 abrirFRMRELCondominio;
+end;
+
+procedure TFRMMenu.CadastrosDiversos1Click(Sender: TObject);
+begin
+abrirFRMRELCaddvs;
 end;
 
 procedure TFRMMenu.RelContasaPagar1Click(Sender: TObject);
