@@ -248,7 +248,6 @@ type
     ibstrngfldLkCadSindFORN_FANTASIA: TIBStringField;
     ibstrngfldLkCadSindFORN_CNPJ: TIBStringField;
     ibstrngfldCaddvsFORN_CNPJ: TIBStringField;
-    ibstrngfldCaddvsFORN_FANTASIA1: TIBStringField;
     ibstrngfldConsCaddvsFORN_CNPJ: TIBStringField;
     ibstrngfldLkpcaddvsFORN_FANTASIA: TIBStringField;
     ibstrngfldLkpcaddvsFORN_CNPJ: TIBStringField;

@@ -7,8 +7,6 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryCaddvs: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select F.*, FORN_FANTASIA'
       ' '
@@ -28,7 +26,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     object qryCaddvsFORN_CEP: TIBStringField
       FieldName = 'FORN_CEP'
       Origin = 'CAD_FORN.FORN_CEP'
-      Size = 8
+      Size = 14
     end
     object qryCaddvsFORN_ENDERECO: TIBStringField
       FieldName = 'FORN_ENDERECO'
@@ -178,14 +176,12 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     object ibstrngfldCaddvsFORN_CNPJ: TIBStringField
       FieldName = 'FORN_CNPJ'
       Origin = '"CAD_FORN"."FORN_CNPJ"'
-      Size = 14
+      Size = 25
     end
   end
   object qryEmpre: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       
         ' SELECT EMPRE_BAIRRO,   EMPRE_CDG,      EMPRE_CEP,      EMPRE_CI' +
@@ -209,7 +205,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     object qryEmpreEMPRE_CNPJ: TIBStringField
       FieldName = 'EMPRE_CNPJ'
       Origin = 'CAD_EMPRESA.EMPRE_CNPJ'
-      Size = 14
+      Size = 25
     end
     object qryEmpreEMPRE_INSESTAD: TIBStringField
       FieldName = 'EMPRE_INSESTAD'
@@ -262,7 +258,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     object qryEmpreEMPRE_CEP: TIBStringField
       FieldName = 'EMPRE_CEP'
       Origin = 'CAD_EMPRESA.EMPRE_CEP'
-      Size = 8
+      Size = 14
     end
     object qryEmpreEMPRE_LOGOTIPO: TIBStringField
       FieldName = 'EMPRE_LOGOTIPO'
@@ -309,8 +305,6 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryCond: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_COND')
     Left = 168
@@ -358,7 +352,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     object qryCondCOND_INCORPCNPJ: TIBStringField
       FieldName = 'COND_INCORPCNPJ'
       Origin = '"CAD_COND"."COND_INCORPCNPJ"'
-      Size = 14
+      Size = 25
     end
     object qryCondCOND_BLOCO: TIBStringField
       FieldName = 'COND_BLOCO'
@@ -386,14 +380,12 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     object ibstrngfldCondCOND_CEP: TIBStringField
       FieldName = 'COND_CEP'
       Origin = '"CAD_COND"."COND_CEP"'
-      Size = 8
+      Size = 14
     end
   end
   object qryUser: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_USUARIO')
     Left = 224
@@ -436,8 +428,6 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryConsCaddvs: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select * '
       'from CAD_FORN')
@@ -456,7 +446,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     object IBStringField4: TIBStringField
       FieldName = 'FORN_CEP'
       Origin = 'CAD_FORN.FORN_CEP'
-      Size = 8
+      Size = 14
     end
     object IBStringField5: TIBStringField
       FieldName = 'FORN_ENDERECO'
@@ -606,14 +596,12 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     object ibstrngfldConsCaddvsFORN_CNPJ: TIBStringField
       FieldName = 'FORN_CNPJ'
       Origin = '"CAD_FORN"."FORN_CNPJ"'
-      Size = 14
+      Size = 25
     end
   end
   object qryConsEmpre: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       
         ' SELECT EMPRE_BAIRRO,   EMPRE_CDG,      EMPRE_CEP,      EMPRE_CI' +
@@ -636,7 +624,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     object IBStringField19: TIBStringField
       FieldName = 'EMPRE_CNPJ'
       Origin = 'CAD_EMPRESA.EMPRE_CNPJ'
-      Size = 14
+      Size = 25
     end
     object IBStringField20: TIBStringField
       FieldName = 'EMPRE_INSESTAD'
@@ -689,7 +677,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     object IBStringField30: TIBStringField
       FieldName = 'EMPRE_CEP'
       Origin = 'CAD_EMPRESA.EMPRE_CEP'
-      Size = 8
+      Size = 14
     end
     object IBStringField31: TIBStringField
       FieldName = 'EMPRE_LOGOTIPO'
@@ -736,8 +724,6 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
   object qryConsCond: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_COND')
     Left = 168
@@ -785,7 +771,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     object IBStringField41: TIBStringField
       FieldName = 'COND_INCORPCNPJ'
       Origin = '"CAD_COND"."COND_INCORPCNPJ"'
-      Size = 14
+      Size = 25
     end
     object qryConsCondCOND_BLOCO: TIBStringField
       FieldName = 'COND_BLOCO'
@@ -813,14 +799,12 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     object ibstrngfldConsCondCOND_CEP: TIBStringField
       FieldName = 'COND_CEP'
       Origin = '"CAD_COND"."COND_CEP"'
-      Size = 8
+      Size = 14
     end
   end
   object qryLkpCond: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select * from CAD_COND')
     Left = 168
@@ -884,7 +868,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     object IBStringField49: TIBStringField
       FieldName = 'COND_INCORPCNPJ'
       Origin = '"CAD_COND"."COND_INCORPCNPJ"'
-      Size = 14
+      Size = 25
     end
     object qryLkpCondCOND_BLOCO: TIBStringField
       FieldName = 'COND_BLOCO'
@@ -898,14 +882,12 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     object ibstrngfldLkpCondCOND_CEP: TIBStringField
       FieldName = 'COND_CEP'
       Origin = '"CAD_COND"."COND_CEP"'
-      Size = 8
+      Size = 14
     end
   end
   object qryLkpcaddvs: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select * '
       'from CAD_FORN')
@@ -916,15 +898,15 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
       Origin = 'CAD_FORN.FORN_CPFCNPJ'
       Size = 14
     end
+    object IBStringField53: TIBStringField
+      FieldName = 'FORN_CEP'
+      Origin = 'CAD_FORN.FORN_CEP'
+      Size = 14
+    end
     object IBStringField52: TIBStringField
       FieldName = 'FORN_RAZAO'
       Origin = 'CAD_FORN.FORN_RAZAO'
       Size = 100
-    end
-    object IBStringField53: TIBStringField
-      FieldName = 'FORN_CEP'
-      Origin = 'CAD_FORN.FORN_CEP'
-      Size = 8
     end
     object IBStringField54: TIBStringField
       FieldName = 'FORN_ENDERECO'
@@ -1074,14 +1056,12 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     object ibstrngfldLkpcaddvsFORN_CNPJ: TIBStringField
       FieldName = 'FORN_CNPJ'
       Origin = '"CAD_FORN"."FORN_CNPJ"'
-      Size = 14
+      Size = 25
     end
   end
   object qryLkCadSind: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select * '
       'from CAD_FORN'
@@ -1101,7 +1081,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     object ibstrngfld3: TIBStringField
       FieldName = 'FORN_CEP'
       Origin = 'CAD_FORN.FORN_CEP'
-      Size = 8
+      Size = 14
     end
     object ibstrngfld4: TIBStringField
       FieldName = 'FORN_ENDERECO'
@@ -1251,7 +1231,7 @@ object DTM_CAD_IBX: TDTM_CAD_IBX
     object ibstrngfldLkCadSindFORN_CNPJ: TIBStringField
       FieldName = 'FORN_CNPJ'
       Origin = '"CAD_FORN"."FORN_CNPJ"'
-      Size = 14
+      Size = 25
     end
   end
 end
