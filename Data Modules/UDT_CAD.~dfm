@@ -183,7 +183,7 @@ object DTM_CAD: TDTM_CAD
       item
         Name = 'FORN_CNPJ'
         DataType = ftString
-        Size = 14
+        Size = 25
       end
       item
         Name = 'FORN_FANTASIA1'
@@ -369,7 +369,7 @@ object DTM_CAD: TDTM_CAD
     object strngfldCaddvsFORN_CNPJ: TStringField
       FieldName = 'FORN_CNPJ'
       EditMask = '00\.000\.000\/0000\-00;1;_'
-      Size = 14
+      Size = 25
     end
   end
   object cdsEmpre: TClientDataSet
@@ -1436,9 +1436,6 @@ object DTM_CAD: TDTM_CAD
   object qryREL: TIBQuery
     Database = DTMGeral.Database
     Transaction = DTMGeral.Transaction
-    Active = True
-    BufferChunks = 1000
-    CachedUpdates = False
     SQL.Strings = (
       'select * from cad_empresa'
       '')
