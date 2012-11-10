@@ -1,6 +1,6 @@
 object FRM_COND: TFRM_COND
-  Left = 324
-  Top = 171
+  Left = 150
+  Top = 151
   Width = 885
   Height = 638
   Caption = 'Condom'#237'nios'
@@ -52,7 +52,7 @@ object FRM_COND: TFRM_COND
     Top = 0
     Width = 877
     Height = 604
-    ActivePage = TabSheet2
+    ActivePage = TabSheet1
     Align = alClient
     TabOrder = 0
     object TabSheet1: TTabSheet
@@ -268,6 +268,7 @@ object FRM_COND: TFRM_COND
           Top = 32
           Width = 87
           Height = 21
+          Color = clInfoBk
           DataField = 'COND_CDG'
           DataSource = DTM_CAD.dsCond
           TabOrder = 0
@@ -317,15 +318,6 @@ object FRM_COND: TFRM_COND
           DataSource = DTM_CAD.dsCond
           TabOrder = 9
         end
-        object DBEdit8: TDBEdit
-          Left = 287
-          Top = 263
-          Width = 30
-          Height = 21
-          DataField = 'COND_UF'
-          DataSource = DTM_CAD.dsCond
-          TabOrder = 11
-        end
         object DBEdit7: TDBEdit
           Left = 14
           Top = 264
@@ -342,7 +334,7 @@ object FRM_COND: TFRM_COND
           Height = 21
           DataField = 'COND_EMAIL'
           DataSource = DTM_CAD.dsCond
-          TabOrder = 12
+          TabOrder = 11
         end
         object dblkcbbCOND_FORNECEDOR: TDBLookupComboBox
           Left = 158
@@ -356,6 +348,44 @@ object FRM_COND: TFRM_COND
           ListFieldIndex = 1
           ListSource = DTM_CAD.dsLkpcadsind
           TabOrder = 3
+        end
+        object dbcbbEMPRE_UF: TDBComboBox
+          Left = 287
+          Top = 264
+          Width = 39
+          Height = 21
+          DataField = 'COND_UF'
+          DataSource = DTM_CAD.dsCond
+          ItemHeight = 13
+          Items.Strings = (
+            'AC'
+            'AL'
+            'AP'
+            'AM'
+            'BA'
+            'CE'
+            'DF'
+            'GO'
+            'ES'
+            'MA'
+            'MT'
+            'MS'
+            'MG'
+            'PA'
+            'PB'
+            'PR '
+            'PE'
+            'PI'
+            'RJ'
+            'RN'
+            'RS'
+            'RO'
+            'RR'
+            'SP'
+            'SC'
+            'SE'
+            'TO')
+          TabOrder = 12
         end
       end
       object tlb1: TToolBar
@@ -440,6 +470,12 @@ object FRM_COND: TFRM_COND
         Height = 105
         Align = alTop
         Caption = 'Pesquisar'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 0
         object lbl17: TLabel
           Left = 11
@@ -818,26 +854,51 @@ object FRM_COND: TFRM_COND
           item
             Expanded = False
             FieldName = 'COND_CDG'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'COND_DESC'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'COND_INCORPORADORA'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'COND_CID'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'COND_SINDICO'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
             Visible = True
           end>
       end

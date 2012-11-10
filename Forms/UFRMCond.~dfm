@@ -1,6 +1,6 @@
 object FRM_COND: TFRM_COND
-  Left = 324
-  Top = 171
+  Left = 150
+  Top = 151
   Width = 885
   Height = 638
   Caption = 'Condom'#237'nios'
@@ -268,6 +268,7 @@ object FRM_COND: TFRM_COND
           Top = 32
           Width = 87
           Height = 21
+          Color = clInfoBk
           DataField = 'COND_CDG'
           DataSource = DTM_CAD.dsCond
           TabOrder = 0
@@ -440,6 +441,12 @@ object FRM_COND: TFRM_COND
         Height = 105
         Align = alTop
         Caption = 'Pesquisar'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 0
         object lbl17: TLabel
           Left = 11
@@ -790,6 +797,7 @@ object FRM_COND: TFRM_COND
           ListFieldIndex = 1
           ListSource = DTM_CAD.dsLkpcadsind
           TabOrder = 4
+          OnKeyDown = dblkcbbSindKeyDown
         end
       end
       object dbgrd1: TDBGrid
@@ -817,26 +825,76 @@ object FRM_COND: TFRM_COND
           item
             Expanded = False
             FieldName = 'COND_CDG'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clNavy
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'COND_DESC'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clNavy
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'COND_INCORPORADORA'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clNavy
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'COND_CID'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clNavy
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'COND_SINDICO'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clNavy
+            Font.Height = -11
+            Font.Name = 'MS Sans Serif'
+            Font.Style = []
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clNavy
+            Title.Font.Height = -11
+            Title.Font.Name = 'MS Sans Serif'
+            Title.Font.Style = [fsBold]
             Visible = True
           end>
       end

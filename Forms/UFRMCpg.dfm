@@ -68,7 +68,7 @@ object FRM_CPG: TFRM_CPG
     Top = 0
     Width = 621
     Height = 438
-    ActivePage = PC_Cons
+    ActivePage = PC_Contas
     Align = alClient
     TabOrder = 0
     OnChange = pgControlChange
@@ -1134,10 +1134,16 @@ object FRM_CPG: TFRM_CPG
         Caption = 'Status'
         DataField = 'CPG_STATUS'
         DataSource = DTM_FINAN.dsCpg
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
         Items.Strings = (
           'Em aberto'
           'Pago'
           'Cancelado')
+        ParentFont = False
         TabOrder = 2
         Values.Strings = (
           '0'
@@ -1487,12 +1493,18 @@ object FRM_CPG: TFRM_CPG
           Width = 87
           Height = 85
           Caption = 'Status'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
           ItemIndex = 0
           Items.Strings = (
             'Todos'
             'Em aberto'
             'Pago'
             'Cancelado')
+          ParentFont = False
           TabOrder = 6
         end
         object btnPesq: TBitBtn

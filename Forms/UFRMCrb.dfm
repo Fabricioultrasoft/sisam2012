@@ -1,8 +1,8 @@
 object FRM_CRB: TFRM_CRB
-  Left = 385
-  Top = 251
+  Left = 202
+  Top = 182
   Width = 704
-  Height = 430
+  Height = 508
   Caption = 'Contas a Receber'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -37,7 +37,7 @@ object FRM_CRB: TFRM_CRB
     Left = 0
     Top = 0
     Width = 696
-    Height = 396
+    Height = 474
     ActivePage = PC_Consulta
     Align = alClient
     TabOrder = 0
@@ -46,10 +46,10 @@ object FRM_CRB: TFRM_CRB
       Caption = 'Receitas'
       DesignSize = (
         688
-        368)
+        446)
       object Label1: TLabel
-        Left = 24
-        Top = 72
+        Left = 88
+        Top = 8
         Width = 55
         Height = 13
         Caption = 'Condominio'
@@ -61,8 +61,8 @@ object FRM_CRB: TFRM_CRB
         ParentFont = False
       end
       object Label2: TLabel
-        Left = 128
-        Top = 272
+        Left = 297
+        Top = 224
         Width = 24
         Height = 13
         Caption = 'Total'
@@ -74,23 +74,9 @@ object FRM_CRB: TFRM_CRB
         Font.Style = []
         ParentFont = False
       end
-      object Label3: TLabel
-        Left = 128
-        Top = 232
-        Width = 57
-        Height = 13
-        Caption = 'Valor Boleto'
-        FocusControl = DBEdit3
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-      end
       object Label4: TLabel
-        Left = 352
-        Top = 176
+        Left = 344
+        Top = 56
         Width = 59
         Height = 13
         Caption = 'Fra'#231#227'o Ideal'
@@ -117,8 +103,8 @@ object FRM_CRB: TFRM_CRB
         ParentFont = False
       end
       object Label6: TLabel
-        Left = 360
-        Top = 72
+        Left = 240
+        Top = 56
         Width = 40
         Height = 13
         Caption = 'Unidade'
@@ -130,93 +116,9 @@ object FRM_CRB: TFRM_CRB
         Font.Style = []
         ParentFont = False
       end
-      object Label7: TLabel
-        Left = 24
-        Top = 176
-        Width = 60
-        Height = 13
-        Caption = 'Data Vencto'
-        FocusControl = DBEdit7
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label8: TLabel
-        Left = 128
-        Top = 176
-        Width = 98
-        Height = 13
-        Caption = 'Data Vencto Original'
-        FocusControl = DBEdit8
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label9: TLabel
-        Left = 256
-        Top = 176
-        Width = 54
-        Height = 13
-        Caption = 'Data Pagto'
-        FocusControl = DBEdit9
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label10: TLabel
-        Left = 24
-        Top = 232
-        Width = 25
-        Height = 13
-        Caption = 'Juros'
-        FocusControl = DBEdit10
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label11: TLabel
-        Left = 24
-        Top = 272
-        Width = 26
-        Height = 13
-        Caption = 'Multa'
-        FocusControl = DBEdit11
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-      end
-      object Label12: TLabel
-        Left = 24
-        Top = 312
-        Width = 31
-        Height = 13
-        Caption = 'Rateio'
-        FocusControl = DBEdit12
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-      end
       object Label13: TLabel
-        Left = 232
-        Top = 72
+        Left = 24
+        Top = 56
         Width = 27
         Height = 13
         Caption = 'Bloco'
@@ -230,7 +132,7 @@ object FRM_CRB: TFRM_CRB
       end
       object Label15: TLabel
         Left = 26
-        Top = 120
+        Top = 104
         Width = 53
         Height = 13
         Caption = 'Condomino'
@@ -242,8 +144,8 @@ object FRM_CRB: TFRM_CRB
         ParentFont = False
       end
       object lbl1: TLabel
-        Left = 128
-        Top = 314
+        Left = 297
+        Top = 274
         Width = 52
         Height = 13
         Caption = 'Valor Pago'
@@ -256,12 +158,26 @@ object FRM_CRB: TFRM_CRB
         ParentFont = False
       end
       object lbl2: TLabel
-        Left = 432
-        Top = 176
+        Left = 294
+        Top = 172
         Width = 46
         Height = 13
         Caption = 'Desconto'
-        FocusControl = DBEdit14
+        FocusControl = dbedtCRB_DESCONTO
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+      end
+      object lbl9: TLabel
+        Left = 360
+        Top = 172
+        Width = 57
+        Height = 13
+        Caption = 'Valor Boleto'
+        FocusControl = dbedtCRB_VLRCOND
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -11
@@ -270,9 +186,9 @@ object FRM_CRB: TFRM_CRB
         ParentFont = False
       end
       object DBEdit2: TDBEdit
-        Left = 128
-        Top = 288
-        Width = 134
+        Left = 297
+        Top = 240
+        Width = 139
         Height = 21
         Color = clInfoBk
         DataField = 'CRB_TOT'
@@ -285,26 +201,10 @@ object FRM_CRB: TFRM_CRB
         ParentFont = False
         TabOrder = 11
       end
-      object DBEdit3: TDBEdit
-        Left = 128
-        Top = 248
-        Width = 134
-        Height = 21
-        Color = clInfoBk
-        DataField = 'CRB_VLRCOND'
-        DataSource = DTM_FINAN.dsCrb
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 10
-      end
       object DBEdit4: TDBEdit
-        Left = 352
-        Top = 192
-        Width = 73
+        Left = 344
+        Top = 72
+        Width = 81
         Height = 21
         DataField = 'CRB_FRACAO'
         DataSource = DTM_FINAN.dsCrb
@@ -314,7 +214,7 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 6
+        TabOrder = 5
       end
       object DBEdit5: TDBEdit
         Left = 24
@@ -333,8 +233,8 @@ object FRM_CRB: TFRM_CRB
         TabOrder = 0
       end
       object DBEdit6: TDBEdit
-        Left = 360
-        Top = 88
+        Left = 240
+        Top = 72
         Width = 65
         Height = 21
         DataField = 'CRB_UNIDADE'
@@ -345,102 +245,12 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 2
-      end
-      object DBEdit7: TDBEdit
-        Left = 24
-        Top = 192
-        Width = 73
-        Height = 21
-        DataField = 'CRB_DTVENC'
-        DataSource = DTM_FINAN.dsCrb
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 3
-      end
-      object DBEdit8: TDBEdit
-        Left = 128
-        Top = 192
-        Width = 73
-        Height = 21
-        DataField = 'CRB_DTVENCORIG'
-        DataSource = DTM_FINAN.dsCrb
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
         TabOrder = 4
       end
-      object DBEdit9: TDBEdit
-        Left = 256
-        Top = 192
-        Width = 73
-        Height = 21
-        DataField = 'CRB_DTPGTO'
-        DataSource = DTM_FINAN.dsCrb
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 5
-      end
-      object DBEdit10: TDBEdit
-        Left = 24
-        Top = 248
-        Width = 57
-        Height = 21
-        DataField = 'CRB_JUROS'
-        DataSource = DTM_FINAN.dsCrb
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 7
-      end
-      object DBEdit11: TDBEdit
-        Left = 24
-        Top = 288
-        Width = 57
-        Height = 21
-        DataField = 'CRB_MULTA'
-        DataSource = DTM_FINAN.dsCrb
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 8
-      end
-      object DBEdit12: TDBEdit
-        Left = 24
-        Top = 328
-        Width = 57
-        Height = 21
-        DataField = 'CRB_RATEIO'
-        DataSource = DTM_FINAN.dsCrb
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clNavy
-        Font.Height = -11
-        Font.Name = 'MS Sans Serif'
-        Font.Style = []
-        ParentFont = False
-        TabOrder = 9
-      end
       object DBEdit13: TDBEdit
-        Left = 232
-        Top = 88
-        Width = 113
+        Left = 24
+        Top = 72
+        Width = 193
         Height = 21
         DataField = 'CRB_BLOCO'
         DataSource = DTM_FINAN.dsCrb
@@ -450,11 +260,11 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 1
+        TabOrder = 3
       end
       object tlb1: TToolBar
-        Left = 256
-        Top = 0
+        Left = 32
+        Top = 360
         Width = 169
         Height = 27
         Align = alNone
@@ -463,7 +273,7 @@ object FRM_CRB: TFRM_CRB
         Caption = 'tlb1'
         HotImages = DTMGeral.ImgListlButtons
         Images = DTMGeral.ImgListlButtons
-        TabOrder = 12
+        TabOrder = 14
         object btnPrior: TToolButton
           Left = 0
           Top = 2
@@ -525,12 +335,12 @@ object FRM_CRB: TFRM_CRB
       end
       object btn1: TBitBtn
         Left = 453
-        Top = 266
+        Top = 344
         Width = 155
         Height = 54
         Anchors = [akBottom]
         Caption = 'Quitar'
-        TabOrder = 13
+        TabOrder = 15
         OnClick = btn1Click
         Glyph.Data = {
           361B0000424D361B000000000000360000002800000030000000300000000100
@@ -754,12 +564,12 @@ object FRM_CRB: TFRM_CRB
       end
       object btncancelar: TBitBtn
         Left = 295
-        Top = 266
+        Top = 344
         Width = 137
         Height = 54
         Anchors = [akBottom]
         Caption = 'Cancelar Recto'
-        TabOrder = 14
+        TabOrder = 13
         OnClick = btncancelarClick
         Glyph.Data = {
           F6060000424DF606000000000000360000002800000018000000180000000100
@@ -820,9 +630,9 @@ object FRM_CRB: TFRM_CRB
           17AF1F1FAF000000000000000000000000000000000000000000}
       end
       object dblkcbbCRB_COND: TDBLookupComboBox
-        Left = 24
-        Top = 88
-        Width = 193
+        Left = 88
+        Top = 24
+        Width = 337
         Height = 21
         DataField = 'CRB_CONDOMINIO'
         DataSource = DTM_FINAN.dsCrb
@@ -830,11 +640,11 @@ object FRM_CRB: TFRM_CRB
         ListField = 'COND_DESC'
         ListSource = DTM_CAD.dsLkpcond
         NullValueKey = 46
-        TabOrder = 15
+        TabOrder = 1
       end
       object dbrgrpCPG_STATUS: TDBRadioGroup
-        Left = 129
-        Top = -2
+        Left = 441
+        Top = 6
         Width = 92
         Height = 83
         Caption = 'Status'
@@ -850,7 +660,7 @@ object FRM_CRB: TFRM_CRB
           'Pago'
           'Cancelado')
         ParentFont = False
-        TabOrder = 16
+        TabOrder = 2
         Values.Strings = (
           '0'
           '1'
@@ -858,8 +668,8 @@ object FRM_CRB: TFRM_CRB
       end
       object dblkcbbCRB_CONDOMINIO: TDBLookupComboBox
         Left = 26
-        Top = 139
-        Width = 307
+        Top = 123
+        Width = 399
         Height = 21
         DataField = 'CRB_CONDOMINO'
         DataSource = DTM_FINAN.dsCrb
@@ -867,12 +677,12 @@ object FRM_CRB: TFRM_CRB
         ListField = 'FORN_RAZAO'
         ListSource = DTM_CAD.dsLkpcaddvs
         NullValueKey = 46
-        TabOrder = 17
+        TabOrder = 6
       end
       object DBEdit1: TDBEdit
-        Left = 128
-        Top = 328
-        Width = 134
+        Left = 297
+        Top = 288
+        Width = 139
         Height = 21
         Color = clMenu
         DataField = 'CRB_TOTPGTO'
@@ -883,12 +693,207 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 18
+        TabOrder = 12
       end
-      object DBEdit14: TDBEdit
-        Left = 432
-        Top = 192
-        Width = 73
+      object grp1: TGroupBox
+        Left = 160
+        Top = 168
+        Width = 105
+        Height = 168
+        Caption = 'Descontos'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 8
+        object lbl3: TLabel
+          Left = 10
+          Top = 18
+          Width = 25
+          Height = 13
+          Caption = 'Juros'
+          FocusControl = dbedtCRB_JUROS
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lbl4: TLabel
+          Left = 9
+          Top = 63
+          Width = 26
+          Height = 13
+          Caption = 'Multa'
+          FocusControl = dbedtCRB_MULTA
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lbl5: TLabel
+          Left = 8
+          Top = 110
+          Width = 31
+          Height = 13
+          Caption = 'Rateio'
+          FocusControl = dbedtCRB_RATEIO
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object dbedtCRB_JUROS: TDBEdit
+          Left = 10
+          Top = 34
+          Width = 64
+          Height = 21
+          DataField = 'CRB_JUROS'
+          DataSource = DTM_FINAN.dsCrb
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+        end
+        object dbedtCRB_MULTA: TDBEdit
+          Left = 9
+          Top = 79
+          Width = 64
+          Height = 21
+          DataField = 'CRB_MULTA'
+          DataSource = DTM_FINAN.dsCrb
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+        end
+        object dbedtCRB_RATEIO: TDBEdit
+          Left = 8
+          Top = 126
+          Width = 64
+          Height = 21
+          DataField = 'CRB_RATEIO'
+          DataSource = DTM_FINAN.dsCrb
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 2
+        end
+      end
+      object grp2: TGroupBox
+        Left = 27
+        Top = 168
+        Width = 119
+        Height = 169
+        TabOrder = 7
+        object lbl6: TLabel
+          Left = 8
+          Top = 15
+          Width = 86
+          Height = 13
+          Caption = 'Dt Vencto Original'
+          FocusControl = dbedtCRB_DTVENCORIG
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lbl7: TLabel
+          Left = 10
+          Top = 61
+          Width = 60
+          Height = 13
+          Caption = 'Data Vencto'
+          FocusControl = dbedtCRB_DTVENC
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object lbl8: TLabel
+          Left = 10
+          Top = 108
+          Width = 54
+          Height = 13
+          Caption = 'Data Pagto'
+          FocusControl = dbedtCRB_DTPGTO
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+        end
+        object dbedtCRB_DTVENCORIG: TDBEdit
+          Left = 6
+          Top = 32
+          Width = 86
+          Height = 21
+          DataField = 'CRB_DTVENCORIG'
+          DataSource = DTM_FINAN.dsCrb
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 0
+        end
+        object dbedtCRB_DTVENC: TDBEdit
+          Left = 6
+          Top = 78
+          Width = 86
+          Height = 21
+          DataField = 'CRB_DTVENC'
+          DataSource = DTM_FINAN.dsCrb
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 1
+        end
+        object dbedtCRB_DTPGTO: TDBEdit
+          Left = 8
+          Top = 125
+          Width = 86
+          Height = 21
+          DataField = 'CRB_DTPGTO'
+          DataSource = DTM_FINAN.dsCrb
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 2
+        end
+      end
+      object dbedtCRB_DESCONTO: TDBEdit
+        Left = 291
+        Top = 188
+        Width = 54
         Height = 21
         DataField = 'CRB_DESCONTO'
         DataSource = DTM_FINAN.dsCrb
@@ -898,7 +903,23 @@ object FRM_CRB: TFRM_CRB
         Font.Name = 'MS Sans Serif'
         Font.Style = []
         ParentFont = False
-        TabOrder = 19
+        TabOrder = 9
+      end
+      object dbedtCRB_VLRCOND: TDBEdit
+        Left = 355
+        Top = 188
+        Width = 78
+        Height = 21
+        Color = clInfoBk
+        DataField = 'CRB_VLRCOND'
+        DataSource = DTM_FINAN.dsCrb
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 10
       end
     end
     object PC_Consulta: TTabSheet
@@ -908,7 +929,7 @@ object FRM_CRB: TFRM_CRB
         Left = 0
         Top = 140
         Width = 688
-        Height = 228
+        Height = 306
         Align = alClient
         DataSource = DTM_FINAN.dsConsCrb
         TabOrder = 0
@@ -1490,7 +1511,7 @@ object FRM_CRB: TFRM_CRB
   object dscrb: TDataSource
     DataSet = DTM_FINAN.cdsCrb
     OnStateChange = dscrbStateChange
-    Left = 524
-    Top = 104
+    Left = 604
+    Top = 184
   end
 end

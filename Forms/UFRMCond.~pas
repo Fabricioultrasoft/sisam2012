@@ -72,6 +72,8 @@ type
     procedure dbgrd1DblClick(Sender: TObject);
     procedure btnPesqClick(Sender: TObject);
     procedure edtdescKeyPress(Sender: TObject; var Key: Char);
+    procedure dblkcbbSindKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     procedure filtrarCondominio;
     { Private declarations }
@@ -176,6 +178,13 @@ procedure TFRM_COND.edtdescKeyPress(Sender: TObject; var Key: Char);
 begin
 if key = #13 then
   btnPesqClick(self);
+end;
+
+procedure TFRM_COND.dblkcbbSindKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+if Key = vk_escape then
+    dblkcbbSind.KeyValue := null;
 end;
 
 end.

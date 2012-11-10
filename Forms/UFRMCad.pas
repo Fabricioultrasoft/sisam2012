@@ -30,7 +30,6 @@ type
     DBEdit12: TDBEdit;
     DBEdit15: TDBEdit;
     DBEdit22: TDBEdit;
-    DBEdit8: TDBEdit;
     dbchkFORN_TPINCORPORADORA: TDBCheckBox;
     dbchkFORN_TPSINDICO: TDBCheckBox;
     dbchkFORN_TPFORNECEDOR: TDBCheckBox;
@@ -52,12 +51,10 @@ type
     DBEdit18: TDBEdit;
     DBEdit19: TDBEdit;
     DBEdit20: TDBEdit;
-    DBEdit21: TDBEdit;
     lbl15: TLabel;
     lbl16: TLabel;
     lbl17: TLabel;
     lbl18: TLabel;
-    lbl19: TLabel;
     DBEdit23: TDBEdit;
     DBEdit24: TDBEdit;
     DBEdit25: TDBEdit;
@@ -104,6 +101,8 @@ type
     dbchkFORN_TPINCORPORADORA1: TDBCheckBox;
     dbedtFORN_RG: TDBEdit;
     lbl35: TLabel;
+    dbcbbEMPRE_UF: TDBComboBox;
+    dbrgrpCPG_STATUS: TDBRadioGroup;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure dtsCadStateChange(Sender: TObject);
@@ -116,8 +115,11 @@ type
     procedure btnPesqClick(Sender: TObject);
     procedure edtrazaoKeyPress(Sender: TObject; var Key: Char);
     procedure dbgrd1DblClick(Sender: TObject);
+    procedure dbedtFORN_CNPJExit(Sender: TObject);
+    procedure dbedtFORN_CPFCNPJExit(Sender: TObject);
   private
     procedure filtrarForns;
+    procedure validarcpfcnpj;
     { Private declarations }
   public
     { Public declarations }
@@ -137,6 +139,8 @@ begin
   DTM_CAD.cdsCaddvs.Close;
   DTM_CAD.cdsCaddvs.Open;
 
+{  dbedtFORN_CPFCNPJ.Text := ''; }
+
   PC_CadastrosDvs.ActivePageIndex := 0;
 end;
 
@@ -150,7 +154,6 @@ procedure TFRM_CADDVS.dtsCadStateChange(Sender: TObject);
 begin
   // ativar botoes do navigator qndo estiver em edição
   dtmgeral.DSstateChange(dtscad,tlb1);
-
 end;
 
 procedure TFRM_CADDVS.btnPriorClick(Sender: TObject);
@@ -166,6 +169,7 @@ end;
 procedure TFRM_CADDVS.btnAddClick(Sender: TObject);
 begin
  DTM_CAD.cdsCaddvs.Insert;
+   dbedtFORN_CNPJ.setfocus;  
 end;
 
 procedure TFRM_CADDVS.btnDeleteClick(Sender: TObject);
@@ -173,9 +177,15 @@ begin
  DTM_CAD.cdsCaddvs.Delete;
 end;
 
+procedure TFRM_CADDVS.validarcpfcnpj;
+ begin
+  if ((StrToFloatdef(FRM_CADDVS.dbedtFORN_CPFCNPJ.text,-1)=-1) and (StrToFloatdef(FRM_CADDVS.dbedtFORN_CNPJ.text,-1)=-1) ) then
+   raise Exception.Create('CPF ou CNPJ deve ser preenchido !');
+ end;
+
 procedure TFRM_CADDVS.btnOkClick(Sender: TObject);
 begin
- DTM_CAD.cdsCaddvs.Post;
+  DTM_CAD.cdsCaddvs.Post;
 end;
 
 procedure TFRM_CADDVS.btnCancelClick(Sender: TObject);
@@ -245,6 +255,16 @@ begin
  //abrir cadastro do registro selecionado
   IF DTM_CAD.cdsCaddvs.Locate('FORN_CDG',DTM_CAD.cdsConsCADdvs.fieldbyname('FORN_CDG').AsInteger,[loPartialKey]) THEN
     PC_Cadastrosdvs.ActivePageIndex:= 0;
+end;
+
+procedure TFRM_CADDVS.dbedtFORN_CNPJExit(Sender: TObject);
+begin
+validarcpfcnpj;
+end;
+
+procedure TFRM_CADDVS.dbedtFORN_CPFCNPJExit(Sender: TObject);
+begin
+validarcpfcnpj;
 end;
 
 end.
