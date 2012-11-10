@@ -66,7 +66,6 @@ type
     DBEdit18: TDBEdit;
     DBEdit10: TDBEdit;
     DBEdit8: TDBEdit;
-    DBEdit11: TDBEdit;
     DBEdit13: TDBEdit;
     DBEdit19: TDBEdit;
     DBEdit14: TDBEdit;
@@ -82,6 +81,7 @@ type
     lbl1: TLabel;
     lbl2: TLabel;
     edcnpj: TEdit;
+    dbcbbEMPRE_UF: TDBComboBox;
     procedure FormCreate(Sender: TObject);
     procedure tbAddClick(Sender: TObject);
     procedure tbOkClick(Sender: TObject);

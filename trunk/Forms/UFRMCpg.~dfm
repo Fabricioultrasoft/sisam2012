@@ -66,8 +66,8 @@ object FRM_CPG: TFRM_CPG
   object pgControl: TPageControl
     Left = 0
     Top = 0
-    Width = 613
-    Height = 434
+    Width = 621
+    Height = 438
     ActivePage = PC_Contas
     Align = alClient
     TabOrder = 0
@@ -1134,10 +1134,16 @@ object FRM_CPG: TFRM_CPG
         Caption = 'Status'
         DataField = 'CPG_STATUS'
         DataSource = DTM_FINAN.dsCpg
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
         Items.Strings = (
           'Em aberto'
           'Pago'
           'Cancelado')
+        ParentFont = False
         TabOrder = 2
         Values.Strings = (
           '0'
@@ -1210,8 +1216,8 @@ object FRM_CPG: TFRM_CPG
       object DBGrid1: TDBGrid
         Left = 0
         Top = 105
-        Width = 605
-        Height = 301
+        Width = 613
+        Height = 305
         Align = alClient
         DataSource = DTM_FINAN.dsConsCpg
         TabOrder = 0
@@ -1399,10 +1405,9 @@ object FRM_CPG: TFRM_CPG
       object grp1: TGroupBox
         Left = 0
         Top = 0
-        Width = 605
+        Width = 613
         Height = 105
         Align = alTop
-        Caption = 'grp1'
         TabOrder = 1
         object lbl1: TLabel
           Left = 105
@@ -1488,12 +1493,18 @@ object FRM_CPG: TFRM_CPG
           Width = 87
           Height = 85
           Caption = 'Status'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
           ItemIndex = 0
           Items.Strings = (
             'Todos'
             'Em aberto'
             'Pago'
             'Cancelado')
+          ParentFont = False
           TabOrder = 6
         end
         object btnPesq: TBitBtn

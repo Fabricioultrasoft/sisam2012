@@ -33,7 +33,6 @@ type
     lbl11: TLabel;
     lbl12: TLabel;
     lbl13: TLabel;
-    DBEdit8: TDBEdit;
     DBEdit7: TDBEdit;
     lbl14: TLabel;
     lbl15: TLabel;
@@ -60,6 +59,7 @@ type
     dblkcbbCOND_FORNECEDOR: TDBLookupComboBox;
     lbl22: TLabel;
     dblkcbbSind: TDBLookupComboBox;
+    dbcbbEMPRE_UF: TDBComboBox;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnPriorClick(Sender: TObject);

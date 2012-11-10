@@ -1,5 +1,5 @@
 object FRM_EMPRE: TFRM_EMPRE
-  Left = 201
+  Left = 205
   Top = 108
   Width = 931
   Height = 528
@@ -544,21 +544,6 @@ object FRM_EMPRE: TFRM_EMPRE
           ParentFont = False
           TabOrder = 1
         end
-        object DBEdit11: TDBEdit
-          Left = 599
-          Top = 71
-          Width = 38
-          Height = 21
-          DataField = 'EMPRE_UF'
-          DataSource = dtsEmpre
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clNavy
-          Font.Height = -11
-          Font.Name = 'MS Sans Serif'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 4
-        end
         object DBEdit13: TDBEdit
           Left = 488
           Top = 111
@@ -618,6 +603,44 @@ object FRM_EMPRE: TFRM_EMPRE
           Font.Style = []
           ParentFont = False
           TabOrder = 7
+        end
+        object dbcbbEMPRE_UF: TDBComboBox
+          Left = 598
+          Top = 70
+          Width = 41
+          Height = 21
+          DataField = 'EMPRE_UF'
+          DataSource = dtsEmpre
+          ItemHeight = 13
+          Items.Strings = (
+            'AC'
+            'AL'
+            'AP'
+            'AM'
+            'BA'
+            'CE'
+            'DF'
+            'GO'
+            'ES'
+            'MA'
+            'MT'
+            'MS'
+            'MG'
+            'PA'
+            'PB'
+            'PR '
+            'PE'
+            'PI'
+            'RJ'
+            'RN'
+            'RS'
+            'RO'
+            'RR'
+            'SP'
+            'SC'
+            'SE'
+            'TO')
+          TabOrder = 4
         end
       end
       object GroupBox2: TGroupBox
