@@ -1,6 +1,6 @@
 object FRM_EMPRE: TFRM_EMPRE
-  Left = 205
-  Top = 108
+  Left = 206
+  Top = 174
   Width = 931
   Height = 528
   Caption = 'Cadastro de Empresa'
@@ -180,7 +180,7 @@ object FRM_EMPRE: TFRM_EMPRE
       object tlb1: TToolBar
         Left = 16
         Top = 209
-        Width = 155
+        Width = 225
         Height = 27
         Align = alNone
         ButtonHeight = 23
@@ -246,6 +246,16 @@ object FRM_EMPRE: TFRM_EMPRE
           ParentShowHint = False
           ShowHint = True
           OnClick = tbCancelClick
+        end
+        object btn1: TToolButton
+          Left = 150
+          Top = 2
+          Hint = 'Exportar Arq Texto'
+          Caption = 'btn1'
+          ImageIndex = 3
+          ParentShowHint = False
+          ShowHint = True
+          OnClick = btn1Click
         end
       end
       object GroupBox1: TGroupBox
@@ -828,6 +838,20 @@ object FRM_EMPRE: TFRM_EMPRE
           ParentFont = False
           TabOrder = 2
         end
+        object pb1: TProgressBar
+          Left = 280
+          Top = 120
+          Width = 150
+          Height = 17
+          TabOrder = 6
+        end
+      end
+      object edt1: TEdit
+        Left = 264
+        Top = 208
+        Width = 121
+        Height = 21
+        TabOrder = 3
       end
     end
     object TabSheet2: TTabSheet
@@ -893,6 +917,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -904,6 +929,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -915,6 +941,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -926,6 +953,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -937,6 +965,7 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
@@ -948,11 +977,13 @@ object FRM_EMPRE: TFRM_EMPRE
             Title.Font.Height = -11
             Title.Font.Name = 'MS Sans Serif'
             Title.Font.Style = [fsBold]
+            Width = 64
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'EMPRE_CDG'
+            Width = 64
             Visible = True
           end
           item
