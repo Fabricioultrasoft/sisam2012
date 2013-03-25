@@ -82,6 +82,9 @@ type
     lbl2: TLabel;
     edcnpj: TEdit;
     dbcbbEMPRE_UF: TDBComboBox;
+    btn1: TToolButton;
+    edt1: TEdit;
+    pb1: TProgressBar;
     procedure FormCreate(Sender: TObject);
     procedure tbAddClick(Sender: TObject);
     procedure tbOkClick(Sender: TObject);
@@ -95,6 +98,7 @@ type
     procedure edrazaoKeyPress(Sender: TObject; var Key: Char);
     procedure DBGrid1DblClick(Sender: TObject);
     procedure dtsEmpreStateChange(Sender: TObject);
+    procedure btn1Click(Sender: TObject);
   private
     procedure filtrarEmpresa();
     { Private declarations }
@@ -107,7 +111,7 @@ var
 
 implementation
 
-uses UDTMGeral;
+uses UDTMGeral, UDT_CAD_IBX;
 
 {$R *.dfm}
 
@@ -205,6 +209,78 @@ begin
    SQL  := SQL + ' AND UPPER(EMPRE_CNPJ) LIKE UPPER(''%'+ trim(edcnpj.TEXT) +'%'') ';
 
  DTM_CAD.consultarEmpresas(SQL);
+end;
+
+
+
+procedure TFRM_EMPRE.btn1Click(Sender: TObject);
+var
+  Texto : TStringList;
+  Linha : String;
+begin
+//Atribui à variavel Texto a classe Tstringlist
+  Texto := TStringList.Create;
+
+//Testa para saber se o diretorio ou arquivo existe, se nao existir ele criará um
+
+  if not DirectoryExists(ExtractFileDir(Edt1.Text)) then
+    if MessageDlg('Diretorio '+ExtractFileDir(Edt1.Text) + ' não existe, deseja cria-lo?', mtConfirmation,mbOKCancel,0) = mrcancel then
+      exit
+    else
+      ForceDirectories(ExtractFileDir(Edt1.Text));
+
+// Ativa a Query Medicos
+  DTM_CAD_IBX.qryEmpre.Active := true;
+
+// Inicializa a variavel Linha para que possa receber os campos da query
+  Linha := '';
+
+// Testa para ver se a Query contem algum registro
+  if DTM_CAD_IBX.qryEmpre.RecordCount = 0 then
+    begin
+      ShowMessage('Não existem arquivos a serem exportados!');
+      Exit;
+    end;
+
+// Inicializando o progressbar, a propriedade Max ira receber o numero de registros da query
+
+  pb1.Max := DTM_CAD_IBX.qryEmpre.RecordCount;
+// Colocando a posição do progress em zero
+  pb1.Position := 0;
+
+// Vai para a primeira linha da query, para inicializar o loop
+  DTM_CAD_IBX.qryEmpre.First;
+
+// Enquanto a Query nao chegar ao final ele vai estar adicionando
+// à variavel Linha o conteúdo dela concatenado ao campo da Query
+
+  while not DTM_CAD_IBX.qryEmpre.Eof do
+    begin
+      Linha := Linha + IntToStr(DTM_CAD_IBX.qryEmpreEMPRE_CDG.AsInteger)+ ' ';
+      Linha := Linha + DTM_CAD_IBX.qryEmpreEMPRE_EMAIL.AsString + ' ';
+      Linha := Linha + DTM_CAD_IBX.qryEmpreEMPRE_RAZAO.AsString + ' ';
+      Linha := Linha + DTM_CAD_IBX.qryEmpreEMPRE_TELEFONE.AsString + ' ';
+      Linha := Linha + DTM_CAD_IBX.qryEmpreEMPRE_FANTASIA.AsString + (#13);
+
+      DTM_CAD_IBX.qryEmpre.Next;
+
+      pb1.Position := pb1.Position + 1;
+
+    end;
+// Adicionando o conteudo da variavel Linha à Varavel Texto(StringList)
+
+  Texto.Add(Linha);
+
+// Salvando o Arquivo, onde Edit1.text será o caminho e nome do arquivo com extensão
+
+  Texto.SaveToFile(Edt1.Text);
+
+  ShowMessage('Arquivo gerado com sucesso!');
+
+  pb1.Position := 0;
+
+  DBGrid1.DataSource.DataSet.Close;
+
 end;
 
 end.
