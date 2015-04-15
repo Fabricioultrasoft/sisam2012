@@ -1,0 +1,1 @@
+Sistema voltado para gerenciamento de administradores de condomínio, desenvolvido em Pascal, utilizando Turbo Delphi ou Delphi7 e banco de dados Firebird.
